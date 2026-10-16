@@ -1,0 +1,45 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZC_CUSTSLEXPHDR
+    with 
+{
+    @UI.facet : 
+    [ 
+     { id : 'GeneralData' , isSummary: true, label : 'Customer wise Selling Expense-Register' , type : #COLLECTION},
+     { type: #FIELDGROUP_REFERENCE , targetQualifier: 'GeneralData1', parentId: 'GeneralData', position : 10 , label: 'Header', id: 'GeneralData1' },
+     
+     { id : 'Item1', label: 'Item' },
+     { type: #LINEITEM_REFERENCE, position: 20, targetElement: '_Item' }
+    ]
+    
+    @UI.hidden: true
+    Id;
+    
+    @UI.lineItem: [{position: 5}]
+    @UI.identification: [{position: 5}]
+    @UI.fieldGroup: [{position: 5,qualifier: 'GeneralData1', importance: #HIGH}]
+    @Consumption.valueHelpDefinition: [{ entity:{  element : 'CustCode', name: 'ZCDS_CUSTOMER_F4'},
+    distinctValues: true,
+    useForValidation: true,
+    additionalBinding: [{ localElement: 'Custname', element: 'CustName',usage: #RESULT}]}]
+    Custcode;
+    
+    @UI.lineItem: [{position: 10}]
+    @UI.identification: [{position: 10}]
+    @UI.fieldGroup: [{position: 10,qualifier: 'GeneralData1', importance: #HIGH}]
+    Custname;
+    
+    @UI.lineItem: [{position: 15}]
+    @UI.identification: [{position: 15}]
+    @UI.fieldGroup: [{position: 15,qualifier: 'GeneralData1', importance: #HIGH}]
+    @Consumption.valueHelpDefinition: [{ entity:{  element : 'Expcode', name: 'ZCDS_SELEXP_F4'},
+    distinctValues: true,
+    useForValidation: true,
+    additionalBinding: [{ localElement: 'Expname', element: 'Expname',usage: #RESULT}]}]
+    Expcode;
+    
+    @UI.lineItem: [{position: 20}]
+    @UI.identification: [{position: 20}]
+    @UI.fieldGroup: [{position: 20,qualifier: 'GeneralData1', importance: #HIGH}]
+    Expname;
+    
+}

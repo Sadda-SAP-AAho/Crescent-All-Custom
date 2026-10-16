@@ -1,0 +1,69 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: {
+  presentationVariant: [{
+    sortOrder: [ { by: 'Micron', direction: #ASC },
+                 { by: 'Paintitmcd', direction: #ASC } ],
+    visualizations: [{ type: #AS_LINEITEM }],
+    text: 'BOM Calculation Check Report' }],
+
+  headerInfo: { typeName: 'Paint BOM Master',
+                typeNamePlural: 'Paint BOM Masters',
+                title: { type: #STANDARD,
+                         label: 'Paint BOM Master',
+                         value: 'Micron'
+    }
+  }
+}
+annotate entity ZC_PAINTBOMMSTR with
+{
+  @UI.facet:
+  [{id: 'GeneralData', isSummary: true, label: 'Paint BOM Master', type: #COLLECTION, position: 5},
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: '', id: 'GeneralData1' }]
+
+
+  @UI.hidden: true
+  Id;
+
+  @UI: {
+  lineItem: [{ position: 5 }],
+  identification: [{ position: 5 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }]
+  }
+  @UI.selectionField: [{ position: 5 }]
+  Micron;
+
+  @UI.lineItem: [{position: 10}]
+  @UI.identification: [{position: 10}]
+  @UI.fieldGroup: [{position: 10,qualifier: 'GeneralData1', importance: #HIGH}]
+  @Consumption.valueHelpDefinition: [{ entity:{  element : 'Product', name: 'ZI_PAINTITEM_F4'},
+  distinctValues: true,
+  useForValidation: true,
+  additionalBinding: [{ localElement: 'Paintitmnm', element: 'ProductName',usage: #RESULT}]}]
+  @UI.selectionField: [{ position: 10 }]
+  Paintitmcd;
+
+  @UI: {
+  lineItem: [{ position: 15 }],
+  identification: [{ position: 15 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 15, importance: #HIGH }]
+  }
+  Paintitmnm;
+
+  @UI: {
+  lineItem: [{ position: 20 }],
+  identification: [{ position: 20 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }]
+  }
+  Submicron;
+
+  @UI: {
+  lineItem: [{ position: 25 }],
+  identification: [{ position: 25 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 25, importance: #HIGH }]
+  }
+  Stdqty;
+
+
+
+}

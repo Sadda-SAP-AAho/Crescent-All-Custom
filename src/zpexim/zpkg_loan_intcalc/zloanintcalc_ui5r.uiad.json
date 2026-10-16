@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Interest Rate",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Interest Rate"
+  },
+  "ui5AppDetails": {
+    "appId": "zintcalcapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_F67DBC8DC2AFAEA86F37E0201EBFB426C1B38BA0_TM",
+    "semanticObject": "zloanintcal_app",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_F67DBC8DC2AFAEA86F37E0201EBFB426C1B38BA0_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Interest Rate",
+        "subtitle": "Cockpit"
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+managed with additional save implementation in class ZBP_I_TMGTABLEFORCONSUMPT_S unique;
+strict;
+with draft;
+define behavior for ZI_TmgTableForConsumpt_S alias TmgTableForConsuAll
+draft table ZDT_CONBASE_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TmgTableForConsumpt { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_TmgTableForConsumpt alias TmgTableForConsumpt ##UNMAPPED_FIELD
+persistent table ZDT_CONBASE_TMG
+draft table ZDT_CONBASE_T_D
+lock dependent by _TmgTableForConsuAll
+authorization dependent by _TmgTableForConsuAll
+
+{
+  field ( mandatory : create )
+   Conbase;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Conbase;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_CONBASE_TMG
+  {
+    Conbase = CONBASE;
+  }
+
+  association _TmgTableForConsuAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_ImbgCategoryForTmg_S'
+define service ZUI_IMBGCATEGORYFORTMG {
+  expose ZI_IMBGCATEGORYFORTMG_S as ImbgCategoryForTAll;
+  expose ZI_IMBGCATEGORYFORTMG as ImbgCategoryForTmg;
+}

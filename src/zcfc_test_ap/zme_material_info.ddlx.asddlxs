@@ -1,0 +1,86 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Material Info',
+                typeNamePlural:'Material Info',
+                title: { type: #STANDARD, label: 'Material Info', value: 'MaterialNo' }
+
+              }
+     }
+annotate entity ZC_MATERIAL_INFO with
+{
+  @UI.facet:
+     [{id: 'GeneralData', isSummary: true, label: 'Item Details', type: #COLLECTION, position: 5},
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: '', id: 'GeneralData1' }]
+
+  @UI: { lineItem: [{ position: 5 }],
+         identification: [{ position: 5 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+  MaterialNo;
+  @UI: { lineItem: [{ position: 10 }],
+       identification: [{ position: 10 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 10}]
+  PlantCode;
+  @UI: { lineItem: [{ position: 15 }],
+       identification: [{ position: 15 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 15, importance: #HIGH }] }
+  @UI.selectionField: [{position: 15}]
+  Description;
+  @UI: { lineItem: [{ position: 20 }],
+       identification: [{ position: 20 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  @UI.selectionField: [{position: 20}]
+  ProductType;
+  @UI: { lineItem: [{ position: 25 }],
+       identification: [{ position: 25 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 25, importance: #HIGH }] }
+  @UI.selectionField: [{position: 25}]
+  ProductTypName;
+  @UI: { lineItem: [{ position: 30 }],
+       identification: [{ position: 30 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+  @UI.selectionField: [{position: 30}]
+  MaterialGroup;
+  @UI: { lineItem: [{ position: 35 }],
+       identification: [{ position: 35 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 35, importance: #HIGH }] }
+  @UI.selectionField: [{position: 35}]
+  MaterialGroupName;
+  @UI: { lineItem: [{ position: 40 }],
+       identification: [{ position: 40 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 40, importance: #HIGH }] }
+  @UI.selectionField: [{position: 40}]
+  UoM;
+  @UI: { lineItem: [{ position: 45 }],
+       identification: [{ position: 45 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 45, importance: #HIGH }] }
+  @UI.selectionField: [{position: 45}]
+  WeightUnit;
+  @UI: { lineItem: [{ position: 50 }],
+       identification: [{ position: 50 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 50, importance: #HIGH }] }
+  @UI.selectionField: [{position: 50}]
+  GrossWeight;
+  @UI: { lineItem: [{ position: 55 }],
+       identification: [{ position: 55 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 55, importance: #HIGH }] }
+  @UI.selectionField: [{position: 55}]
+  NetWeight;
+  @UI: { lineItem: [{ position: 60 }],
+       identification: [{ position: 60 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 60, importance: #HIGH }] }
+  @UI.selectionField: [{position: 60}]
+  UnitofWeight;
+  @UI: { lineItem: [{ position: 65 }],
+       identification: [{ position: 65 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 65, importance: #HIGH }] }
+  @UI.selectionField: [{position: 65}]
+  QtyPerBox;
+  @UI: { lineItem: [{ position: 70 }],
+       identification: [{ position: 70 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 70, importance: #HIGH }] }
+  @UI.selectionField: [{position: 70}]
+  MOC;
+
+}

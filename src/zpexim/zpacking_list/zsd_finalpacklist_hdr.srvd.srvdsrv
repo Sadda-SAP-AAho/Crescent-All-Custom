@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Defination of Final packing List Header'
+define service ZSD_FINALPACKLIST_HDR {
+  expose ZC_FINALPACK_HDR;
+  expose ZC_FINALPACK_ITM;
+  expose ZC_FPLPRINTFIELD;
+}

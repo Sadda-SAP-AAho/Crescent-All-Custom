@@ -1,0 +1,39 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'IpPoDocumentType', 
+    typeNamePlural: 'IpPoDocumentTypes', 
+    title: {
+      type: #STANDARD, 
+      label: 'IP PO Document Type', 
+      value: 'Materialgroup'
+    }
+  }
+}
+annotate view ZI_IpPoDocumentType with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_IpPoDocumentType', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'IP PO Document Type', 
+    position: 1 
+  } ]
+  Materialgroup;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Podoctype'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Podoctype'
+  } ]
+  Podoctype;
+}

@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_CostProfitCenterTmg_S'
+define service ZUI_COSTPROFITCENTERTMG {
+  expose ZI_COSTPROFITCENTERTMG_S as CostProfitCenterAll;
+  expose ZI_COSTPROFITCENTERTMG as CostProfitCenterTmg;
+}

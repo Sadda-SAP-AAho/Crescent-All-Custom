@@ -1,0 +1,208 @@
+managed implementation in class zbp_i_conf_hdr unique;
+strict;
+with draft;
+
+define behavior for ZI_CONF_HDR //alias <alias_name>
+persistent table zdt_conf_hdr
+draft table zdr_conf_hdr
+lock master
+total etag Shpflrno
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update  ) Dept, Opr;
+  field ( readonly ) Deptname, Oprname, Contname, Keyid, Creby, Creon, Shpflrno, Plantid, Header, Plant ;
+  field ( features : instance ) Shpflrdt, Skilab, Sskilab, Uskilab, Cont, Arpacharg, Rhinocharg, Handmochrg,
+                                Excwtadj, Lostfmchrg;
+
+  create;
+  update( features : instance );
+  delete( features : instance );
+
+  determination updatedata on save { create; }
+  determination confdetails on modify { field Dept; }
+  determination contdetails on modify { field Cont; }
+  validation checkval on save { create; update; }
+//  validation checkcomb1 on save { create; update; }
+//  validation checkcomb2 on save { create; update; }
+
+
+  action ( features : instance ) Simu   result [1] $self;
+  action ( features : instance ) Alloc  result [1] $self;
+  action ( features : instance ) Scan   parameter ZI_CONF_SCAN result [1] $self;
+  action ( features : instance ) Genser result [1] $self;
+
+  side effects {
+  action Simu   affects entity _Ord, entity _Item;
+  action Genser affects entity _Ord, entity _Item;
+  action Alloc  affects entity _Ord, entity _Item;
+  action Scan  affects entity _Ord, entity _Item;
+  }
+
+  association _Item {create( features : instance ); with draft; }
+  association _Ord {create( features : instance ); with draft; }
+  mapping for ZI_CONF_HDR
+  {
+     Shpflrno   = Shpflrno;
+     Keyid      = Keyid;
+     Dept       = Dept;
+     Deptname   = DeptName;
+     Opr        = Opr;
+     Oprname    = Oprname;
+     Cont       = Cont;
+     Contname   = Contname;
+     Creby      = Creby;
+     Creon      = Creon;
+     Plant      = Plant;
+     Plantid    = Plantid;
+     Header     = Header;
+     Simu       = Simu;
+     Alloc      = Alloc;
+     Genser     = Genser;
+     Scanbrcode = Scanbrcode;
+     Arpacharg  = Arpacharg;
+     Rhinocharg = Rhinocharg;
+     Handmochrg = Handmochrg;
+     Lostfmchrg = Lostfmchrg;
+     Excwtadj   = Excwtadj;
+
+  }
+}
+
+define behavior for ZI_CONF_ITM //alias <alias_name>
+persistent table zdt_conf_itm
+draft table zdr_conf_itm
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update( features : instance );
+  delete( features : instance );
+
+  field ( readonly : update, numbering : managed ) Item;
+  field ( mandatory : create, readonly : update ) Matnr;
+  field ( readonly ) Id, Shpflrno, Maktx, Meins, Wtunit, Totcast, Stdwt, Prodord, Pendprqty,
+                     Balqty, Allocqty, Totqty, Status,  Machloss, Metalcrqty, Qtyperbox, Totmouqty;
+  field ( features : instance )  Totmou, Goodcast, Rejqty1, Rejrea1, Rejqty2, Rejrea2,
+                                 Rejqty3, Rejrea3, Rejqty4, Rejrea4, Rejqty5, Rejrea5, Rejqty6,
+                                 Rejrea6, Rejqty7, Rejrea7, Rejqty8, Rejrea8, Rejqty9, Rejrea9,
+                                 Noofhead, Actwt, Pattern, So, Soitm, Sofg;
+
+  determination matdetails on modify { field Matnr; }
+  determination cal_totqty on modify { field Goodcast, Rejqty1, Rejqty2, Rejqty3, Rejqty4, Rejqty5, Rejqty6, Rejqty7, Rejqty8, Rejqty9; }
+  determination getmouqty on modify { field Totmou; }
+  validation deleteval on save { delete; }
+  validation valitem on save { create; update; }
+  validation checkcomb1 on save { create; update; }
+  validation checkcomb2 on save { create; update; }
+  validation checkcomb3 on save { create; update; }
+
+  side effects {
+  field Goodcast affects field Totcast, field Totqty, field Allocqty, field Balqty;
+  field Rejqty1  affects field Totcast, field Totqty, field Allocqty, field Balqty;
+  field Rejqty2  affects field Totcast, field Totqty, field Allocqty, field Balqty;
+  field Rejqty3  affects field Totcast, field Totqty, field Allocqty, field Balqty;
+  field Rejqty4  affects field Totcast, field Totqty, field Allocqty, field Balqty;
+  field Rejqty5  affects field Totcast, field Totqty, field Allocqty, field Balqty;
+  field Rejqty6  affects field Totcast, field Totqty, field Allocqty, field Balqty;
+  field Rejqty7  affects field Totcast, field Totqty, field Allocqty, field Balqty;
+  field Rejqty8  affects field Totcast, field Totqty, field Allocqty, field Balqty;
+  field Rejqty9  affects field Totcast, field Totqty, field Allocqty, field Balqty;
+  field Totmou   affects field Totmouqty;
+  }
+
+  association _Head{ with draft; }
+  //association _Ord {create( features : instance ); with draft; }
+  mapping for ZI_CONF_ITM
+  {
+    Shpflrno   = Shpflrno;
+    Matnr      = Matnr;
+    Maktx      = Maktx;
+    Totmou     = Totmou;
+    Totmouqty  = Totmouqty;
+    Goodcast   = Goodcast;
+    Rejqty1    = Rejqty1;
+    Rejrea1    = Rejrea1;
+    Rejqty2    = Rejqty2;
+    Rejrea2    = Rejrea2;
+    Rejqty3    = Rejqty3;
+    Rejrea3    = Rejrea3;
+    Rejqty4    = Rejqty4;
+    Rejrea4    = Rejrea4;
+    Rejqty5    = Rejqty5;
+    Rejrea5    = Rejrea5;
+    Rejqty6    = Rejqty6;
+    Rejrea6    = Rejrea6;
+    Rejqty7    = Rejqty7;
+    Rejrea7    = Rejrea7;
+    Rejqty8    = Rejqty8;
+    Rejrea8    = Rejrea8;
+    Rejqty9    = Rejqty9;
+    Rejrea9    = Rejrea9;
+    Totcast    = Totcast;
+    Meins      = Meins;
+    Noofhead   = Noofhead;
+    Prodord    = Prodord;
+    Pendprqty  = Pendprqty;
+    Stdwt      = Stdwt;
+    Actwt      = Actwt;
+    Wtunit     = Wtunit;
+    Totqty     = Totqty;
+    Allocqty   = Allocqty;
+    Balqty     = Balqty;
+    Status     = Status;
+    Pattern    = Pattern;
+    Machloss   = Machloss;
+    Qtyperbox  = Qtyperbox;
+    So         = So;
+    Soitm      = Soitm;
+    Sofg       = Sofg;
+    Metalcrqty = Metalcrqty;
+    checkdel   = checkdel;
+    checkcrt   = checkcrt;
+  }
+}
+
+define behavior for ZI_CONF_ORD //alias <alias_name>
+persistent table zdt_cont_ord
+//with unmanaged save
+draft table zdr_conf_ord
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update( features : instance );
+  delete( features : instance );
+
+  field ( readonly : update, numbering : managed ) Ord, Item;
+  field ( readonly ) Id, Shpflrno, Matnr, Meins, Prodord, Pendprqty, Status, Rej, Plant, Ovstatus;
+  field ( features : instance ) Serial, Heatno;
+
+  validation checkord on save { create; update; }
+
+
+  association _Head{ with draft; }
+  mapping for ZI_CONF_ORD
+  {
+    Shpflrno   = Shpflrno;
+    Matnr      = Matnr;
+    Plant      = Plant;
+    Meins      = Meins;
+    Prodord    = Prodord;
+    Pendprqty  = Pendprqty;
+    Serial     = Serial;
+    Heatno     = Heatno;
+    Rej        = Rej;
+    Status     = Status;
+    Ovstatus   = Ovstatus;
+  }
+}

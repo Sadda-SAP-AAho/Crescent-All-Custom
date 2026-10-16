@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for BOM Report'
+define service ZSD_BOM_REPORT {
+  expose ZSO_BOM_REPORT      as BOMReport;
+  expose ZCFC_SALES_ORDER_F4 as F4_SO;
+}

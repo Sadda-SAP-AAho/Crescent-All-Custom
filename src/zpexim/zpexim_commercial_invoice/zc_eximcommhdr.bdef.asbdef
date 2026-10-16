@@ -1,0 +1,84 @@
+projection;
+strict ( 1 );
+use draft;
+
+define behavior for ZC_EXIMCOMMHDR //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use action Cancel;
+  use action Release;
+  use action Print;
+
+  use association _add { create; with draft; }
+  use association _cnh { create; with draft; }
+  use association _cni { create; with draft; }
+  use association _cus { create; with draft; }
+  use association _itm { create; with draft; }
+  use association _pay { create; with draft; }
+  use association _shp { create; with draft; }
+}
+
+define behavior for ZC_EXIMCOMMADD //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}
+
+define behavior for ZC_EXIMCOMMCNH //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}
+
+define behavior for ZC_EXIMCOMMCNI //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}
+
+define behavior for ZC_EXIMCOMMCUS //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}
+
+define behavior for ZC_EXIMCOMMITM //alias <alias_name>
+{
+  use update;
+  // use delete;
+
+  use association _head;
+}
+
+define behavior for ZC_EXIMCOMMPAY //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}
+
+define behavior for ZC_EXIMCOMMSHP //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}

@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Monitor Purchase Requisition Item Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Monitor Purchase Requisition Item"
+  },
+  "ui5AppDetails": {
+    "appId": "zmntrpritm"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_1B5B452FF6B8FDB409B46AEBDB31EC6A9F44E3F6_TM",
+    "semanticObject": "zmntrpritm",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_1B5B452FF6B8FDB409B46AEBDB31EC6A9F44E3F6_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Monitor Purchase Requisition Item",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

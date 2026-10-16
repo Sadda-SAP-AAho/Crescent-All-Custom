@@ -1,0 +1,5 @@
+@MappingRole: true
+define role ZI_TableForFinalAssesm {
+  grant select on ZI_TableForFinalAssesm
+  where ( ) = ASPECT pfcg_auth ( 'S_TABU_NAM', ACTVT = '03', TABLE = 'ZI_TABLEFORFINALASSESM' );
+}

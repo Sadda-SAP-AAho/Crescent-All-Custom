@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Canada Customs Invoice Form"
+  },
+  "ui5AppDetails": {
+    "appId": "canadacustominvoice"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_05B92BEE63992ECA824D7154273D5526F79222B2_TM",
+    "semanticObject": "ZCANADAINVOICE_SO",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_05B92BEE63992ECA824D7154273D5526F79222B2_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Canada Customs Invoice Form"
+      }
+    }
+  ]
+}

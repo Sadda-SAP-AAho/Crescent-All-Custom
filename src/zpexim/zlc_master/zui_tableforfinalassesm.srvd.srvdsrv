@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TableForFinalAssesm_S'
+define service ZUI_TABLEFORFINALASSESM {
+  expose ZI_TABLEFORFINALASSESM_S as TableForFinalAssAll;
+  expose ZI_TABLEFORFINALASSESM as TableForFinalAssesm;
+}

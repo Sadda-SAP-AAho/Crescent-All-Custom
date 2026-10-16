@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_CostingGlPlMaintena_S'
+define service ZUI_COSTINGGLPLMAINTENA {
+  expose ZI_COSTINGGLPLMAINTENA_S as CostingGlPlMaintAll;
+  expose ZI_COSTINGGLPLMAINTENA as CostingGlPlMaintena;
+}

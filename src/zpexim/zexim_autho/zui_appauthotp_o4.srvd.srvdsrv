@@ -1,0 +1,5 @@
+@EndUserText: {label: 'Service Definition for ZC_APPAUTHOTP'}
+@ObjectModel: {leadingEntity: {name: 'ZC_APPAUTHOTP'}}
+define service ZUI_APPAUTHOTP_O4 {
+  expose ZC_APPAUTHOTP;
+}

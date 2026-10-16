@@ -1,0 +1,31 @@
+managed implementation in class zbp_i_castitmsrlprint unique;
+strict ( 1 );
+
+define behavior for ZI_CASTITMSRLPRINT //alias <alias_name>
+
+lock master
+authorization master ( instance )
+//etag master <field_name>
+with unmanaged save
+{
+ // create ( authorization : global );
+  update;
+  //delete;
+
+  field ( readonly ) Shpflrno, Plant, Matnr, Serial;
+  field ( features : instance ) printflag1;
+
+
+  action ( features : instance ) zprintbarcode result [1] $self;
+
+// mapping for ZI_CASTITMSRLPRINT
+//    {
+//    Shpflrno = Shpflrno;
+//    Plant = Plant;
+//    Matnr = Matnr;
+//    Serial = Serial;
+//    printflag1 = printflag1;
+//
+//
+//    }
+    }

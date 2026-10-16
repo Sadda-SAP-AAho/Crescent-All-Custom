@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for BOE Form Print'
+define service ZSD_BOEFORM {
+  expose ZCUS_BOEFORM;
+}

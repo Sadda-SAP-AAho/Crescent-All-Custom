@@ -1,0 +1,4 @@
+@EndUserText.label: 'Shipping Instruction Header'
+define service ZSERV_SHIPINST_HDR {
+  expose ZC_SHIPINS_HDR;
+}

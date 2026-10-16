@@ -1,0 +1,74 @@
+managed implementation in class zbp_i_pwrrdnghead unique;
+strict;
+with draft;
+
+define behavior for ZI_PWRRDNGHEAD //alias <alias_name>
+persistent table zdt_pwrrdnghead
+draft table zdr_pwrrdnghead
+lock master
+total etag Docnum
+authorization master ( instance )
+//etag master <field_name>
+
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly ) Docnum, Readlocnm;
+
+  create;
+  update;
+  delete;
+  determination determinedocnum on save { create; }
+  determination updateheader on modify { field Readloccd; }
+  side effects { field Readloccd affects field Readlocnm; }
+  association _Item { create; }
+
+  mapping for zi_pwrrdnghead
+    {
+      Fisyear   = Fisyear;
+      Docnum    = Docnum;
+      Keyid     = Keyid;
+      Creon     = Creon;
+      Creby     = Creby;
+      Readdate  = Readdate;
+      Readloccd = Readloccd;
+      Readlocnm = Readlocnm;
+      Readdept  = Readdept;
+      Unitrate  = Unitrate;
+    }
+}
+
+
+define behavior for ZI_PWRRDNGITEM //alias <alias_name>
+persistent table zdt_pwrrdngitem
+draft table zdr_pwrrdngitem
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id;
+  update;
+  delete;
+  determination updateitem on modify { field Subhdcd; }
+  side effects { field Subhdcd affects field Subhdnm, field Headcd, field Headnm, field Metertyp, field Meterrdng; }
+
+  association _Head { with draft; }
+
+  mapping for zi_pwrrdngitem
+    {
+      Subhdcd   = Subhdcd;
+      Subhdnm   = Subhdnm;
+      Headcd    = Headcd;
+      Headnm    = Headnm;
+      Metertyp  = Metertyp;
+      Meterrdng = Meterrdng;
+    }
+}

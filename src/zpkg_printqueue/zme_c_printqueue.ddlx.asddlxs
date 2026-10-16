@@ -1,0 +1,32 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'cbuser', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Print Queue Mapping' }] }
+
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'CB User ID', value: 'cbuser' } } }
+
+annotate entity ZC_PRINTQUEUE with
+{
+
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'Print Queue', type: #COLLECTION },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, id: 'GeneralData1' }
+  ]
+
+  @UI.hidden: true
+  id;
+
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  cbuser;
+
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  printque;
+
+  @UI.hidden: true
+  creationdate;
+
+}

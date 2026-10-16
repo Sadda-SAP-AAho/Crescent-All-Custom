@@ -1,0 +1,4 @@
+@EndUserText.label: 'Variance GL'
+define service ZSD_VARIANCE_GL {
+  expose ZC_VARIANCE_GL;
+}

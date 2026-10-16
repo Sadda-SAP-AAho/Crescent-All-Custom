@@ -1,0 +1,53 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Service Entry Sheet Report',
+                typeNamePlural:'Service Entry Sheet Report',
+                title: { type: #STANDARD, label: 'Service Entry Sheet Report', value: 'ServiceEntrySheet' }
+
+              }
+     }
+annotate entity ZC_SERVICEENTRYRPT with
+{
+  @UI: { lineItem: [{ position: 5 }],
+     identification: [{ position: 5 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+  ServiceEntrySheet;
+  @UI: { lineItem: [{ position:  10}],
+     identification: [{ position: 10 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  SupplierName;
+  @UI: { lineItem: [{ position:  15}],
+   identification: [{ position: 15 }],
+   fieldGroup: [{ qualifier: 'GeneralData1', position: 15, importance: #HIGH }] }
+  @UI.selectionField: [{position: 15}]
+  PurchaseOrder;
+  @UI.hidden: true
+  Currency;
+  @UI: { lineItem: [{ position:  20}],
+    identification: [{ position: 20 }],
+    fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  NetPriceAmount;
+  @UI: { lineItem: [{ position:  25}],
+    identification: [{ position: 25 }],
+    fieldGroup: [{ qualifier: 'GeneralData1', position: 25, importance: #HIGH }] }
+  NetAmount;
+  @UI: { lineItem: [{ position:  30}],
+    identification: [{ position: 30 }],
+    fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+  @UI.selectionField: [{position: 30}]
+  ServiceEntrySheetName;
+  @UI: { lineItem: [{ position:  35}],
+    identification: [{ position: 35 }],
+    fieldGroup: [{ qualifier: 'GeneralData1', position: 35, importance: #HIGH }] }
+  ApprovalStatus;
+  @UI: { lineItem: [{ position:  40}],
+    identification: [{ position: 40 }],
+    fieldGroup: [{ qualifier: 'GeneralData1', position: 40, importance: #HIGH }] }
+  PostingDate;
+  @UI: { lineItem: [{ position:  45}],
+    identification: [{ position: 45 }],
+    fieldGroup: [{ qualifier: 'GeneralData1', position: 45, importance: #HIGH }] }
+  PurchasingGroup;
+
+}

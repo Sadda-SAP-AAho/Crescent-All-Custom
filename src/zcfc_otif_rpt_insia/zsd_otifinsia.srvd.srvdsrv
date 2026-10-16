@@ -1,0 +1,4 @@
+@EndUserText.label: 'OTIF Report - INSIA'
+define service ZSD_OTIFINSIA {
+  expose ZC_OTIFINSIA;
+}

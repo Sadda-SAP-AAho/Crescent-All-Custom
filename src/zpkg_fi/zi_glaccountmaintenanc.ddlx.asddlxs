@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'GlAccountMaintenanc', 
+    typeNamePlural: 'GlAccountMaintenancs', 
+    title: {
+      type: #STANDARD, 
+      label: 'GL Account Maintenance', 
+      value: 'Glaccount'
+    }
+  }
+}
+annotate view ZI_GlAccountMaintenanc with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_GlAccountMaintenanc', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'GL Account Maintenance', 
+    position: 1 
+  } ]
+  Glaccount;
+}

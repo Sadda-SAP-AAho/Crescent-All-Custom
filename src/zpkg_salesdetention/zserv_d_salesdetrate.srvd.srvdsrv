@@ -1,0 +1,4 @@
+@EndUserText.label: 'Sales Detention'
+define service ZSERV_D_SALESDETRATE {
+  expose ZC_SalesDetRate;
+}

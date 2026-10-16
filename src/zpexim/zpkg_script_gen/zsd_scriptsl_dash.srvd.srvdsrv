@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Defination for Script Sales dashboard'
+define service Zsd_scriptsl_dash {
+  expose zc_scriptsl_hdr;
+  expose zc_scriptsl_itm;
+}

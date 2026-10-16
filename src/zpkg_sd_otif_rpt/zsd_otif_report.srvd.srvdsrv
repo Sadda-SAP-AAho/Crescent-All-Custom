@@ -1,0 +1,4 @@
+@EndUserText.label: 'OTIF Report'
+define service ZSD_OTIF_REPORT {
+  expose ZC_SD_OTIF_REPORT_FIN;
+}

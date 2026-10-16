@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Defination for Script Invoice Print'
+define service ZSD_SIPRINT {
+  expose ZCUS_SCRIPTINV;
+  expose ZCDS_SCRIPTINV_ITM;
+}

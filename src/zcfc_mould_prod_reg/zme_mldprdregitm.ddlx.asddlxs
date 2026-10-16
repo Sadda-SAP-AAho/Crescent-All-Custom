@@ -1,0 +1,35 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZC_MLDPRDREGITM with
+{
+  @UI.facet :
+      [
+       { id : 'GeneralData' , isSummary: true, label : 'Mould Production Register' , type : #COLLECTION},
+       { type: #FIELDGROUP_REFERENCE , targetQualifier: 'GeneralData1', parentId: 'GeneralData', position : 10 , label: 'Header', id: 'GeneralData1' }
+
+       ]
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Item;
+  @UI.lineItem: [{position: 10}]
+  @UI.identification: [{position: 10}]
+  @UI.fieldGroup: [{position: 10,qualifier: 'GeneralData1', importance: #HIGH}]
+  @Consumption.valueHelpDefinition: [{ entity:{  element : 'TypofMld', name: 'ZI_TYPEOFMOULD'}}]
+  typeofmould;
+  @UI.lineItem: [{position: 15}]
+  @UI.identification: [{position: 15}]
+  @UI.fieldGroup: [{position: 15,qualifier: 'GeneralData1', importance: #HIGH}]
+  Qty;
+  @UI.lineItem: [{position: 20}]
+  @UI.identification: [{position: 20}]
+  @UI.fieldGroup: [{position: 20,qualifier: 'GeneralData1', importance: #HIGH}]
+  Remarks;
+  @UI.lineItem: [{position: 25}]
+  @UI.identification: [{position: 25}]
+  @UI.fieldGroup: [{position: 25,qualifier: 'GeneralData1', importance: #HIGH}]
+  Extra1;
+  @UI.lineItem: [{position: 30}]
+  @UI.identification: [{position: 30}]
+  @UI.fieldGroup: [{position: 30,qualifier: 'GeneralData1', importance: #HIGH}]
+  Extra2;
+}

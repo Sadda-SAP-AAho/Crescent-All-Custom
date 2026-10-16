@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Expense Calculation'
+define service ZSERV_D_AUGGIT_EXPENSECAL {
+  expose ZC_AUGGIT_EXPENSECAL;
+  expose ZC_AUGGIT_EXPENSECAL_I;
+}

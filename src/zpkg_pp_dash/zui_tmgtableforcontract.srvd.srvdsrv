@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForContract_S'
+define service ZUI_TMGTABLEFORCONTRACT {
+  expose ZI_TMGTABLEFORCONTRACT_S as TmgTableForContrAll;
+  expose ZI_TMGTABLEFORCONTRACT as TmgTableForContract;
+}

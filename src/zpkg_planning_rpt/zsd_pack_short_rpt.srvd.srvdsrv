@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def for Pack List wise Short Rep'
+define service ZSD_PACK_SHORT_RPT {
+  expose ZC_PLANNING_RPT;
+}

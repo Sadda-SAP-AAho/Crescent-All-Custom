@@ -1,0 +1,4 @@
+@EndUserText.label: 'Material Stock Overview'
+define service ZSD_MATSTOCKOVERVIEW {
+  expose ZC_MATSTOCKOVERVIEW;
+}

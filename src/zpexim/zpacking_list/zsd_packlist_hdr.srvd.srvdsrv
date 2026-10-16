@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Packlist Header'
+define service ZSD_PACKLIST_HDR {
+  expose ZC_PACKLIST_HDR;
+  expose ZC_PACKLIST_ITM;
+}

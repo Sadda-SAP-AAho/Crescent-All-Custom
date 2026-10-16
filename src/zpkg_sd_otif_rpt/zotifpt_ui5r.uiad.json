@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "OTIF Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "OTIF Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zotifrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_D145F8129F100DAD8E32DC0C4DC6AD4B5064BEA0_TM",
+    "semanticObject": "zotifrpt",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_D145F8129F100DAD8E32DC0C4DC6AD4B5064BEA0_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "OTIF Report"
+      }
+    }
+  ]
+}

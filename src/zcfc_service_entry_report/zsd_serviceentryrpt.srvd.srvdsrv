@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for service entry sheet report'
+define service ZSD_SERVICEENTRYRPT {
+  expose ZC_SERVICEENTRYRPT;
+}

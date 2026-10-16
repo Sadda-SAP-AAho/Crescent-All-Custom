@@ -1,0 +1,119 @@
+managed implementation in class zbp_i_forextp unique;
+strict;
+with draft;
+define behavior for ZI_FOREXTP //alias <alias_name>
+persistent table zdt_forex_hdr
+draft table zdr_forex_hdr
+lock master
+total etag contractdate
+authorization master ( instance )
+//etag master <field_name>
+{
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+  field ( readonly : update, numbering : managed ) Id;
+
+  field ( mandatory : create, readonly : update ) Contnoext;
+  field ( readonly ) balanceval;
+  field ( features : instance ) opendate, allocdate;
+  field ( mandatory ) bankname, waers, contractdate, exchangerate, contamt, bookdate, maturitydate;
+  create;
+  update ( features : instance );
+  // delete;
+  delete ( features : instance );
+  determination headerdetails on modify { field Contamt; field Contnoext; }
+
+  action ( features : instance ) Upd result [1] $self;
+
+  side effects
+  {
+    field Contamt affects field Balanceval;
+    field Contnoext affects field Exchagecurr, field Balanceval;
+    action Upd affects $self;
+  }
+  validation checkhed on save { create; update; }
+  validation checkdoc on save { create; }
+  association _item { create ( features : instance ); with draft; }
+
+  mapping for zi_forextp
+    {
+      Contnoext    = Contnoext;
+      Bankname     = Bankname;
+      waers        = waers;
+      contractdate = contractdate;
+      exchangerate = exchangerate;
+      contamt      = contamt;
+      balanceval   = balanceval;
+      bookdate     = bookdate;
+      maturitydate = maturitydate;
+      opendate     = opendate;
+      allocdate    = allocdate;
+      Upd          = Upd;
+    }
+}
+
+define behavior for ZI_FOREXTPITM //alias <alias_name>
+persistent table zdt_forex_itm
+draft table zdr_forex_itm
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly : update, numbering : managed ) Item;
+  field ( mandatory : create, readonly : update ) Adjustdoctype, Fiscalyear, Companycode;
+  field ( readonly ) Id, Contnoext, Docdate, Salesdate;
+  field ( features : instance ) Docno, Remarks, Instructdate, Amt, Custref, Waers, Loanaccno,
+  Loanamt, Otheramt, Othertext, Salesamt, Salesorder;
+  field ( mandatory ) Adjustval;
+  determination item_detail on modify { field Loanaccno; field Docno; field Salesorder; field Adjustdoctype; }
+  determination adjustamt on modify { field Otheramt; field amt; field Salesamt; field Loanamt; }
+  determination adjusthedamt on modify { field Adjustval; }
+  side effects
+  {
+
+    field Otheramt affects field Adjustval;
+    field Docno affects field Docdate, field Amt, field Waers, field Adjustval;
+    field Amt affects field Adjustval;
+    field Loanaccno affects field Loanamt, field Loancurr;
+    field Loanamt affects field Adjustval;
+    field Salesorder affects field Salesamt, field Salesdate, field Salecurr;
+    field Salesamt affects field Adjustval;
+    field Adjustdoctype affects field Othercurr;
+    field Adjustval affects field _head.Balanceval;
+
+  }
+  validation checkdetails on save { create; update; }
+  association _head { with draft; }
+  mapping for zi_forextpitm
+    {
+      contnoext     = contnoext;
+      adjustdoctype = adjustdoctype;
+      docno         = docno;
+      docdate       = docdate;
+      waers         = waers;
+      amt           = amt;
+      remarks       = remarks;
+      instructdate  = instructdate;
+      adjustval     = adjustval;
+      custref       = custref;
+      Loanamt       = Loanamt;
+      Loancurr      = Loancurr;
+      Lcamt         = Lcamt;
+      Lcurr         = Lcurr;
+      Salesamt      = Salesamt;
+      Salecurr      = Salecurr;
+      Salesdate     = Salesdate;
+      Salesorder    = Salesorder;
+      Otheramt      = Otheramt;
+      Othertext     = Othertext;
+    }
+
+}

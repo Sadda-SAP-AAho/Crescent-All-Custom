@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForCCVsPC_S'
+define service ZUI_TMGTABLEFORCCVSPC {
+  expose ZI_TMGTABLEFORCCVSPC_S as TmgTableForCCPC_1;
+  expose ZI_TMGTABLEFORCCPC as TmgTableForCCPC;
+}

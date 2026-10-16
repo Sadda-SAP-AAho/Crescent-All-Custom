@@ -1,0 +1,27 @@
+projection;
+strict ( 1 );
+use draft;
+use side effects;
+
+define behavior for ZC_CONTRACT_HDR //alias <alias_name>
+{
+  use update;
+
+  use action Edit;
+  use action Activate;
+  use action Resume;
+  use action Discard;
+  use action Prepare;
+  use action PrintR;
+  use action UpdatePrint;
+
+  use association _item { }
+}
+
+define behavior for ZC_CONTRACT_ITM //alias <alias_name>
+{
+  use update;
+//  use delete;
+
+  use association _head;
+}

@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "BOM Cost Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "BOM Cost Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zppbomcostrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_5E172FAE4C26390F17156A07BB842165E9379EEA_TM",
+    "semanticObject": "zpp_bomcodt_rpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_5E172FAE4C26390F17156A07BB842165E9379EEA_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "BOM Cost Report"
+      }
+    }
+  ]
+}

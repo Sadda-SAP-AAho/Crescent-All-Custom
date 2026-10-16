@@ -1,0 +1,45 @@
+managed implementation in class zbp_i_vend_mail unique;
+strict;
+with draft;
+
+define behavior for ZI_VEND_MAIL alias head //alias <alias_name>
+persistent table zdt_vend_mail
+draft table zdr_vend_mail
+lock master
+total etag lifnr
+authorization master ( instance )
+//etag master <field_name>
+{
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( features : instance ) lifnr, mail1, mail2, mail3, mail4, mail5;
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  validation checkdata on save { create; update;}
+
+  factory action ( features : instance ) Copy[1] ;
+
+  mapping for zi_vend_mail
+    {
+      Lifnr    = Lifnr;
+      Reflifnr = Reflifnr;
+      Mail1    = Mail1;
+      Mail2    = Mail2;
+      Mail3    = Mail3;
+      Mail4    = Mail4;
+      Mail5    = Mail5;
+      Copy     = Copy;
+    }
+
+}

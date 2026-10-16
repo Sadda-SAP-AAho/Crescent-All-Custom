@@ -1,0 +1,179 @@
+managed implementation in class zbp_i_bgheader unique;
+strict ( 1 );
+with draft;
+
+define behavior for ZI_BGHEADER alias head
+persistent table zbg_header
+draft table zdr_bgheader
+lock master
+total etag locallastchangedat
+authorization master ( instance )
+with additional save
+//etag master <field_name>
+{
+  create;
+  update ( features : instance );
+  delete;
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Resume;
+  draft action Discard;
+  draft determine action Prepare;
+
+  field ( readonly, numbering : managed ) Id;
+  field ( readonly ) Zeximbgrefno, Version, Status;
+  //  field ( readonly ) Country;
+  //  field ( readonly ) City ;
+  field ( mandatory : create, readonly : update ) Bukrs;
+  factory action ( features : instance ) Amendment [1];
+  action ( features : instance ) SetOut result [1] $self;
+  determination determainebgamt on modify { field Hbkid; }
+  determination determinebgrefno on save { create; }
+  association _bgattachpo { create; }
+  association _bgfdassign { create; }
+
+  mapping for zbg_header
+    {
+      id               = id;
+      zeximbgrefno     = Zeximbgrefno;
+      version          = Version;
+      bukrs            = bukrs;
+      butxt            = butxt;
+      street           = street;
+      city             = city;
+      Country          = Country;
+      //  state              : abap.char(20);
+      //  postcode           : abap.char(10);
+      //  country            : abap.char(15);
+      //  bgstat             : abap.char(1);
+      //  bgcharacter        : abap.char(2);
+      hbkid            = HBKID;
+      HKTID            = HKTID;
+      BANKL            = BANKL;
+      bgbenfname       = Bgbenefname;
+      //  bankaddr           : abap.char(30);
+      //  brnch              : abap.char(40);
+      //  bezei              : abap.char(20);
+      //  land1              : abap.char(15);
+      //  lbankpostcode      : abap.char(10);
+      swift            = swift;
+      //  vendor             : abap.char(10);
+      //  vendorname         : abap.char(35);
+      //  vendorname2        : abap.char(35);
+      //  bgreqdt            : abap.dats;
+      //  bgeffdt            : abap.dats;
+      //  bgexpdt            : abap.dats;
+      //  bgclaimexpdt       : abap.dats;
+      //  bgtype             : abap.char(20);
+      //  bgcatag            : abap.char(40);
+      //  bgamt              : abap.char(15);
+      //  bgtenure           : abap.char(8);
+      //  bgtenureunit       : abap.char(10);
+      //  bgbenefcode        : abap.char(10);
+      //  bgbenefname        : abap.char(40);
+      //  bgaddress1         : abap.char(60);
+      //  bgaddress2         : abap.char(60);
+      //  bgcountry          : abap.char(20);
+      //  bgstate            : abap.char(20);
+      //  bgcity             : abap.char(30);
+      //  bgpostalcode       : abap.char(15);
+      //  bgpurpose          : abap.char(50);
+      //  bgexchangerate     : abap.char(5);
+      //  bgamount           : abap.char(15);
+      //  bgcreator          : abap.char(13);
+      //  bgcreditdays       : abap.char(10);
+      //  chargesrate        : abap.dec(13,3);
+      //  waers              : abap.cuky;
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      //  bcopenchrgs        : abap.curr(15,2);
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      //  bankbcopenchrgs    : abap.curr(15,2);
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      //  bankminchrgs       : abap.curr(15,2);
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      //  nontaxamt          : abap.curr(15,2);
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      //  stampcharges       : abap.curr(15,2);
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      //  pntcharges         : abap.curr(15,2);
+      //  taxcode            : mwskz;
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      //  cgst               : abap.curr(15,2);
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      //  sgst               : abap.curr(15,2);
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      //  igst               : abap.curr(15,2);
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      //  totalchrgs         : abap.curr(15,2);
+      //  bankremarks        : abap.char(40);
+      //  busplc             : abap.char(4);
+      //  seccode            : abap.char(4);
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      //  bgammendcharges    : abap.curr(15,2);
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      //  bgtendate          : abap.curr(15,2);
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      //  shiftcharges       : abap.curr(15,2);
+      //  shiftdate          : abap.dats;
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      netbgamount      = netbgamount;
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      bgcleanamount    = bgcleanamount;
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      fdamountassigned = fdamountassigned;
+      //  @Semantics.amount.currencyCode : 'zdr_bgheader.waers'
+      bgcleanassigned  = bgcleanassigned;
+      //  locallastchangedat : timestampl;
+    }
+}
+
+
+
+define behavior for zi_ATTACHPO //alias <alias_name>
+persistent table zdt_bgattachpo
+draft table zdr_bgattachpo
+lock dependent by _head
+authorization dependent by _head
+etag master locallastchangedat
+{
+  field ( readonly, numbering : managed ) Item3;
+  update;
+  delete;
+  field ( readonly ) Id;
+  association _head;
+  mapping for zi_attachpo
+    {
+      zeximbgrefno = Zeximbgrefno;
+      version      = version;
+      ebeln        = ebeln;
+      waers        = waers;
+      netwr        = netwr;
+      //  @Semantics.amount.currencyCode : 'zdt_bgattachpo.waers'
+      //  availamount        : abap.curr(13,2);
+      //  @Semantics.amount.currencyCode : 'zdt_bgattachpo.waers'
+      //  applamtlc          : abap.curr(13,2);
+      //  @Semantics.amount.currencyCode : 'zdt_bgattachpo.waers'
+      //  applamtothlc       : abap.curr(13,2);
+      //  @Semantics.amount.currencyCode : 'zdt_bgattachpo.waers'
+      //  amountlevel        : abap.curr(13,2);
+      //  cancel             : abap.char(1);
+      //  meins              : meins;
+      //  @Semantics.quantity.unitOfMeasure : 'zdt_bgattachpo.meins'
+      //  applqty            : menge_d;
+      //  locallastchangedat : timestampl;
+    }
+}
+
+define behavior for zi_Bgfdassign //alias <alias_name>
+persistent table zdt_bgfdassign
+draft table zdr_bgfdassign
+lock dependent by _head
+authorization dependent by _head
+etag master locallastchangedat
+{
+  field ( readonly, numbering : managed ) Item;
+  update;
+  delete;
+  field ( readonly ) Id;
+  association _head;
+}

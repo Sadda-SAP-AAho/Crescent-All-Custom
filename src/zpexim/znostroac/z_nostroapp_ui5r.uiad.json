@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Nostro Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Nostro Application"
+  },
+  "ui5AppDetails": {
+    "appId": "znostro"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_CE085FCD54F7F7AAE9E091B43A1990E3AE510F3B_TM",
+    "semanticObject": "z_nostroac",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_CE085FCD54F7F7AAE9E091B43A1990E3AE510F3B_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Nostro Application"
+      }
+    }
+  ]
+}

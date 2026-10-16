@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForPackingM_S'
+define service ZUI_TMGTABLEFORPACKINGM {
+  expose ZI_TMGTABLEFORPACKINGM_S as TmgTableForPackiAll;
+  expose ZI_TMGTABLEFORPACKINGM as TmgTableForPackingM;
+}

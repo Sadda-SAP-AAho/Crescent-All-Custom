@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SIA6" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SIA6>
+    <MAIN_OBJECT>
+     <NAME>ZIAM_SOBOMREPORT_EXT</NAME>
+     <TYPE>SIA6</TYPE>
+     <DESCRIPTION>IAM for SO wise BOM Report</DESCRIPTION>
+     <RESPONSIBLE>CB9980000000</RESPONSIBLE>
+     <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
+     <MASTER_SYSTEM>NRT</MASTER_SYSTEM>
+     <PACKAGE_REF>
+      <PACKAGE_NAME>ZCFC_SO_BOM_REPORT</PACKAGE_NAME>
+     </PACKAGE_REF>
+     <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
+    </MAIN_OBJECT>
+    <APP_ID>ZIAM_SOBOMREPORT_EXT</APP_ID>
+    <APP_TYPE>EXT</APP_TYPE>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+    <UI_APP_ID>ZSOBOMRPT_UI5R</UI_APP_ID>
+    <SERVICE>
+     <item>
+      <REL_NAME>ZSB_SOBOMREPORT</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_SOBOMREPORT_EXT</APP_ID>
+      <SRVC_NAME>C02D3FF63171D87EC4FE90609F8A0A</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <UIAD_SRC>ZSOBOMRPT_UI5R</UIAD_SRC>
+      <TEXT>Service Binding for SO wise BOM Report</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+    </SERVICE>
+    <PUBLISH_STATUS>p</PUBLISH_STATUS>
+   </SIA6>
+  </asx:values>
+ </asx:abap>
+</abapGit>

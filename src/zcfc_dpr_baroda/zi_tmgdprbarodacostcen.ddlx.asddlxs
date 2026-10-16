@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgDprBarodaCostCen', 
+    typeNamePlural: 'TmgDprBarodaCostCens', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG DPR BARODA COST CENTER', 
+      value: 'Costtype'
+    }
+  }
+}
+annotate view ZI_TmgDprBarodaCostCen with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgDprBarodaCostCen', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG DPR BARODA COST CENTER', 
+    position: 1 
+  } ]
+  Costtype;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Kostl;
+}

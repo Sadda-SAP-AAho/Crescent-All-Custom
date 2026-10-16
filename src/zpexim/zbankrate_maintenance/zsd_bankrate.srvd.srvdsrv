@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition of Bank Rate'
+define service ZSD_BANKRATE {
+  expose zc_bankrate;
+}

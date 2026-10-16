@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Debtors Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Debtors Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zfidebtor"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_2B5B1B469E1900E49B8797C1FF7EB03AAC7BE50D_TM",
+    "semanticObject": "zfidebtor",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_2B5B1B469E1900E49B8797C1FF7EB03AAC7BE50D_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Debtors Report"
+      }
+    }
+  ]
+}

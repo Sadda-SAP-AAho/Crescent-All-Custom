@@ -1,0 +1,113 @@
+managed implementation in class zbp_i_matfld unique;
+strict;
+with draft;
+
+define behavior for ZI_MATFLD //alias <alias_name>
+persistent table zdt_pp_matinffld
+draft table zdr_pp_matinffld
+
+lock master
+total etag Product
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update ) Product;
+  field ( readonly ) Productdesc, Lastchngedt, Lastchnngtm;
+  field ( features : instance ) Qtyperbox, Subcode, Pcspack, Potpat, Matcrawt, Machloss, Qtypalpcdbox,
+  Typeofmouldc, Typeofmould, Prodcapcday, Qtyboltunitcons, Calibdate, Rejpercntg, Itempnt, Cft, Pltpcdboxsize,
+  Boltsize, Consbase, Constdi, Constci, Constbag1, Constbag2, Constbaroda, Constvackul, Micr, Submicron, Stdqty,
+  Ptnirs, Ptnapp, Pilotprdapp, Chillwt, Jigf1, Jigf2, Castcode1, Castcode2, Castcode3, Artno, Drawno, Partno, Sqmtr,
+  moc, Cuscode, Matlngtxt, Cusmat, Paintinfo, Matsubcode, Coreinfo, steel_unit_wt, packinstr;
+
+  determination matdet on modify { field Product; }
+  determination savedata on modify
+  { field Qtyperbox; field Subcode; field Pcspack; field Potpat; field Matcrawt; field Machloss;
+    field Qtypalpcdbox; field Typeofmouldc; field Typeofmould; field Prodcapcday; field Qtyboltunitcons;
+    field Calibdate; field Rejpercntg; field Itempnt; field Cft; field Pltpcdboxsize;
+    field Boltsize; field Consbase; field Constdi; field Constci; field Constbag1; field Constbag2;
+    field Constbaroda; field Constvackul; field Micr; field Submicron; field Stdqty; field Ptnirs;
+    field Ptnapp; field Product; field Pilotprdapp; field Chillwt; field Jigf1; field Jigf2; field Castcode1;
+    field Castcode2; field Castcode3; field Artno; field Drawno; field Partno; field Sqmtr; field moc;
+    field Cuscode; field Matlngtxt; field Cusmat; field Paintinfo; field Matsubcode; field Coreinfo; field steel_unit_wt;
+    field packinstr; }
+  validation checkdet on save { create; }
+
+
+  action ( features : instance ) deleteall result [1] $self;
+
+  mapping for zi_matfld
+    {
+      Product         = Product;
+      Productdesc     = Productdesc;
+      Qtyperbox       = Qtyperbox;
+      Subcode         = Subcode;
+      Pcspack         = Pcspack;
+      Potpat          = Potpat;
+      Matcrawt        = Matcrawt;
+      Machloss        = Machloss;
+      Qtypalpcdbox    = Qtypalpcdbox;
+      Typeofmouldc    = Typeofmouldc;
+      Typeofmould     = Typeofmould;
+      Prodcapcday     = Prodcapcday;
+      Qtyboltunitcons = Qtyboltunitcons;
+      Calibdate       = Calibdate;
+      Rejpercntg      = Rejpercntg;
+      Itempnt         = Itempnt;
+      Cft             = Cft;
+      Pltpcdboxsize   = Pltpcdboxsize;
+      Boltsize        = Boltsize;
+      Consbase        = Consbase;
+      Constdi         = Constdi;
+      Constci         = Constci;
+      Constbag1       = Constbag1;
+      Constbag2       = Constbag2;
+      Constbaroda     = Constbaroda;
+      Constvackul     = Constvackul;
+      Micr            = Micr;
+      Submicron       = Submicron;
+      Stdqty          = Stdqty;
+      Loadclass       = Loadclass;
+      Noofptn         = Noofptn;
+      Ptnirs          = Ptnirs;
+      Ptnapp          = Ptnapp;
+      Pilotprdapp     = Pilotprdapp;
+      Sqmtr1          = Sqmtr1;
+      Sqmtr2          = Sqmtr2;
+      Sqmtr3          = Sqmtr3;
+      Chillwt         = Chillwt;
+      Jigf1           = Jigf1;
+      Jigf2           = Jigf2;
+      Castcode1       = Castcode1;
+      Castcode2       = Castcode2;
+      Castcode3       = Castcode3;
+      Sqmtr           = Sqmtr;
+      moc             = moc;
+      Cuscode         = Cuscode;
+      Artno           = Artno;
+      Drawno          = Drawno;
+      Partno          = Partno;
+      Lastchngedt     = Lastchngedt;
+      Lastchnngtm     = Lastchnngtm;
+      Matlngtxt       = Matlngtxt;
+      Cusmat          = Cusmat;
+      Paintinfo       = Paintinfo;
+      Matsubcode      = Matsubcode;
+      Coreinfo        = Coreinfo;
+      Steel_unit_wt   = Steel_unit_wt;
+      packinstr       = packinstr;
+    }
+
+}

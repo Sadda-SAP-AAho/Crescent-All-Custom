@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for sales commitment report'
+define service ZSD_SALESCOMMRPT {
+  expose ZC_SALESCOMMRPT;
+}

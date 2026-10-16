@@ -1,0 +1,208 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Planning Material',
+    typeNamePlural: 'Planning Material Plant Dat',
+    typeImageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgdkZGiw9frLmFH3f3k0GrhK0pi-GpDpM2bw&s'
+    
+    
+} 
+annotate entity Z_C_PLN_MAT_MSTR_ITM
+    with 
+
+{
+
+    @UI.facet: [{ id: 'itemData',purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE, position: 10, label: 'Plant Information' },
+                { id: 'resrc1', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, position: 20, targetQualifier: 'rsrc1', label: 'Resource No.1 Information'},
+                { id: 'resrc2', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, position: 30, targetQualifier: 'rsrc2',label: 'Resource No.2 Information' },
+                { id: 'resrc3', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, position: 40, targetQualifier: 'rsrc3',label: 'Resource No.3 Information' },
+                  { id: 'rar1', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, position: 50, targetQualifier: 'ar1',label: 'Alternative Resource 1 Information' }]
+@UI.hidden: true
+ Requestuuid;
+@UI.hidden: true 
+     Line_no;
+        @UI.hidden: true
+    Material_code;
+
+@Consumption.valueHelpDefinition: [{
+    entity: { name: 'ZPlant_F4_Help', element: 'Plant' },
+ additionalBinding: [{  localElement: '_hdr.Material_code', element: 'Product' ,usage: #FILTER }]
+
+}]
+@UI.lineItem: [{ position: 10 }]
+@UI.identification: [{ position: 10 }]
+@EndUserText.label: 'Plant'
+Plant;
+
+
+@UI.fieldGroup: [{
+    qualifier: 'rsrc1',
+    position: 10
+}]
+@Consumption.valueHelpDefinition: [{
+    entity: { name: 'ZResource_F4_Help', element: 'Resource_code' },
+ additionalBinding: [{  localElement: 'Plant', element: 'plant' ,usage: #FILTER }]
+
+}]
+ @UI.lineItem: [{ position: 20 }]
+//@UI.identification: [{ position: 20 }]
+@EndUserText.label: 'Resource No.1'  
+    Resource_no1;
+@UI.fieldGroup: [{
+    qualifier: 'rsrc1',
+    position: 20
+}]    
+ @UI.lineItem: [{ position: 30 }]
+//@UI.identification: [{ position: 30 }]
+@EndUserText.label: 'Resource No. 1 Desc.'
+    Resource_no1_desc;
+@UI.fieldGroup: [{
+    qualifier: 'rsrc1',
+    position: 30
+}]        
+ @UI.lineItem: [{ position: 40 }]
+//@UI.identification: [{ position: 40 }]
+@EndUserText.label: 'Cycle Time R1/Pcs in min'    
+    Cycle_time_r1;
+@UI.fieldGroup: [{
+    qualifier: 'rsrc1',
+    position: 40
+}]        
+ @UI.lineItem: [{ position: 50 }]
+//@UI.identification: [{ position: 50 }]
+@EndUserText.label: 'Lead Time R1'   
+    Lead_time_r1;
+@UI.fieldGroup: [{
+    qualifier: 'rsrc1',
+    position: 50
+}]        
+ @UI.lineItem: [{ position: 60 }]
+//@UI.identification: [{ position: 60 }]
+@EndUserText.label: 'Batch Qty R1'      
+    Batch_qty_r1;
+    
+@UI.fieldGroup: [{
+    qualifier: 'rsrc2',
+    position: 10
+}]       
+@Consumption.valueHelpDefinition: [{
+    entity: { name: 'ZResource_F4_Help', element: 'Resource_code' },
+ additionalBinding: [{  localElement: 'Plant', element: 'plant' ,usage: #FILTER }]
+
+}]
+ @UI.lineItem: [{ position: 70 }]
+//@UI.identification: [{ position: 70 }]
+@EndUserText.label: 'Resource No. 2'   
+    Resource_no2;
+@UI.fieldGroup: [{
+    qualifier: 'rsrc2',
+    position: 20
+}]        
+//@UI.identification: [{ position: 80 }]
+@EndUserText.label: 'Resource No. 2 Desc'  
+    Resource_no2_desc;
+@UI.fieldGroup: [{
+    qualifier: 'rsrc2',
+    position: 30
+}]        
+//@UI.identification: [{ position: 90 }]
+@EndUserText.label: 'Cycle Time R2/Pcs in min'  
+    Cycle_time_r2;
+@UI.fieldGroup: [{
+    qualifier: 'rsrc2',
+    position: 40
+}]        
+//@UI.identification: [{ position: 100 }]
+@EndUserText.label: 'Lead Time R2'  
+    Lead_time_r2;
+@UI.fieldGroup: [{
+    qualifier: 'rsrc2',
+    position: 50
+}]    
+//@UI.identification: [{ position: 110 }]
+@EndUserText.label: 'Batch Qty R2' 
+    Batch_qty_r2;
+@UI.fieldGroup: [{
+    qualifier: 'rsrc3',
+    position: 10
+}]    
+@Consumption.valueHelpDefinition: [{
+    entity: { name: 'ZResource_F4_Help', element: 'Resource_code' },
+ additionalBinding: [{  localElement: 'Plant', element: 'plant' ,usage: #FILTER }]
+
+}]    
+//@UI.identification: [{ position: 120 }]
+@EndUserText.label: 'Resource No. 3' 
+    Resource_no3;
+@UI.fieldGroup: [{
+    qualifier: 'rsrc3',
+    position: 20
+}]      
+//@UI.identification: [{ position: 130 }]
+@EndUserText.label: 'Resource No. 3 Desc'     
+    Resource_no3_desc;
+@UI.fieldGroup: [{
+    qualifier: 'rsrc3',
+    position: 30
+}]      
+//@UI.identification: [{ position: 140 }]
+@EndUserText.label: 'Cycle Time R3/Pcs in min'     
+    Cycle_time_r3;
+@UI.fieldGroup: [{
+    qualifier: 'rsrc3',
+    position: 40
+}]      
+//@UI.identification: [{ position: 150 }]
+@EndUserText.label: 'Lead Time R3'   
+    Lead_time_r3;
+@UI.fieldGroup: [{
+    qualifier: 'rsrc3',
+    position: 50
+}]      
+//@UI.identification: [{ position: 160 }]
+@EndUserText.label: 'Batch Qty R3'  
+    Batch_qty_r3;
+@UI.fieldGroup: [{
+    qualifier: 'ar1',
+    position: 10
+}]  
+@Consumption.valueHelpDefinition: [{
+    entity: { name: 'ZResource_F4_Help', element: 'Resource_code' },
+ additionalBinding: [{  localElement: 'Plant', element: 'plant' ,usage: #FILTER }]
+
+}]
+//@UI.identification: [{ position: 170 }]
+@EndUserText.label: 'Alternate Resource No. 1' 
+    Alternate_resource_no1;
+@UI.fieldGroup: [{
+    qualifier: 'ar1',
+    position: 20
+}]  
+//@UI.identification: [{ position: 180 }]
+@EndUserText.label: 'Alternate Resource No. 1 Desc' 
+    Alternate_resource_no1_desc;
+@UI.fieldGroup: [{
+    qualifier: 'ar1',
+    position: 30
+}]      
+//@UI.identification: [{ position: 190 }]
+@EndUserText.label: 'Cycle Time AR1/Pcs in min' 
+    Cycle_time_ar1;
+@UI.fieldGroup: [{
+    qualifier: 'ar1',
+    position: 40
+}]      
+//@UI.identification: [{ position: 200 }]
+@EndUserText.label: 'Lead Time AR1' 
+    Lead_time_ar1;
+@UI.fieldGroup: [{
+    qualifier: 'ar1',
+    position: 50
+}]  
+//@UI.identification: [{ position: 210 }]
+@EndUserText.label: 'Batch Qty AR1' 
+    batch_qty_ar1;
+ @UI.hidden: true
+    Last_local_changed_at;
+ 
+    
+}

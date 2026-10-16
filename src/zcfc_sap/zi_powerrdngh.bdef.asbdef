@@ -1,0 +1,70 @@
+managed implementation in class zbp_i_powerrdngh unique;
+strict;
+with draft;
+
+define behavior for ZI_POWERRDNGH //alias <alias_name>
+persistent table zdt_powerrdngh
+draft table zdr_powerrdngh
+lock master
+total etag Docnum
+authorization master ( instance )
+//etag master <field_name>
+
+{
+ draft action (features : instance) Edit;
+ draft action Activate;
+ draft action Discard;
+ draft action Resume;
+ draft determine action Prepare
+ {
+ }
+
+ field ( readonly : update, numbering : managed) Id;
+
+  create;
+  update;
+  delete;
+  determination updateheader on modify {field Readloccd;}
+  side effects {field Readloccd affects field Readlocnm;}
+  association _Item { create; }
+
+  mapping for ZI_POWERRDNGH
+
+  {
+   Docnum = Docnum;
+   Readdate = Readdate;
+   Readloccd = Readloccd;
+   Readlocnm = Readlocnm;
+   Readdept = Readdept;
+   Unitrate = Unitrate;
+  }
+}
+
+
+define behavior for ZI_POWERRDNGL //alias <alias_name>
+persistent table zdt_powerrdngl
+draft table zdr_powerrdngl
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+ field ( readonly : update, numbering : managed) Item;
+ field (readonly) Id;
+  update;
+  delete;
+  determination updateitem on modify {field Subhdcd;}
+  side effects {field Subhdcd affects field Subhdnm , field Headcd , field Headnm , field Metertyp , field Meterrdng;}
+
+  association _Head{with draft;}
+
+  mapping for ZI_POWERRDNGL
+
+  {
+   Subhdcd = Subhdcd;
+   Subhdnm = Subhdnm;
+   Headcd = Headcd;
+   Headnm = Headnm;
+   Metertyp = Metertyp;
+   Meterrdng = Meterrdng;
+  }
+}

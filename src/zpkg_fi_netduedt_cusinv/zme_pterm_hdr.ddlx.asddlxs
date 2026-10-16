@@ -1,0 +1,59 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Maintain Payment Terms',
+typeNamePlural: 'Maintain Payment Terms',
+title: { type: #STANDARD, value: 'Zterm' }
+}
+}
+annotate entity ZC_PTERM_HDR
+    with 
+{
+
+   @UI.facet:
+   [{ id: 'GeneralData', isSummary: true, label: 'Maintain Payment Term Details', type: #COLLECTION },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Payment Term Details', id: 'GeneralData1' },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15, label: 'Based On Details', id: 'GeneralData2' },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 15, label: 'Date Details', id: 'GeneralData3' }]
+   
+   @UI.hidden: true
+   Id;
+   @UI.lineItem: [ { position: 10 } ]
+   @UI.identification: [ { position: 10 } ]
+   @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+   @Consumption.valueHelpDefinition: [{ entity:{ element: 'PaymentTerms', name:'I_PaymentTerms' },
+                                                 distinctValues: true,
+                                                 useForValidation: true } ]
+   Zterm;
+   @UI.lineItem: [ { position: 20 } ]
+   @UI.identification: [ { position: 20 } ]
+   @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+   Pdesc;
+   @UI.lineItem: [ { position: 50 } ]
+   @UI.identification: [ { position: 50 } ]
+   @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData2', importance: #HIGH } ]
+   @Consumption.valueHelpDefinition: [{ entity:
+   {name: 'ZI_BASIS_F4' , element: 'value_low' },
+    distinctValues: true,
+    additionalBinding: [{ localElement: 'Basistxt',
+                        element: 'basistxt',
+                        usage: #FILTER_AND_RESULT
+                        }]  
+   }]   
+   Basis;
+   @UI.lineItem: [ { position: 55 } ]
+   @UI.identification: [ { position: 55 } ]
+   @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData2', importance: #HIGH } ]
+   Basistxt;
+   @UI.lineItem: [ { position: 60 } ]
+   @UI.identification: [ { position: 60 } ]
+   @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData2', importance: #HIGH } ]
+   Noofday;
+   @UI.lineItem: [ { position: 100 } ]
+   @UI.identification: [ { position: 100 } ]
+   @UI.fieldGroup: [ { position: 100,  qualifier: 'GeneralData3', importance: #HIGH } ]
+   Credt;
+   @UI.lineItem: [ { position: 110 } ]
+   @UI.identification: [ { position: 110 } ]
+   @UI.fieldGroup: [ { position: 110,  qualifier: 'GeneralData3', importance: #HIGH } ]
+   Lastchngdt;
+}

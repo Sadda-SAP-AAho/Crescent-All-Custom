@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgForGlExclude_S'
+define service ZUI_TMGFORGLEXCLUDE {
+  expose ZI_TMGFORGLEXCLUDE_S as TmgForGlExcludeAll;
+  expose ZI_TMGFORGLEXCLUDE as TmgForGlExclude;
+}

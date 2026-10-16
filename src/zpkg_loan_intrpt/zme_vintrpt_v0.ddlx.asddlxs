@@ -1,0 +1,227 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: { headerInfo: {
+typeName: 'Interest Report',
+typeNamePlural: 'Interest Report',
+title: { type: #STANDARD, value: 'InterestReference' }
+}}
+
+@UI: {
+  presentationVariant: [{ sortOrder: [{ by: 'InterestReference', direction: #ASC } ],
+                          visualizations: [{type: #AS_LINEITEM}]
+                           }]
+                          }
+
+annotate entity ZRINTRPT_TP with
+{
+
+  @UI.facet:
+   [{ id: 'GeneralData', isSummary: true, label: 'COGS Report', type: #COLLECTION }]
+
+  @UI.hidden: true
+  LoanID;
+
+  @UI.hidden: true
+  RateID;
+
+  @UI.hidden: true
+  RateItem;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 1 } ]
+  InterestReference;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 2 } ]
+  LoanAccountNo;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 3 } ]
+  Name;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 4 } ]
+  BankName;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 5 } ]
+  LoanBookingDate;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 6 } ]
+  Currency;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 7 } ]
+  ExchangeRate;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 8 } ]
+  LoanBookingAmount;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 9 } ]
+  DueDate;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 10 } ]
+  ExtendedDueDate;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 11 } ]
+  BenchMarkType;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 12 } ]
+  BenchInterestRate;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 13 } ]
+  SpreadRate;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 14 } ]
+  LoanType;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 15 } ]
+  LoanTenure;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 16 } ]
+  TotalInterest;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 17 } ]
+  InvoiceNo;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 18 } ]
+  InvoiceDate;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 19 } ]
+  InterestBookingStartDate;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 20 } ]
+  InterestBookingEndDate;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 21 } ]
+  HouseBankID;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 22 } ]
+  AccountID;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 23 } ]
+  BookingExchangeRate;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 24 } ]
+  @UI.hidden: true
+  BankBookingGL;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.hidden: true
+  InterestBookingGL;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 26 } ]
+  CostCenter;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 27 } ]
+  EffectiveBookingDate;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 28 } ]
+  PenaltyCC;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 29 } ]
+  PenaltyFC;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 30 } ]
+  PostingDate;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 31 } ]
+  DocumentDate;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 32 } ]
+  FullMonthCalculationIndicator;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 33 } ]
+  PayableDays;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 34 } ]
+  BookAmount;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 35 } ]
+  BalanceAmount;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 36 } ]
+  CalculatedInterestDC;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 37 } ]
+  PostableInterestFC;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 38 } ]
+  PostableInterestCC;
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 39 } ]
+  InterestRate;
+
+}

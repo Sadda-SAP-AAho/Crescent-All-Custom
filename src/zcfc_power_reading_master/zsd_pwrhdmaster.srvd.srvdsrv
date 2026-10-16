@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination for Power Head Master'
+define service ZSD_PWRHDMASTER {
+  expose ZC_PWRHDMASTER;
+}

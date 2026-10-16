@@ -1,0 +1,82 @@
+managed with additional save implementation in class ZBP_I_TABLEFORSHIPMENTMOD_S unique;
+strict;
+with draft;
+define behavior for ZI_TableForShipmentMod_S alias TableForShipmentAll
+draft table ZDT_SHIP_MO_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   HideTransport,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare {
+    validation TableForShipmentMod ~ ValidateDataConsistency;
+  }
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TableForShipmentMod { create ( features : instance ); with draft; }
+}
+
+define behavior for ZI_TableForShipmentMod alias TableForShipmentMod
+persistent table ZDT_SHIP_MODE
+draft table ZDT_SHIP_MODE_D
+etag master LocalLastChangedAt
+lock dependent by _TableForShipmentAll
+authorization dependent by _TableForShipmentAll
+
+{
+  field ( mandatory : create )
+   ShipMode;
+
+  field ( readonly )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt,
+   ConfigDeprecationCode;
+
+  field ( readonly : update )
+   ShipMode;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+
+  update( features : global );
+  delete( features : instance );
+
+  action ( features : instance ) Deprecate result [1] $self;
+  action ( features : instance ) Invalidate result [1] $self;
+  factory action ( features : instance ) CopyTableForShipmentMod parameter ZD_CopyTableForShipmentModP [1];
+
+  mapping for ZDT_SHIP_MODE
+  {
+    ShipMode = SHIP_MODE;
+    ShipDesc = SHIP_DESC;
+    ConfigDeprecationCode = CONFIGDEPRECATIONCODE;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _TableForShipmentAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+  validation ValidateDataConsistency on save { create; update; }
+}

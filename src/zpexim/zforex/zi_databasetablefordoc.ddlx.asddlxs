@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'DatabaseTableForDoc', 
+    typeNamePlural: 'DatabaseTableForDocs', 
+    title: {
+      type: #STANDARD, 
+      label: 'Database table for Doc Type TMG', 
+      value: 'Doctype'
+    }
+  }
+}
+annotate view ZI_DatabaseTableForDoc with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_DatabaseTableForDoc', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Database table for Doc Type TMG', 
+    position: 1 
+  } ]
+  Doctype;
+}

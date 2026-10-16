@@ -1,0 +1,60 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'SO wise Packing List Report',
+                typeNamePlural:'SO wise Packing List Report',
+                title: { type: #STANDARD, label: 'SO wise Packing List Report', value: 'so_no' }
+
+              }
+     }
+annotate entity ZC_SOPCKLSTRPT with
+{
+  @UI.facet:
+      [{id: 'GeneralData', isSummary: true, label: 'Item Details', type: #COLLECTION, position: 5},
+      { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'SO wise Packing List Report', id: 'GeneralData1' }]
+  @UI: { lineItem: [{ position: 5 }],
+      identification: [{ position: 5 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+  so_no;
+  @UI.hidden: true
+  so_item;
+  @UI: { lineItem: [{ position: 10 }],
+       identification: [{ position: 10 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  so_dt;
+  @UI: { lineItem: [{ position: 15 }],
+       identification: [{ position: 15 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 15, importance: #HIGH }] }
+  cust_code;
+  @UI: { lineItem: [{ position: 20 }],
+       identification: [{ position: 20 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  mat_code;
+  @UI: { lineItem: [{ position: 25 }],
+       identification: [{ position: 25 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 25, importance: #HIGH }] }
+  mat_des;
+  @UI.hidden: true
+  OrderQuantityUnit;
+  @UI: { lineItem: [{ position: 30 }],
+       identification: [{ position: 30 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+  ord_qty;
+  @UI: { lineItem: [{ position: 35 }],
+       identification: [{ position: 35 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 35, importance: #HIGH }] }
+  outbnd_no;
+   @UI.hidden: true
+  outbnd_item;
+  @UI: { lineItem: [{ position: 40 }],
+       identification: [{ position: 40 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 40, importance: #HIGH }] }
+  outbnd_dt;
+  @UI.hidden: true
+  DeliveryQuantityUnit;
+  @UI: { lineItem: [{ position: 45 }],
+       identification: [{ position: 45 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+  outbnd_qty;
+
+}

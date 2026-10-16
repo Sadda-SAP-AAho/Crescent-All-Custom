@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Job Work Report'
+define service ZSD_JOBWRKRPT {
+  expose ZC_JOBWRKRPT;
+}

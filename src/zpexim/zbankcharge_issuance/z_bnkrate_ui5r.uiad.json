@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Bank Rate Maintain Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Bank Rate Maintain Application"
+  },
+  "ui5AppDetails": {
+    "appId": "zbnkrate"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_FF8A303688A788A97D4AAEA4311B8C7F80B21D02_TM",
+    "semanticObject": "z_bnkrate",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_FF8A303688A788A97D4AAEA4311B8C7F80B21D02_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Bank Rate Maintain Application"
+      }
+    }
+  ]
+}

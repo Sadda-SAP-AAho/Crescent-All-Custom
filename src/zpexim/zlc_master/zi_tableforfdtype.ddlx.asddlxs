@@ -1,0 +1,79 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TableForFdType', 
+    typeNamePlural: 'TableForFdTypes', 
+    title: {
+      type: #STANDARD, 
+      label: 'Table for FD Type', 
+      value: 'FdType'
+    }
+  }
+}
+annotate view ZI_TableForFdType with
+{
+  @UI.hidden: true
+  ConfigDeprecationCode_Critlty;
+  
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'CopyTableForFdType', 
+    label: 'Copy Selected Entry', 
+    invocationGrouping: #CHANGE_SET
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TableForFdType', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Table for FD Type', 
+    position: 1 
+  } ]
+  FdType;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'FdDesc'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'FdDesc'
+  } ]
+  FdDesc;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate'
+  } ]
+  @UI.textArrangement: #TEXT_ONLY
+  @UI.lineItem: [ {
+    position: 3 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate Selected Entry'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate Selected Entry'
+  } ]
+  ConfigDeprecationCode;
+}

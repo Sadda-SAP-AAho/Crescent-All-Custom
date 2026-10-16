@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Rework Register'
+define service ZSD_REWORKREG {
+  expose ZC_REWORKREGHED;
+  expose ZC_REWORKREGITM;
+}

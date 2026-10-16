@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'OrganizationMailIdB', 
+    typeNamePlural: 'OrganizationMailIdBs', 
+    title: {
+      type: #STANDARD, 
+      label: 'Organization Mail id base of Vendor Grp', 
+      value: 'Ktokk'
+    }
+  }
+}
+annotate view ZI_OrganizationMailIdB with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_OrganizationMailIdB', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Organization Mail id base of Vendor Grp', 
+    position: 1 
+  } ]
+  Ktokk;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Email;
+}

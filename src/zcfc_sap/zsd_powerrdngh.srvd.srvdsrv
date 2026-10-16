@@ -1,0 +1,5 @@
+@EndUserText.label: 'SERVICE DEFINITION FOR POWER READING HEADER'
+define service ZSD_POWERRDNGH {
+  expose ZC_POWERRDNGH;
+  expose ZC_POWERRDNGL;
+}

@@ -1,0 +1,322 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: {
+    headerInfo: { typeName: 'Shipping Bill',
+                  typeNamePlural: 'Shipping Bills' },
+    presentationVariant: [{
+        sortOrder: [{ by: 'ShippingBillDate', direction: #DESC }],
+        visualizations: [{ type: #AS_LINEITEM }]
+                         }]
+}
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Shipping Bill', value: 'ShippingBill' } } }
+
+annotate view ZC_ShippingBillTP with
+{
+  @UI.facet: [
+
+   { id: 'GeneralData', isSummary: true, label: 'Shipping Bill', type: #COLLECTION},
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData0', position: 10, parentId: 'GeneralData',id: 'GeneralData0',label: 'Main'},
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', position: 20, parentId: 'GeneralData',id: 'GeneralData1',label: 'Header'},
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', position: 30, parentId: 'GeneralData',id: 'GeneralData2',label: 'Valuation'},
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', position: 40, parentId: 'GeneralData',id: 'GeneralData3',label: 'DutyDrawback / RoDTEP Value'},
+  //   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData4', position: 50, parentId: 'GeneralData3', label: 'RoDTEP',id: 'GeneralData4'},
+  //   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData5', position: 60, parentId: 'GeneralData', id: 'GeneralData5'},
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData6', position: 60, parentId: 'GeneralData', id: 'GeneralData6',label: 'RoDTEP Account Details'},
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData7', position: 70, parentId: 'GeneralData', id: 'GeneralData7',label: 'Duty Drawback Account Details'},
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData8', position: 80, parentId: 'GeneralData', id: 'GeneralData8',label: 'BRC Details'},
+        { id: 'idLineitem', type: #LINEITEM_REFERENCE, label: 'Item Details', position: 30 ,targetElement: '_ShippingBillItem'},
+        { id: 'idLineLIC',type: #LINEITEM_REFERENCE ,label: 'License Details',position: 20 ,targetElement: '_ShippingBillItemLIC'}
+//        { id: 'BRC',type: #LINEITEM_REFERENCE ,label: 'BRC Details',position: 40 ,targetElement: '_ShippingBillItemBRC'}
+  ]
+
+
+  //section 1
+  @UI.hidden: true
+  InternalShipbill;
+
+  @UI: {
+          lineItem: [ { position: 10} ],
+          identification: [{position: 10 }],
+          fieldGroup: [{qualifier: 'GeneralData0',position: 10,importance: #HIGH }]
+  }
+  ShippingBill;
+
+  @UI: {
+          lineItem: [ { position: 20} ],
+          identification: [{position: 20 }],
+          fieldGroup: [{qualifier: 'GeneralData0',position: 20,importance: #HIGH }]
+  }
+  ShippingBillDate;
+
+  @UI: {
+         lineItem: [ { position: 21} ],
+         identification: [{position: 21 }],
+         fieldGroup: [{qualifier: 'GeneralData0',position: 21,importance: #HIGH }]
+  }
+  statuscancel;
+
+  @UI: {
+          lineItem: [ { position: 21}],
+          identification: [{position: 21 } ],
+          fieldGroup: [{qualifier: 'GeneralData0',position: 30,importance: #HIGH }]
+  }
+  Exchangerate;
+
+  //Section
+  @UI.hidden: true
+  @UI: {
+          lineItem: [ { position: 25} ],
+          identification: [{position: 25 }],
+          fieldGroup: [{qualifier: 'GeneralData0',position: 30,importance: #HIGH }]
+  }
+  PostingDate;
+
+  @UI.hidden: true
+  @UI: {
+            lineItem: [ { position: 28} ],
+          identification: [{position: 28 }],
+          fieldGroup: [{qualifier: 'GeneralData0',position: 40,importance: #HIGH }]
+  }
+  LeoDate;
+
+  @UI.hidden: true
+  @UI: {
+    lineItem: [ { position: 30} ],
+          identification: [{position: 30 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 50,importance: #HIGH }]
+  }
+  ScrollNo;
+
+  @UI.hidden: true
+  @UI: {
+  lineItem: [ { position: 40} ],
+          identification: [{position: 40 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 60,importance: #HIGH }]
+  }
+  ScrollDate;
+
+  @UI: {
+  lineItem: [ { position: 50} ],
+          identification: [{position: 50 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 70,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Supplier', name:'I_Supplier' },
+                                              distinctValues: true,
+                                              useForValidation: true
+                                  }]
+  CustomHandlingAgent;
+
+  @UI: {
+          lineItem: [ { position: 60} ],
+          identification: [{position: 60 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 80,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Gotrackcode', name:'ZR_SHPORTCODE_F4' } }]
+
+  PortCode;
+
+  @UI: {
+          lineItem: [ { position: 105}],
+          identification: [{position: 105 } ],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 110,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'CountryName', name: 'ZI_Country_f4' } }]
+  DestinationCountry;
+  
+  @UI: {
+          lineItem: [ { position: 115}],
+          identification: [{position: 115 } ],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 115,importance: #HIGH }]
+  }
+  PostingDateNew;
+
+
+
+
+  //Section 2
+  @UI: {  lineItem: [ { position: 60} ],
+          fieldGroup: [{qualifier: 'GeneralData2',position: 10,importance: #HIGH }]
+  }
+  Fob_Lc_V;
+
+  //  @UI: {
+  //          fieldGroup: [{qualifier: 'GeneralData2',position: 20,importance: #HIGH }]
+  //  }
+  //  Fob_Lc_C;
+
+  @UI: {  lineItem: [ { position: 80} ],
+          fieldGroup: [{qualifier: 'GeneralData2',position: 30,importance: #HIGH }]
+  }
+  Fob_Fc_V;
+
+  //  @UI: {
+  //          fieldGroup: [{qualifier: 'GeneralData2',position: 40,importance: #HIGH }]
+  //  }
+  //  Fob_Fc_C;
+
+  @UI.hidden: true
+  UsageAmount;
+
+
+  @UI.hidden: true
+  @UI: {  lineItem: [ { position: 110} ],
+          fieldGroup: [{qualifier: 'GeneralData3',position: 60,importance: #HIGH }]
+  }
+  TotalDutyDrawback;
+
+  @UI: {  lineItem: [ { position: 120} ],
+          fieldGroup: [{qualifier: 'GeneralData3',position: 70,importance: #HIGH }]
+  }
+  TotalDutyDrawbackV;
+
+  //  @UI: {
+  //          fieldGroup: [{qualifier: 'GeneralData3',position: 80,importance: #HIGH }]
+  //  }
+  //  TotalDutyDrawbackC;
+
+  @UI.hidden: true
+  @UI: {  lineItem: [ { position: 110} ],
+          fieldGroup: [{qualifier: 'GeneralData3',position: 90,importance: #HIGH }]
+  }
+  Rodtep;
+
+  @UI: {
+          fieldGroup: [{qualifier: 'GeneralData3',position: 100,importance: #HIGH }]
+  }
+  RodtepV;
+
+  //  @UI: {  lineItem: [ { position: 120} ],
+  //          fieldGroup: [{qualifier: 'GeneralData4',position: 110,importance: #HIGH }]
+  //  }
+  //  RodtepC;
+
+  //Section 3
+  @UI.hidden: true
+  @UI: {
+        lineItem: [ { position: 130} ],
+        identification: [{position: 130 }],
+        fieldGroup: [{qualifier: 'GeneralData5',position: 10,importance: #HIGH }]
+  }
+
+  BillOfLading;
+  @UI.hidden: true
+  @UI: {
+          lineItem: [ { position: 130} ],
+          identification: [{position: 130 }],
+          fieldGroup: [{qualifier: 'GeneralData5',position: 20,importance: #HIGH }]
+  }
+
+  BillOfLadingDate;
+
+  @UI.hidden: true
+  @UI: {
+            lineItem: [ { position: 130} ],
+          identification: [{position: 130 }],
+          fieldGroup: [{qualifier: 'GeneralData5',position: 30,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'CountryName', name: 'ZI_Country_f4' } }]
+  CountryBl;
+
+  @UI.hidden: true
+  @UI: {
+          fieldGroup: [{qualifier: 'GeneralData5',position: 40,importance: #HIGH }]
+  }
+  StateOfOrigin;
+
+  //Section 4
+  @UI: {
+        lineItem: [ { position: 135} ],
+        identification: [{position: 135 }],
+        fieldGroup: [{qualifier: 'GeneralData6',position: 10,importance: #HIGH }]
+  }
+  Tpost;
+  @UI: {
+        lineItem: [ { position: 140} ],
+        identification: [{position: 140 }],
+        fieldGroup: [{qualifier: 'GeneralData6',position: 20,importance: #HIGH }]
+  }
+  Accountdocno;
+  @UI: {
+        lineItem: [ { position: 145} ],
+        identification: [{position: 145 }],
+        fieldGroup: [{qualifier: 'GeneralData6',position: 30,importance: #HIGH }]
+  }
+  Accountdocyr;
+
+  @UI.hidden: true
+  Accpostref;
+
+  //Section 6
+  @UI: {
+        lineItem: [ { position: 150} ],
+        identification: [{position: 150 }],
+        fieldGroup: [{qualifier: 'GeneralData7',position: 10,importance: #HIGH }]
+  }
+  Tpostdbk;
+  @UI: {
+        lineItem: [ { position: 155} ],
+        identification: [{position: 55 }],
+        fieldGroup: [{qualifier: 'GeneralData7',position: 20,importance: #HIGH }]
+  }
+  Accdocnodbk;
+  @UI: {
+        lineItem: [ { position: 160} ],
+        identification: [{position: 160 }],
+        fieldGroup: [{qualifier: 'GeneralData7',position: 30,importance: #HIGH }]
+  }
+  Accdocyrdbk;
+  @UI: {
+        lineItem: [ { position: 165} ],
+        identification: [{position: 165 }],
+        fieldGroup: [{qualifier: 'GeneralData1',position: 30,importance: #HIGH }]
+  }
+  invoicehed;
+  @UI.hidden: true
+  Accpostrefdbk;
+
+  @UI.hidden: true
+  CreatedAt;
+
+  @UI.hidden: true
+  CreatedBy;
+
+  @UI.hidden: true
+  LastChangedBy;
+
+  @UI.hidden: true
+  LastChangedAt;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+  @UI.hidden: true
+  @UI: { lineItem: [{ position: 1 },
+                          { type: #FOR_ACTION, dataAction: 'Cancel', label: 'Cancel', iconUrl: 'sap-icon://close-command-field' }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 1, importance: #HIGH }] }
+  Closestatus;
+  
+  
+ @UI: {
+        lineItem: [ { position: 170} ],
+        identification: [{position: 170 }],
+        fieldGroup: [{qualifier: 'GeneralData8',position: 10,importance: #HIGH }]
+  }
+  BRCNo;
+  
+  @UI: {
+        lineItem: [ { position: 180} ],
+        identification: [{position:180 }],
+        fieldGroup: [{qualifier: 'GeneralData8',position: 20,importance: #HIGH }]
+  }
+  BRCDate;
+  
+  
+  @UI: {
+        lineItem: [ { position: 190} ],
+        identification: [{position: 190 }],
+        fieldGroup: [{qualifier: 'GeneralData8',position: 30,importance: #HIGH }]
+  }
+  BRCValue;
+  
+  
+}

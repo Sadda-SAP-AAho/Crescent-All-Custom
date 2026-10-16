@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Expensetypemaintain', 
+    typeNamePlural: 'Expensetypemaintains', 
+    title: {
+      type: #STANDARD, 
+      label: 'ExpenseTypeMaintainTable', 
+      value: 'Expansetype'
+    }
+  }
+}
+annotate view ZI_Expensetypemaintaint with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_Expensetypemaintaint', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'ExpenseTypeMaintainTable', 
+    position: 1 
+  } ]
+  Expansetype;
+}

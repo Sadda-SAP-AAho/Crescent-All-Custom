@@ -1,0 +1,4 @@
+@EndUserText.label: 'BOM wise Material Planning and Resource Info'
+define service ZSD_BOMMATRESINFO {
+  expose ZC_BOMMATRESINFO;
+}

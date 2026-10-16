@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Lead Master'
+define service ZSD_LEADMASTER {
+  expose ZC_LEADMASTER;
+}

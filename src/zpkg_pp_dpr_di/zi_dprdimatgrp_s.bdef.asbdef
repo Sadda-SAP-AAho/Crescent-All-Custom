@@ -1,0 +1,76 @@
+managed with additional save implementation in class ZBP_I_DPRDIMATGRP_S unique;
+strict;
+with draft;
+define behavior for ZI_DprDiMatGrp_S alias DprDiMatGrpAll
+draft table ZDT_MG_DPR__D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _DprDiMatGrp { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_DprDiMatGrp alias DprDiMatGrp ##UNMAPPED_FIELD
+persistent table ZDT_MG_DPR_DI
+draft table ZDT_MG_DPR_DI_D
+lock dependent by _DprDiMatGrpAll
+authorization dependent by _DprDiMatGrpAll
+
+{
+  field ( mandatory : create )
+   Costtype,
+   Matkl;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Costtype,
+   Matkl;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_MG_DPR_DI
+  {
+    Costtype = COSTTYPE;
+    Matkl = MATKL;
+  }
+
+  association _DprDiMatGrpAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

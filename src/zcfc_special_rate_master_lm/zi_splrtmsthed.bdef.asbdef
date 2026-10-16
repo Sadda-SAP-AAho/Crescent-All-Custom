@@ -1,0 +1,74 @@
+managed implementation in class zbp_i_splrtmsthed unique;
+strict;
+with draft;
+
+define behavior for ZI_SPLRTMSTHED //alias <alias_name>
+persistent table zdt_splrtmsthed
+draft table zdr_splrtmsthed
+lock master
+total etag ID
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly ) plntnm, lmnm;
+
+
+  create;
+  update;
+  delete;
+  determination updateheader on modify { field plntcd; field lmcd; }
+  side effects
+  { field plntcd affects field plntnm;
+    field lmcd affects field lmnm;
+  }
+
+
+  validation checkheadcomb on save {create;}
+
+
+  association _Item { create; }
+
+  mapping for zi_splrtmsthed
+    {
+      Plntcd  = Plntcd;
+      plntnm  = plntnm;
+      lmcd    = lmcd;
+      lmnm    = lmnm;
+    }
+}
+
+
+
+define behavior for ZI_SPLRTMSTITM //alias <alias_name>
+persistent table zdt_splrtmstitm
+draft table zdr_splrtmstitm
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id;
+  update;
+  delete;
+
+  association _Head { with draft; }
+  validation checkdaterange on save { create; }
+
+
+  mapping for zi_splrtmstitm
+    {
+      datefrom = datefrom;
+      dateto   = dateto;
+      currency = currency;
+      rate     = rate;
+    }
+}

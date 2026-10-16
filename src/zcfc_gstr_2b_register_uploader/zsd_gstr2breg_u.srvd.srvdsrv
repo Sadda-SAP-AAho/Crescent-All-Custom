@@ -1,0 +1,5 @@
+@EndUserText.label: 'GSTR 2B Register'
+define service ZSD_GSTR2BREG_U {
+  expose ZC_GSTR2BREG_H;
+  expose ZC_GSTR2BREG_I;
+}

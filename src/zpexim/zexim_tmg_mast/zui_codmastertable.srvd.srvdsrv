@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_CodMasterTable_S'
+define service ZUI_CODMASTERTABLE {
+  expose ZI_CODMASTERTABLE_S as CodMasterTableAll;
+  expose ZI_CODMASTERTABLE as CodMasterTable;
+}

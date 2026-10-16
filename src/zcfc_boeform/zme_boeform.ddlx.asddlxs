@@ -1,0 +1,67 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'BillNo', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'BOE Form Print' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'BOE Form Print', value: 'BillNo' } } }
+annotate entity ZC_BOEFORM with
+{
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'BOE Form Print', type: #COLLECTION },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 5, id: 'GeneralData1' }
+  ]
+
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 }, { type: #FOR_ACTION, dataAction: 'BOESCNDUNPD', label: 'BOE Second Exchange Print', iconUrl: 'sap-icon://close-command-field' } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.selectionField: [{position: 5}]
+  BillNo;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 }, { type: #FOR_ACTION, dataAction: 'BOEFRSTUNPD', label: 'BOE First Exchange Print', iconUrl: 'sap-icon://close-command-field' } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  BillDate;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Boeddt;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Currency;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  NetAmt;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  TOP;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  BankAddr;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  CustName;
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  StreetName;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  PostalCode;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  CityName;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Country;
+  @UI.hidden: true
+  printflag1;
+  @UI.hidden: true
+  printflag2;
+
+}

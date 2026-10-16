@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Contractor Wise Production",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Contractor Wise Production"
+  },
+  "ui5AppDetails": {
+    "appId": "zcontractpp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_BEACFC900F938947C468F448E702EEFD9383F5DC_TM",
+    "semanticObject": "zcontractpp_rep",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_BEACFC900F938947C468F448E702EEFD9383F5DC_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Contractor Wise Production",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+projection;
+strict ( 1 );
+
+define behavior for ZC_SERVICE_INV_HEAD //alias <alias_name>
+{
+  use update;
+  use action Print;
+  use association _Item { create; }
+}
+
+define behavior for ZC_SERVICE_INV_ITEM //alias <alias_name>
+{
+ // use update;
+ // use delete;
+
+  use association _Head;
+}

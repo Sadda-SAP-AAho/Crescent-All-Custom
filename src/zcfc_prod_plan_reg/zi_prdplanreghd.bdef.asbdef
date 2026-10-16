@@ -1,0 +1,112 @@
+managed implementation in class zbp_i_prdplanreghd unique;
+strict;
+with draft;
+
+define behavior for ZI_PRDPLANREGHD //alias <alias_name>
+persistent table zdt_prdplanreghd
+draft table zdr_prdplanreghd
+lock master
+total etag Docnum
+authorization master ( instance )
+//etag master <field_name>
+
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly ) Docnum, Plantname, Matgrpname;
+
+  create;
+  update;
+  delete;
+
+  determination determinedocnum on save { create; }
+  determination updateheader on modify { field Plantcode; field Matgrpcode; }
+
+  side effects
+  { field Plantcode affects field Plantname;
+    field Matgrpcode affects field Matgrpname; }
+
+  association _Item { create; }
+
+  validation checkvalidation on save { create; update; }
+  validation checkcomb on save { create; update; }
+
+  mapping for zi_prdplanreghd
+    {
+      fisyear    = fisyear;
+      docnum     = docnum;
+      Keyid      = Keyid;
+      Creon      = Creon;
+      Creby      = Creby;
+      Plantcode  = Plantcode;
+      Plantname  = Plantname;
+      matgrpcode = matgrpcode;
+      matgrpname = matgrpname;
+      prodyear   = prodyear;
+      prodmonth  = prodmonth;
+    }
+}
+
+define behavior for ZI_PRDPLANREGIT //alias <alias_name>
+persistent table zdt_prdplanregit
+draft table zdr_prdplanregit
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id, Prodname;
+  update;
+  delete;
+  determination updateitem1 on modify { field Prodcode; }
+  side effects
+  { field Prodcode affects field Prodname;
+
+  }
+
+  association _Head { with draft; }
+
+  mapping for zi_prdplanregit
+    {
+      prodcode = prodcode;
+      prodname = prodname;
+      day1     = day1;
+      day2     = day2;
+      day3     = day3;
+      day4     = day4;
+      day5     = day5;
+      day6     = day6;
+      day7     = day7;
+      day8     = day8;
+      day9     = day9;
+      day10    = day10;
+      day11    = day11;
+      day12    = day12;
+      day13    = day13;
+      day14    = day14;
+      day15    = day15;
+      day16    = day16;
+      day17    = day17;
+      day18    = day18;
+      day19    = day19;
+      day20    = day20;
+      day21    = day21;
+      day22    = day22;
+      day23    = day23;
+      day24    = day24;
+      day25    = day25;
+      day26    = day26;
+      day27    = day27;
+      day28    = day28;
+      day29    = day29;
+      day30    = day30;
+      day31    = day31;
+    }
+}

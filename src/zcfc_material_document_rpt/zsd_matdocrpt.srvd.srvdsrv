@@ -1,0 +1,4 @@
+@EndUserText.label: 'Material Document Report'
+define service ZSD_MATDOCRPT {
+  expose ZC_MATDOCRPT;
+}

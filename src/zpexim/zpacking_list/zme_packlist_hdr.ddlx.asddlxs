@@ -1,0 +1,133 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'Delivery', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Packing List' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Packing List', value: 'Delivery' } } }
+annotate entity ZC_PACKLIST_HDR with
+{
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'Packing List', type: #COLLECTION },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Shipping Bill Details', id: 'GeneralData1' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15, label: 'Creation Details', id: 'GeneralData2' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 20, label: 'Changed Details', id: 'GeneralData3' },
+
+  { id: 'PackListI', label: 'Packing List Item', type: #LINEITEM_REFERENCE, position : 25, targetElement: '_Item' }]
+  @UI.hidden: true
+  Id;
+
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Packinglist;
+
+  @UI.lineItem: [ { position: 6 } ]
+  @UI.identification: [ { position: 6 } ]
+  @UI.fieldGroup: [ { position: 6,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Revision;
+
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'DeliveryDocument', name:'ZI_DELIVERY_F4' },
+                                                distinctValues: true,
+                                                useForValidation: true } ]
+  Delivery;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Salesorg;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Plant;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Createdby;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Createdon;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Createdat;
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Changeddby;
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 80,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Changedon;
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 90,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Changedat;
+  @UI.hidden: true
+  Canind;
+  @UI.hidden: true
+  Cancelby;
+  @UI.hidden: true
+  Cancelon;
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 100,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Status;
+  @UI.lineItem: [ { position: 110 } ]
+  @UI.identification: [ { position: 110 } ]
+  @UI.fieldGroup: [ { position: 110,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Contactp;
+  @UI.lineItem: [ { position: 120 } ]
+  @UI.identification: [ { position: 120 } ]
+  @UI.fieldGroup: [ { position: 120,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Contactn;
+  @UI.lineItem: [ { position: 130 } ]
+  @UI.identification: [ { position: 130 } ]
+  @UI.fieldGroup: [ { position: 130,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Pkgtyp;
+  @UI.lineItem: [ { position: 135 } ]
+  @UI.identification: [ { position: 135 } ]
+  @UI.fieldGroup: [ { position: 135,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Customercode;
+  @UI.lineItem: [ { position: 140 } ]
+  @UI.identification: [ { position: 140 } ]
+  @UI.fieldGroup: [ { position: 140,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Customername;
+  @UI.lineItem: [ { position: 141 } ]
+  @UI.identification: [ { position: 141 } ]
+  @UI.fieldGroup: [ { position: 141,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Remarks;
+  @UI.hidden: true
+  @UI: { identification: [{ position: 400 },
+                          { type: #FOR_ACTION, dataAction: 'Cancel', label: 'Set Cancel', iconUrl: 'sap-icon://close-command-field' }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 300, importance: #HIGH }] }
+  Cancel;
+  //  @UI.hidden: true
+  //  @UI: { identification: [{ position: 410 },
+  //                          { type: #FOR_ACTION, dataAction: 'Prnt', label: 'Set Print', iconUrl: 'sap-icon://close-command-field' }],
+  //           fieldGroup: [{ qualifier: 'GeneralData3', position: 310, importance: #HIGH }] }
+  //  Prnt;
+  @UI.hidden: true
+  @UI: {
+      identification: [{position: 138 },  { type: #FOR_ACTION, dataAction: 'PRINT', label: 'Export Draft Packing List Print'} ]
+  }
+  Dprint;
+
+  @UI.hidden: true
+  @UI: {
+      identification: [{position: 139 },  { type: #FOR_ACTION, dataAction: 'DOMDPRINT', label: 'Domestic Draft Packing List Print'} ]
+  }
+  Domprint;
+
+//  @UI: {
+//      identification: [{position: 150 },  { type: #FOR_ACTION, dataAction: 'Domprinthsn', label: 'Domestic Draft Packing List-HSN'} ]
+//  }
+//  Domprinthsn;
+
+  @UI: {
+      identification: [{position: 160 },  { type: #FOR_ACTION, dataAction: 'Xporprinthsn', label: 'Export Draft Packing List-HSN'} ]
+  }
+  Xportprinthsn;
+  
+}

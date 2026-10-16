@@ -1,0 +1,134 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Forward Contract Item', value: 'Contnoext' } } }
+annotate view ZC_FOREXITMTP with
+{
+
+  @UI.facet:
+    [{ id: 'GeneralDataI', isSummary: true, label: 'Forward Contract Item', type: #COLLECTION, purpose: #STANDARD },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralDataI', position: 10, label: 'Section 1', id: 'GeneralData1' },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralDataI', position: 15, label: 'Section 2', id: 'GeneralData2' }
+//     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralDataI', position: 20, label: 'Invoice Details', id: 'GeneralData3' },
+//     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData4', parentId: 'GeneralDataI', position: 25, label: 'Sales Order', id: 'GeneralData4' }
+//     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData4', parentId: 'GeneralDataI', position: 25, label: 'Other', id: 'GeneralData4' }
+//     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData4', parentId: 'GeneralDataI', position: 25, label: 'Remakrs', id: 'GeneralData4' }
+    ]
+
+  @UI.hidden: true
+  Id;
+
+  @UI.hidden: true
+  Item;
+
+  @UI.hidden: true
+  Contnoext;
+
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  @Consumption.valueHelpDefinition: [{
+  entity: { name: 'zi_adjdoctype_f4_new', element: 'value_low' },
+                           distinctValues: true,
+                          useForValidation: true
+                          }]
+  Adjustdoctype;
+
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'AccountingDocument', name:'ZCDS_ARINV_F4' },
+                                                 distinctValues: true,
+                                                 useForValidation: true
+                    }]
+  Docno;
+
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Docdate;
+
+  // @UI.lineItem: [ { position: 20 } ]
+  // @UI.identification: [ { position: 20 } ]
+  // @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.hidden: true
+  Waers;
+  @UI.lineItem: [ { position: 21 } ]
+  @UI.identification: [ { position: 21 } ]
+  @UI.fieldGroup: [ { position: 21,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Fiscalyear;
+  @UI.lineItem: [ { position: 22 } ]
+  @UI.identification: [ { position: 22 } ]
+  @UI.fieldGroup: [ { position: 22,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'CompanyCode', name:'I_CompanyCode' },
+                                                 distinctValues: true,
+                                                 useForValidation: true
+                    }]
+  Companycode;
+  @UI.lineItem: [ { position: 23 } ]
+  @UI.identification: [ { position: 23 } ]
+  @UI.fieldGroup: [ { position: 23,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Salesdate;
+
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Amt;
+
+  @UI.lineItem: [ { position: 26 } ]
+  @UI.identification: [ { position: 26 } ]
+  @UI.fieldGroup: [ { position: 26,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Loanacno', name:'ZCDS_LOANNO_F4' },
+                                  distinctValues: true,
+                                  useForValidation: true
+                                                      }]
+  Loanaccno;
+
+  @UI.lineItem: [ { position: 27 } ]
+  @UI.identification: [ { position: 27 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Loanamt;
+
+  @UI.lineItem: [ { position: 28 } ]
+  @UI.identification: [ { position: 28 } ]
+  @UI.fieldGroup: [ { position: 28,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'SalesOrder', name:'ZCDS_SALES_F4' },
+                                 distinctValues: true,
+                                 useForValidation: true
+                                                     }]
+  Salesorder;
+
+  @UI.lineItem: [ { position: 29 } ]
+  @UI.identification: [ { position: 29 } ]
+  @UI.fieldGroup: [ { position: 29,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Salesamt;
+
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Remarks;
+
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Instructdate;
+
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Adjustval;
+
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Custref;
+  @UI.lineItem: [ { position: 47 } ]
+  @UI.identification: [ { position: 47 } ]
+  @UI.fieldGroup: [ { position: 47,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Otheramt;
+  @UI.lineItem: [ { position: 48 } ]
+  @UI.identification: [ { position: 48 } ]
+  @UI.fieldGroup: [ { position: 48,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Othertext;
+
+
+}

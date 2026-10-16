@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Inv wise Foreign Exc. Report'
+define service ZSD_INVOICE_FEE_RPT {
+  expose ZC_INVOICE_FEE_RPT;
+}

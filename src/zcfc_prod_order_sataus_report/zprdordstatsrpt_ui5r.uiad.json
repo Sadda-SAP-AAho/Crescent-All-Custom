@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Production Order Status Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Production Order Status"
+  },
+  "ui5AppDetails": {
+    "appId": "zprdordstatsrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_A49BEC2904F2FCDB5FE47A1838450913717C6473_TM",
+    "semanticObject": "zprdordstatsrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_A49BEC2904F2FCDB5FE47A1838450913717C6473_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Production Order Status",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

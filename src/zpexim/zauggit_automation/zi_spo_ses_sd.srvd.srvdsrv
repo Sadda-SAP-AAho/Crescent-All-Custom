@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service defination for ZI_SPO_SES_SD'
+define service ZI_SPO_SES_SD {
+  expose ZI_SPO_SES;
+  expose ZI_COMM_ID_VH;
+}

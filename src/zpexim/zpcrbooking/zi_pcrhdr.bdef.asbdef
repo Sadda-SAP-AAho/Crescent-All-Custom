@@ -1,0 +1,214 @@
+managed implementation in class zbp_i_pcrhdr unique;
+strict;
+with draft;
+
+define behavior for ZI_PCRHDR //alias <alias_name>
+persistent table zdt_pcr_hdr
+draft table zdr_pcr_hdr
+lock master
+total etag Bookingdt
+authorization master ( instance )
+//etag master <field_name>
+{
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+  field ( readonly : update, numbering : managed ) Id;
+
+  field ( mandatory : create, readonly : update ) Loanacno;
+  field ( readonly ) Balanceamt, Currency, Accountdocno, Accountdocyr;
+
+  field ( features : instance ) Intratesp, Amtusd, Amtcan, Amtgbp, Amteuro, Exchangerate1,
+  Nzdamt, Ratecan, Ratenzd, Rategbp, Rateuro, Rateusd, Benchintrate, Accpost, Accdocdate, Accpostdate;
+
+  field ( features : instance ) Cloanbankaccid, Cloanglacc, Cloanhousebank, Dbankaccid, Dglbankacc,
+  Dhousebank, Name, Bookingdt, Bankname, Waers, Bookamt,Loantype,Basedoctype,Duedt;
+
+
+  field ( mandatory ) Bankname, Waers, Name, Bookingdt, Exchangerate1, Bookamt, Duedt,
+  Basedoctype, Benchmarktype, Loantype,Cloanbankaccid, Cloanglacc, Cloanhousebank, Dbankaccid, Dglbankacc,
+  Dhousebank;
+
+
+  validation checkdoc on save { create; }
+  validation checkdetails on save { create; update; }
+
+  determination headerdetails on modify { field Loanacno; field Waers; field Bookamt; }
+  determination acc_post on save { field Accpost; }
+
+  action ( features : instance ) Upd result [1] $self;
+
+
+  side effects
+  {
+
+    field Loanacno affects field Exchratecurr, field Exchangerate1, field Balanceamt;
+    field Waers affects field Exchangerate1, field Exchratecurr, field Balanceamt;
+    field Bookamt affects field Exchangerate1, field Exchratecurr, field Balanceamt;
+    action Upd affects $self;
+  }
+
+  association _item { create ( features : instance ); with draft; }
+  association _item1 { create ( features : instance ); with draft; }
+  association _item2 { create ( features : instance ); with draft; }
+
+  mapping for zi_pcrhdr
+    {
+      Loanacno      = Loanacno;
+      Name          = Name;
+      Bookingdt     = Bookingdt;
+      Bankname      = Bankname;
+      Waers         = Waers;
+      Exchangerate  = Exchangerate;
+      Exchangerate1 = Exchangerate1;
+      Bookamt       = Bookamt;
+      Balanceamt    = Balanceamt;
+      Duedt         = Duedt;
+      Extduedt      = Extduedt;
+      Intratesp     = Intratesp;
+      Intratelib    = Intratelib;
+      Amtusd        = Amtusd;
+      Rateusd       = Rateusd;
+      Amteuro       = Amteuro;
+      Rateuro       = Rateuro;
+      Nzdamt        = Nzdamt;
+      Ratenzd       = Ratenzd;
+      Amtgbp        = Amtgbp;
+      Rategbp       = Rategbp;
+      Amtcan        = Amtcan;
+      Ratecan       = Ratecan;
+      Cuscode       = Cuscode;
+      Loantype      = Loantype;
+      Basedoctype   = Basedoctype;
+      Benchintrate  = Benchintrate;
+      Intdays       = Intdays;
+      Currency      = Currency;
+      Exchratecurr  = Exchratecurr;
+      Interestdays  = Interestdays;
+      Upd           = Upd;
+    }
+}
+
+define behavior for ZI_PCRITM //alias <alias_name>
+persistent table zdt_pcr_adjitm
+draft table zdr_pcr_adjitm
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly : update, numbering : managed ) Item;
+  field ( mandatory : create, readonly : update ) Adjustdoctype;
+  field ( mandatory : create ) Fiscalyear, Cocode;
+  field ( readonly ) Id, Invdt, Lcdate, Othercurr;
+  field ( features : instance ) Invopenamt, Invno, Remarks, Waers, Adjamt, Instructdt, Lcnumber, Lcamt,
+  Otheramt, Othertext;
+
+  validation checkadj on save { create; update; }
+
+  determination upd_create on save { create; }//SM
+  determination adjustdetails on modify { field Lcnumber; field Invno; }
+  determination adjustamt on modify { field Otheramt; field Invopenamt; }
+  //  determination update_adjamt on modify { field  }
+  determination adjusthedamt on modify { field Adjamt; }
+
+  //  determination deldata on save { delete; }
+  side effects
+  {
+
+    field Otheramt affects field Adjamt;
+    field Invno affects field Invdt, field Invopenamt, field Waers, field Adjamt;
+    field Invopenamt affects field Adjamt;
+    field Lcnumber affects field Lcdate, field Lcamt, field Lcurr;
+    field Adjamt affects field _head.Balanceamt;
+
+  }
+  association _head { with draft; }
+  mapping for zi_pcritm
+    {
+      Adjustdoctype = Adjustdoctype;
+      Invno         = Invno;
+      Invdt         = Invdt;
+      Waers         = Waers;
+      Invopenamt    = Invopenamt;
+      Remarks       = Remarks;
+      Instructdt    = Instructdt;
+      Adjamt        = Adjamt;
+      Lcdate        = Lcdate;
+      Lcnumber      = Lcnumber;
+      Lcamt         = Lcamt;
+      Lcurr         = Lcurr;
+      Fiscalyear    = Fiscalyear;
+      Cocode        = Cocode;
+      Otheramt      = Otheramt;
+      Othertext     = Othertext;
+      Othercurr     = Othercurr;
+    }
+}
+
+define behavior for ZI_PCRITM1 //alias <alias_name>
+persistent table zdt_pcr_sofritm
+draft table zdr_pcr_sofritm
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id, Waers;
+  field ( features : instance ) Sofr, Validfromdt, Validtodt;
+  validation checksofr on save { create; update; }
+  association _head { with draft; }
+  mapping for zi_pcritm1
+    {
+      Sofr        = Sofr;
+      Validfromdt = Validfromdt;
+      Validtodt   = Validtodt;
+    }
+
+}
+
+define behavior for ZI_PCRITM2 //alias <alias_name>
+persistent table zdt_pcr_sorditm
+draft table zdr_pcr_sorditm
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly : update, numbering : managed ) Item;
+  field ( mandatory : create, readonly : update ) Sordno;
+  field ( readonly ) Id, Sorddt, Cuscode, Payterm, Bank, Waers, Basicamt;
+
+  validation checksord on save { create; update; }
+  determination sorddetails on modify { field Sordno; }
+
+  side effects
+  {
+    field Sordno affects field Basicamt, field Waers, field Cuscode, field Sorddt;
+  }
+  association _head { with draft; }
+  mapping for zi_pcritm2
+    {
+      Sodocentry = Sodocentry;
+      Sordno     = Sordno;
+      Sorddt     = Sorddt;
+      Cuscode    = Cuscode;
+      Payterm    = Payterm;
+      Bank       = Bank;
+      Waers      = Waers;
+      Basicamt   = Basicamt;
+    }
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Vendor Ledger SD'
+define service ZSERV_D_VENDORLEDGER {
+  expose ZV_VENDORLEDGERF;
+}

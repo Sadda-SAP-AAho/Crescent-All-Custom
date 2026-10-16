@@ -1,0 +1,61 @@
+managed implementation in class zbp_i_gap_tracker unique;
+strict ( 1 );
+with draft;
+define behavior for ZI_GAP_TRACKER //alias <alias_name>
+persistent table zdt_gap_tracker
+draft table zdr_gap_tracker
+lock master
+total etag LastChangedOn
+authorization master ( instance )
+//etag master <field_name>
+{
+  field ( readonly, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update ) ModuleName;
+  field ( readonly ) LastChangedBy, LastChangedOn, LastChangedAt, SerialNumber,WricefDescription,DevStatusDesc,TestingDesc;
+  field ( readonly ) ClntStatusDesc,DeployedDesc,StageDesc,FSDDesc,TSDDesc,PriorityDesc,Overalldesc;
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Resume;
+  draft action Discard;
+  draft determine action Prepare;
+  determination headerdetails1 on modify { field ModuleName; }
+  determination headerdetails on save { create; }
+  determination updatelog on save { create; field WricefCategory,Priority,Description,Entity,
+                                    DevelopmentStatus,TestingStatus,ClientTestingStatus,Developer,
+                                    Finctional,TransportNo,Deployed,Remarks,Stage,FdsStatus,TsdStatus,
+                                    Fstardat,Fscomdat,Devtardat,Devcomdat,Rework,Reworkrem,Overallstat  ;  }
+  mapping for zi_gap_tracker
+    {
+      SerialNumber        = SerialNumber;
+      ModuleName          = ModuleName;
+      Description         = Description;
+      WricefCategory      = WricefCategory;
+      WricefDescription  = WricefDescription;
+      Priority            = Priority;
+      Entity              = Entity;
+      DevelopmentStatus   = DevelopmentStatus;
+      TestingStatus       = TestingStatus;
+      ClientTestingStatus = ClientTestingStatus;
+      Developer           = Developer;
+      Finctional          = Finctional;
+      TransportNo         = TransportNo;
+      Deployed            = Deployed;
+      Remarks             = Remarks;
+      Stage               = Stage;
+      FdsStatus           = FdsStatus;
+      TsdStatus           = TsdStatus;
+      LastChangedBy       = LastChangedBy;
+      LastChangedOn       = LastChangedOn;
+      LastChangedAt       = LastChangedAt;
+      Fstardat            = Fstardat;
+      Fscomdat            = Fscomdat;
+      Devtardat           = Devtardat;
+      Devcomdat           = Devcomdat;
+      Rework              = Rework;
+      Reworkrem           = Reworkrem;
+      Overallstat         = Overallstat;
+    }
+}

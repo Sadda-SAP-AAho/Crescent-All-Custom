@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_ENHO" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TOOL>BADI_IMPL</TOOL>
+   <SHORTTEXT>BADI for J1IENHAN_GST_ISD</SHORTTEXT>
+   <SPOT_NAME>J1IENHAN_GST_ISD</SPOT_NAME>
+   <IMPL>
+    <ENH_BADI_IMPL_DATA>
+     <SPOT_NAME>J1IENHAN_GST_ISD</SPOT_NAME>
+     <BADI_NAME>J_1IG_BADI_ISD</BADI_NAME>
+     <IMPL_NAME>ZEI_J_1IG_BADI_ISD</IMPL_NAME>
+     <IMPL_CLASS>ZCL_J_1IG_BADI_ISD</IMPL_CLASS>
+     <ACTIVE>X</ACTIVE>
+     <IMPL_SHORTTEXT>BADI Implementation for J_1IG_BADI_ISD</IMPL_SHORTTEXT>
+     <LOCKED_IN_CUSTOMIZING>X</LOCKED_IN_CUSTOMIZING>
+    </ENH_BADI_IMPL_DATA>
+   </IMPL>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "GSTR 2B Register-Uploader",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "GSTR 2B Register"
+  },
+  "ui5AppDetails": {
+    "appId": "zgstr2bregu"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_32E3B8A21A8610B5595139A05B2C3BA8A17734F7_TM",
+    "semanticObject": "zgstr2bregu",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_32E3B8A21A8610B5595139A05B2C3BA8A17734F7_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "GSTR 2B Register",
+        "subtitle": "Uploader"
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "PO History"
+  },
+  "ui5AppDetails": {
+    "appId": "zpohstryrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_4615A0EF98D8DEB944DBAAFC5B1F56A7C29416B9_TM",
+    "semanticObject": "zpohstryrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_4615A0EF98D8DEB944DBAAFC5B1F56A7C29416B9_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "PO History",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Estimate Vaccum Register'
+define service ZSD_ESTVACREG {
+  expose ZC_ESTVACREG;
+}

@@ -1,0 +1,48 @@
+managed implementation in class zbp_i_captypmstr unique;
+strict;
+with draft;
+
+define behavior for ZI_CAPTYPMSTR //alias <alias_name>
+persistent table zdt_captypmstr_n
+draft table zdr_captypmstr_n
+lock master
+total etag ID
+authorization master ( instance )
+//etag master <field_name>
+
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly : update ) capname;
+  field ( mandatory : create, readonly : update ) capcode;
+
+  create;
+  update;
+  delete;
+  determination updateheader on modify { field capcode; }
+
+  side effects
+  { field capcode affects field capname;}
+
+  validation checkcapname on save { create; }
+
+  mapping for zi_captypmstr
+  {
+    capcode = capcode;
+    capname = capname;
+    capperday = capperday;
+    noofline = noofline;
+    noofbox = noofbox;
+    noofpatt = noofpatt;
+    capcatg = capcatg;
+    ratefc2 = ratefc2;
+
+  }
+}

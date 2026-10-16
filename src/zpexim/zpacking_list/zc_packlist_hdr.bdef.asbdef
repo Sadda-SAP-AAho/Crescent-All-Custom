@@ -1,0 +1,36 @@
+projection;
+strict ;
+use draft;
+use side effects;
+
+define behavior for ZC_PACKLIST_HDR //alias <alias_name>
+{
+  use create;
+  use update;
+  // use delete;
+
+  use action Cancel;
+//  use action Prnt;
+  use action Print;
+  use action Domdprint;
+  use action Domprinthsn;
+  use action Xporprinthsn;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use association _Item { create; with draft; }
+}
+
+define behavior for ZC_PACKLIST_ITM //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use action Copy;
+
+  use association _Head { with draft; }
+}

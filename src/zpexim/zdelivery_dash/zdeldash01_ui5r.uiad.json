@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Delivery Dashboard",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Delivery Dashboard"
+  },
+  "ui5AppDetails": {
+    "appId": "zdeldash"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_6A074212B769E2F31E21C046BB132A8211381BB3_TM",
+    "semanticObject": "zdeldash1",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_6A074212B769E2F31E21C046BB132A8211381BB3_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Delivery Dashboard"
+      }
+    }
+  ]
+}

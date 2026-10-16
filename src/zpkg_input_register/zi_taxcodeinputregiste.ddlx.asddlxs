@@ -1,0 +1,138 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TaxcodeInputRegiste',
+    typeNamePlural: 'TaxcodeInputRegistes',
+    title: {
+      type: #STANDARD,
+      label: 'Taxcode Input Register',
+      value: 'Id'
+    }
+  }
+}
+annotate view ZI_TaxcodeInputRegiste with
+{
+  @UI.identification: [ {
+    position: 1
+  } ]
+  @UI.lineItem: [ {
+    position: 1
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TaxcodeInputRegiste',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Taxcode Input Register',
+    position: 1
+  } ]
+  @UI.hidden: true
+  Id;
+
+  @UI.identification: [ {
+    position: 2
+  } ]
+  @UI.lineItem: [ {
+    position: 2
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'TaxCode', name:'ZR_TAXCODE_GST'},
+                                                distinctValues: true,
+                                                useForValidation: true,
+                                            additionalBinding: [{ localElement: 'Taxcodename',element: 'TaxCodeName', usage: #FILTER_AND_RESULT }]
+                                   }]
+  Taxcode;
+  @UI.identification: [ {
+   position: 3
+  } ]
+  @UI.lineItem: [ {
+    position: 3
+  } ]
+  Taxcodename;
+  @UI.identification: [ {
+  position: 4
+  } ]
+  @UI.lineItem: [ {
+    position: 4
+  } ]
+  Cgst;
+  
+  @UI.identification: [ {
+  position: 5
+  } ]
+  @UI.lineItem: [ {
+    position: 5
+  } ]
+  Sgst;
+  
+  @UI.identification: [ {
+  position: 6
+  } ]
+  @UI.lineItem: [ {
+    position: 6
+  } ]
+  Igst;
+  
+  @UI.identification: [ {
+    position: 7
+  } ]
+  @UI.lineItem: [ {
+    position: 7
+  } ]
+
+  Trnskey1;
+
+  @UI.identification: [ {
+    position: 8
+  } ]
+  @UI.lineItem: [ {
+    position: 8
+  } ]
+  Trnskey2;
+
+  @UI.identification: [ {
+    position: 9
+  } ]
+  @UI.lineItem: [ {
+    position: 9
+  } ]
+  Trnskey3;
+
+  @UI.identification: [ {
+    position: 10
+  } ]
+  @UI.lineItem: [ {
+    position: 10
+  } ]
+  Trnskey4;
+
+  //  @UI.identification: [ {
+  //    position: 7
+  //  } ]
+  //  @UI.lineItem: [ {
+  //    position: 7
+  //  } ]
+  //  Trnskey5;
+  //
+  //  @UI.identification: [ {
+  //    position: 8
+  //  } ]
+  //  @UI.lineItem: [ {
+  //    position: 8
+  //  } ]
+  //  Trnskey6;
+  //
+  //  @UI.identification: [ {
+  //    position: 9
+  //  } ]
+  //  @UI.lineItem: [ {
+  //    position: 9
+  //  } ]
+  //  Trnskey7;
+  //
+  //  @UI.identification: [ {
+  //    position: 10
+  //  } ]
+  //  @UI.lineItem: [ {
+  //    position: 10
+  //  } ]
+  //  Trnskey8;
+}

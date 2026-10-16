@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for User Wise Business Role'
+define service ZSD_USERBUSINESSROLE {
+  expose ZC_USERBUSINESSROLE;
+}

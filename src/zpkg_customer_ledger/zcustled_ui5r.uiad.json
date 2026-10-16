@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Customer Ledger",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Customer Ledger"
+  },
+  "ui5AppDetails": {
+    "appId": "zcustled.zcustled"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_8319C7BF3A7F81B917D8E7F444120A3CEFB87DA8_TM",
+    "semanticObject": "zcustled",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_8319C7BF3A7F81B917D8E7F444120A3CEFB87DA8_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Customer Ledger"
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+managed implementation in class zbp_i_leadmaster unique;
+strict;
+with draft;
+
+define behavior for ZI_LEADMASTER //alias <alias_name>
+persistent table zdt_leadmaster
+draft table zdr_leadmaster
+lock master
+total etag ID
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+
+
+  create;
+  update;
+  delete;
+
+  mapping for zi_leadmaster
+
+  {
+    Leadcode    = Leadcode;
+    Leadname    = Leadname;
+    Salesperson = Salesperson;
+
+  }
+
+  }

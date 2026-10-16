@@ -1,0 +1,58 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZC_POWERRDNGL
+    with 
+{  
+    @UI.facet : 
+    [ 
+     { id : 'GeneralData' , isSummary: true, label : 'Power Reading Master' , type : #COLLECTION},
+     { type: #FIELDGROUP_REFERENCE , targetQualifier: 'GeneralData1', parentId: 'GeneralData', position : 10 , label: 'Header', id: 'GeneralData1' }
+     
+     ]
+    
+    @UI.hidden: true
+    Id;
+    
+    @UI.hidden: true
+    Item;
+    
+    @UI.lineItem: [{position: 5}]
+    @UI.identification: [{position: 5}]
+    @UI.fieldGroup: [{position: 5,qualifier: 'GeneralData1', importance: #HIGH}]
+    @Consumption.valueHelpDefinition: [{ entity:{  element : 'subheadcd', name: 'ZCDS_SUBHDCD_F4'},
+    distinctValues: true,
+    useForValidation: true}]
+    
+    Subhdcd;
+    
+    @UI.lineItem: [{position: 10}]
+    @UI.identification: [{position: 10}]
+    @UI.fieldGroup: [{position: 10,qualifier: 'GeneralData1', importance: #HIGH}]
+    
+    Subhdnm;
+    
+    @UI.lineItem: [{position: 15}]
+    @UI.identification: [{position: 15}]
+    @UI.fieldGroup: [{position: 15,qualifier: 'GeneralData1', importance: #HIGH}]
+    
+    Headcd;
+    
+    @UI.lineItem: [{position: 20}]
+    @UI.identification: [{position: 20}]
+    @UI.fieldGroup: [{position: 20,qualifier: 'GeneralData1', importance: #HIGH}]
+    
+    Headnm;
+    
+    @UI.lineItem: [{position: 25}]
+    @UI.identification: [{position: 25}]
+    @UI.fieldGroup: [{position: 25,qualifier: 'GeneralData1', importance: #HIGH}]
+    
+    Metertyp;
+    
+    @UI.lineItem: [{position: 30}]
+    @UI.identification: [{position: 30}]
+    @UI.fieldGroup: [{position: 30,qualifier: 'GeneralData1', importance: #HIGH}]
+    
+    Meterrdng;
+   
+    
+}

@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgForDeletePpDash_S'
+define service ZUI_TMGFORDELETEPPDASH {
+  expose ZI_TMGFORDELETEPPDASH_S as TmgForDeletePpDaAll;
+  expose ZI_TMGFORDELETEPPDASH as TmgForDeletePpDash;
+}

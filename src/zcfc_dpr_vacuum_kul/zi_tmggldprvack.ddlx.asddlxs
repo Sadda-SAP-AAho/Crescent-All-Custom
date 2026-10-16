@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgGlDprVACK', 
+    typeNamePlural: 'TmgGlDprVACKs', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG GL DPR VAC KUL', 
+      value: 'Costtype'
+    }
+  }
+}
+annotate view ZI_TmgGlDprVACK with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgGlDprVACK', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG GL DPR VAC KUL', 
+    position: 1 
+  } ]
+  Costtype;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Hkont;
+}

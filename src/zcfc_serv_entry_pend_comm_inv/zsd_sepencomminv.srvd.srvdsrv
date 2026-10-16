@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Entry Pending against Commercial Invoice'
+define service ZSD_SEPENCOMMINV {
+  expose ZC_SEPENCOMMINV;
+}

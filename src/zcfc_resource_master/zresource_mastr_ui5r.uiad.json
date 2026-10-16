@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Resource Master Dashboard",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Resource Master"
+  },
+  "ui5AppDetails": {
+    "appId": "com.infocus.resource.master.resourcemaster"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_FE6841F3327D1E1678B3F0D10CC2F25F94988A28_TM",
+    "semanticObject": "ZRESOURCE_MASTER",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_FE6841F3327D1E1678B3F0D10CC2F25F94988A28_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Resource Master"
+      }
+    }
+  ]
+}

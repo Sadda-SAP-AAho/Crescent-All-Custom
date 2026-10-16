@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition: BRC Uploader'
+define service ZSD_BRC_UPLOADER {
+  expose ZC_BRC_HEAD;
+  expose ZC_BRC;
+}

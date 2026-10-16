@@ -1,0 +1,299 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Planning Report',
+                typeNamePlural:'Planning Report',
+                title: { type: #STANDARD, label: 'Planning Report', value: 'component' }
+              }
+     }
+annotate entity ZC_PLAN_RPT with
+{
+
+  @UI.facet: [{ id : 'GeneralData', isSummary: true, label: 'Planning Report', position: 5, type: #COLLECTION },
+             { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Report Details', id: 'GeneralData1' }
+
+             ]
+  @UI: { lineItem: [ { position: 1} ], identification: [{position: 1 }],selectionField: [{ position: 1 }] }
+  @UI.fieldGroup: [ { position: 1,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  plant;
+  //  @UI: { lineItem: [ { position: 5} ], identification: [{position: 5 }],selectionField: [{ position: 5 }] }
+  //  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  //  hedmaterial;
+  @UI: { lineItem: [ { position: 10} ], identification: [{position: 10 }],selectionField: [{ position: 10 }] }
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  component;
+  @UI.hidden: true
+  ProductGroup;
+  @UI: { lineItem: [ { position: 20} ], identification: [{position: 20 }] }
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ProductDescription;
+  @UI.hidden: true
+  WeightUnit;
+  @UI: { lineItem: [ { position: 30} ], identification: [{position: 30 }] }
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  NetWeight;
+  @UI: { lineItem: [ { position: 35} ], identification: [{position: 35 }] }
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ProfitCenter;
+  @UI: { lineItem: [ { position: 38} ], identification: [{position: 38 }] }
+  @UI.fieldGroup: [ { position: 38,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ProfitCenterLongName;
+  @UI: { lineItem: [ { position: 40} ], identification: [{position: 40 }] }
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  cuscode;
+  @UI: { lineItem: [ { position: 42} ], identification: [{position: 42 }] }
+  @UI.fieldGroup: [ { position: 42,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  subcode;
+  @UI: { lineItem: [ { position: 45} ], identification: [{position: 45 }] }
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  qtyperbox;
+  @UI: { lineItem: [ { position: 50} ], identification: [{position: 50 }] }
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  prodcapcday;
+  @UI: { lineItem: [ { position: 55} ], identification: [{position: 55 }] }
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  boxsize;
+  @UI: { lineItem: [ { position: 60} ], identification: [{position: 60 }] }
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  typemould;
+  @UI: { lineItem: [ { position: 65} ], identification: [{position: 65 }] }
+  @UI.fieldGroup: [ { position: 65,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenContQty;
+  @UI: { lineItem: [ { position: 70} ], identification: [{position: 70 }] }
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenContQtyWt;
+  @UI: { lineItem: [ { position: 75} ], identification: [{position: 75 }] }
+  @UI.fieldGroup: [ { position: 75,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty;
+  @UI: { lineItem: [ { position: 80} ], identification: [{position: 80 }] }
+  @UI.fieldGroup: [ { position: 80,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtyWt;
+  @UI: { lineItem: [ { position: 85} ], identification: [{position: 85 }] }
+  @UI.fieldGroup: [ { position: 85,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  castonhand;
+  @UI: { lineItem: [ { position: 90} ], identification: [{position: 90 }] }
+  @UI.fieldGroup: [ { position: 90,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  castonhandWt;
+  @UI: { lineItem: [ { position: 91} ], identification: [{position: 91 }] }
+  @UI.fieldGroup: [ { position: 95,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  FgLiveQty;
+  @UI: { lineItem: [ { position: 92} ], identification: [{position: 92 }] }
+  @UI.fieldGroup: [ { position: 92,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  FgLivewt;
+  @UI: { lineItem: [ { position: 93} ], identification: [{position: 93 }] }
+  @UI.fieldGroup: [ { position: 93,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  FgdeadQty;
+  @UI: { lineItem: [ { position: 94} ], identification: [{position: 94 }] }
+  @UI.fieldGroup: [ { position: 94,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  FgdeadWt;
+  @UI: { lineItem: [ { position: 95} ], identification: [{position: 95 }] }
+  @UI.fieldGroup: [ { position: 95,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  stockZ028;
+  @UI: { lineItem: [ { position: 100} ], identification: [{position: 100 }] }
+  @UI.fieldGroup: [ { position: 100,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  stockZ026;
+  @UI: { lineItem: [ { position: 105} ], identification: [{position: 105 }] }
+  @UI.fieldGroup: [ { position: 105,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  stockZ027;
+  @UI: { lineItem: [ { position: 110} ], identification: [{position: 110 }] }
+  @UI.fieldGroup: [ { position: 110,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  stockZ025;
+  @UI: { lineItem: [ { position: 111} ], identification: [{position: 111 }] }
+  @UI.fieldGroup: [ { position: 111,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  stockZ045;
+  @UI: { lineItem: [ { position: 112} ], identification: [{position: 112 }] }
+  @UI.fieldGroup: [ { position: 112,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  stockZ024;
+  @UI: { lineItem: [ { position: 115} ], identification: [{position: 115 }] }
+  @UI.fieldGroup: [ { position: 115,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  SfgOnHand;
+  @UI: { lineItem: [ { position: 120} ], identification: [{position: 120 }] }
+  @UI.fieldGroup: [ { position: 120,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  SfgOnHandWt;
+  @UI: { lineItem: [ { position: 121} ], identification: [{position: 121 }] }
+  @UI.fieldGroup: [ { position: 121,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  SfgLiveQty;
+  @UI: { lineItem: [ { position: 122} ], identification: [{position: 122 }] }
+  @UI.fieldGroup: [ { position: 122,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  SfgLiveWt;
+  @UI: { lineItem: [ { position: 123} ], identification: [{position: 123 }] }
+  @UI.fieldGroup: [ { position: 123,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  SfgdeadQty;
+  @UI: { lineItem: [ { position: 124} ], identification: [{position: 124 }] }
+  @UI.fieldGroup: [ { position: 124,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  SfgdeadWt;
+  @UI: { lineItem: [ { position: 125} ], identification: [{position: 125 }] }
+  @UI.fieldGroup: [ { position: 125,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Totalstockqty;
+  @UI: { lineItem: [ { position: 126} ], identification: [{position: 126 }] }
+  @UI.fieldGroup: [ { position: 126,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  TotalstockWt;
+  @UI: { lineItem: [ { position: 127} ], identification: [{position: 127 }] }
+  @UI.fieldGroup: [ { position: 127,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty7;
+  @UI: { lineItem: [ { position: 130} ], identification: [{position: 130 }] }
+  @UI.fieldGroup: [ { position: 130,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty7Wt;
+  @UI: { lineItem: [ { position: 135} ], identification: [{position: 135 }] }
+  @UI.fieldGroup: [ { position: 135,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty8;
+  @UI: { lineItem: [ { position: 140} ], identification: [{position: 140 }] }
+  @UI.fieldGroup: [ { position: 140,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty8Wt;
+  @UI: { lineItem: [ { position: 145} ], identification: [{position: 145 }] }
+  @UI.fieldGroup: [ { position: 145,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty16;
+  @UI: { lineItem: [ { position: 150} ], identification: [{position: 150 }] }
+  @UI.fieldGroup: [ { position: 155,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty16Wt;
+  @UI: { lineItem: [ { position: 155} ], identification: [{position: 155 }] }
+  @UI.fieldGroup: [ { position: 155,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty23;
+  @UI: { lineItem: [ { position: 160} ], identification: [{position: 160 }] }
+  @UI.fieldGroup: [ { position: 160,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty23Wt;
+  @UI: { lineItem: [ { position: 165} ], identification: [{position: 165 }] }
+  @UI.fieldGroup: [ { position: 165,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty31;
+  @UI: { lineItem: [ { position: 170} ], identification: [{position: 170 }] }
+  @UI.fieldGroup: [ { position: 170,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty31Wt;
+  @UI: { lineItem: [ { position: 175} ], identification: [{position: 175 }] }
+  @UI.fieldGroup: [ { position: 175,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty39;
+  @UI: { lineItem: [ { position: 180} ], identification: [{position: 180 }] }
+  @UI.fieldGroup: [ { position: 180,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty39Wt;
+  @UI: { lineItem: [ { position: 185} ], identification: [{position: 185 }] }
+  @UI.fieldGroup: [ { position: 185,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty47;
+  @UI: { lineItem: [ { position: 190} ], identification: [{position: 190 }] }
+  @UI.fieldGroup: [ { position: 190,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty47Wt;
+  @UI: { lineItem: [ { position: 195} ], identification: [{position: 195 }] }
+  @UI.fieldGroup: [ { position: 195,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty55;
+  @UI: { lineItem: [ { position: 200} ], identification: [{position: 200 }] }
+  @UI.fieldGroup: [ { position: 200,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty55Wt;
+  @UI: { lineItem: [ { position: 205} ], identification: [{position: 205 }] }
+  @UI.fieldGroup: [ { position: 205,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty63;
+  @UI: { lineItem: [ { position: 210} ], identification: [{position: 210 }] }
+  @UI.fieldGroup: [ { position: 210,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty63Wt;
+  @UI: { lineItem: [ { position: 220} ], identification: [{position: 220 }] }
+  @UI.fieldGroup: [ { position: 220,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty71;
+  @UI: { lineItem: [ { position: 225} ], identification: [{position: 225}] }
+  @UI.fieldGroup: [ { position: 225,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty71Wt;
+  @UI: { lineItem: [ { position: 230} ], identification: [{position: 230 }] }
+  @UI.fieldGroup: [ { position: 230,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty366;
+  @UI: { lineItem: [ { position: 235} ], identification: [{position: 235 }] }
+  @UI.fieldGroup: [ { position: 235,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQty366Wt;
+  @UI: { lineItem: [ { position: 240} ], identification: [{position: 240 }] }
+  @UI.fieldGroup: [ { position: 240,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySwt7;
+  @UI: { lineItem: [ { position: 245} ], identification: [{position: 245 }] }
+  @UI.fieldGroup: [ { position: 245,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  opensoqtysnl7;
+  @UI: { lineItem: [ { position: 250} ], identification: [{position: 250 }] }
+  @UI.fieldGroup: [ { position: 250,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySrd7;
+  @UI: { lineItem: [ { position: 255} ], identification: [{position: 255 }] }
+  @UI.fieldGroup: [ { position: 255,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySwt8;
+  @UI: { lineItem: [ { position: 260} ], identification: [{position: 260 }] }
+  @UI.fieldGroup: [ { position: 260,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  opensoqtysnl8;
+  @UI: { lineItem: [ { position: 265} ], identification: [{position: 265 }] }
+  @UI.fieldGroup: [ { position: 265,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySrd8;
+  @UI: { lineItem: [ { position: 270} ], identification: [{position: 270 }] }
+  @UI.fieldGroup: [ { position: 270,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySwt16;
+  @UI: { lineItem: [ { position: 275} ], identification: [{position: 275 }] }
+  @UI.fieldGroup: [ { position: 275,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  opensoqtysnl16;
+  @UI: { lineItem: [ { position: 280} ], identification: [{position: 280 }] }
+  @UI.fieldGroup: [ { position: 280,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySrd16;
+  @UI: { lineItem: [ { position: 285} ], identification: [{position: 285 }] }
+  @UI.fieldGroup: [ { position: 285,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySwt23;
+  @UI: { lineItem: [ { position: 290} ], identification: [{position: 290 }] }
+  @UI.fieldGroup: [ { position: 290,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  opensoqtysnl23;
+  @UI: { lineItem: [ { position: 295} ], identification: [{position: 295 }] }
+  @UI.fieldGroup: [ { position: 295,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySrd23;
+  @UI: { lineItem: [ { position: 300} ], identification: [{position: 300 }] }
+  @UI.fieldGroup: [ { position: 300,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySwt31;
+  @UI: { lineItem: [ { position: 305} ], identification: [{position: 305 }] }
+  @UI.fieldGroup: [ { position: 305,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  opensoqtysnl31;
+  @UI: { lineItem: [ { position: 310} ], identification: [{position: 310 }] }
+  @UI.fieldGroup: [ { position: 310,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySrd31;
+  @UI: { lineItem: [ { position: 315} ], identification: [{position: 315 }] }
+  @UI.fieldGroup: [ { position: 315,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySwt39;
+  @UI: { lineItem: [ { position: 320} ], identification: [{position: 320 }] }
+  @UI.fieldGroup: [ { position: 320,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  opensoqtysnl39;
+  @UI: { lineItem: [ { position: 325} ], identification: [{position: 325 }] }
+  @UI.fieldGroup: [ { position: 325,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySrd39;
+  @UI: { lineItem: [ { position: 330} ], identification: [{position: 330 }] }
+  @UI.fieldGroup: [ { position: 330,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySwt47;
+  @UI: { lineItem: [ { position: 335} ], identification: [{position: 335 }] }
+  @UI.fieldGroup: [ { position: 335,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  opensoqtysnl47;
+  @UI: { lineItem: [ { position: 340} ], identification: [{position: 340 }] }
+  @UI.fieldGroup: [ { position: 340,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySrd47;
+  @UI: { lineItem: [ { position: 345} ], identification: [{position: 345 }] }
+  @UI.fieldGroup: [ { position: 345,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySwt55;
+  @UI: { lineItem: [ { position: 350} ], identification: [{position: 350 }] }
+  @UI.fieldGroup: [ { position: 350,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  opensoqtysnl55;
+  @UI: { lineItem: [ { position: 355} ], identification: [{position: 355 }] }
+  @UI.fieldGroup: [ { position: 355,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySrd55;
+  @UI: { lineItem: [ { position: 360} ], identification: [{position: 360 }] }
+  @UI.fieldGroup: [ { position: 360,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySwt63;
+  @UI: { lineItem: [ { position: 365} ], identification: [{position: 365 }] }
+  @UI.fieldGroup: [ { position: 365,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  opensoqtysnl63;
+  @UI: { lineItem: [ { position: 370} ], identification: [{position: 370 }] }
+  @UI.fieldGroup: [ { position: 370,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySrd63;
+  @UI: { lineItem: [ { position: 375} ], identification: [{position: 375 }] }
+  @UI.fieldGroup: [ { position: 375,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySwt71;
+  @UI: { lineItem: [ { position: 380} ], identification: [{position: 380 }] }
+  @UI.fieldGroup: [ { position: 380,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  opensoqtysnl71;
+  @UI: { lineItem: [ { position: 385} ], identification: [{position: 385 }] }
+  @UI.fieldGroup: [ { position: 385,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySrd71;
+  @UI: { lineItem: [ { position: 390} ], identification: [{position: 390 }] }
+  @UI.fieldGroup: [ { position: 390,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySwt366;
+  @UI: { lineItem: [ { position: 395} ], identification: [{position: 395 }] }
+  @UI.fieldGroup: [ { position: 395,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  opensoqtysnl366;
+  @UI: { lineItem: [ { position: 400} ], identification: [{position: 400 }] }
+  @UI.fieldGroup: [ { position: 400,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OpenSoQtySrd366;
+
+
+
+
+}

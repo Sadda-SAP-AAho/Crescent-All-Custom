@@ -1,0 +1,28 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'Userid', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Gate Entry Authorization Maintenance' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Gate Entry Authorization Maintenance', value: 'Userid' } } }
+annotate entity ZC_GATE_AUTH with
+{
+  @UI.facet: [{ id : 'GeneralData', isSummary: true, label: 'Gate Entry Authorization Maintenance', position: 5, type: #COLLECTION },
+              { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Report Details', id: 'GeneralData1' }]
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZR_SHIPMENTTYPE_F4_NEW', element: 'Gateentrytype' },
+                                distinctValues: true,
+                                useForValidation: true }]
+  Type;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]  
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_USER_DET', element: 'UserID' },
+                                distinctValues: true,
+                                useForValidation: true }]
+  Userid;
+
+}

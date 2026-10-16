@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service for Planning Material Master'
+define service ZPLN_MAT_MAST_SRV {
+  expose Z_C_PLN_MAT_MSTR_HD;
+  expose Z_C_PLN_MAT_MSTR_ITM;
+  expose ZPlant_F4_Help;
+}

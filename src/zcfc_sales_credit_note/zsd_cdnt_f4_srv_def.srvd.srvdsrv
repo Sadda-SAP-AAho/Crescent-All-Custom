@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service defintion for F4 Doc No -SD'
+define service ZSD_CDNT_F4_SRV_DEF {
+  expose ZSD_CDNT_F4 as f4_sd_cr_note;
+}

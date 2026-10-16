@@ -1,0 +1,60 @@
+@ObjectModel.query.implementedBy: 'ABAP:ZCL_PROINV_IMPL'
+@EndUserText.label: 'Custom Entity for Proforma Invoice'
+define custom entity ZCUS_PROINV
+{
+  key BillingDocument           : vbeln_vl;
+      DocumentReferenceID       : abap.char(16);
+      BillingDocumentDate       : fkdat;
+      IncotermsLocation1        : abap.char(70);
+      Incotermstransferlocation : abap.char(50);
+      caddress1                 : abap.char(100);
+      caddress2                 : abap.char(100);
+      caddress3                 : abap.char(100);
+      name                      : abap.char(75);
+      plantname                 : abap.char(100);
+      plantaddr1                : abap.char(100);
+      plantaddr2                : abap.char(100);
+      plantaddr3                : abap.char(100);
+      iec                       : abap.char(50);
+      gstin                     : abap.char(50);
+      Precarby                  : abap.char(30);
+      Por                       : abap.char(60);
+      Coo                       : abap.char(100);
+      Cod                       : abap.char(100);
+      Vesselno                  : abap.char(30);
+      Delmode                   : abap.char(20);
+      Pod                       : abap.char(100);
+      Pol                       : abap.char(100);
+      Findes                    : abap.char(100);
+      Carsealno                 : abap.char(40);
+      Contno                    : abap.char(200);
+      Cusmar                    : abap.char(100);
+      Vehno                     : abap.char(12);
+      ReferenceSDDocument       : abap.char(10);
+      customername              : abap.char(100);
+      address                   : abap.char(300);
+      customer                  : abap.char(20);
+      customer1                 : abap.char(20);
+      counconsignee             : abap.char(30);
+      counbuyer                 : abap.char(30);
+      PurchaseOrderByCustomer   : abap.char(35);
+      CustomerPurchaseOrderDate : datum;
+      amtintext                 : abap.char(256);
+      salesnoteref              : abap.char(100);
+      lutigst                   : zdm_exim_lut;
+      scomdec                   : abap.char(200);
+      femadec                   : abap.char(255);
+      plant                     : abap.char(4);
+      CustomerPaymentTermsName  : abap.char(30);
+      descgoods                 : abap.char(500);
+      descgoods1                : abap.char(500);
+      var3                      : abap.char(30);
+      //      textfield1                    : abap.char(50);
+      //      textfield2                    : abap.char(50);
+      //      textfield3                    : abap.char(50);
+      //      textfield4                    : abap.char(50);
+      _item                     : association [1..*] to ZCDS_PROINVITM on $projection.BillingDocument = _item.BillingDocument;
+      _item1                    : association [1..*] to ZCDS_PROINV_T2 on $projection.BillingDocument = _item1.BillingDocument;
+      _item2                    : association [1..*] to ZCDS_PROINV_T3 on $projection.BillingDocument = _item2.BillingDocument;
+      _item3                    : association [1..*] to ZCDS_PROINV_T4 on $projection.BillingDocument = _item3.BillingDocument;
+}

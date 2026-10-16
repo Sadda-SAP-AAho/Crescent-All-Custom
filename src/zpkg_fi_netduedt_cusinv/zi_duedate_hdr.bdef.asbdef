@@ -1,0 +1,80 @@
+managed implementation in class zbp_i_duedate_hdr unique;
+strict;
+with draft;
+define behavior for ZI_DUEDATE_HDR //alias <alias_name>
+persistent table zdt_duedate_hdr
+draft table zdr_duedate_hdr
+lock master
+total etag Belnr
+authorization master ( instance )
+{
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update ) Ccode, Customer, Belnr, Gjahr, Buzei;
+  field ( readonly ) Invdt, Zterm, Pdesc, Basis, Basedt, Duedt,
+                     Amount, Currency, Revduedt, Basistxt, Invoicedt, Noofday,
+                     Status, Lastposted, Basedtsys, Duedtsys, Docref;
+
+  field ( features : instance ) Docsentcus, Docsentban, Billoflad;
+
+
+  determination updatedata on save { create; update; }
+  determination docdetails on modify { field Belnr; }
+  validation checkval on save { create; }
+  determination calcrevduedt on modify { field Docsentcus, Docsentban, Billoflad; }
+
+  create;
+  update( features : instance );
+  delete( features : instance );
+
+  action ( features : instance ) Calc result [1] $self;
+  action ( features : instance ) Post result [1] $self;
+  action ( features : instance ) Upd result [1] $self;
+
+    side effects
+  {
+    field Docsentcus affects field Revduedt, field Basedt;
+    field Billoflad  affects field Revduedt, field Basedt;
+    field Docsentban affects field Revduedt, field Basedt;
+    action Upd affects field Docsentcus, field Billoflad, field Docsentban;
+  }
+
+  mapping for ZI_DUEDATE_HDR
+  {
+    Ccode      = Ccode;
+    Belnr      = Belnr;
+    Gjahr      = Gjahr;
+    Buzei      = Buzei;
+    Invdt      = Invdt;
+    Zterm      = Zterm;
+    Pdesc      = Pdesc;
+    Basis      = Basis;
+    Basedt     = Basedt;
+    Duedt      = Duedt;
+    Customer   = Customer;
+    Amount     = Amount;
+    Currency   = Currency;
+    Docsentcus = Docsentcus;
+    Billoflad  = Billoflad;
+    Invoicedt  = Invoicedt;
+    Docsentban = Docsentban;
+    Revduedt   = Revduedt;
+    Basistxt   = Basistxt;
+    Noofday    = Noofday;
+    Status     = Status;
+    Lastposted = Lastposted;
+    Basedtsys  = Basedtsys;
+    Duedtsys   = Duedtsys;
+    Upd        = Upd;
+    Docref     = Docref;
+
+  }
+}

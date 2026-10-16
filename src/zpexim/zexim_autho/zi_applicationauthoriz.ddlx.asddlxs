@@ -1,0 +1,97 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'ApplicationAuthoriz', 
+    typeNamePlural: 'ApplicationAuthorizs', 
+    title: {
+      type: #STANDARD, 
+      label: 'Application Authorization', 
+      value: 'InternalAuth'
+    }
+  }
+}
+annotate view ZI_ApplicationAuthoriz with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_ApplicationAuthoriz', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Application Authorization', 
+    position: 1 
+  } ]
+  InternalAuth;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'AppName'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'AppName'
+  } ]
+  AppName;
+  
+  @UI.identification: [ {
+    position: 3 
+  } ]
+  @UI.lineItem: [ {
+    position: 3 
+  } ]
+  UserId;
+  
+  @UI.identification: [ {
+    position: 4 , 
+    label: 'AuthType'
+  } ]
+  @UI.lineItem: [ {
+    position: 4 , 
+    label: 'AuthType'
+  } ]
+  AuthType;
+  
+  @UI.identification: [ {
+    position: 5 
+  } ]
+  @UI.lineItem: [ {
+    position: 5 
+  } ]
+  CreatedAt;
+  
+  @UI.identification: [ {
+    position: 6 
+  } ]
+  @UI.lineItem: [ {
+    position: 6 
+  } ]
+  CreatedBy;
+  
+  @UI.identification: [ {
+    position: 7 
+  } ]
+  @UI.lineItem: [ {
+    position: 7 
+  } ]
+  LastChangedBy;
+  
+  @UI.identification: [ {
+    position: 8 
+  } ]
+  @UI.lineItem: [ {
+    position: 8 
+  } ]
+  LastChangedAt;
+  
+  @UI.identification: [ {
+    position: 9 
+  } ]
+  @UI.lineItem: [ {
+    position: 9 
+  } ]
+  LocalLastChangedAt;
+}

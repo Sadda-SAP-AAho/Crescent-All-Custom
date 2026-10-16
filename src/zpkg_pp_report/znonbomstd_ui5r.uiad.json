@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Non BOM Standard VS Actual Consumption Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Non BOM Standard VS Actual Consumption Report"
+  },
+  "ui5AppDetails": {
+    "appId": "znonbomact"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_BC7FAE54A47FA3132A7B70AECFC627078868AE5F_TM",
+    "semanticObject": "Znonbomstd",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_BC7FAE54A47FA3132A7B70AECFC627078868AE5F_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Non BOM Standard VS Actual Consumption Report"
+      }
+    }
+  ]
+}

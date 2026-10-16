@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Due Date Header'
+define service ZSD_DUEDATE_HRDR {
+  expose ZC_DUEDATE_HDR;
+}

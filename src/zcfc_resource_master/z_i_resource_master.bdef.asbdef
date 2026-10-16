@@ -1,0 +1,45 @@
+managed implementation in class zbp_i_resource_master unique;
+//strict ( 2 );
+
+
+with draft;
+define behavior for Z_I_Resource_Master alias hdr
+persistent table zrsrc_mastr_head
+draft table zrsrc_mst_hd_drf
+lock master
+total etag last_changed_at
+authorization master ( instance )
+etag master last_changed_at
+{
+  create;
+  update;
+  delete;
+  field ( numbering : managed , readonly ) Requestuuid;
+  field ( readonly ) Created_at,Created_by,Last_changed_at, Last_changed_by;
+
+validation getPlant on save { field Resource_code,Plant; create; }
+
+mapping for zrsrc_mastr_head
+{
+
+  Requestuuid  =  requestuuid;
+ Resource_code = resource_code;
+      Resource_name = resource_name;
+      Plant = plant;
+      No_of_resource = no_of_resource;
+      Available_hours_per_day = available_hours_per_day;
+      Capacity_hrs_in_kg = capacity_hrs_in_kg;
+      Set_up_time = set_up_time;
+      Lead_time = lead_time;
+      No_of_shift = no_of_shift;
+      Extra1 = extra1;
+      Extra2 = extra2;
+       Created_at = created_at;
+      Created_by = created_by;
+      Last_changed_at = last_changed_at;
+      Last_changed_by = last_changed_by;
+
+}
+
+
+}

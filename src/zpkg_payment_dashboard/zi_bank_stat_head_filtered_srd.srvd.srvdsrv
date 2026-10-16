@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for ZI_BANK_STAT_HEAD_FILTERED'
+define service ZI_BANK_STAT_HEAD_FILTERED_srd {
+  expose ZI_bank_stat_head_filtered;
+}

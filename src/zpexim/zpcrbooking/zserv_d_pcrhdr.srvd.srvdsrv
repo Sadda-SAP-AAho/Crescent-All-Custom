@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Definition For Forward Contract'
+define service ZSERV_D_PCRHDR {
+  expose ZC_PCRHDR;
+  expose ZC_PCRITM;
+  expose ZC_PCRITM1;
+  expose ZC_PCRITM2;
+}

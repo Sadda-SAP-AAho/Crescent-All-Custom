@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Definition for Bank Entry Header'
+define service ZSERV_D_BNKENT_HDR {
+  expose ZC_BNKENT_HDR;
+  expose ZC_BNKENT_EXP_I;
+  expose ZC_BNKENT_IMP_I;
+  expose ZC_BNKENT_BG_I;
+}

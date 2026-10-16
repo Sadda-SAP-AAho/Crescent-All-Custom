@@ -1,0 +1,113 @@
+managed implementation in class zbp_i_est_vacuum unique;
+strict;
+with draft;
+
+define behavior for ZI_EST_VACUUM //alias <alias_name>
+persistent table zdt_estvac
+draft table zdr_estvac
+lock master
+total etag ID
+authorization master ( instance )
+//etag master <field_name>
+{
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Resume;
+  draft action Discard;
+  draft determine action Prepare;
+
+  field ( readonly : update, numbering : managed ) Id;
+  //  field ( readonly : update ) matcd;
+  field ( readonly ) fxdcst_cal, line, boxsize1, boxsize2, annualqty,
+  mouldspd, reqweight, noofcav, yield, addacccost, drillperfacing,
+  srfcarea, chrgingcst, metalcst, elccst, labmldperbx, mldcst,
+  mntcstperpc, fetcstperpc, paintprcst, sellexpn, acccavity,
+  tonnagecal, wgtprbxcal, mltngcstmtcal, totlcstmtcal, totlcsttolcal,
+  mtlcstprpccal, labmldprbxcal, mntprpccal, fetcstprpccal, cstmldprmtcal,
+  pntprmrcstcal, mnfcostcal, cstvaprpccal, fcprkgcal, sellexpcal, seperkg,
+  totlcstprpccal, totlcstprkgcal, cstusdprmtcal, pckngcstcal, offprprccal,
+  offprkgcal, usdprpccal, usdprmtcal, prcprlbcal;
+
+  action ( features : instance ) Upd result [1] $self;
+
+  create;
+  update;
+  delete;
+
+  determination updateheader on modify { field matcd; }
+
+  side effects
+  {
+    field matcd affects field line, field boxsize1, field boxsize2, field annualqty,
+        field mouldspd, field reqweight, field noofcav, field yield, field addacccost,
+        field drillperfacing, field srfcarea, field tonnagecal, field wgtprbxcal, field mltngcstmtcal,
+        field totlcstmtcal, field totlcsttolcal, field mtlcstprpccal, field labmldprbxcal,
+        field mntprpccal, field fetcstprpccal, field cstmldprmtcal, field pntprmrcstcal,
+        field mnfcostcal, field cstvaprpccal, field fcprkgcal, field sellexpcal, field seperkg,
+        field totlcstprpccal, field totlcstprkgcal, field cstusdprmtcal, field pckngcstcal,
+        field offprprccal, field offprkgcal, field usdprpccal, field usdprmtcal, field prcprlbcal;
+  }
+
+
+  mapping for zi_est_vacuum
+    {
+      rejection      = rejection;
+      tolerance      = tolerance;
+      margin         = margin;
+      amtmrgn        = amtmrgn;
+      cntwgt         = cntwgt;
+      fxdcst_cal     = fxdcst_cal;
+      fxdcst_ue      = fxdcst_ue;
+      line           = line;
+      boxsize1       = boxsize1;
+      boxsize2       = boxsize2;
+      annualqty      = annualqty;
+      mouldspd       = mouldspd;
+      reqweight      = reqweight;
+      noofcav        = noofcav;
+      yield          = yield;
+      addacccost     = addacccost;
+      drillperfacing = drillperfacing;
+      srfcarea       = srfcarea;
+      chrgingcst     = chrgingcst;
+      metalcst       = metalcst;
+      elccst         = elccst;
+      labmldperbx    = labmldperbx;
+      mldcst         = mldcst;
+      mntcstperpc    = mntcstperpc;
+      fetcstperpc    = fetcstperpc;
+      paintprcst     = paintprcst;
+      sellexpn       = sellexpn;
+      acccavity      = acccavity;
+      tonnagecal     = tonnagecal;
+      wgtprbxcal     = wgtprbxcal;
+      mltngcstmtcal  = mltngcstmtcal;
+      totlcstmtcal   = totlcstmtcal;
+      totlcsttolcal  = totlcsttolcal;
+      mtlcstprpccal  = mtlcstprpccal;
+      labmldprbxcal  = labmldprbxcal;
+      mntprpccal     = mntprpccal;
+      fetcstprpccal  = fetcstprpccal;
+      cstmldprmtcal  = cstmldprmtcal;
+      pntprmrcstcal  = pntprmrcstcal;
+      mnfcostcal     = mnfcostcal;
+      cstvaprpccal   = cstvaprpccal;
+      fcprkgcal      = fcprkgcal;
+      sellexpcal     = sellexpcal;
+      seperkg        = seperkg;
+      exchngrt       = exchngrt;
+      totlcstprpccal = totlcstprpccal;
+      totlcstprkgcal = totlcstprkgcal;
+      cstusdprmtcal  = cstusdprmtcal;
+      pckngcstcal    = pckngcstcal;
+      offprprccal    = offprprccal;
+      offprkgcal     = offprkgcal;
+      usdprpccal     = usdprpccal;
+      usdprmtcal     = usdprmtcal;
+      prcprlbcal     = prcprlbcal;
+      curr           = curr;
+      packngcst      = packngcst;
+      corecstcav     = corecstcav;
+    }
+}

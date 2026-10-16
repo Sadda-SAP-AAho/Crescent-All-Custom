@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Estimate Vacuum Print"
+  },
+  "ui5AppDetails": {
+    "appId": "com.crescent.app.estimateprint"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_FF304F0F6FC7491447BB4D7093267D3319887A62_TM",
+    "semanticObject": "ZESTIMATE_PRINT",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_FF304F0F6FC7491447BB4D7093267D3319887A62_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Estimate Vacuum Print"
+      }
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition-Spl. Rate Master LM'
+define service ZSD_SPCLRTMSTRLM {
+  expose ZC_SPLRTMSTHED;
+  expose ZC_SPLRTMSTITM;
+}

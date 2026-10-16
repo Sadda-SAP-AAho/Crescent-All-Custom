@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Container Planning App'
+define service ZSD_CONTPLNAPP {
+  expose ZC_CONTPLNAPP;
+}

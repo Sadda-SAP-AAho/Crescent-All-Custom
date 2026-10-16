@@ -1,0 +1,39 @@
+managed implementation in class zbp_i_boeform unique;
+strict ( 1 );
+
+define behavior for ZI_BOEFORM //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+with unmanaged save
+{
+  //create;
+  update;
+  //delete;
+  field ( readonly ) BillNo;
+  field ( features : instance ) printflag1;
+  field ( features : instance ) printflag2;
+
+  action ( features : instance ) BOEFRSTUNPD result [1] $self;
+  action ( features : instance ) BOESCNDUNPD result [1] $self;
+
+
+  mapping for zi_boeform
+    {
+      BillDate   = BillDate;
+      Boeddt     = Boeddt;
+      Currency   = Currency;
+      NetAmt     = NetAmt;
+      TOP        = TOP;
+      BankAddr   = BankAddr;
+      CustName   = CustName;
+      StreetName = StreetName;
+      PostalCode = PostalCode;
+      CityName   = CityName;
+      Country    = Country;
+      printflag1 = printflag1;
+      printflag2 = printflag2;
+      Flag       = Flag;
+    }
+}

@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_DynamicItemTablePri_S'
+define service ZUI_DYNAMICITEMTABLEPRI {
+  expose ZI_DYNAMICITEMTABLEPRI_S as DynamicItemTableAll;
+  expose ZI_DYNAMICITEMTABLEPRI as DynamicItemTablePri;
+}

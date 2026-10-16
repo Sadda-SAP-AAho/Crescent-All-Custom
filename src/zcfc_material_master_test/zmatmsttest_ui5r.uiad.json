@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Material Master Report Test",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Material Master Report Test"
+  },
+  "ui5AppDetails": {
+    "appId": "zmatmsttest"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_5B0A5B60F070E7887074B3D1A96C732D138AFF3E_TM",
+    "semanticObject": "zmatmsttest",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_5B0A5B60F070E7887074B3D1A96C732D138AFF3E_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Material Master Report Test"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+managed implementation in class zbp_i_auggit_expensecal unique;
+strict;
+with draft;
+
+define behavior for ZI_AUGGIT_EXPENSECAL //alias <alias_name>
+persistent table zdt_expensecal
+draft table zdr_expensecal
+lock master
+total etag Commid
+with additional save
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) ServicePo result [1] $self;
+  action ( features : instance ) ServiceEntry result [1] $self;
+  action ( features : instance ) Poupd result [1] $self;
+  action ( features : instance ) Serupd result [1] $self;
+  field ( readonly : update, numbering : managed ) Id;
+  field ( features : instance ) Commid, Commdate, Taxcode, Profitcenter;
+
+
+  association _item { create ( features : instance ); }
+
+  mapping for zi_expensecal
+    {
+      Commid   = Commid;
+      Commdate = Commdate;
+    }
+}
+
+define behavior for ZI_AUGGIT_EXPENSECAL_I //alias <alias_name>
+persistent table zdt_expensecal_i
+draft table zdr_expensecal_i
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id;
+  association _head;
+  mapping for zi_auggit_expensecal_i
+    {
+      Commid         = Commid;
+      expansetype    = expansetype;
+      percontship    = percontship;
+      forwarder      = forwarder;
+      countcontship  = countcontship;
+      amount         = amount;
+      currency       = currency;
+      exchangerate   = exchangerate;
+      amountinr      = amountinr;
+      servicepo      = servicepo;
+      Servicepoline  = Servicepoline;
+      serentrysheet  = serentrysheet;
+      Servicepobt    = Servicepobt;
+      serviceentrybt = serviceentrybt;
+      copy           = copy;
+    }
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for ZC_WORK_HEADER'
+define service ZUI_WORK_HEADER_04 {
+  expose ZC_WORK_HEADER;
+  expose ZC_WORK_ITEMS;
+}

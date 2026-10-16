@@ -1,0 +1,194 @@
+managed implementation in class zbp_i_bnkent_hdr unique;
+strict;
+with draft;
+
+define behavior for ZI_BNKENT_HDR //alias <alias_name>
+persistent table zdt_bnk_ent_hdr
+draft table zdr_bnk_ent_hdr
+lock master
+total etag Docdate
+with additional save
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( features : instance ) Accountid, Invyear;
+  field ( mandatory ) Bank, Bankvendor, Bnkadviceno, Currency, Docdate, Housebank, Accountid,
+  Postingdate, Taxcode, Bankglacc;
+  field ( readonly ) Tot_Amt, Amountwithtax, Belnr, Gjahr, bankrefno, Tpostupd;
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  action ( features : instance ) Post result [1] $self;
+
+  determination updatedetails on modify { create; }
+  determination hed_taxcal on modify { field Tot_Amt; field Taxcode; } //SM
+  determination hed_bankref on modify { field Invno; } //SM
+
+  determination postdoc on save { field Tpostupd; }
+  determination updatedet on save { create; update; }
+  //  determination updateamt on save { create; update; } //Sm
+
+  validation checkdetails on save { create; update; }
+
+  association _item2 { create ( features : instance ); with draft; }
+  association _item { create ( features : instance ); with draft; }
+  association _item1 { create ( features : instance ); with draft; }
+
+  side effects
+  {
+
+    field Tot_Amt affects field Amountwithtax;
+    field Taxcode affects field Amountwithtax;
+    field Invno affects field bankrefno;
+  }
+
+  mapping for zi_bnkent_hdr
+    {
+      Accountid     = Accountid;
+      Bank          = Bank;
+      Bankvendor    = Bankvendor;
+      Bnkadviceno   = Bnkadviceno;
+      Currency      = Currency;
+      Docdate       = Docdate;
+      Housebank     = Housebank;
+      Invno         = Invno;
+      Invyear       = Invyear;
+      Postingdate   = Postingdate;
+      Taxcode       = Taxcode;
+      Tot_Amt       = Tot_Amt;
+      Bankglacc     = Bankglacc;
+      Amountwithtax = Amountwithtax;
+      Busiplace     = Busiplace;
+      Tpost         = Tpost;
+      bankrefno     = bankrefno;
+    }
+}
+
+
+define behavior for ZI_BNKENT_BG_I //alias <alias_name>
+persistent table zdt_bnk_en_bg_i
+draft table zdr_bnkent_bg_i
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly : update, numbering : managed ) Item;
+  field ( mandatory : create, readonly : update ) Chargehed3;
+  field ( features : instance ) Status3, Taxc3, Waers, Amt3;
+  field ( mandatory ) Costcenter3;
+  field ( readonly ) Id, Glaccount3;
+
+  determination bgdetails on modify { create; }
+  determination bg_upateamt on modify { field Amt3; field Status3; } //SM
+
+  validation checkbg on save { create; }
+  validation checkbg_upd on save { create; update; }
+
+  side effects
+  {
+    field Chargehed3 affects field Taxc3, field waers, field Amt3, field Glaccount3;
+    field Amt3 affects field _head.Tot_Amt; //SM
+    field Status3 affects field _head.Tot_Amt; //SM
+  }
+
+  association _head { with draft; }
+  mapping for zi_bnkent_bg_i
+    {
+      Amt3       = Amt3;
+      Chargehed3 = Chargehed3;
+      Glaccount3 = Glaccount3;
+      Status3    = Status3;
+      Taxc3      = Taxc3;
+      Waers      = Waers;
+    }
+}
+
+define behavior for ZI_BNKENT_EXP_I //alias <alias_name>
+persistent table zdt_bnk_en_exp_i
+draft table zdr_bnk_en_exp_i
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete;
+  field ( readonly : update, numbering : managed ) Item;
+  //
+  field ( mandatory : create, readonly : update ) Chargehed1;
+  field ( features : instance ) Status1, Taxc1, Waers, Amt1;
+  field ( mandatory ) Costcenter1;
+  field ( readonly ) Id, Glaccount1;
+
+  determination expdetails on modify { create; }
+  determination exp_upateamt on modify { field Amt1; field Status1; } //SM
+
+  validation checkinv on save { create; }
+
+  side effects
+  {
+    field Chargehed1 affects field Taxc1, field waers, field Amt1, field Glaccount1;
+    field Amt1 affects field _head.Tot_Amt; //SM
+    field Status1 affects field _head.Tot_Amt; //SM
+  }
+  association _head { with draft; }
+  mapping for zi_bnkent_exp_i
+    {
+      Amt1       = Amt1;
+      Chargehed1 = Chargehed1;
+      Glaccount1 = Glaccount1;
+      Status1    = Status1;
+      Taxc1      = Taxc1;
+      Waers      = Waers;
+    }
+}
+
+define behavior for ZI_BNKENT_IMP_I //alias <alias_name>
+persistent table zdt_bnk_en_imp_i
+draft table zdr_bnk_en_imp_i
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( mandatory : create, readonly : update ) Chargehed2;
+  field ( features : instance ) Waers, Amt2, Taxc2, Status2;
+  field ( readonly : update, numbering : managed ) Item;
+  field ( mandatory ) Costcenter2;
+  field ( readonly ) Id, Glaccount2;
+
+  validation checkimp on save { create; }
+
+  determination impdetails on modify { create; }
+  determination imp_upateamt on modify { field Amt2; field Status2; }  //SM
+
+  side effects
+  {
+    field Chargehed2 affects field Taxc2, field Waers, field Amt2, field Glaccount2;
+    field Amt2 affects field _head.Tot_Amt; //SM
+    field Status2 affects field _head.Tot_Amt; //SM
+  }
+  association _head { with draft; }
+  mapping for zi_bnkent_imp_i
+    {
+      Amt2       = Amt2;
+      Chargehed2 = Chargehed2;
+      Glaccount2 = Glaccount2;
+      Status2    = Status2;
+      Taxc2      = Taxc2;
+      Waers      = Waers;
+    }
+}

@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Gate Entry Dashboard",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Gate Entry Dashboard"
+  },
+  "ui5AppDetails": {
+    "appId": "zgateentry"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_5B25D5803AEFF18F82FA194E34D8C77C7726C9BA_TM",
+    "semanticObject": "z_gateentryapp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_5B25D5803AEFF18F82FA194E34D8C77C7726C9BA_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Gate Entry Dashboard"
+      }
+    }
+  ]
+}

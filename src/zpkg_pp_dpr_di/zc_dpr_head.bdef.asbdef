@@ -1,0 +1,26 @@
+projection;
+strict ( 1 );
+use draft;
+use side effects;
+
+define behavior for ZC_DPR_HEAD //alias <alias_name>
+{
+  use update;
+
+  use action Edit;
+  use action Activate;
+  use action Resume;
+  use action Discard;
+  use action Prepare;
+  use action upd;
+
+  use association _item { }
+}
+
+define behavior for ZC_DPR_DI_ITM //alias <alias_name>
+{
+  use update;
+//  use delete;
+
+  use association _head;
+}

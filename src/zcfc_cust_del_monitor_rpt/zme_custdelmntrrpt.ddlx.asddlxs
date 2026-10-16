@@ -1,0 +1,238 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Customer Delivery Monitoring-Report',
+                typeNamePlural:'Customer Delivery Monitoring-Report',
+                title: { type: #STANDARD, label: 'Customer Delivery Monitoring-Report' , value: 'GstInvoice' }
+
+              }
+     }
+
+annotate entity ZC_CUSTDELMNTRRPT with
+{
+  @UI.facet:
+  [{id: 'GeneralData', isSummary: true, label: 'Report Details', type: #COLLECTION, position: 5},
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: '', id: 'GeneralData1' }]
+
+  @UI: { lineItem: [{ position: 5 }],
+         identification: [{ position: 5 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+  BillingDocumentItem;
+  @UI.hidden: true
+  SalesOrderItem;
+  @UI: { lineItem: [{ position: 10 }],selectionField: [{ position: 30 }],
+   identification: [{ position: 10 }],
+   fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  GstInvoice;
+  @UI: { lineItem: [{ position: 15 }],
+     identification: [{ position: 15 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 15, importance: #HIGH }] }
+  InvoiceType;
+  @UI: { lineItem: [{ position: 20 }],
+     identification: [{ position: 20 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  Plant;
+  @UI: { lineItem: [{ position: 25 }],
+     identification: [{ position: 25 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 25, importance: #HIGH }] }
+  ShipmentLocation;
+  @UI: { lineItem: [{ position: 30 }],
+     identification: [{ position: 30 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+  ProfitCenter;
+  @UI: { lineItem: [{ position: 35 }],
+     identification: [{ position: 35 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 35, importance: #HIGH }] }
+  SalesContract;
+  @UI: { lineItem: [{ position: 40 }],
+     identification: [{ position: 40 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 40, importance: #HIGH }] }
+  SalesContractDate;
+  @UI: { lineItem: [{ position: 45 }],
+     identification: [{ position: 45 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 45, importance: #HIGH }] }
+  SalesOrderNumber;
+  @UI: { lineItem: [{ position: 50 }],
+     identification: [{ position: 50 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 50, importance: #HIGH }] }
+  SoItemNo;
+  @UI: { lineItem: [{ position: 55 }],
+     identification: [{ position: 55 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 55, importance: #HIGH }] }
+  SalesOrderDate;
+  @UI: { lineItem: [{ position: 60 }],
+     identification: [{ position: 60 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 60, importance: #HIGH }] }
+  CustReqDate;
+  @UI: { lineItem: [{ position: 65 }],
+     identification: [{ position: 65 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 65, importance: #HIGH }] }
+  CommittedDeliveryDate;
+  @UI: { lineItem: [{ position: 70 }],
+     identification: [{ position: 70 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 70, importance: #HIGH }] }
+  OutboundDeliveryNo;
+  @UI: { lineItem: [{ position: 75 }],
+     identification: [{ position: 75 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 75, importance: #HIGH }] }
+  PGI_No;
+  @UI: { lineItem: [{ position: 80 }],
+     identification: [{ position: 80 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 80, importance: #HIGH }] }
+  PGI_Date;
+  @UI: { lineItem: [{ position: 85 }],
+     identification: [{ position: 85 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 85, importance: #HIGH }] }
+  @UI.selectionField: [{position: 85}]
+  CommercialInvNum;
+  @UI: { lineItem: [{ position: 90 }],
+     identification: [{ position: 90 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 90, importance: #HIGH }] }
+  @UI.selectionField: [{position: 90}]
+  GstInvDate;
+  @UI: { lineItem: [{ position: 95 }],
+     identification: [{ position: 95 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 95, importance: #HIGH }] }
+  CommInvDate;
+  @UI: { lineItem: [{ position: 100 }],
+     identification: [{ position: 100 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 100, importance: #HIGH }] }
+  BPCode;
+  @UI: { lineItem: [{ position: 105 }],
+     identification: [{ position: 105 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 105, importance: #HIGH }] }
+  salesperson;
+  @UI: { lineItem: [{ position: 110 }],
+    identification: [{ position: 110 }],
+    fieldGroup: [{ qualifier: 'GeneralData1', position: 110, importance: #HIGH }] }
+  Material;
+  @UI: { lineItem: [{ position: 115 }],
+     identification: [{ position: 115 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 115, importance: #HIGH }] }
+  ItemDescription;
+  @UI: { lineItem: [{ position: 120 }],
+     identification: [{ position: 120 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 120, importance: #HIGH }] }
+  HSNCODE;
+  @UI: { lineItem: [{ position: 125 }],
+     identification: [{ position: 125 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 125, importance: #HIGH }] }
+  UOM;
+  @UI: { lineItem: [{ position: 130 }],
+   identification: [{ position: 130 }],
+   fieldGroup: [{ qualifier: 'GeneralData1', position: 130, importance: #HIGH }] }
+  NetWeight;
+  @UI: { lineItem: [{ position: 135 }],
+     identification: [{ position: 135 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 135, importance: #HIGH }] }
+  Qty;
+  @UI: { lineItem: [{ position: 140 }],
+     identification: [{ position: 140 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 140, importance: #HIGH }] }
+  unitWeight;
+  @UI: { lineItem: [{ position: 145 }],
+     identification: [{ position: 145 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 145, importance: #HIGH }] }
+  PortOfDischarge;
+  @UI: { lineItem: [{ position: 150 }],
+     identification: [{ position: 150 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 150, importance: #HIGH }] }
+  PortOfLoading;
+  @UI: { lineItem: [{ position: 155 }],
+     identification: [{ position: 155 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 155, importance: #HIGH }] }
+  FinalDestination;
+  @UI: { lineItem: [{ position: 160 }],
+     identification: [{ position: 160 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 160, importance: #HIGH }] }
+  Container;
+  @UI: { lineItem: [{ position: 165 }],
+     identification: [{ position: 165 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 165, importance: #HIGH }] }
+  ContainerSize;
+  @UI: { lineItem: [{ position: 170 }],
+     identification: [{ position: 170 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 170, importance: #HIGH }] }
+  ShippingLine;
+  @UI: { lineItem: [{ position: 175 }],
+     identification: [{ position: 175 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 175, importance: #HIGH }] }
+  VesselName;
+  @UI: { lineItem: [{ position: 180 }],
+     identification: [{ position: 180 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 180, importance: #HIGH }] }
+  BLNo;
+  @UI: { lineItem: [{ position: 185 }],
+     identification: [{ position: 185 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 185, importance: #HIGH }] }
+  BLDate;
+  @UI: { lineItem: [{ position: 190 }],
+     identification: [{ position: 190 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 190, importance: #HIGH }] }
+  ShipBill;
+  @UI: { lineItem: [{ position: 195 }],
+     identification: [{ position: 195 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 195, importance: #HIGH }] }
+  ShipBillDate;
+  @UI: { lineItem: [{ position: 200 }],
+     identification: [{ position: 200 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 200, importance: #HIGH }] }
+  DocumentSentDate;
+  @UI: { lineItem: [{ position: 205 }],
+     identification: [{ position: 205 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 205, importance: #HIGH }] }
+  DocumentPresentDate;
+  @UI: { lineItem: [{ position: 210 }],
+     identification: [{ position: 210 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 210, importance: #HIGH }] }
+  Etadt;
+  @UI: { lineItem: [{ position: 215 }],
+     identification: [{ position: 215 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 215, importance: #HIGH }] }
+  Atadt;
+  @UI: { lineItem: [{ position: 220 }],
+     identification: [{ position: 220 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 220, importance: #HIGH }] }
+  CustomerPo;
+  @UI: { lineItem: [{ position: 225 }],
+     identification: [{ position: 225 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 225, importance: #HIGH }] }
+  CustomerPoDate;
+  @UI: { lineItem: [{ position: 230 }],
+     identification: [{ position: 230 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 230, importance: #HIGH }] }
+  FinalSODt;
+  @UI: { lineItem: [{ position: 235 }],
+     identification: [{ position: 235 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 235, importance: #HIGH }] }
+  POEntryMailRecdDt;
+  @UI: { lineItem: [{ position: 240 }],
+  identification: [{ position: 240 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 240, importance: #HIGH }] }
+  SOTrnsMailRcvDt;
+  @UI: { lineItem: [{ position: 245 }],
+  identification: [{ position: 245 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 245, importance: #HIGH }] }
+  Contdisfact;
+  @UI: { lineItem: [{ position: 250 }],
+  identification: [{ position: 250 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 250, importance: #HIGH }] }
+  Condockindt;
+  @UI: { lineItem: [{ position: 255 }],
+  identification: [{ position: 255 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 255, importance: #HIGH }] }
+  DelSODate;
+  @UI: { lineItem: [{ position: 260 }],
+  identification: [{ position: 260 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 260, importance: #HIGH }] }
+  BLDelDate;
+  @UI: { lineItem: [{ position: 265 }],
+  identification: [{ position: 265 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 265, importance: #HIGH }] }
+  ATABLDate;
+  @UI: { lineItem: [{ position: 270 }],
+  identification: [{ position: 270 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 270, importance: #HIGH }] }
+  ATASODate;
+
+}

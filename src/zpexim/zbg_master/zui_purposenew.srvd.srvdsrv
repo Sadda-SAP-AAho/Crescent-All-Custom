@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_PurposeNew_S'
+define service ZUI_PURPOSENEW {
+  expose ZI_PURPOSENEW_S as PurposeNewAll;
+  expose ZI_PURPOSENEW as PurposeNew;
+}

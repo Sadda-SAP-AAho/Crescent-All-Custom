@@ -1,0 +1,101 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Expense Item', value: 'Expansetype' } } }
+annotate entity ZC_EXPENSECAL_I with
+{
+  @UI.facet:[
+    { id: 'GeneralDataI', isSummary: true, label: 'Expense Calculation Item', type: #COLLECTION, purpose: #STANDARD },
+       { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralDataI', position: 10, label: 'Section 1', id: 'GeneralData1' },
+       { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralDataI', position: 15, label: 'Section 2', id: 'GeneralData2' },
+       { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralDataI', position: 20, label: 'Section 3', id: 'GeneralData3' }]
+
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Item;
+  @UI.hidden: true
+  Commid;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_EXPENSETYPE_F4', element: 'Expansetype'},
+                                       distinctValues: true,
+                                       useForValidation: true,
+
+                                       additionalBinding: [{ localElement: 'Percontship',element: 'percontship',usage: #FILTER_AND_RESULT }]
+                                    } ]
+  Expansetype;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_PERSHIPCONT_F4', element: 'value_low'},
+                                       distinctValues: true,
+                                       useForValidation: true
+                                    } ]
+  Percontship;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Forwarder', name:'ZI_EXPTYPLIFNR_F4' },
+                                              distinctValues: true,
+                                              useForValidation: true,
+                                       additionalBinding: [{ localElement: 'Expansetype',element: 'Expansetype',usage: #FILTER }]
+                                  }]
+  Forwarder;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  countcontship;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  Amount;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  Currency;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Exchangerate;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Amountinr;
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 100,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  Servicepo;
+  @UI.lineItem: [ { position: 101 } ]
+  @UI.identification: [ { position: 101 } ]
+  @UI.fieldGroup: [ { position: 101,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  Servicepoline;
+  @UI.lineItem: [ { position: 105 } ]
+  @UI.identification: [ { position: 105 } ]
+  @UI.fieldGroup: [ { position: 105,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Serentrysheet;
+
+  /////////////////////////////////////////////////////////////////////////////////////
+  //  @UI.hidden: true
+  //  @UI: { identification: [{ position: 205 },
+  //                         { type: #FOR_ACTION, dataAction: 'ServicePo', label: 'Servide PO', iconUrl: 'sap-icon://close-command-field' }],
+  //          fieldGroup: [{ qualifier: 'GeneralData2', position: 100, importance: #HIGH }] }
+  //  Servicepobt;
+
+  @UI.hidden: true
+  @UI: { identification: [{ position: 205 },
+                         { type: #FOR_ACTION, dataAction: 'ServiceEntry', label: 'Service Entry Sheet', iconUrl: 'sap-icon://close-command-field' }],
+          fieldGroup: [{ qualifier: 'GeneralData2', position: 100, importance: #HIGH }] }
+  serviceentrybt;
+//  @UI.hidden: true
+//  @UI: { lineItem: [{ position: 215 },
+//                            { type: #FOR_ACTION, dataAction: 'Copy', label: 'Copy', iconUrl: 'sap-icon://close-command-field' , invocationGrouping: #CHANGE_SET }],
+//           fieldGroup: [{ qualifier: 'GeneralData1', position: 90, importance: #HIGH }] }
+//  copy;         
+
+}

@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgPriceValExcUser_S'
+define service ZUI_TMGPRICEVALEXCUSER {
+  expose ZI_TMGPRICEVALEXCUSER_S as TmgPriceValExcUsAll;
+  expose ZI_TMGPRICEVALEXCUSER as TmgPriceValExcUser;
+}

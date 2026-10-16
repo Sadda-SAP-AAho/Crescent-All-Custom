@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition od OC FORM print'
+define service ZSD_OCPRINT {
+  expose ZCUS_OCFORM;
+  expose ZI_OCFORM_ITEM;
+}

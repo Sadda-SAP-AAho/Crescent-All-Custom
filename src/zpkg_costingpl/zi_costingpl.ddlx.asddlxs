@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'CostingPl', 
+    typeNamePlural: 'CostingPls', 
+    title: {
+      type: #STANDARD, 
+      label: 'Costing PL', 
+      value: 'Prctr'
+    }
+  }
+}
+annotate view ZI_CostingPl with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_CostingPl', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Costing PL', 
+    position: 1 
+  } ]
+  Prctr;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Prctrclub;
+}

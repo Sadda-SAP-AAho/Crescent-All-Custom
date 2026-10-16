@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for EPCG License'
+define service ZSERV_D_EPCGHDR {
+  expose ZC_EPCG_HDR;
+  expose ZC_EPCG_ITM;
+}

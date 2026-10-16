@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Estimate Vacuum"
+  },
+  "ui5AppDetails": {
+    "appId": "zestvacrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_A22DCE94BDB5CEEE72904185F9FEEF278FEC3B8F_TM",
+    "semanticObject": "zestvacrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_A22DCE94BDB5CEEE72904185F9FEEF278FEC3B8F_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Estimate Vacuum",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'OTIF Report - INSIA'
+define service ZSD_OTIF_INSIA_N {
+  expose ZC_OTIF_INSIA;
+}

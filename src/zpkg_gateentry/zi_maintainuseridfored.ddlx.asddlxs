@@ -1,0 +1,49 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'MaintainUseridForEd', 
+    typeNamePlural: 'MaintainUseridForEds', 
+    title: {
+      type: #STANDARD, 
+      label: 'Maintain UserID for Edit & Delete', 
+      value: 'Userid'
+    }
+  }
+}
+annotate view ZI_MaintainUseridForEd with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_MaintainUseridForEd', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Maintain UserID for Edit & Delete', 
+    position: 1 
+  } ]
+  Userid;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Edit'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Edit'
+  } ]
+  Edit;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Deleteable'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Deleteable'
+  } ]
+  Deleteable;
+}

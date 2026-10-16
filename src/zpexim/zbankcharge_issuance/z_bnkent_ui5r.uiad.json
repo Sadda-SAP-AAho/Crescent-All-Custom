@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Bank Charges Entry",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Bank Charges Entry"
+  },
+  "ui5AppDetails": {
+    "appId": "zbnkent"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_552A1694D082BC9A323C5A5D17543E27C8F04D9A_TM",
+    "semanticObject": "z_bnkent",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_552A1694D082BC9A323C5A5D17543E27C8F04D9A_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Bank Charges Entry"
+      }
+    }
+  ]
+}

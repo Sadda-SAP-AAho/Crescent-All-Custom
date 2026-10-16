@@ -1,0 +1,4 @@
+@EndUserText.label: 'GSTR 2A RECO-REPORT'
+define service ZSD_GST2ARECO_RPT {
+  expose ZC_GSTR2ARECO_RPT;
+}

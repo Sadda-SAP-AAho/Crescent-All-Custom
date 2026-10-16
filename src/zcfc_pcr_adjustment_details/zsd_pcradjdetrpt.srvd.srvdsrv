@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for PCR Adj. Details Report'
+define service ZSD_PCRADJDETRPT {
+  expose ZC_PCRADJDETRPT;
+}

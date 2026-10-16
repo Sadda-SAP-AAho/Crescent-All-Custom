@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Stock Overview Report'
+define service ZSD_STOCK_OVERVIEW_REP {
+  expose ZI_STOCK_MOVEMENT_REP_BASE;
+}

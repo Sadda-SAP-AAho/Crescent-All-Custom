@@ -1,0 +1,153 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Accountingdocument', value: 'Accountingdocument' } } }
+annotate entity ZC_NOSTRO_ITM2 with
+{
+  @UI.facet:
+   [
+   { id: 'GeneralDataI', isSummary: true, label: 'Item', type: #COLLECTION, purpose: #STANDARD },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralDataI', position: 10, label: 'Item Details', id: 'GeneralData1' },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralDataI', position: 20, label: 'Inward Details', id: 'GeneralData2' }
+    ]
+  @UI.hidden: true
+  Id;
+  //  @UI.hidden: true
+  //  Item;
+  @UI.hidden: true
+  Item2;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Checkbox;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Accountingdocument;
+  @UI.lineItem: [ { position: 12 } ]
+  @UI.identification: [ { position: 12 } ]
+  @UI.fieldGroup: [ { position: 12,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity: {name: 'ZR_NOSTOITM_F4' , element: 'Accountingdocumentitem' },
+                                              distinctValues: true,
+                                   additionalBinding: [{ localElement: 'Payterm',element: 'Payterm',usage: #FILTER_AND_RESULT },
+                                                       { localElement: '_Head.Invoiceno',element: 'Accountingdocument',usage: #FILTER_AND_RESULT }
+                                                      ]
+                                  }]
+
+  Accountingdocumentitem;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Referenceno;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  bankrefno;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 21 } ]
+  @UI.identification: [ { position: 21 } ]
+  @UI.fieldGroup: [ { position: 21,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Accountingdocumenttype;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Documentdate;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Postingdate;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position:35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Amountdc;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Currencydc;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Amountcc;
+  @UI.lineItem: [ { position: 48 } ]
+  @UI.identification: [ { position: 48 } ]
+  @UI.fieldGroup: [ { position: 48,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Remainamtdc;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Currencycc;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Payterm;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Duedate;
+  @UI.lineItem: [ { position: 65 } ]
+  @UI.identification: [ { position: 65 } ]
+  @UI.fieldGroup: [ { position: 9,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  Inwardrefno;
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  Inwarddate;
+  @UI.lineItem: [ { position: 75 } ]
+  @UI.identification: [ { position: 75 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  Swiftdate;
+  @UI.lineItem: [ { position: 78 } ]
+  @UI.identification: [ { position: 78 } ]
+  @UI.fieldGroup: [ { position: 17,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  Bankintidt;
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  Inwardamount;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 85 } ]
+  @UI.identification: [ { position: 85 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_Currency', element: 'Currency'} } ]
+
+  Currencyinward;
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity: {name: 'ZI_INWORDRCVSTATUS_F4' , element: 'value_low' },
+                                                distinctValues: true
+                                    }]
+  Inwardrecordstatus;
+
+  /////////////////////////////////////////////////////////////////////////////////////
+  @UI.hidden: true
+  @UI: { identification: [{ position: 370 },
+                         { type: #FOR_ACTION, dataAction: 'Accupdateitm', label: 'Account Update', iconUrl: 'sap-icon://close-command-field' }],
+          fieldGroup: [{ qualifier: 'GeneralData2', position: 100, importance: #HIGH }] }
+  Accupdateitm;
+
+
+}

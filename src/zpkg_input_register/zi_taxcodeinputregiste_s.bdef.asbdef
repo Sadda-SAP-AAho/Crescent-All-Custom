@@ -1,0 +1,92 @@
+managed with additional save implementation in class ZBP_I_TAXCODEINPUTREGISTE_S unique;
+strict;
+with draft;
+define behavior for ZI_TaxcodeInputRegiste_S alias TaxcodeInputRegiAll
+draft table zdt_inreg_t_d_s
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master ( global )
+
+{
+  field ( readonly )
+  SingletonID;
+
+  field ( features : instance )
+  TransportRequestID;
+
+  field ( notrigger )
+  SingletonID,
+  LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TaxcodeInputRegiste { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects
+  {
+    action SelectCustomizingTransptReq affects $self;
+  }
+}
+
+define behavior for ZI_TaxcodeInputRegiste alias TaxcodeInputRegiste ##UNMAPPED_FIELD
+persistent table zdt_inreg_tax
+draft table zdt_inreg_tax_d
+lock dependent by _TaxcodeInputRegiAll
+authorization dependent by _TaxcodeInputRegiAll
+
+{
+  field ( readonly )
+  SingletonID,
+  Id;
+
+  field ( numbering : managed )
+  Id;
+
+  field ( notrigger )
+  SingletonID;
+
+  field ( mandatory : create )
+  Taxcode,
+  Taxcodename;
+
+  field ( readonly : update )
+  Taxcode,
+  Taxcodename;
+
+  update ( features : global );
+  delete ( features : global );
+
+  mapping for zdt_inreg_tax
+    {
+      Id          = ID;
+      Taxcode     = TAXCODE;
+      Taxcodename = taxcodename;
+      Cgst        = cgst;
+      Sgst        = sgst;
+      Igst        = igst;
+      Trnskey1    = TRNSKEY1;
+      Trnskey2    = TRNSKEY2;
+      Trnskey3    = TRNSKEY3;
+      Trnskey4    = TRNSKEY4;
+      Trnskey5    = TRNSKEY5;
+      Trnskey6    = TRNSKEY6;
+      Trnskey7    = TRNSKEY7;
+      Trnskey8    = TRNSKEY8;
+    }
+
+  association _TaxcodeInputRegiAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

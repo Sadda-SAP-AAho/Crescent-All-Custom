@@ -1,0 +1,17 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Internal EXIMFD Tracking Jobs 01",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "className": "ZCL_EXIM_FD"
+  },
+  "groups": [
+    {
+      "name": "GRP_DEF",
+      "title": "Default"
+    }
+  ]
+}

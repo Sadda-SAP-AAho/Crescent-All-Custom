@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Receipt From Production Dashboard",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Receipt From Production Dashboard"
+  },
+  "ui5AppDetails": {
+    "appId": "zrecprd"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_EB96B85D989DA9406125C7992D547171A94487BE_TM",
+    "semanticObject": "zrecprd1",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_EB96B85D989DA9406125C7992D547171A94487BE_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Receipt From Production Dashboard"
+      }
+    }
+  ]
+}

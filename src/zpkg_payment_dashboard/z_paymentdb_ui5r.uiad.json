@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Payment Dashboard",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Payment Dashboard"
+  },
+  "ui5AppDetails": {
+    "appId": "zpaymentdashboard"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_221E899B67A4B9C660469210C3056E110C274587_TM",
+    "semanticObject": "z_paymentdb",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_221E899B67A4B9C660469210C3056E110C274587_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Payment Dashboard"
+      }
+    }
+  ]
+}

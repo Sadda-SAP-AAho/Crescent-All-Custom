@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Production Plan-Register",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Production Plan"
+  },
+  "ui5AppDetails": {
+    "appId": "zprdplanreg"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_B1F5B628CDC483CE5B07E86051A987848CFE7B0A_TM",
+    "semanticObject": "zprdplanreg",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_B1F5B628CDC483CE5B07E86051A987848CFE7B0A_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Production Plan",
+        "subtitle": "Register"
+      }
+    }
+  ]
+}

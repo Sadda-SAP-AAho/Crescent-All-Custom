@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_IpPoDocumentType_S'
+define service ZUI_IPPODOCUMENTTYPE {
+  expose ZI_IPPODOCUMENTTYPE_S as IpPoDocumentTypeAll;
+  expose ZI_IPPODOCUMENTTYPE as IpPoDocumentType;
+}

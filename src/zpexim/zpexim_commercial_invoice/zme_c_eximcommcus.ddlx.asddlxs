@@ -1,0 +1,154 @@
+@Metadata.layer: #CORE
+
+@UI: {
+        presentationVariant: [{ sortOrder: [{ by: 'Addresstypedesc', direction:  #DESC }],
+                                visualizations: [{type: #AS_LINEITEM}],
+                                text: 'Address' }]
+     }
+
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Address Type', value: 'Addresstypedesc' } } }
+
+annotate view ZC_EXIMCOMMCUS with
+{
+
+  @UI.facet: [
+  {
+  id: 'GeneralI',
+  isSummary: true,
+  label: 'General Information',
+  type: #COLLECTION,
+  purpose: #STANDARD
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData1',
+  parentId: 'GeneralI',
+  label: 'Name',
+  id: 'GeneralData1'
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData2',
+  parentId: 'GeneralI',
+  label: 'Addresses',
+  id: 'GeneralData2'
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData3',
+  parentId: 'GeneralI',
+  label: 'Addn. Info',
+  id: 'GeneralData3'
+  }
+  ]
+
+  @UI.hidden: true
+  Id;
+
+  @UI.hidden: true
+  Item;
+
+  @UI: {
+         //lineItem: [ { position: 10} ],
+         identification: [{position: 10 }],
+         fieldGroup: [{qualifier: 'GeneralData3',position: 10,importance: #HIGH }]
+  }
+
+  @Consumption.valueHelpDefinition: [{
+        entity:{
+        element: 'value_low',
+        name:'ZI_EXIMCOMMADDRTYPE'
+        },
+        distinctValues: true,
+        useForValidation: true,
+        enabled: '',
+
+        additionalBinding:
+        [
+        {
+          localParameter: '',
+          localElement: 'Addresstypedesc',
+          localConstant: '',
+          parameter: '',
+          element: 'text',
+          usage: #RESULT
+         }
+         ]
+        }
+      ]
+  Addresstype;
+
+  @UI: {
+         lineItem: [ { position: 20} ],
+         identification: [{position: 20 }],
+         fieldGroup: [{qualifier: 'GeneralData3',position: 20,importance: #HIGH }]
+  }
+  Addresstypedesc;
+
+  @UI: {
+         lineItem: [ { position: 30} ],
+         identification: [{position: 30 }],
+         fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
+  }
+  Name1;
+
+  @UI: {
+         //lineItem: [ { position: 40} ],
+         identification: [{position: 40 }],
+         fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }]
+  }
+  Name2;
+
+  @UI: {
+         lineItem: [ { position: 50} ],
+         identification: [{position: 50 }],
+         fieldGroup: [{qualifier: 'GeneralData2',position: 10,importance: #HIGH }]
+  }
+  Address1;
+
+  @UI: {
+         //lineItem: [ { position: 60} ],
+         identification: [{position: 60 }],
+         fieldGroup: [{qualifier: 'GeneralData2',position: 20,importance: #HIGH }]
+  }
+  Address2;
+
+  @UI: {
+         //lineItem: [ { position: 70} ],
+         identification: [{position: 70 }],
+         fieldGroup: [{qualifier: 'GeneralData2',position: 30,importance: #HIGH }]
+  }
+  Address3;
+
+  @UI: {
+         lineItem: [ { position: 80} ],
+         identification: [{position: 80 }],
+         fieldGroup: [{qualifier: 'GeneralData2',position: 40,importance: #HIGH }]
+  }
+  Street1;
+
+  @UI: {
+         //lineItem: [ { position: 90} ],
+         identification: [{position: 90 }],
+         fieldGroup: [{qualifier: 'GeneralData2',position: 50,importance: #HIGH }]
+  }
+  Street2;
+
+  @UI: {
+         lineItem: [ { position: 100} ],
+         identification: [{position: 100 }],
+         fieldGroup: [{qualifier: 'GeneralData2',position: 60,importance: #HIGH }]
+  }
+  Country;
+
+  @UI: {
+         //lineItem: [ { position: 110} ],
+         identification: [{position: 110 }],
+         fieldGroup: [{qualifier: 'GeneralData2',position: 70,importance: #HIGH }]
+  }
+  Pincode;
+
+}

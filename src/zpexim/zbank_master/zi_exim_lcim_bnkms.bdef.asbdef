@@ -1,0 +1,96 @@
+managed implementation in class zbp_i_exim_lcim_bnkms unique;
+strict ( 2 );
+with draft;
+
+
+define behavior for ZI_EXIM_LCIM_BNKMS //alias <alias_name>
+persistent table zexim_lcim_bnk1
+draft table zdr_lcim_bnkms
+lock master
+total etag locallastchangedat
+authorization master ( global )
+{
+
+  create;
+  update;
+  delete;
+
+  field ( readonly, numbering : managed ) internaid;
+  field ( mandatory : create, readonly : update ) Bukrs, Bankl, Hbkid, Hktid, Gjahr, Zswift, Zaccno;
+  field ( readonly ) Pledgelimit, Totallimit, Bccleanutilised, Bccleanavailable, Lcutilised, lcavailable; //Bgutilised, Bgavailable,
+  field ( readonly ) cashcutilised, fcnrutilised, wcdcutilised, packcreditutilised;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Resume;
+  draft action Discard;
+  draft determine action Prepare;
+  determination updatetotallmit on save { field TotalnonfundBased; }
+  determination updatetotallmit1 on save { field Fundbasedlimit; }
+  determination updatetotallmit2 on save { field ref; }
+  determination updatetotallmit3 on modify { field TotalnonfundBased,ref, Fundbasedlimit; }
+  validation validtotallimit on save { create; update; }
+  validation validtotallimit1 on save { create; update; }
+  validation year on save { field Gjahr; create; }
+
+  action ( features : instance ) Refresh result [1] $self;
+
+  side effects
+  {
+    action Refresh affects field Bgutilised, field Bgavailable, field cashcutilised,
+        field fcnrutilised, field wcdcutilised, field packcreditutilised, messages;
+  }
+
+  mapping for zi_exim_lcim_bnkms
+    {
+
+      //Internaid           = Internaid;
+      Bukrs               = Bukrs;
+      Bankl               = Bankl;
+      Hbkid               = Hbkid;
+      Hktid               = Hktid;
+      Gjahr               = Gjahr;
+      Zswift              = Zswift;
+      ZaccNo              = zaccno;
+      Zland1              = Zland1;
+      ZadCode             = zadcode;
+      Zaddress            = zaddress;
+      Zaddress1           = zaddress1;
+      Zaddress2           = zaddress2;
+      Zaddress3           = zaddress3;
+      Zbank               = zbank;
+      Zbranch             = zbranch;
+      ZifscCode           = zifsccode;
+      Zstate              = zstate;
+      BcLimit             = BcLimit;
+      Bccleanutilised     = Bccleanutilised;
+      Bccleanavailable    = Bccleanavailable;
+      Bglimit             = Bglimit;
+      Bgutilised          = Bgutilised;
+      Bgavailable         = Bgavailable;
+      BgPledgeLimit       = BgPledgeLimit;
+      CashC               = CashC;
+      cashcutilised       = cashcutilised;
+      CommissionInt       = CommissionInt;
+      DiscountingInterest = DiscountingInterest;
+      Fcnr                = Fcnr;
+      fcnrutilised        = fcnrutilised;
+      FundBasedLimit      = FundBasedLimit;
+      IcGl                = IcGl;
+      LcLimit             = LcLimit;
+      Lcutilised          = Lcutilised;
+      lcavailable         = lcavailable;
+      LcPledgeLimit       = LcPledgeLimit;
+      Lifnr               = Lifnr;
+      OgGl                = OgGl;
+      PackCredit          = PackCredit;
+      packcreditutilised  = packcreditutilised;
+      Pledgelimit         = PledgeLimit;
+      interchangeability  = interchangeability;
+      TotalLimit          = TotalLimit;
+      TotalNonFundBased   = TotalNonFundBased;
+      Waers               = Waers;
+      Wcdc                = Wcdc;
+      wcdcutilised        = wcdcutilised;
+    }
+}

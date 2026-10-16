@@ -1,0 +1,7 @@
+@EndUserText.label: 'Licence Authorization View'
+@MappingRole: true
+define role ZA_LIC_AUTHO {
+    grant
+        select
+            on ZR_LicenceMasterTP;
+}

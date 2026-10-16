@@ -1,0 +1,44 @@
+projection;
+strict;
+use draft;
+
+define behavior for ZC_FDHEAD //alias <alias_name>
+{
+  use create;
+  use update;
+  //use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use association _incgl { create; }
+  use association _interest { create; }
+  use association _outgl { create; }
+}
+
+define behavior for ZC_FDINCGL //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}
+
+define behavior for ZC_FDINTEREST //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}
+
+define behavior for ZC_FDOUTGL //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}

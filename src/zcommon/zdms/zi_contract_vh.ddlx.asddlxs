@@ -1,0 +1,100 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+    typeName: 'Sales Contract',
+    typeNamePlural: 'Sales Contracts',
+    title: {
+        type: #STANDARD,
+        value: 'SalesContract'
+    },
+    description: {
+        type: #STANDARD,
+        value: 'SalesContractType'
+    }
+}
+
+annotate entity ZI_CONTRACT_VH with
+{
+
+    @UI.lineItem: [
+        {
+            position: 10,
+            label: 'Sales Contract'
+        }
+    ]
+    @UI.identification: [
+        {
+            position: 10,
+            label: 'Sales Contract'
+        }
+    ]
+    @UI.selectionField: [
+        {
+            position: 10
+        }
+    ]
+    SalesContract;
+
+
+    @UI.lineItem: [
+        {
+            position: 20,
+            label: 'Contract Type'
+        }
+    ]
+    @UI.identification: [
+        {
+            position: 20,
+            label: 'Contract Type'
+        }
+    ]
+    @UI.selectionField: [
+        {
+            position: 20
+        }
+    ]
+    SalesContractType;
+
+
+    @UI.lineItem: [
+        {
+            position: 30,
+            label: 'Sold To Party'
+        }
+    ]
+    @UI.identification: [
+        {
+            position: 30,
+            label: 'Sold To Party'
+        }
+    ]
+    SoldToParty;
+
+
+    @UI.lineItem: [
+        {
+            position: 40,
+            label: 'Sales Organization'
+        }
+    ]
+    SalesOrganization;
+
+
+    @UI.lineItem: [
+        {
+            position: 50,
+            label: 'Customer Group'
+        }
+    ]
+    CustomerGroup;
+
+
+    @UI.lineItem: [
+        {
+            position: 60,
+            label: 'Document Count'
+        }
+    ]
+    DocCount;
+
+}

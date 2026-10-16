@@ -1,0 +1,230 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'DetailsForCompanyCo', 
+    typeNamePlural: 'DetailsForCompanyCos', 
+    title: {
+      type: #STANDARD, 
+      label: 'Details For Company Code & Plant', 
+      value: 'Cocode'
+    }
+  }
+}
+annotate view ZI_DetailsForCompanyCo with
+{
+  @UI.hidden: true
+  ConfigDeprecationCode_Critlty;
+  
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_DetailsForCompanyCo', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Details For Company Code & Plant', 
+    position: 1 
+  } ]
+  Cocode;
+  
+  @UI.identification: [ {
+  position: 2 ,
+  label: 'Plant'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 ,
+    label: 'Plant'
+  } ]
+  Plant;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Company Name'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Company Name'
+  } ]
+  Name;
+  
+  @UI.identification: [ {
+    position: 4 , 
+    label: 'Tin'
+  } ]
+  @UI.lineItem: [ {
+    position: 4 , 
+    label: 'Tin'
+  } ]
+  Tin;
+  
+  @UI.identification: [ {
+    position: 5 , 
+    label: 'Cinno'
+  } ]
+  @UI.lineItem: [ {
+    position: 5 , 
+    label: 'Cinno'
+  } ]
+  Cinno;
+  
+  @UI.identification: [ {
+    position: 6 , 
+    label: 'Panno'
+  } ]
+  @UI.lineItem: [ {
+    position: 6 , 
+    label: 'Panno'
+  } ]
+  Panno;
+  
+  @UI.identification: [ {
+    position: 7 , 
+    label: 'Gstin'
+  } ]
+  @UI.lineItem: [ {
+    position: 7 , 
+    label: 'Gstin'
+  } ]
+  Gstin;
+  
+  @UI.identification: [ {
+    position: 8 , 
+    label: 'Iec'
+  } ]
+  @UI.lineItem: [ {
+    position: 8 , 
+    label: 'Iec'
+  } ]
+  Iec;
+  
+  @UI.identification: [ {
+    position: 9 , 
+    label: 'Plantaddr1'
+  } ]
+  @UI.lineItem: [ {
+    position: 9 , 
+    label: 'Plantaddr1'
+  } ]
+  Plantaddr1;
+  
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'Plantaddr2'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'Plantaddr2'
+  } ]
+  Plantaddr2;
+  
+  @UI.identification: [ {
+    position: 11 , 
+    label: 'Plantaddr3'
+  } ]
+  Plantaddr3;
+  
+  @UI.identification: [ {
+    position: 12 , 
+    label: 'Cemail'
+  } ]
+    @UI.lineItem: [ {
+    position: 12 , 
+    label: 'Email'
+  } ]
+  Cemail;
+  
+  @UI.identification: [ {
+    position: 13 , 
+    label: 'Cmobile'
+  } ]
+    @UI.lineItem: [ {
+    position: 13 , 
+    label: 'Mobile'
+  } ]
+  Cmobile;
+  
+  @UI.identification: [ {
+    position: 14 , 
+    label: 'Plantname'
+  } ]
+  Plantname;
+  
+  @UI.identification: [ {
+    position: 15 , 
+    label: 'Caddress1'
+  } ]
+    @UI.lineItem: [ {
+    position: 15 , 
+    label: 'Company Addr1'
+  } ]
+  Caddress1;
+  
+  @UI.identification: [ {
+    position: 16 , 
+    label: 'Caddress2'
+  } ]
+    @UI.lineItem: [ {
+    position: 16 , 
+    label: 'Company Addr2'
+  } ]
+  Caddress2;
+  
+  @UI.identification: [ {
+    position: 17 , 
+    label: 'Caddress3'
+  } ]
+    @UI.lineItem: [ {
+    position: 17 , 
+    label: 'Company Addr3'
+  } ]
+  Caddress3;
+  
+  @UI.identification: [ {
+    position: 18 , 
+    label: 'Var6'
+  } ]
+  Var6;
+  
+  @UI.identification: [ {
+    position: 19 , 
+    label: 'Var1'
+  } ]
+  Var1;
+  
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'Var2'
+  } ]
+  Var2;
+  
+  @UI.identification: [ {
+    position: 21 , 
+    label: 'Var3'
+  } ]
+  Var3;
+  
+  @UI.identification: [ {
+    position: 22 , 
+    label: 'Var4'
+  } ]
+  Var4;
+  
+  @UI.identification: [ {
+    position: 23 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate'
+  } ]
+  ConfigDeprecationCode;
+}

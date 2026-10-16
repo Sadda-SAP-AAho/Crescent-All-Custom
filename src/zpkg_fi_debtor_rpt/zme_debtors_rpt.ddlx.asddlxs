@@ -1,0 +1,326 @@
+@Metadata.layer: #CUSTOMER
+
+@UI.headerInfo: { typeName: 'Debtors Report',
+                  typeNamePlural: 'Debtors Report',
+                  title: { type: #STANDARD, label: 'OTIF Report', value: 'AccountingDocument' } }
+
+annotate entity ZC_FI_DEBTOR_RPT with
+
+{
+  @UI.facet: [ { id: 'GeneralData',
+                 isSummary: true,
+                 label: 'Debtors Report',
+                 position: 5,
+                 type: #COLLECTION },
+               { type: #FIELDGROUP_REFERENCE,
+                 targetQualifier: 'GeneralData1',
+                 parentId: 'GeneralData',
+                 position: 10,
+                 label: 'Report Details',
+                 id: 'GeneralData1' } ]
+  @UI.hidden: true
+  CompanyCode;
+
+  @UI.fieldGroup: [ { position: 10, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.lineItem: [ { position: 10 } ]
+  AccountingDocument;
+
+  @UI.hidden: true
+  FiscalYear;
+
+  @UI.hidden: true
+  AccountingDocumentItem;
+
+  @UI.fieldGroup: [ { position: 21, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 21 } ]
+  @UI.lineItem: [ { position: 21 } ]
+  AssignmentReference;
+
+  @UI.fieldGroup: [ { position: 12, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 12 } ]
+  @UI.lineItem: [ { position: 12 } ]
+  doctyp;
+
+  @UI.fieldGroup: [ { position: 13, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 13 } ]
+  @UI.lineItem: [ { position: 13 } ]
+  AccountingDocumentTypeName;
+
+  @UI.fieldGroup: [ { position: 20, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.lineItem: [ { position: 20 } ]
+  arinv;
+
+  @UI.fieldGroup: [ { position: 30, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.selectionField: [ { position: 30 } ]
+  DocumentDate;
+
+  @UI.fieldGroup: [ { position: 40, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.lineItem: [ { position: 40 } ]
+  taxinv;
+
+  @UI.fieldGroup: [ { position: 41, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 41 } ]
+  @UI.lineItem: [ { position: 41 } ]
+  taxinvref;
+
+  @UI.fieldGroup: [ { position: 42, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 42 } ]
+  @UI.lineItem: [ { position: 42 } ]
+  DocumentReferenceID;
+
+  @UI.fieldGroup: [ { position: 50, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.lineItem: [ { position: 50 } ]
+  Planingweek;
+
+  @UI.fieldGroup: [ { position: 60, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.lineItem: [ { position: 60 } ]
+  Planingmonth;
+
+  @UI.fieldGroup: [ { position: 70, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.lineItem: [ { position: 70 } ]
+  Customer;
+
+  @UI.fieldGroup: [ { position: 80, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.lineItem: [ { position: 80 } ]
+  CustomerName;
+
+  @UI.fieldGroup: [ { position: 90, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.lineItem: [ { position: 90 } ]
+  TransactionCurrency;
+
+  @UI.fieldGroup: [ { position: 100, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.lineItem: [ { position: 100 } ]
+  Salesnoteref;
+
+  @UI.fieldGroup: [ { position: 110, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 110 } ]
+  @UI.lineItem: [ { position: 110 } ]
+  AbsoluteAmountInTransacCrcy;
+
+  @UI.fieldGroup: [ { position: 120, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 120 } ]
+  @UI.lineItem: [ { position: 120 } ]
+  exchangerate;
+
+  @UI.fieldGroup: [ { position: 130, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 130 } ]
+  @UI.lineItem: [ { position: 130 } ]
+  invval;
+
+  @UI.fieldGroup: [ { position: 140, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 140 } ]
+  @UI.lineItem: [ { position: 140 } ]
+  paidamt;
+
+  @UI.fieldGroup: [ { position: 150, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 150 } ]
+  @UI.lineItem: [ { position: 150 } ]
+  balamt;
+
+  //  @UI.fieldGroup: [ { position: 151, qualifier: 'GeneralData1', importance: #HIGH } ]
+  //  @UI.identification: [ { position: 151 } ]
+  //  @UI.lineItem: [ { position: 151 } ]
+  @UI.hidden: true
+  FCInvoice;
+
+  @UI.fieldGroup: [ { position: 152, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 152 } ]
+  @UI.lineItem: [ { position: 152 } ]
+  FCPaid;
+
+  @UI.fieldGroup: [ { position: 153, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 153 } ]
+  @UI.lineItem: [ { position: 153 } ]
+  FCbalamt;
+
+  @UI.fieldGroup: [ { position: 160, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 160 } ]
+  @UI.lineItem: [ { position: 160 } ]
+  Ladingno;
+
+  @UI.fieldGroup: [ { position: 170, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 170 } ]
+  @UI.lineItem: [ { position: 170 } ]
+  Ladingdt;
+
+  @UI.fieldGroup: [ { position: 180, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 180 } ]
+  @UI.lineItem: [ { position: 180 } ]
+  shippingbill;
+
+  @UI.fieldGroup: [ { position: 190, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.lineItem: [ { position: 190 } ]
+  shippingbilldate;
+
+  @UI.fieldGroup: [ { position: 200, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 200 } ]
+  @UI.lineItem: [ { position: 200 } ]
+  fobvalue;
+
+  @UI.fieldGroup: [ { position: 200, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 200 } ]
+  @UI.lineItem: [ { position: 200 } ]
+  Empretdt;
+
+  @UI.fieldGroup: [ { position: 210, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 210 } ]
+  @UI.lineItem: [ { position: 210 } ]
+  bank;
+
+  @UI.fieldGroup: [ { position: 220, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 220 } ]
+  @UI.lineItem: [ { position: 220 } ]
+  Bankrefno;
+
+  @UI.fieldGroup: [ { position: 230, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 230 } ]
+  @UI.lineItem: [ { position: 230 } ]
+  Docpresentbnkdt;
+
+  @UI.fieldGroup: [ { position: 240, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 240 } ]
+  @UI.lineItem: [ { position: 240 } ]
+  Swiftdate;
+
+  @UI.fieldGroup: [ { position: 250, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 250 } ]
+  @UI.lineItem: [ { position: 250 } ]
+  inwarddate;
+
+  @UI.fieldGroup: [ { position: 260, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 260 } ]
+  @UI.lineItem: [ { position: 260 } ]
+  Paymentprocess;
+
+  @UI.fieldGroup: [ { position: 270, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 270 } ]
+  @UI.lineItem: [ { position: 270 } ]
+  NetDueDate;
+
+  @UI.fieldGroup: [ { position: 280, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 280 } ]
+  @UI.lineItem: [ { position: 280 } ]
+  IncotermsClassification;
+
+  @UI.fieldGroup: [ { position: 290, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 290 } ]
+  @UI.lineItem: [ { position: 290 } ]
+  recondt;
+
+  @UI.fieldGroup: [ { position: 300, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 300 } ]
+  @UI.lineItem: [ { position: 300 } ]
+  Billcloseflag;
+
+  @UI.fieldGroup: [ { position: 310, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 310 } ]
+  @UI.lineItem: [ { position: 310 } ]
+  CustomerPaymentTermsName;
+
+  @UI.fieldGroup: [ { position: 330, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 330 } ]
+  @UI.lineItem: [ { position: 330 } ]
+  planning;
+
+  @UI.fieldGroup: [ { position: 330, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 330 } ]
+  @UI.lineItem: [ { position: 330 } ]
+  Inwardrecordstatus;
+
+  @UI.fieldGroup: [ { position: 340, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 340 } ]
+  @UI.lineItem: [ { position: 340 } ]
+  inwardamt;
+
+  @UI.fieldGroup: [ { position: 350, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 350 } ]
+  @UI.lineItem: [ { position: 350 } ]
+  inrecdt;
+
+  @UI.fieldGroup: [ { position: 360, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 360 } ]
+  @UI.lineItem: [ { position: 360 } ]
+  Docsentcustdt;
+
+  @UI.fieldGroup: [ { position: 370, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 370 } ]
+  @UI.lineItem: [ { position: 370 } ]
+  Etadt;
+
+  @UI.fieldGroup: [ { position: 380, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 380 } ]
+  @UI.lineItem: [ { position: 380 } ]
+  Etddt;
+
+  @UI.fieldGroup: [ { position: 382, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 382 } ]
+  @UI.lineItem: [ { position: 382 } ]
+  Conliftdt;
+
+  @UI.fieldGroup: [ { position: 384, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 384 } ]
+  @UI.lineItem: [ { position: 384 } ]
+  conretdt;
+
+  @UI.fieldGroup: [ { position: 386, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 386 } ]
+  @UI.lineItem: [ { position: 386 } ]
+  Cod;
+
+  @UI.fieldGroup: [ { position: 388, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 388 } ]
+  @UI.lineItem: [ { position: 388 } ]
+  hsncode;
+
+  @UI.fieldGroup: [ { position: 390, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 390 } ]
+  @UI.lineItem: [ { position: 390 } ]
+  salesper;
+
+  @UI.fieldGroup: [ { position: 400, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 400 } ]
+  @UI.lineItem: [ { position: 400 } ]
+  AccountGroupName;
+
+  @UI.fieldGroup: [ { position: 410, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 410 } ]
+  @UI.lineItem: [ { position: 410 } ]
+  BusinessPlace;
+
+  @UI.fieldGroup: [ { position: 420, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 420 } ]
+  @UI.lineItem: [ { position: 420 } ]
+  RegionName;
+
+  @UI.fieldGroup: [ { position: 430, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 430 } ]
+  @UI.lineItem: [ { position: 430 } ]
+  TaxNumber3;
+
+  @UI.fieldGroup: [ { position: 440, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 440 } ]
+  @UI.lineItem: [ { position: 440 } ]
+  Ebrcno;
+
+  @UI.fieldGroup: [ { position: 450, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 450 } ]
+  @UI.lineItem: [ { position: 450 } ]
+  Drftblrcvdt;
+  
+  @UI.fieldGroup: [ { position: 460, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 460 } ]
+  @UI.lineItem: [ { position: 460 } ]
+  irmno;
+}

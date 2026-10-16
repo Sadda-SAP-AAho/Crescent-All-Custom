@@ -1,0 +1,80 @@
+@Metadata.layer: #CUSTOMER
+
+annotate view ZC_BOELICTP with
+{
+
+  @UI.facet: [
+  {
+  id: 'GeneralI',
+  isSummary: true,
+  label: 'License Details',
+  type: #COLLECTION,
+  purpose: #STANDARD
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData1',
+  parentId: 'GeneralI',
+  label: 'Section 1',
+  id: 'GeneralData1'
+  }
+                ]
+
+  @UI.hidden: true
+  InternalBoe;
+
+  @UI.hidden: true
+  InternalItemBoe;
+  @UI: {
+        lineItem: [ { position: 9} ],
+        identification: [{position: 9 }],
+        fieldGroup: [{qualifier: 'GeneralData1',position: 9,importance: #HIGH }]
+  }
+
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'ecomno', name:'ZR_LIC_F4' },
+                                                distinctValues: true,
+                                                useForValidation: true,
+                            additionalBinding: [{ localElement: 'Licencenumber', element: 'licno', usage: #FILTER_AND_RESULT },
+                                                { localElement: 'FobFc',         element: 'waers', usage: #FILTER_AND_RESULT }
+                                               ]                                                  
+                                    }]
+  Licencint;
+
+  @UI: {
+          lineItem: [ { position: 10} ],
+          identification: [{position: 10 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
+  }
+
+
+  Licencenumber;
+
+  @UI: {
+          lineItem: [ { position: 20} ],
+          identification: [{position: 20 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }]
+  }
+  Usageamount;
+
+  @UI: {
+          lineItem: [ { position: 30} ],
+          identification: [{position: 30 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 30,importance: #HIGH }]
+  }
+  Pendingamount;
+  
+    @UI: {
+          lineItem: [ { position: 35} ],
+          identification: [{position: 35 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 35,importance: #HIGH }]
+  }
+  assignamount;
+
+  @UI.hidden: true
+  FobFc;
+
+  @UI.hidden: true
+  Locallastchangedat;
+
+}

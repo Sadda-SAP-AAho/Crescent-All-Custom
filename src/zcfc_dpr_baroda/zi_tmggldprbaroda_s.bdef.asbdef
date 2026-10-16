@@ -1,0 +1,76 @@
+managed with additional save implementation in class ZBP_I_TMGGLDPRBARODA_S unique;
+strict;
+with draft;
+define behavior for ZI_TmgGlDprBaroda_S alias TmgGlDprBarodaAll
+draft table ZDT_GL_DPR_BAR_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TmgGlDprBaroda { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+
+}
+
+define behavior for ZI_TmgGlDprBaroda alias TmgGlDprBaroda ##UNMAPPED_FIELD
+persistent table ZDT_GL_DPR_BARD
+draft table ZDT_GL_DPR_BA_D
+lock dependent by _TmgGlDprBarodaAll
+authorization dependent by _TmgGlDprBarodaAll
+{
+  field ( mandatory : create )
+   Costtype,
+   Hkont;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Costtype,
+   Hkont;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_GL_DPR_BARD
+  {
+    Costtype = COSTTYPE;
+    Hkont = HKONT;
+  }
+
+  association _TmgGlDprBarodaAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+
+}

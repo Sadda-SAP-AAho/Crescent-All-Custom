@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for TIM Reco Report'
+define service ZSD_TIMRECORPT {
+  expose ZC_TIMRECORPT;
+}

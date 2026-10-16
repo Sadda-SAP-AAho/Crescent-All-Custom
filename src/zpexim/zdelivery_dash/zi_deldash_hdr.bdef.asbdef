@@ -1,0 +1,173 @@
+managed implementation in class zbp_i_deldash_hdr unique;
+strict;
+with draft;
+define behavior for ZI_DELDASH_HDR //alias <alias_name>
+persistent table zdt_deldash_hdr
+draft table zdr_deldash_hdr
+with additional save
+lock master
+total etag Delivery
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update ) Delivery;
+  field ( readonly ) Shpprtycode, Shpprtyname, Shpprtyadd1, Shpprtyadd2, Vessaildt,
+  Ordepdt,
+  // Atadt, Etadt,
+  Empretdt, Revision, Status, Cancel;
+  field ( features : instance ) Chaname, Pacmark, Scomdec, Femadec, Lcno, Lcdt,
+  Issbnkname, Consize, Consizen, Docrelchadt, Conliftdt,
+  Confacindt, Conpckvaldt, Conpckletdt, Shipbillno,
+  Shpbilldt, Cartordrecdt, Vesselno, Contno, Stuffdt,
+  Bookingno, Porttrans, Lorryno, Scriptdt, Rfidsealno,
+  Delmode, Latordrecrem, Latcondocrem, Precarby, por,
+  Carsealno, Shipline, Conname, Carordappdt,
+  Concutoffdt, Etddt, Finalseal, Detrecchadt, Sisentdt,
+  Condockindt, Shiptype, Lutigst, Pol, Pod, Canind, Cancelby, Cancelon,
+  Findes, Coo, Cod, Cusmar, Descgoods, forwarder, forwardernam, Salesnoteref,
+  Textfield1, Textfield2, Descgoods1, Freightremarks, Contdisfact, Contpickfrm, leodate, Packrelfac;
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  action ( features : instance ) Print result [1] $self;
+  action ( features : instance ) Cancel result [1] $self;
+  determination updatedata on save { create; }
+
+  determination deliverydetails on modify { field Delivery; }
+  validation checkdel on save { create; }
+
+  side effects
+  {
+    action Cancel affects field Status;
+  }
+
+  association _Item { create ( features : instance ); with draft; }
+  mapping for zi_deldash_hdr
+    {
+      Delivery       = Delivery;
+      Revision       = Revision;
+      Chaname        = Chaname;
+      Pacmark        = Pacmark;
+      Scomdec        = Scomdec;
+      Femadec        = Femadec;
+      Lcno           = Lcno;
+      Lcdt           = Lcdt;
+      Issbnkname     = Issbnkname;
+      Consize        = Consize;
+      Consizen       = Consizen;
+      Docrelchadt    = Docrelchadt;
+      Conliftdt      = Conliftdt;
+      Confacindt     = Confacindt;
+      Conpckvaldt    = Conpckvaldt;
+      Conpckletdt    = Conpckletdt;
+      Shipbillno     = Shipbillno;
+      Shpbilldt      = Shpbilldt;
+      Cartordrecdt   = Cartordrecdt;
+      Vesselno       = Vesselno;
+      Contno         = Contno;
+      Stuffdt        = Stuffdt;
+      Bookingno      = Bookingno;
+      Porttrans      = Porttrans;
+      Lorryno        = Lorryno;
+      Scriptdt       = Scriptdt;
+      Rfidsealno     = Rfidsealno;
+      Delmode        = Delmode;
+      Latordrecrem   = Latordrecrem;
+      Latcondocrem   = Latcondocrem;
+      Precarby       = Precarby;
+      por            = por;
+      Carsealno      = Carsealno;
+      Shipline       = Shipline;
+      Conname        = Conname;
+      Carordappdt    = Carordappdt;
+      Etadt          = Etadt;
+      Concutoffdt    = Concutoffdt;
+      Etddt          = Etddt;
+      Finalseal      = Finalseal;
+      Detrecchadt    = Detrecchadt;
+      Sisentdt       = Sisentdt;
+      Condockindt    = Condockindt;
+      Shiptype       = Shiptype;
+      Empretdt       = Empretdt;
+      Shpprtycode    = Shpprtycode;
+      Shpprtyname    = Shpprtyname;
+      Shpprtyadd1    = Shpprtyadd1;
+      Shpprtyadd2    = Shpprtyadd2;
+      Lutigst        = Lutigst;
+      Pol            = Pol;
+      Pod            = Pod;
+      Findes         = Findes;
+      Coo            = Coo;
+      Cod            = Cod;
+      Cusmar         = Cusmar;
+      Descgoods      = Descgoods;
+      Vessaildt      = Vessaildt;
+      Ordepdt        = Ordepdt;
+      Atadt          = Atadt;
+      forwarder      = forwarder;
+      forwardernam   = forwardernam;
+      Salesnoteref   = Salesnoteref;
+      Invprint       = Invprint;
+      Imono          = Imono;
+      Status         = Status;
+      Cancel         = Cancel;
+      Canind         = Canind;
+      Cancelby       = Cancelby;
+      Cancelon       = Cancelon;
+      Textfield1     = Textfield1;
+      Textfield2     = Textfield2;
+      Descgoods1     = Descgoods1;
+      Flag           = Flag;
+      Freightremarks = Freightremarks;
+      Contdisfact    = Contdisfact;
+      Contpickfrm    = Contpickfrm;
+      leodate        = leodate;
+      Packrelfac     = Packrelfac;
+    }
+}
+
+define behavior for ZI_DELDASH_ITM //alias <alias_name>
+persistent table zdt_deldash_itm
+draft table zdr_deldash_itm
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id, Delivery, Posnr, Plant, Lgort, Matnr, Maktx, Meins, Qty, Hsn, Nwt, Gwt, Unit;
+  field ( features : instance ) Cusreqdt, Revno, Oitfdt, Itmpaiinfo;
+
+  association _Head { with draft; }
+  mapping for zi_deldash_itm
+    {
+      Delivery   = Delivery;
+      Posnr      = Posnr;
+      Plant      = Plant;
+      Lgort      = Lgort;
+      Matnr      = Matnr;
+      Maktx      = Maktx;
+      Meins      = Meins;
+      Qty        = Qty;
+      Cusreqdt   = Cusreqdt;
+      Revno      = Revno;
+      Oitfdt     = Oitfdt;
+      Itmpaiinfo = Itmpaiinfo;
+      Hsn        = Hsn;
+      Nwt        = Nwt;
+      Gwt        = Gwt;
+      Unit       = Unit;
+    }
+}

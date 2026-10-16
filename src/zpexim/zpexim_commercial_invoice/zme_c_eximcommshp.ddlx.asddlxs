@@ -1,0 +1,242 @@
+@Metadata.layer: #CORE
+
+@UI: {
+        presentationVariant: [{ sortOrder: [{ by: 'Incoterms', direction:  #DESC }],
+                                visualizations: [{type: #AS_LINEITEM}],
+                                text: 'Shipping' }]
+     }
+
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Shipping', value: 'Incoterms' } } }
+
+
+annotate view ZC_EXIMCOMMSHP with
+{
+
+  @UI.facet: [
+  {
+  id: 'GeneralI',
+  isSummary: true,
+  label: 'General Information',
+  type: #COLLECTION,
+  purpose: #STANDARD
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData1',
+  parentId: 'GeneralI',
+  label: 'Incoterms',
+  id: 'GeneralData1'
+  },
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData2',
+  parentId: 'GeneralI',
+  label: 'Port Information',
+  id: 'GeneralData2'
+  },
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData3',
+  parentId: 'GeneralI',
+  label: 'Origin and Destination',
+  id: 'GeneralData3'
+  },
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData4',
+  parentId: 'GeneralI',
+  label: 'Addn. Information',
+  id: 'GeneralData4'
+  }
+  ]
+
+  @UI.hidden: true
+  Id;
+
+  @UI.hidden: true
+  Item;
+
+  @UI: {
+         lineItem: [ { position: 10} ],
+         identification: [{position: 10 }],
+         fieldGroup: [{qualifier: 'GeneralData3',position: 10,importance: #HIGH }]
+  }
+  Finaldest;
+
+  @UI: {
+         lineItem: [ { position: 20} ],
+         identification: [{position: 20 }],
+         fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }]
+  }
+  Incoterms;
+
+  @UI: {
+         lineItem: [ { position: 30} ],
+         identification: [{position: 30 }],
+         fieldGroup: [{qualifier: 'GeneralData1',position: 30,importance: #HIGH }]
+  }
+  Incotermsl;
+
+  @UI: {
+         lineItem: [ { position: 40} ],
+         identification: [{position: 40 }],
+         fieldGroup: [{qualifier: 'GeneralData2',position: 5,importance: #HIGH }]
+  }
+  Portofloading;
+
+  @UI: {
+         lineItem: [ { position: 50} ],
+         identification: [{position: 50 }],
+         fieldGroup: [{qualifier: 'GeneralData2',position: 10,importance: #HIGH }]
+  }
+  Portofdischarge;
+
+  @UI: {
+         lineItem: [ { position: 60} ],
+         identification: [{position: 60 }],
+         fieldGroup: [{qualifier: 'GeneralData4',position: 60,importance: #HIGH }]
+  }
+  Vesselflight;
+
+  @UI: {
+         lineItem: [ { position: 70} ],
+         identification: [{position: 70 }],
+         fieldGroup: [{qualifier: 'GeneralData4',position: 70,importance: #HIGH }]
+  }
+  Insuranceno;
+
+  @UI: {
+         lineItem: [ { position: 80} ],
+         identification: [{position: 80 }],
+         fieldGroup: [{qualifier: 'GeneralData4',position: 80,importance: #HIGH }]
+  }
+  Blno;
+
+  @UI: {
+         lineItem: [ { position: 90} ],
+         identification: [{position: 90 }],
+         fieldGroup: [{qualifier: 'GeneralData4',position: 90,importance: #HIGH }]
+  }
+  Bldate;
+
+  @UI: {
+         lineItem: [ { position: 100 } ],
+         identification: [{position: 100 }],
+         fieldGroup: [{qualifier: 'GeneralData4',position: 100,importance: #HIGH }]
+  }
+  Broker;
+
+  @UI: {
+         lineItem: [ { position: 110 } ],
+         identification: [{position: 110 }],
+         fieldGroup: [{qualifier: 'GeneralData4',position: 110,importance: #HIGH }]
+  }
+  Egm;
+
+  @UI: {
+         lineItem: [ { position: 120 } ],
+         identification: [{position: 120 }],
+         fieldGroup: [{qualifier: 'GeneralData4',position: 120,importance: #HIGH }]
+  }
+  Egmdate;
+
+  @UI: {
+         lineItem: [ { position: 130 } ],
+         identification: [{position: 130 }],
+         fieldGroup: [{qualifier: 'GeneralData4',position: 130,importance: #HIGH }]
+  }
+  Commission;
+
+  @UI: {
+         lineItem: [ { position: 140 } ],
+         identification: [{position: 140 }],
+         fieldGroup: [{qualifier: 'GeneralData3',position: 140,importance: #HIGH }]
+  }
+  Shippingline;
+
+  @UI: {
+         lineItem: [ { position: 150 } ],
+         identification: [{position: 150 }],
+         fieldGroup: [{qualifier: 'GeneralData3',position: 10,importance: #HIGH }]
+  }
+  Sailingdate;
+
+  @UI: {
+         lineItem: [ { position: 160 } ],
+         identification: [{position: 160 }],
+         fieldGroup: [{qualifier: 'GeneralData2',position: 40,importance: #HIGH }]
+  }
+  Dispatchfrom;
+
+  @UI: {
+         lineItem: [ { position: 170 } ],
+         identification: [{position: 170 }],
+         fieldGroup: [{qualifier: 'GeneralData2',position: 50,importance: #HIGH }]
+  }
+  Dispatchto;
+
+  @UI: {
+         lineItem: [ { position: 180 } ],
+         identification: [{position: 180 }],
+         fieldGroup: [{qualifier: 'GeneralData3',position: 5,importance: #HIGH }]
+  }
+  Countryorigin;
+
+  @UI: {
+         lineItem: [ { position: 190 } ],
+         identification: [{position: 190 }],
+         fieldGroup: [{qualifier: 'GeneralData3',position: 10,importance: #HIGH }]
+  }
+  Countrydestination;
+
+  @UI: {
+         lineItem: [ { position: 200 } ],
+         identification: [{position: 200 }],
+         fieldGroup: [{qualifier: 'GeneralData3',position: 40,importance: #HIGH }]
+  }
+  Termsofdelivery;
+
+  @UI: {
+         lineItem: [ { position: 210 } ],
+         identification: [{position: 210 }],
+         fieldGroup: [{qualifier: 'GeneralData3',position: 50,importance: #HIGH }]
+  }
+  Actualdatearrival;
+
+  @UI: {
+         lineItem: [ { position: 220 } ],
+         identification: [{position: 220 }],
+         fieldGroup: [{qualifier: 'GeneralData3',position: 60,importance: #HIGH }]
+  }
+  Expecteddatearrival;
+
+  @UI: {
+         lineItem: [ { position: 230 } ],
+         identification: [{position: 230 }],
+         fieldGroup: [{qualifier: 'GeneralData4',position: 10,importance: #HIGH }]
+  }
+  Pino;
+
+  @UI: {
+         lineItem: [ { position: 240 } ],
+         identification: [{position: 240 }],
+         fieldGroup: [{qualifier: 'GeneralData4',position: 15,importance: #HIGH }]
+  }
+  Pidate;
+
+  @UI: {
+         lineItem: [ { position: 250 } ],
+         identification: [{position: 250 }],
+         fieldGroup: [{qualifier: 'GeneralData2',position: 100,importance: #HIGH }]
+  }
+  Dispatchno;
+
+  @UI: {
+         lineItem: [ { position: 260 } ],
+         identification: [{position: 260 }],
+         fieldGroup: [{qualifier: 'GeneralData2',position: 110,importance: #HIGH }]
+  }
+  Dispatchdate;
+
+}

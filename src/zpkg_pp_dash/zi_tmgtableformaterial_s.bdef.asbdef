@@ -1,0 +1,74 @@
+managed with additional save implementation in class ZBP_I_TMGTABLEFORMATERIAL_S unique;
+strict;
+with draft;
+define behavior for ZI_TmgTableForMaterial_S alias TmgTableForMaterAll
+draft table ZDT_OPR_MGR_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TmgTableForMaterial { create ( features : instance ); with draft; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_TmgTableForMaterial alias TmgTableForMaterial ##UNMAPPED_FIELD
+persistent table ZDT_OPR_MGRP_TMG
+draft table ZDT_OPR_MGRP__D
+lock dependent by _TmgTableForMaterAll
+authorization dependent by _TmgTableForMaterAll
+
+{
+  field ( mandatory : create )
+   Zopn,
+   Matkl;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Zopn,
+   Matkl;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_OPR_MGRP_TMG
+  {
+    Zopn = ZOPN;
+    Matkl = MATKL;
+  }
+
+  association _TmgTableForMaterAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

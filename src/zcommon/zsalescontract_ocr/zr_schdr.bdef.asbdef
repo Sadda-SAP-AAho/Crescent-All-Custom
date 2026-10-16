@@ -1,0 +1,223 @@
+managed implementation in class ZBP_R_SCHDR unique;
+strict ( 2 );
+define behavior for ZR_SCHDR alias ZrSchdr
+persistent table ZSC_HDR
+etag master LocalChangedAt
+lock master
+authorization master( global )
+{
+  field ( mandatory : create )
+   Docuuid;
+
+  field ( readonly )
+   CreatedBy,
+   CreatedAt,
+   ChangedBy,
+   ChangedAt,
+   LocalChangedAt;
+
+  field ( readonly : update )
+   Docuuid;
+
+  create;
+  update;
+  delete;
+
+  action ClearError result [1] $self;
+
+  mapping for ZSC_HDR
+  {
+    Docuuid = DOCUUID;
+    PoNumber = PO_NUMBER;
+    SoNumber = SO_NUMBER;
+    AirfaasOrderID = AIRFAAS_ORDER_ID;
+    AccountReference = ACCOUNT_REFERENCE;
+    OrderDate = ORDER_DATE;
+    DueDate = DUE_DATE;
+    RevisionDate = REVISION_DATE;
+    IsChangeOrder = IS_CHANGE_ORDER;
+    Currency = CURRENCY;
+    CustomerCode = CUSTOMER_CODE;
+    CustomerName = CUSTOMER_NAME;
+    CustomerAddrLine1 = CUSTOMER_ADDR_LINE1;
+    CustomerAddrLine2 = CUSTOMER_ADDR_LINE2;
+    CustomerCity = CUSTOMER_CITY;
+    CustomerState = CUSTOMER_STATE;
+    CustomerPostal = CUSTOMER_POSTAL;
+    CustomerCountry = CUSTOMER_COUNTRY;
+    CustomerPhone = CUSTOMER_PHONE;
+    CustomerFax = CUSTOMER_FAX;
+    CustomerEmail = CUSTOMER_EMAIL;
+    CustomerVatID = CUSTOMER_VAT_ID;
+    CustomerEoriNo = CUSTOMER_EORI_NO;
+    CustomerCompanyNo = CUSTOMER_COMPANY_NO;
+    SalesOrganization = SALESORGANIZATION;
+    DistributionChannel = DISTRIBUTIONCHANNEL;
+    Division = DIVISION;
+    VendorName = VENDOR_NAME;
+    VendorAddrLine1 = VENDOR_ADDR_LINE1;
+    VendorAddrLine2 = VENDOR_ADDR_LINE2;
+    VendorCity = VENDOR_CITY;
+    VendorState = VENDOR_STATE;
+    VendorPostal = VENDOR_POSTAL;
+    VendorCountry = VENDOR_COUNTRY;
+    VendorPhone = VENDOR_PHONE;
+    VendorFax = VENDOR_FAX;
+    VendorVatID = VENDOR_VAT_ID;
+    ShipToName = SHIP_TO_NAME;
+    ShipToAddrLine1 = SHIP_TO_ADDR_LINE1;
+    ShipToAddrLine2 = SHIP_TO_ADDR_LINE2;
+    ShipToCity = SHIP_TO_CITY;
+    ShipToState = SHIP_TO_STATE;
+    ShipToPostal = SHIP_TO_POSTAL;
+    ShipToCountry = SHIP_TO_COUNTRY;
+    ShipFromName = SHIP_FROM_NAME;
+    ShipFromAddrLine1 = SHIP_FROM_ADDR_LINE1;
+    ShipFromAddrLine2 = SHIP_FROM_ADDR_LINE2;
+    ShipFromCity = SHIP_FROM_CITY;
+    ShipFromPostal = SHIP_FROM_POSTAL;
+    ShipFromCountry = SHIP_FROM_COUNTRY;
+    ShipVia = SHIP_VIA;
+    Incoterms = INCOTERMS;
+    IncotermsYear = INCOTERMS_YEAR;
+    Pol = POL;
+    Pod = POD;
+    PrepaidFreight = PREPAID_FREIGHT;
+    PaymentTerms = PAYMENT_TERMS;
+    DeliveryTerms = DELIVERY_TERMS;
+    BuyerName = BUYER_NAME;
+    BuyerDepartment = BUYER_DEPARTMENT;
+    BuyerEmail = BUYER_EMAIL;
+    InvoiceEmail = INVOICE_EMAIL;
+    LinesSubtotal = LINES_SUBTOTAL;
+    MiscCharge = MISC_CHARGE;
+    TaxSubtotal = TAX_SUBTOTAL;
+    Total = TOTAL;
+    PoComment = PO_COMMENT;
+    SoComment = SO_COMMENT;
+    Notes = NOTES;
+    AuthorizedBy = AUTHORIZED_BY;
+    TermsUrl = TERMS_URL;
+    FileName = FILE_NAME;
+    Provider = PROVIDER;
+    PostedBy = POSTED_BY;
+    PostedAt = POSTED_AT;
+    Status = STATUS;
+    ErrorLog = ERROR_LOG;
+    IsPostedSap = IS_POSTED_SAP;
+    SalesContract = SALES_CONTRACT;
+    IsContractSent = IS_CONTRACT_SENT;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    ChangedBy = CHANGED_BY;
+    ChangedAt = CHANGED_AT;
+    LocalChangedAt = LOCAL_CHANGED_AT;
+  }
+
+  association _Items {create;}
+  association _Taxes {create;}
+
+}
+
+
+
+define behavior for ZR_SCITM alias ZrScitm
+persistent table ZSC_ITM
+etag master LocalChangedAt
+lock dependent by _Header
+authorization dependent by _Header
+{
+  field ( mandatory : create )
+   Docuuid,
+   LineNumber;
+
+  field ( readonly )
+   CreatedBy,
+   CreatedAt,
+   ChangedBy,
+   ChangedAt,
+   LocalChangedAt;
+
+  field ( readonly : update )
+   Docuuid,
+   LineNumber;
+
+
+  update;
+  delete;
+
+  mapping for ZSC_ITM
+  {
+    Docuuid = DOCUUID;
+    LineNumber = LINE_NUMBER;
+    ProductCode = PRODUCT_CODE;
+    Plant = PLANT;
+    PartNumber = PART_NUMBER;
+    Revision = REVISION;
+    ConditionType = CONDITION_TYPE;
+    Description = DESCRIPTION;
+    OrderQty = ORDER_QTY;
+    UOM = UOM;
+    UnitPrice = UNIT_PRICE;
+    ExtPrice = EXT_PRICE;
+    DueDate = DUE_DATE;
+    ShipByDate = SHIP_BY_DATE;
+    TaxApplicable = TAX_APPLICABLE;
+    Currency = CURRENCY;
+    LineAdded = LINE_ADDED;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    ChangedBy = CHANGED_BY;
+    ChangedAt = CHANGED_AT;
+    LocalChangedAt = LOCAL_CHANGED_AT;
+  }
+
+  association _Header;
+
+}
+
+define behavior for ZR_SCTAX alias ZrSctax
+persistent table ZSC_TAX
+etag master LocalChangedAt
+lock dependent by _Header
+authorization dependent by _Header
+{
+  field ( mandatory : create )
+   Docuuid,
+   TaxSeq;
+
+  field ( readonly )
+   CreatedBy,
+   CreatedAt,
+   ChangedBy,
+   ChangedAt,
+   LocalChangedAt;
+
+  field ( readonly : update )
+   Docuuid,
+   TaxSeq;
+
+
+  update;
+  delete;
+
+
+  mapping for ZSC_TAX
+  {
+    Docuuid = DOCUUID;
+    TaxSeq = TAX_SEQ;
+    TaxID = TAX_ID;
+    TaxableAmount = TAXABLE_AMOUNT;
+    TaxPercent = TAX_PERCENT;
+    TaxAmount = TAX_AMOUNT;
+    Currency = CURRENCY;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    ChangedBy = CHANGED_BY;
+    ChangedAt = CHANGED_AT;
+    LocalChangedAt = LOCAL_CHANGED_AT;
+  }
+
+
+  association _Header;
+}

@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "On Time Delivery Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "On Time Delivery"
+  },
+  "ui5AppDetails": {
+    "appId": "zontimedelrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_31D282C52C18C04C7CA9CF97D331F1989EBBB026_TM",
+    "semanticObject": "zontimedelrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_31D282C52C18C04C7CA9CF97D331F1989EBBB026_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "On Time Delivery",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

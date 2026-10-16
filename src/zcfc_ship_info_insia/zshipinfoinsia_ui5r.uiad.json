@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Shipment Information-INSIA",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Shipment Information-INSIA"
+  },
+  "ui5AppDetails": {
+    "appId": "zshipinfoinsia"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_6D930F4EEA88BAAE16929B683A60A8BF18579A6D_TM",
+    "semanticObject": "zshipinfoinsia",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_6D930F4EEA88BAAE16929B683A60A8BF18579A6D_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Shipment Information-INSIA"
+      }
+    }
+  ]
+}

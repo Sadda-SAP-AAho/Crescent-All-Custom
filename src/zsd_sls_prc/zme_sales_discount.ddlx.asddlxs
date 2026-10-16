@@ -1,0 +1,501 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+    typeName: 'Customer',
+    typeNamePlural: 'Customers',
+    typeImageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgdkZGiw9frLmFH3f3k0GrhK0pi-GpDpM2bw&s',
+    title: {
+        type: #STANDARD,
+        value: 'Customer'
+    },
+    description: {
+        type: #STANDARD,
+        value: 'Cust_Reqd_Dt'
+    }
+}
+
+annotate entity Z_C_SLS_DCNT with
+{
+
+
+  @UI.facet: [
+
+      {
+          id: 'DetailReport',
+          type: #COLLECTION,
+          label: 'Detail Report',
+          position: 10
+      },
+
+      {
+          id: 'GeneralDetails',
+          parentId: 'DetailReport',
+          type: #COLLECTION,
+          label: 'Order Details',
+          position: 10
+      },
+
+      {
+          id: 'MaterialDetail',
+          type: #COLLECTION,
+          label: 'Material Details',
+          position: 20
+      },
+
+      {
+          id: 'WeightDetail',
+          type: #COLLECTION,
+          label: 'Weight Details',
+          position: 30
+      },
+
+      {
+          id: 'PricingDetails',
+          type: #COLLECTION,
+          label: 'Pricing Details',
+          position: 40
+      },
+
+      {
+          id: 'OrderDetails',
+          parentId: 'GeneralDetails',
+          type: #FIELDGROUP_REFERENCE,
+          targetQualifier: 'OrderDetails',
+          label: 'Order Details',
+          position: 10
+      },
+
+      {
+          id: 'MaterialDetails',
+          parentId: 'MaterialDetail',
+          type: #FIELDGROUP_REFERENCE,
+          targetQualifier: 'MaterialDetails',
+          label: 'Material Details',
+          position: 20
+      },
+
+      {
+          id: 'WeightDetails',
+          parentId: 'WeightDetail',
+          type: #FIELDGROUP_REFERENCE,
+          targetQualifier: 'WeightDetails',
+          label: 'Weight Details',
+          position: 30
+      },
+
+      {
+          id: 'PriceDetails',
+          parentId: 'PricingDetails',
+          type: #FIELDGROUP_REFERENCE,
+          targetQualifier: 'PriceDetails',
+          label: 'Price Details',
+          position: 40
+      }
+  ]
+
+
+
+  @UI.lineItem: [
+      {
+          position: 10,
+          label: 'Sales Document'
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'OrderDetails',
+          position: 10,
+          label: 'Sales Document'
+      }
+  ]
+  SalesDocument;
+
+
+  @UI.lineItem: [
+      {
+          position: 35,
+          label: 'SO Line No'
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'OrderDetails',
+          position: 20,
+          label: 'SO Line No'
+      }
+  ]
+  So_line_no;
+
+
+  @UI.lineItem: [
+      {
+          position: 20,
+          label: 'Customer'
+      }
+  ]
+
+  @UI.selectionField: [
+      {
+          position: 10
+      }
+  ]
+
+  @Consumption.valueHelpDefinition: [
+      {
+          entity: {
+              name: 'ZCUST_MAST',
+              element: 'Customer'
+          }
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'OrderDetails',
+          position: 30,
+          label: 'Customer'
+      }
+  ]
+  Customer;
+
+
+  @UI.lineItem: [
+      {
+          position: 25,
+          label: 'Sales Org'
+      }
+  ]
+
+  @UI.hidden: true
+  Salesorg;
+
+
+  @UI.lineItem: [
+      {
+          position: 30,
+          label: 'DistChan'
+      }
+  ]
+
+  @UI.hidden: true
+  Distchan;
+
+
+  @UI.lineItem: [
+      {
+          position: 15,
+          label: 'Sales Order Date'
+      }
+  ]
+  Sales_Order_Date;
+
+
+  @UI.lineItem: [
+      {
+          position: 20,
+          label: 'Customer PO No.'
+      }
+  ]
+  Customer_Po_No;
+
+
+  @UI.lineItem: [
+      {
+          position: 25,
+          label: 'Customer PO Date'
+      }
+  ]
+  Customer_Po_date;
+
+
+  @UI.selectionField: [
+      {
+          position: 20
+      }
+  ]
+
+  @Consumption.filter.selectionType: #RANGE
+
+  @UI.lineItem: [
+      {
+          position: 30,
+          label: 'Cust Reqd Dt-Header(CRD)'
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'MaterialDetails',
+          position: 30,
+          label: 'Cust Reqd Dt-Header(CRD)'
+      }
+  ]
+  Cust_Reqd_Dt;
+
+
+
+  @UI.lineItem: [
+      {
+          position: 35,
+          label: 'PO Line No'
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'MaterialDetails',
+          position: 5,
+          label: 'PO Line No'
+      }
+  ]
+  PO_Line_No;
+
+
+  @UI.lineItem: [
+      {
+          position: 40,
+          label: 'Material'
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'MaterialDetails',
+          position: 10,
+          label: 'Material'
+      }
+  ]
+  Material;
+
+
+  @UI.lineItem: [
+      {
+          position: 45,
+          label: 'Item Description'
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'MaterialDetails',
+          position: 20,
+          label: 'Material Description'
+      }
+  ]
+  Material_Description;
+
+
+  @UI.lineItem: [
+      {
+          position: 48,
+          label: 'Material Sub Code'
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'MaterialDetails',
+          position: 25,
+          label: 'Material Sub Code'
+      }
+  ]
+  Material_Sub_Code;
+
+
+
+  @UI.lineItem: [
+      {
+          position: 50,
+          label: 'Order Quantity'
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'WeightDetails',
+          position: 10,
+          label: 'Order Quantity'
+      }
+  ]
+  Order_Quantity;
+
+
+  @UI.lineItem: [
+      {
+          position: 55,
+          label: 'STD Unit Wt'
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'WeightDetails',
+          position: 20,
+          label: 'STD Unit WT'
+      }
+  ]
+  STD_Unit_Wt;
+
+
+  @UI.lineItem: [
+      {
+          position: 60,
+          label: 'Total Weight'
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'WeightDetails',
+          position: 30,
+          label: 'Total Weight'
+      }
+  ]
+  Total_Weight;
+
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'WeightDetails',
+          position: 40,
+          label: 'Total Wt(MT)'
+      }
+  ]
+
+  @UI.hidden: true
+  Total_Wt_Mt;
+
+
+  @UI.lineItem: [
+      {
+          position: 80,
+          label: 'Grand Total Wt'
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'WeightDetails',
+          position: 50,
+          label: 'Grand Total Wt'
+      }
+  ]
+  Grand_Total_wt;
+
+
+
+  @UI.lineItem: [
+      {
+          position: 65,
+          label: 'Unit Price'
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'PriceDetails',
+          position: 10,
+          label: 'Unit Price'
+      }
+  ]
+  Unitprice;
+
+
+  @UI.lineItem: [
+      {
+          position: 70,
+          label: 'Total Price'
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'PriceDetails',
+          position: 20,
+          label: 'Total Price'
+      }
+  ]
+  Total_price;
+
+
+  @UI.lineItem: [
+      {
+          position: 75,
+          label: 'Grand Total Price'
+      }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'PriceDetails',
+          position: 30,
+          label: 'Grand Total Price'
+      }
+  ]
+  Grand_Total_price;
+
+
+
+  //@UI.lineItem: [{ position: 90, label: 'Total Discount' }]
+  //@UI.fieldGroup: [{
+  // qualifier: 'PriceDetails',
+  // position: 40,
+  // label: 'Total Discount'
+  //}]
+
+  @UI.hidden: true
+  Discount;
+  
+  @UI.hidden: true
+  Discount_percent;
+  
+  @UI.lineItem: [
+  {
+      position: 90,
+      label: 'Discount %'
+  }
+  ]
+
+  @UI.fieldGroup: [
+      {
+          qualifier: 'PriceDetails',
+          position: 40,
+          label: 'Discount %'
+      }
+  ]
+  Discount_per;
+
+
+  @UI.lineItem: [
+      {
+          position: 95,
+          label: 'Value/MT'
+      }
+  ]
+
+  @UI.hidden: true
+  Value_Mt;
+
+
+  @UI.lineItem: [
+      {
+          position: 100,
+          label: 'Discount Unit'
+      }
+  ]
+
+  @UI.hidden: true
+  DiscountUnit;
+
+
+
+  @UI.hidden: true
+  Unit;
+
+
+  @UI.hidden: true
+  Currency;
+
+};

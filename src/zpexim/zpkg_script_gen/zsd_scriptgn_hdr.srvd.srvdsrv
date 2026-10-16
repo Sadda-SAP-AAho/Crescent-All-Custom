@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Defination of Script Generation Dashboard'
+define service Zsd_scriptgn_hdr {
+  expose zc_scriptgn_HDR;
+  expose zc_scriptgn_itm;
+}

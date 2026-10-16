@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForCostCent_S'
+define service ZUI_TMGTABLEFORCOSTCENT {
+  expose ZI_TMGTABLEFORCOSTCENT_S as TmgTableForCostCAll;
+  expose ZI_TMGTABLEFORCOSTCENT as TmgTableForCostCent;
+}

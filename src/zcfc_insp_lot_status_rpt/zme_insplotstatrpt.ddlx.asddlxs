@@ -1,0 +1,113 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: {
+  presentationVariant: [{
+    sortOrder: [ { by: 'Material', direction: #ASC },
+                 { by: 'Plant', direction: #ASC },
+                 { by: 'InspectionLot', direction: #ASC },
+                 { by: 'SerialNumber', direction: #ASC } ],
+    visualizations: [{ type: #AS_LINEITEM }],
+    text: 'Inspection Lot Status Report' }]
+}
+
+@UI: {
+  headerInfo: {
+    typeName: 'Inspection Lot Status Report',
+    typeNamePlural: 'Inspection Lot Status Report',
+    title: { type: #STANDARD,
+             label: 'Inspection Lot Status Report',
+             value: 'InspectionLot'
+           }
+              }
+     }
+
+annotate entity ZC_INSPLOTSTATRPT with
+{
+
+  @UI.facet:
+    [{id: 'GeneralData', isSummary: true, label: 'Report Details', type: #COLLECTION, position: 5},
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: '', id: 'GeneralData1' }]
+
+  @UI: { lineItem: [{ position: 5 }],
+         identification: [{ position: 5 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{ position: 5 }]
+  Material;
+
+  @UI: { lineItem: [{ position: 10 }],
+         identification: [{ position: 10 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{ position: 10 }]
+  Plant;
+
+  @UI: { lineItem: [{ position: 15 }],
+         identification: [{ position: 15 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{ position: 15 }]
+  InspectionLot;
+
+  @UI: { lineItem: [{ position: 20 }],
+         identification: [{ position: 20 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{ position: 20 }]
+  SerialNumber;
+
+  @UI.hidden: true
+  InspectionLotQuantityUnit;
+
+  @UI: { lineItem: [{ position: 25 }],
+         identification: [{ position: 25 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  InspectionLotQuantity;
+
+  @UI: { lineItem: [{ position: 30 }],
+         identification: [{ position: 30 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  InspectionLotActualQuantity;
+
+  @UI: { lineItem: [{ position: 35 }],
+         identification: [{ position: 35 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  InspectionLotDefectiveQuantity;
+
+  @UI: { lineItem: [{ position: 40 }],
+         identification: [{ position: 40 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  InspLotQtyInspected;
+
+  @UI: { lineItem: [{ position: 45 }],
+         identification: [{ position: 45 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  NumberOfSerialNumbers;
+
+  @UI: { lineItem: [{ position: 50 }],
+         identification: [{ position: 50 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  InspLotQtyToBePosted;
+
+  @UI: { lineItem: [{ position: 55 }],
+         identification: [{ position: 55 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  InspLotQtyToFree;
+
+  @UI: { lineItem: [{ position: 60 }],
+         identification: [{ position: 60 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  UsageDecision;
+
+  @UI: { lineItem: [{ position: 65 }],
+         identification: [{ position: 65 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  ResultRecord;
+
+  @UI: { lineItem: [{ position: 70 }],
+         identification: [{ position: 70 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  RecvdInInsp;
+
+  @UI: { lineItem: [{ position: 75 }],
+         identification: [{ position: 75 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  RecvdInUnrestricted;
+
+}

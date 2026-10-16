@@ -1,0 +1,80 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Receipt From Production Order Details', value: 'Matnr' } } }
+annotate entity ZC_CONFPOST_ORD with
+{
+  @UI.facet:
+  [{ id: 'GeneralDataI', isSummary: true, label: 'Receipt From Production Order', type: #COLLECTION, purpose: #STANDARD },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralDataI', position: 10, label: '', id: 'GeneralData1' } ]
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Item;
+  @UI.hidden: true
+  Ord;
+  @UI.hidden: true
+  Refid;
+  @UI.hidden: true
+  RefItem;
+  @UI.hidden: true
+  Reford;
+  @UI.hidden: true
+  Shpflrno;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Matnr;
+  @UI.hidden: true
+  Plant;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Prodord;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Pendprqty;
+  @UI.lineItem: [ { position: 38 } ]
+  @UI.identification: [ { position: 38 } ]
+  @UI.fieldGroup: [ { position: 38,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Postqty;
+  @UI.lineItem: [ { position: 42 } ]
+  @UI.identification: [ { position: 42 } ]
+  @UI.fieldGroup: [ { position: 42,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Balqty;
+  @UI.lineItem: [ { position: 43 } ]
+  @UI.identification: [ { position: 43 } ]
+  @UI.fieldGroup: [ { position: 43,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Alpostqty;
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Meins;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Serial;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Heatno;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Rej;
+  @UI.hidden: true
+  Ordersta;
+  @UI.hidden: true
+  Docsta;
+  @UI.hidden: true
+  Status;
+  @UI.hidden: true
+  Uniqueid;
+  @UI.lineItem: [ { position: 1, type: #AS_DATAPOINT  } ]
+  @UI.fieldGroup: [ { position: 1,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.dataPoint: { visualization: #PROGRESS,
+                   targetValueElement: 'Total',
+                   criticality: 'Criticality',
+                   criticalityRepresentation: #WITHOUT_ICON }
+  Progress;
+
+}

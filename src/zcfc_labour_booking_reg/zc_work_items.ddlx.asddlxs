@@ -1,0 +1,137 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'PlantCode'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'PlantCode'
+@UI : { 
+    headerInfo :{ 
+    typeName: 'Purchase Order',
+    typeNamePlural: 'Purchase order Details'
+        }
+}
+annotate view ZC_WORK_ITEMS with
+{
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @UI.identification: [ {
+    position: 10 
+  } ]
+  @UI.lineItem: [ {
+    position: 10 
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity : { name : 'ZVH_PLANT', 
+                                                  element : 'PLANT_CODE' }}]
+  PlantCode;
+  
+  @UI.identification: [ {
+    position: 20 
+  } ]
+  @UI.lineItem: [ {
+    position: 20 
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  WorkCode;
+  
+  @UI.identification: [ {
+    position: 30 
+  } ]
+  @UI.lineItem: [ {
+    position: 30 
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  DateFrom;
+  @EndUserText.label: 'DATE TO'
+  @UI.identification: [ {
+    position: 40 
+  } ]
+  @UI.lineItem: [ {
+    position: 40 
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  DateTo;
+  
+  @EndUserText.label: 'UOM'
+  @UI.identification: [ {
+    position: 50
+  } ]
+  @UI.lineItem: [ {
+    position: 50
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  Uom;
+  @EndUserText.label: 'CURRENCY'
+  @UI.identification: [ {
+    position: 60
+  } ]
+  @UI.lineItem: [ {
+    position: 60
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity : { name : 'ZVH_CURRENCIES', 
+                                                  element : 'Currency' } }]
+  Currency;
+  @EndUserText.label: 'RATE'
+  @UI.identification: [ {
+    position: 70
+  } ]
+  @UI.lineItem: [ {
+    position: 70
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  Rate;
+  
+  @UI.hidden: true
+  BeginDate;
+  
+  @UI.hidden: true
+  EndDate;
+  
+  @UI.hidden: true
+  CreatedBy;
+  
+  @UI.hidden: true
+  CreatedAt;
+  
+  @UI.hidden: true
+  LastChangedBy;
+  
+  @UI.hidden: true
+  LastChangedAt;
+  
+  @UI.hidden: true
+  Localcreatedby;
+  
+  @UI.hidden: true
+  Locallastchangedby;
+  
+  @UI.hidden: true
+  Localcreatedat;
+  
+  @UI.hidden: true
+  Locallastchangedat;
+  
+  @UI.hidden: true
+  Lastchangeat;
+  @UI.hidden: true
+  _header;
+}

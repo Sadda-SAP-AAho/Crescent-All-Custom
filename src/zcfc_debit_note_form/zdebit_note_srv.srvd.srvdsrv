@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service for Debit_Credit Note Form'
+define service ZDebit_Note_SRV {
+  expose ZDEBIT_NOTE;
+}

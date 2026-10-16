@@ -1,0 +1,30 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'BenchmarkTypeMainte', 
+    typeNamePlural: 'BenchmarkTypeMaintes', 
+    title: {
+      type: #STANDARD, 
+      label: 'Benchmark Type Maintenance', 
+      value: 'Ratetype'
+    }
+  }
+}
+annotate view ZI_BenchmarkTypeMainte with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1,
+    label: 'Benchmark Type'
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_BenchmarkTypeMainte', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Benchmark Type Maintenance', 
+    position: 1 
+  } ]
+  Ratetype;
+}

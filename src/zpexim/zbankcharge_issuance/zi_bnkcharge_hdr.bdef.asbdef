@@ -1,0 +1,39 @@
+managed implementation in class zbp_i_bnkcharge_hdr unique;
+strict;
+with draft;
+
+define behavior for ZI_BNKCHARGE_HDR //alias <alias_name>
+persistent table zdt_bnkch_hdr
+draft table zdr_bnkch_hdr
+lock master
+total etag Glcode
+authorization master ( instance )
+
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update ) Category;
+  field ( features : instance ) Bnkchargename, Active, Glcode;
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  validation checkcharges on save { create; }
+  action ( features : instance ) Cancel result [1] $self;
+
+  mapping for zi_bnkcharge_hdr
+    {
+      Active        = Active;
+      Bnkchargename = Bnkchargename;
+      Category      = Category;
+      Glcode        = Glcode;
+    }
+}

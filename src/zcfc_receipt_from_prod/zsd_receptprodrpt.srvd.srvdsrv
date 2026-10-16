@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD for Receive from Production Report'
+define service ZSD_RECEPTPRODRPT {
+  expose ZC_RECEPTPRODRPT;
+}

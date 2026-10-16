@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for FGBOMLIST'
+define service ZUI_FGBOMLIST {
+  expose ZR_FGBOMLIST;
+}

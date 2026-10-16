@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition For PO'
+define service ZSD_PO {
+  expose ZC_PO_HEAD as head;
+  expose ZC_PO_ITEM as item;
+}

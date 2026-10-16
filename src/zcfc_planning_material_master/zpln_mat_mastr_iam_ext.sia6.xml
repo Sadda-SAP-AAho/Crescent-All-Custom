@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SIA6" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SIA6>
+    <MAIN_OBJECT>
+     <NAME>ZPLN_MAT_MASTR_IAM_EXT</NAME>
+     <TYPE>SIA6</TYPE>
+     <DESCRIPTION>Planning Material Master IAM</DESCRIPTION>
+     <RESPONSIBLE>CB9980000000</RESPONSIBLE>
+     <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
+     <MASTER_SYSTEM>NRT</MASTER_SYSTEM>
+     <PACKAGE_REF>
+      <PACKAGE_NAME>ZCFC_PLANNING_MATERIAL_MASTER</PACKAGE_NAME>
+     </PACKAGE_REF>
+     <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
+    </MAIN_OBJECT>
+    <APP_ID>ZPLN_MAT_MASTR_IAM_EXT</APP_ID>
+    <APP_TYPE>EXT</APP_TYPE>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+    <UI_APP_ID>ZPLAN_MAT_MSTR_UI5R</UI_APP_ID>
+    <SERVICE>
+     <item>
+      <REL_NAME>ZSB_PLN_MAT_MSTR</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZPLN_MAT_MASTR_IAM_EXT</APP_ID>
+      <SRVC_NAME>043939D8686C309FD7059ACA480C6E</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <UIAD_SRC>ZPLAN_MAT_MSTR_UI5R</UIAD_SRC>
+      <TEXT>Service Binding for Planning Material Master</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+    </SERVICE>
+    <PUBLISH_STATUS>p</PUBLISH_STATUS>
+   </SIA6>
+  </asx:values>
+ </asx:abap>
+</abapGit>

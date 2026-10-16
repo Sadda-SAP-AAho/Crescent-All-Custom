@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Sales Contract - SO Register Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Contract - SO Register Report"
+  },
+  "ui5AppDetails": {
+    "appId": "com.crescent.app.soregisteredreport"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_98680DEF892016FEE651CCAC835FBBC9569627C4_TM",
+    "semanticObject": "ZSO_SO_RECD_RPT",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_98680DEF892016FEE651CCAC835FBBC9569627C4_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Contract - SO Register Report"
+      }
+    }
+  ]
+}

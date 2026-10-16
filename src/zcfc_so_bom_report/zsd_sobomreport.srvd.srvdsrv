@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for SO wise BOM Report'
+define service ZSD_SOBOMREPORT {
+  expose ZC_SOBOMREPORT;
+}

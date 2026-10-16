@@ -1,0 +1,6 @@
+@EndUserText.label: 'SERVICE DEFINATION for bg create'
+define service Zsd_bgcreate {
+  expose ZC_BGHEADER;
+  expose ZC_ATTACHPO;
+  expose ZC_FDASSIGN;
+}

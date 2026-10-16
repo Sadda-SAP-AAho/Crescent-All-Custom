@@ -1,0 +1,74 @@
+managed with additional save implementation in class ZBP_I_PLANTDESCRIPTIONTAB_S unique;
+strict;
+with draft;
+define behavior for ZI_PlantDescriptionTab_S alias PlantDescriptionAll
+draft table ZDT_MM_PLAN_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _PlantDescriptionTab { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_PlantDescriptionTab alias PlantDescriptionTab ##UNMAPPED_FIELD
+persistent table ZDT_MM_PLANTDES
+draft table ZDT_MM_PLANTD_D
+lock dependent by _PlantDescriptionAll
+authorization dependent by _PlantDescriptionAll
+
+{
+  field ( mandatory : create )
+   Plant;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Plant;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_MM_PLANTDES
+  {
+    Plant = PLANT;
+    Plantdes = PLANTDES;
+  }
+
+  association _PlantDescriptionAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

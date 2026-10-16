@@ -1,0 +1,11 @@
+@EndUserText.label: 'Bank Authorization'
+@MappingRole: true
+define role ZA_BNK_AUTHO {
+    grant
+        select
+            on ZI_EXIM_BANK_MAST where( Bukrs ) = 
+            aspect pfcg_auth ( zexm_bnk,
+                               ZEX_BUKRS,
+                               actvt = '03' );
+                
+}

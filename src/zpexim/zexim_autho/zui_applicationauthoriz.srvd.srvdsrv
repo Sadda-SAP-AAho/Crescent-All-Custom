@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_ApplicationAuthoriz_S'
+define service ZUI_APPLICATIONAUTHORIZ {
+  expose ZI_APPLICATIONAUTHORIZ_S as ApplicationAuthoAll;
+  expose ZI_APPLICATIONAUTHORIZ as ApplicationAuthoriz;
+}

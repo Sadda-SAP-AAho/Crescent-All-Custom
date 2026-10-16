@@ -1,0 +1,372 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'Bukrs', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'BG Dashboad' }] }
+annotate view ZC_BGHEADER with
+
+{
+  @UI.facet:
+     [{ id: 'GeneralData', isSummary: true, label: 'BG Dashboard', type: #COLLECTION },
+      { type: #FIELDGROUP_REFERENCE, targetQualifier: 'Generaldata1', parentId: 'GeneralData', position: 10, label: 'Application Info', id: 'Generaldata1' },
+      { type: #FIELDGROUP_REFERENCE, targetQualifier: 'Generaldata2', parentId: 'GeneralData', position: 20, label: 'Local Bank', id: 'Generaldata2' },
+      { type: #FIELDGROUP_REFERENCE, targetQualifier: 'Generaldata3', parentId: 'GeneralData', position: 30, label: 'Bg Info', id: 'Generaldata3' },
+      { type: #FIELDGROUP_REFERENCE, targetQualifier: 'Generaldata4', parentId: 'GeneralData', position: 40, label: 'Local Bank Charges', id: 'Generaldata4' },
+      { type: #FIELDGROUP_REFERENCE, targetQualifier: 'Generaldata5', parentId: 'GeneralData', position: 50, label: 'Bg Limit Assignment', id: 'Generaldata5' },
+
+
+      { id: 'Generalline1', label: 'Attach Purchase Order', type: #LINEITEM_REFERENCE, position : 60, targetElement: '_bgattachpo' },
+      { id: 'Generalline2', label: 'Fd Assignment', type: #LINEITEM_REFERENCE, position : 70, targetElement: '_bgfdassign' }]
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  Zeximbgrefno;
+  @UI.lineItem: [ { position: 6 } ]
+  @UI.identification: [ { position: 6 } ]
+  @UI.fieldGroup: [ { position: 6,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  Version;
+  @UI.lineItem: [ { position: 7, criticality: 'Criticality' } ]
+  @UI.identification: [ { position: 7 } ]
+  @UI.fieldGroup: [ { position: 7,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  Status;
+  @UI.hidden: true
+  Criticality;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{
+  entity: { name: 'ZI_COMPCODE', element: 'CompanyCode' },
+      distinctValues: true,
+    useForValidation: true ,
+   additionalBinding: [{ localElement: 'Butxt' , element: 'CompanyCodeName', usage: #RESULT } ,
+  // { localElement: 'Street' , element: '_Address', usage: #RESULT } ,
+   { localElement: 'Country' , element: 'Country', usage: #RESULT } ,
+   { localElement: 'City' , element: 'CityName', usage: #RESULT } ,
+   { localElement: 'Street' , element: 'Street', usage: #RESULT } ,
+   { localElement: 'State' , element: 'State', usage: #RESULT } ,
+   { localElement: 'Postcode' , element: 'Postcode', usage: #RESULT }
+
+    ]
+  }]
+  //  distinctValues: true,
+  //  useForValidation: true ,
+  //  additionalBinding: [{ localElement: 'Butxt', element: 'CompanyCodeName', usage: #RESULT },
+  //                     { localElement: 'City', element: 'CityName', usage: #RESULT },
+  //                     { localElement: 'Maktx', element: 'PurchaseOrderItemText', usage: #RESULT },
+  //                     { localElement: 'Meins', element: 'PurchaseOrderQuantityUnit', usage: #RESULT },
+  //                     { localElement: 'Balanceqty', element: 'bal_qty', usage: #RESULT },
+  //                     { localElement: 'Deliverqty', element: 'ActualDeliveryQuantity', usage: #RESULT },
+  //                     { localElement: 'Orderqty', element: 'OrderQuantity', usage: #RESULT }] }]
+  Bukrs;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  Butxt;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  Street;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  City;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  State;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  Postcode;
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  Country;
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 90,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'TEXT', name: 'ZI_BGSTATUS' } }]
+  Bgstat;
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 100,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_BgCharacter' } }]
+  Bgcharacter;
+  @UI.lineItem: [ { position: 110 } ]
+  @UI.identification: [ { position: 110 } ]
+  @UI.fieldGroup: [ { position: 110,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  //@Consumption.valueHelpDefinition:[{ entity: { element: 'HouseBank', name: 'I_HouseBank' } }]
+  @Consumption.valueHelpDefinition: [{
+  entity: { name: 'zi_housebank', element: 'HouseBank' },
+    distinctValues: true,
+  useForValidation: true ,
+  additionalBinding: [{ localElement: 'Hktid' , element: 'HouseBankAccount', usage: #RESULT } ,
+  { localElement: 'Bankl' , element: 'BankAccount', usage: #RESULT } ,
+  // { localElement: 'Swift' , element: 'SwiftCode', usage: #RESULT } ,
+  { localElement: 'Bgbenfname' , element: 'BankName', usage: #RESULT } ,
+  { localElement: 'Netbgamount' , element: 'bglimit', usage: #RESULT } ,
+  { localElement: 'Bgcleanamount' , element: 'bgcleanavailable', usage: #RESULT } ,
+  { localElement: 'Bgcleanassigned' , element: 'bgcleanutilised', usage: #RESULT }
+  ]
+  }]
+  Hbkid;
+  @UI.lineItem: [ { position: 120 } ]
+  @UI.identification: [ { position: 120 } ]
+  @UI.fieldGroup: [ { position: 120,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Hktid;
+  @UI.lineItem: [ { position: 130 } ]
+  @UI.identification: [ { position: 130 } ]
+  @UI.fieldGroup: [ { position: 130,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Bankl;
+  @UI.lineItem: [ { position: 140 } ]
+  @UI.identification: [ { position: 140 } ]
+  @UI.fieldGroup: [ { position: 140,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Bgbenfname;
+  @UI.lineItem: [ { position: 150 } ]
+  @UI.identification: [ { position: 150 } ]
+  @UI.fieldGroup: [ { position: 150,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Bankaddr;
+  @UI.lineItem: [ { position: 160 } ]
+  @UI.identification: [ { position: 160 } ]
+  @UI.fieldGroup: [ { position: 160,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Brnch;
+  @UI.lineItem: [ { position: 170 } ]
+  @UI.identification: [ { position: 170 } ]
+  @UI.fieldGroup: [ { position: 170,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Bezei;
+  @UI.lineItem: [ { position: 180 } ]
+  @UI.identification: [ { position: 180 } ]
+  @UI.fieldGroup: [ { position: 180,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Land1;
+  @UI.lineItem: [ { position: 190 } ]
+  @UI.identification: [ { position: 190 } ]
+  @UI.fieldGroup: [ { position: 190,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Lbankpostcode;
+  @UI.lineItem: [ { position: 200 } ]
+  @UI.identification: [ { position: 200 } ]
+  @UI.fieldGroup: [ { position: 200,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Swift;
+  @UI.lineItem: [ { position: 210 } ]
+  @UI.identification: [ { position: 210 } ]
+  @UI.fieldGroup: [ { position: 210,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{
+  entity: { name: 'I_Supplier', element: 'Supplier' },
+    distinctValues: true,
+  useForValidation: true ,
+  additionalBinding: [{ localElement: 'Vendorname' , element: 'SupplierName', usage: #RESULT }
+  ]
+  }]
+  Vendor;
+  @UI.lineItem: [ { position: 220 } ]
+  @UI.identification: [ { position: 220 } ]
+  @UI.fieldGroup: [ { position: 220,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Vendorname;
+  @UI.lineItem: [ { position: 230 } ]
+  @UI.identification: [ { position: 230 } ]
+  @UI.fieldGroup: [ { position: 230,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Vendorname2;
+  @UI.lineItem: [ { position: 240 } ]
+  @UI.identification: [ { position: 240 } ]
+  @UI.fieldGroup: [ { position: 240,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgreqdt;
+  @UI.lineItem: [ { position: 250 } ]
+  @UI.identification: [ { position: 250 } ]
+  @UI.fieldGroup: [ { position: 250,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgeffdt;
+  @UI.lineItem: [ { position: 260 } ]
+  @UI.identification: [ { position: 260 } ]
+  @UI.fieldGroup: [ { position: 260,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgexpdt;
+  @UI.lineItem: [ { position: 270 } ]
+  @UI.identification: [ { position: 270 } ]
+  @UI.fieldGroup: [ { position: 270,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgclaimexpdt;
+  @UI.lineItem: [ { position: 280 } ]
+  @UI.identification: [ { position: 280 } ]
+  @UI.fieldGroup: [ { position: 280,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_BgType' } }]
+  Bgtype;
+  @UI.lineItem: [ { position: 290 } ]
+  @UI.identification: [ { position: 290 } ]
+  @UI.fieldGroup: [ { position: 290,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_BgCategory' } }]
+  Bgcatag;
+  @UI.lineItem: [ { position: 300 } ]
+  @UI.identification: [ { position: 300 } ]
+  @UI.fieldGroup: [ { position: 300,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgamt;
+  @UI.lineItem: [ { position: 310 } ]
+  @UI.identification: [ { position: 310 } ]
+  @UI.fieldGroup: [ { position: 310,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgtenure;
+  @UI.lineItem: [ { position: 320 } ]
+  @UI.identification: [ { position: 320 } ]
+  @UI.fieldGroup: [ { position: 320,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgtenureunit;
+  @UI.lineItem: [ { position: 330 } ]
+  @UI.identification: [ { position: 330 } ]
+  @UI.fieldGroup: [ { position: 330,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgbenefcode;
+  @UI.lineItem: [ { position: 340 } ]
+  @UI.identification: [ { position: 340 } ]
+  @UI.fieldGroup: [ { position: 340,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgbenefname;
+  @UI.lineItem: [ { position: 350 } ]
+  @UI.identification: [ { position: 350 } ]
+  @UI.fieldGroup: [ { position: 350,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgaddress1;
+  @UI.lineItem: [ { position: 360 } ]
+  @UI.identification: [ { position: 360 } ]
+  @UI.fieldGroup: [ { position: 360,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgaddress2;
+  @UI.lineItem: [ { position: 370 } ]
+  @UI.identification: [ { position: 370 } ]
+  @UI.fieldGroup: [ { position: 370,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgcountry;
+  @UI.lineItem: [ { position: 380 } ]
+  @UI.identification: [ { position: 380 } ]
+  @UI.fieldGroup: [ { position: 380,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgstate;
+  @UI.lineItem: [ { position: 390 } ]
+  @UI.identification: [ { position: 390 } ]
+  @UI.fieldGroup: [ { position: 390,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgcity;
+  @UI.lineItem: [ { position: 400 } ]
+  @UI.identification: [ { position: 400 } ]
+  @UI.fieldGroup: [ { position: 400,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgpostalcode;
+  @UI.lineItem: [ { position: 410 } ]
+  @UI.identification: [ { position: 410 } ]
+  @UI.fieldGroup: [ { position: 410,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  //@Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_BGPURPOSE' } }]
+  Bgpurpose;
+  @UI.lineItem: [ { position: 420 } ]
+  @UI.identification: [ { position: 420 } ]
+  @UI.fieldGroup: [ { position: 420,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgexchangerate;
+  @UI.lineItem: [ { position: 430 } ]
+  @UI.identification: [ { position: 430 } ]
+  @UI.fieldGroup: [ { position: 430,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgamount;
+  @UI.lineItem: [ { position: 440 } ]
+  @UI.identification: [ { position: 440 } ]
+  @UI.fieldGroup: [ { position: 440,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgcreator;
+  @UI.lineItem: [ { position: 450 } ]
+  @UI.identification: [ { position: 450 } ]
+  @UI.fieldGroup: [ { position: 450,  qualifier: 'Generaldata3', importance: #HIGH } ]
+  Bgcreditdays;
+  @UI.lineItem: [ { position: 460 } ]
+  @UI.identification: [ { position: 460 } ]
+  @UI.fieldGroup: [ { position: 460,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Chargesrate;
+  @UI.lineItem: [ { position: 470 } ]
+  @UI.identification: [ { position: 470 } ]
+  @UI.fieldGroup: [ { position: 470,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Waers;
+  @UI.lineItem: [ { position: 480 } ]
+  @UI.identification: [ { position: 480 } ]
+  @UI.fieldGroup: [ { position: 480,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Bcopenchrgs;
+  @UI.lineItem: [ { position: 490 } ]
+  @UI.identification: [ { position: 490 } ]
+  @UI.fieldGroup: [ { position: 490,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Bankbcopenchrgs;
+  @UI.lineItem: [ { position: 500 } ]
+  @UI.identification: [ { position: 500 } ]
+  @UI.fieldGroup: [ { position: 500,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Bankminchrgs;
+  @UI.lineItem: [ { position: 510 } ]
+  @UI.identification: [ { position: 510 } ]
+  @UI.fieldGroup: [ { position: 510,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Nontaxamt;
+  @UI.lineItem: [ { position: 520 } ]
+  @UI.identification: [ { position: 520 } ]
+  @UI.fieldGroup: [ { position: 520,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Stampcharges;
+  @UI.lineItem: [ { position: 530 } ]
+  @UI.identification: [ { position: 530 } ]
+  @UI.fieldGroup: [ { position: 530,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Pntcharges;
+  @UI.lineItem: [ { position: 540 } ]
+  @UI.identification: [ { position: 540 } ]
+  @UI.fieldGroup: [ { position: 540,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Taxcode;
+  @UI.lineItem: [ { position: 550 } ]
+  @UI.identification: [ { position: 550 } ]
+  @UI.fieldGroup: [ { position: 550,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Cgst;
+  @UI.lineItem: [ { position: 560 } ]
+  @UI.identification: [ { position: 560 } ]
+  @UI.fieldGroup: [ { position: 560,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Sgst;
+  @UI.lineItem: [ { position: 570 } ]
+  @UI.identification: [ { position: 570 } ]
+  @UI.fieldGroup: [ { position: 570,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Igst;
+  @UI.lineItem: [ { position: 580 } ]
+  @UI.identification: [ { position: 580 } ]
+  @UI.fieldGroup: [ { position: 580,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Totalchrgs;
+  @UI.lineItem: [ { position: 590 } ]
+  @UI.identification: [ { position: 590 } ]
+  @UI.fieldGroup: [ { position: 590,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Bankremarks;
+  @UI.lineItem: [ { position: 600 } ]
+  @UI.identification: [ { position: 600 } ]
+  @UI.fieldGroup: [ { position: 600,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Busplc;
+  @UI.lineItem: [ { position: 610 } ]
+  @UI.identification: [ { position: 610 } ]
+  @UI.fieldGroup: [ { position: 610,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Seccode;
+  @UI.lineItem: [ { position: 620 } ]
+  @UI.identification: [ { position: 620 } ]
+  @UI.fieldGroup: [ { position: 620,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Bgammendcharges;
+  @UI.lineItem: [ { position: 630 } ]
+  @UI.identification: [ { position: 630 } ]
+  @UI.fieldGroup: [ { position: 630,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Bgtendate;
+  @UI.lineItem: [ { position: 640 } ]
+  @UI.identification: [ { position: 640 } ]
+  @UI.fieldGroup: [ { position: 640,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Shiftcharges;
+  @UI.lineItem: [ { position: 650 } ]
+  @UI.identification: [ { position: 650 } ]
+  @UI.fieldGroup: [ { position: 650,  qualifier: 'Generaldata4', importance: #HIGH } ]
+  Shiftdate;
+  @UI.lineItem: [ { position: 650 } ]
+  @UI.identification: [ { position: 650 } ]
+  @UI.fieldGroup: [ { position: 650,  qualifier: 'Generaldata4', importance: #HIGH } ]
+
+  Netbgamount;
+  @UI.lineItem: [ { position: 660 } ]
+  @UI.identification: [ { position: 660 } ]
+  @UI.fieldGroup: [ { position: 660,  qualifier: 'Generaldata5', importance: #HIGH } ]
+  Bgcleanamount;
+  @UI.lineItem: [ { position: 670 } ]
+  @UI.identification: [ { position: 670 } ]
+  @UI.fieldGroup: [ { position: 670,  qualifier: 'Generaldata5', importance: #HIGH } ]
+  Fdamountassigned;
+  @UI.lineItem: [ { position: 680 } ]
+  @UI.identification: [ { position: 680 } ]
+  @UI.fieldGroup: [ { position: 680,  qualifier: 'Generaldata5', importance: #HIGH } ]
+  Bgcleanassigned;
+  @UI.lineItem: [ { position: 690 } ]
+  @UI.identification: [ { position: 690 } ]
+  @UI.fieldGroup: [ { position: 690,  qualifier: 'Generaldata5', importance: #HIGH } ]
+  Locallastchangedat;
+  @UI.hidden: true
+  @UI: { lineItem: [{ position: 700 },
+                            { type: #FOR_ACTION, dataAction: 'Amendment', label: 'Amendment', iconUrl: 'sap-icon://close-command-field' }],
+           fieldGroup: [{ qualifier: 'GeneralData5', position: 700, importance: #HIGH }] }
+
+  Amendment;
+  @UI.hidden: true
+  @UI: { identification: [{ position: 710 },
+                            { type: #FOR_ACTION, dataAction: 'Setout', label: 'Set Out', iconUrl: 'sap-icon://close-command-field' }],
+           fieldGroup: [{ qualifier: 'GeneralData5', position: 710, importance: #HIGH }] }
+  Setout;
+}

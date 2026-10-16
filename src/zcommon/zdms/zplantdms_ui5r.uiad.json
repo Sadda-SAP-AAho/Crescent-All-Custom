@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Plant DMS"
+  },
+  "ui5AppDetails": {
+    "appId": "zplantdms"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_A35E2129105C3DF879A52C16006EEEE2E309246C_TM",
+    "semanticObject": "zplantdms",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_A35E2129105C3DF879A52C16006EEEE2E309246C_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Plant DMS",
+        "subtitle": "ZPLANTDMS"
+      }
+    }
+  ]
+}

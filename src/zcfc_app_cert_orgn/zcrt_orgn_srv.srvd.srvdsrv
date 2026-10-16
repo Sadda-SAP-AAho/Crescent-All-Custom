@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service for Certificate of Origin'
+define service ZCRT_ORGN_SRV {
+  expose ZCFC_CERT_OF_ORGN_HDR  as headerSet;
+  expose ZCFC_CERT_OF_ORGN_ITEM as itemSet;
+  expose ZCFC_BILLING_DOC_F4    as billingSearch;
+}

@@ -1,0 +1,10 @@
+projection;
+strict(1);
+
+define behavior for ZC_BOEFORM //alias <alias_name>
+{
+  use update;
+
+  use action BOEFRSTUNPD;
+  use action BOESCNDUNPD;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Gate Entry Reco Rpt Test'
+define service ZSD_GTENTRY_RECO_RPTTST {
+  expose ZC_GTENTRY_RECO_RPTTST;
+}

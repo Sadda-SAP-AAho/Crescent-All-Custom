@@ -1,0 +1,49 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by:  'Uuid', direction:  #ASC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'PO Report' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'PO Report', value: 'Uuid' } } }
+annotate view ZC_PORPT_HDR with
+{
+
+  @UI.facet:
+    [{ id: 'GeneralData', isSummary: true, label: 'PO Report Header', type: #COLLECTION },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, id: 'GeneralData1' },
+     { id: 'PORPTI', label: 'PO Report Item', type: #LINEITEM_REFERENCE, position : 25, targetElement: '_item' }]
+
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.selectionField: [{ position: 5 }] 
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Uuid;
+  @UI.lineItem: [ { position: 6 } ]
+  @UI.identification: [ { position: 6 } ]
+  @UI.selectionField: [{ position: 6 }] 
+  @UI.fieldGroup: [ { position: 6,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  purchaseorder;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.selectionField: [{ position: 10 }] 
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Vendor;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.selectionField: [{ position: 15 }] 
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Purchaser;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Createdon;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Createdat;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  errorlog;
+  /* Associations */
+
+
+}

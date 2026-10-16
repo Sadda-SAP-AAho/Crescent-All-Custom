@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Shop Floor Production Dashboard",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Shop Floor Production Dashboard"
+  },
+  "ui5AppDetails": {
+    "appId": "zshpflrdash"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_BDB9A65CDE426C9EC9B69511FE7A4E40995375A2_TM",
+    "semanticObject": "zshpflrd_1",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_BDB9A65CDE426C9EC9B69511FE7A4E40995375A2_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Shop Floor Production Dashboard"
+      }
+    }
+  ]
+}

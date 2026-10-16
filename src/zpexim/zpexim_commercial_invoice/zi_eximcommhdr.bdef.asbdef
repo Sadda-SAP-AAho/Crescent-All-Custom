@@ -1,0 +1,381 @@
+managed implementation in class zbp_i_eximcommhdr unique;
+strict;
+with draft;
+
+define behavior for ZI_EXIMCOMMHDR alias head
+persistent table zexim_comm_hdr
+draft table zeximcommhdrdr
+lock master
+total etag LocalLastChangedAt
+authorization master ( instance )
+{
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( numbering : managed ) id;
+  field ( mandatory : create, readonly : update ) Invclubnointernal;
+
+  field ( readonly ) Deleted, Invclubnodate, Invclubnoexternal, Invcommdate, Invcommtime,
+  Invcommuser, Released, fobamount, fobcurrency, Status;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  //Actions
+  action ( features : instance ) Cancel result [1] $self;
+  action ( features : instance ) Release result [1] $self;
+  action ( features : instance ) Print result [1] $self;
+
+  side effects
+  {
+    field Invclubnointernal affects field Invclubnoexternal, field Invclubnodate, field Invcommdate, field Invcommtime,
+        field Invcommuser, field fobamount, field fobcurrency, field Status;
+  }
+
+  determination updatefields on modify { field Invclubnointernal; }
+  determination updateitem on save { create; update; }
+  validation validatehead on save { create; update; }
+  validation validateoverall on save { create; update; }
+
+  association _add { create ( features : instance ); with draft; }
+  association _cnh { create ( features : instance ); with draft; }
+  association _cni { create ( features : instance ); with draft; }
+  association _cus { create ( features : instance ); with draft; }
+  association _itm { create ( features : instance ); with draft; }
+  association _pay { create ( features : instance ); with draft; }
+  association _shp { create ( features : instance ); with draft; }
+
+  mapping for zi_eximcommhdr
+    {
+      Dateofdischarge    = Dateofdischarge;
+      Deleted            = Deleted;
+      Invclubnodate      = Invclubnodate;
+      Invclubnoexternal  = Invclubnoexternal;
+      Invclubnointernal  = Invclubnointernal;
+      Invcommdate        = Invcommdate;
+      Invcommtime        = Invcommtime;
+      Invcommuser        = Invcommuser;
+      LastChangedAt      = LastChangedAt;
+      LocalCreatedAt     = LocalCreatedAt;
+      LocalCreatedBy     = LocalCreatedBy;
+      LocalLastChangedAt = LocalLastChangedAt;
+      LocalLastChangedBy = LocalLastChangedBy;
+      Released           = Released;
+      Tprint             = Tprint;
+      fobamount          = fobamount;
+      fobcurrency        = fobcurrency;
+      Status             = Status;
+    }
+
+}
+
+define behavior for ZI_EXIMCOMMADD alias add
+persistent table zexim_comm_add
+draft table zeximcommadddr
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Id;
+
+  field ( mandatory : create ) Paymenttext, Materialdesc1, Invoiceremarks1;
+
+  field ( numbering : managed ) Item;
+
+  determination updateitem on save { create; update; }
+  validation validate on save { create; update; }
+
+  association _head;
+
+  mapping for zi_eximcommadd
+    {
+      Item            = Item;
+      Paymenttext     = Paymenttext;
+      Invoiceremarks1 = Invoiceremarks1;
+      Invoiceremarks2 = Invoiceremarks2;
+      Invoiceremarks3 = Invoiceremarks3;
+      Taxremarks      = Taxremarks;
+      Materialdesc1   = Materialdesc1;
+      Materialdesc2   = Materialdesc2;
+      Materialdesc3   = Materialdesc3;
+    }
+}
+
+define behavior for ZI_EXIMCOMMCNH alias cnh
+persistent table zexim_comm_cnh
+draft table zeximcommcnhdr
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Id;
+
+  field ( mandatory : create ) Authorizedperson, Contactno, Bookingno;
+  field ( readonly : update ) Bookingno;
+
+  field ( numbering : managed ) Item;
+  field ( readonly : update ) Item;
+
+  determination updateitem on save { create; update; }
+  validation validate on save { create; update; }
+
+  association _head;
+
+  mapping for zi_eximcommcnh
+    {
+      Item                = Item;
+      Authorizedperson    = Authorizedperson;
+      Contactno           = Contactno;
+      Designation         = Designation;
+      Weighbridgeno       = Weighbridgeno;
+      Weighbridgeslipno   = Weighbridgeslipno;
+      Weighbridgedatein   = Weighbridgedatein;
+      Weighbridgetimein   = Weighbridgetimein;
+      Weighbridgedateout  = Weighbridgedateout;
+      Weighbridgetimeout  = Weighbridgetimeout;
+      Maxpermitweight     = Maxpermitweight;
+      Bookingno           = Bookingno;
+      Color               = Color;
+      Exstuffingstartdate = Exstuffingstartdate;
+      Exstuffingstarttime = Exstuffingstarttime;
+      Exstuffingenddate   = Exstuffingenddate;
+      Exstuffingendtime   = Exstuffingendtime;
+      Exstuffingtotaltime = Exstuffingtotaltime;
+      Shipperregno        = Shipperregno;
+    }
+}
+
+define behavior for ZI_EXIMCOMMCNI alias cni
+persistent table zexim_comm_cni
+draft table zeximcommcnidr
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Id;
+
+  field ( numbering : managed ) Item;
+  field ( readonly : update ) Item;
+
+  determination updateitem on save { create; update; }
+  validation validate on save { create; update; }
+
+  field ( mandatory : create, readonly : update ) Containerno, Containersize, Uom;
+
+  association _head;
+
+  mapping for zi_eximcommcni
+    {
+      Item          = Item;
+      Containerno   = Containerno;
+      Containersize = Containersize;
+      Sealno        = Sealno;
+      Uom           = Uom;
+      Tareweight    = Tareweight;
+      Grossweight   = Grossweight;
+      Ewaybillno    = Ewaybillno;
+      Remarks       = Remarks;
+    }
+}
+
+define behavior for ZI_EXIMCOMMCUS alias cus
+persistent table zexim_comm_cus
+draft table zeximcommcusdr
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Id;
+
+  field ( numbering : managed ) Item;
+  field ( readonly : update ) Item;
+
+  field ( mandatory : create, readonly : update ) Addresstype, Name1;
+  field ( readonly ) Addresstypedesc;
+
+  determination updateitem on save { create; update; }
+  determination updateaddresstype on modify { field addresstype; }
+  validation validate on save { create; update; }
+
+  side effects
+  {
+    field addresstype affects field Addresstypedesc;
+  }
+
+  association _head;
+
+  mapping for zi_eximcommcus
+    {
+      Item            = Item;
+      Addresstype     = Addresstype;
+      Addresstypedesc = Addresstypedesc;
+      Name1           = Name1;
+      Name2           = Name2;
+      Address1        = Address1;
+      Address2        = Address2;
+      Address3        = Address3;
+      Street1         = Street1;
+      Street2         = Street2;
+      Country         = Country;
+      Pincode         = Pincode;
+    }
+}
+
+define behavior for ZI_EXIMCOMMITM alias itm
+persistent table zexim_comm_itm
+draft table zeximcommitmdr
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Id, Invoice, Invoiceitem, Material, Materialdescription, uom, Quantity, Weightuom,
+  Currency, Rate, Amount, Harmoniccode, Delivery, Deliveryitem, Salesorder, Salesorderitem, Contract,
+  Contractitem, Reference;
+
+  field ( numbering : managed ) Item;
+  field ( readonly : update ) Item;
+
+  determination updateitem on save { create; update; }
+  determination updateheaderfield on save { field Amount; }
+  determination updateitemfield on save { field Amount; }
+  validation validate on save { create; update; }
+
+  association _head;
+
+  mapping for zi_eximcommitm
+    {
+      Item                = Item;
+      Invoice             = Invoice;
+      Invoiceitem         = Invoiceitem;
+      Material            = Material;
+      Materialdescription = Materialdescription;
+      Uom                 = Uom;
+      Quantity            = Quantity;
+      Weightuom           = Weightuom;
+      Netweight           = Netweight;
+      Grossweight         = Grossweight;
+      Packingweight       = Packingweight;
+      Currency            = Currency;
+      Rate                = Rate;
+      Amount              = Amount;
+      Packageremarks      = Packageremarks;
+      Sizeremarks         = Sizeremarks;
+      Harmoniccode        = Harmoniccode;
+      Delivery            = Delivery;
+      Deliveryitem        = Deliveryitem;
+      Salesorder          = Salesorder;
+      Salesorderitem      = Salesorderitem;
+      Contract            = Contract;
+      Contractitem        = Contractitem;
+      Reference           = Reference;
+    }
+}
+
+define behavior for ZI_EXIMCOMMPAY alias pay
+persistent table zexim_comm_pay
+draft table zeximcommpaydr
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Id;
+
+  field ( numbering : managed ) Item;
+  field ( readonly : update ) Item;
+
+  field ( mandatory : create, readonly : update ) Paymentterms, Paymenttermsdesc;
+
+  determination updateitem on save { create; update; }
+  validation validate on save { create; update; }
+
+  association _head;
+
+  mapping for zi_eximcommpay
+    {
+      Item             = Item;
+      Paymentterms     = Paymentterms;
+      Paymenttermsdesc = Paymenttermsdesc;
+      Bankname         = Bankname;
+      Bankaccountno    = Bankaccountno;
+      Bankifsc         = Bankifsc;
+      Bankswift        = Bankswift;
+      Bankaddress      = Bankaddress;
+      Issuingbank      = Issuingbank;
+      Negotiatingbank  = Negotiatingbank;
+      Lcnumber         = Lcnumber;
+      Lutarnno         = Lutarnno;
+      Lutarndate       = Lutarndate;
+      Adcode           = Adcode;
+    }
+
+}
+
+define behavior for ZI_EXIMCOMMSHP alias shp
+persistent table zexim_comm_shp
+draft table zeximcommshpdr
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Id;
+
+  field ( numbering : managed ) Item;
+  field ( readonly : update ) Item;
+
+  field ( mandatory : create, readonly : update ) Portofloading, Portofdischarge, Incoterms, Incotermsl, Countrydestination, Countryorigin,
+  Vesselflight;
+
+  determination updateitem on save { create; update; }
+  validation validate on save { create; update; }
+
+  association _head;
+
+  mapping for zi_eximcommshp
+    {
+      Item                = Item;
+      Finaldest           = Finaldest;
+      Incoterms           = Incoterms;
+      Incotermsl          = Incotermsl;
+      Portofloading       = Portofloading;
+      Portofdischarge     = Portofdischarge;
+      Vesselflight        = Vesselflight;
+      Insuranceno         = Insuranceno;
+      Blno                = Blno;
+      Bldate              = Bldate;
+      Broker              = Broker;
+      Egm                 = Egm;
+      Egmdate             = Egmdate;
+      Commission          = Commission;
+      Shippingline        = Shippingline;
+      Sailingdate         = Sailingdate;
+      Dispatchfrom        = Dispatchfrom;
+      Dispatchto          = Dispatchto;
+      Countryorigin       = Countryorigin;
+      Countrydestination  = Countrydestination;
+      Termsofdelivery     = Termsofdelivery;
+      Actualdatearrival   = Actualdatearrival;
+      Expecteddatearrival = Expecteddatearrival;
+      Pino                = Pino;
+      Pidate              = Pidate;
+      Dispatchno          = Dispatchno;
+      Dispatchdate        = Dispatchdate;
+    }
+}

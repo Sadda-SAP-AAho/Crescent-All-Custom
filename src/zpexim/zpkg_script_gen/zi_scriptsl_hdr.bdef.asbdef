@@ -1,0 +1,115 @@
+managed implementation in class zbp_i_scriptsl_hdr unique;
+strict;
+with draft;
+
+define behavior for zi_scriptsl_hdr alias head //alias <alias_name>
+persistent table zdt_scriptsl_hdr
+draft table zdr_scriptsl_hdr
+lock master
+total etag local_last_changed_at
+authorization master ( instance )
+with additional save
+{
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  field ( readonly, numbering : managed ) id;
+  field ( mandatory : create, readonly : update ) companycode, scriptsalesdate, customer;
+  field ( features : instance, mandatory ) saccode,post,bupla;
+
+  field ( readonly ) customername, docyear, glno, scriptsalesno, accdocno, status, sum_realizationamt, sum_saleablevalue;
+  field ( readonly ) local_created_by, local_created_on, local_created_at, local_last_changed_at, local_last_changed_on,
+  local_last_changed_by, last_changed_at;
+
+
+  validation check on save { create; update; }
+
+  determination scriptsales on save { create; }
+  determination scriptdetails on save { field scriptno; }
+  determination postdoc on save { field post; }
+  determination customerdetails on modify { field customer; }
+  determination set_value on modify { field companycode; }
+
+  action ( features : instance ) PrintScriptInv result [1] $self;
+
+  association _Item { create ( features : instance ); with draft; }
+  mapping for zi_scriptsl_hdr
+    {
+      companycode           = companycode;
+      scriptsalesno         = scriptsalesno;
+      scriptsalesdate       = scriptsalesdate;
+      scriptno              = scriptno;
+      saccode               = saccode;
+      customer              = customer;
+      customername          = customername;
+      accdocno              = accdocno;
+      docyear               = docyear;
+      accpostref            = accpostref;
+      glno                  = glno;
+      status                = status;
+      local_created_by      = local_created_by;
+      local_created_on      = local_created_on;
+      local_created_at      = local_created_at;
+      local_last_changed_by = local_last_changed_by;
+      local_last_changed_on = local_last_changed_on;
+      local_last_changed_at = local_last_changed_at;
+      last_changed_at       = last_changed_at;
+      printsi               = printsi;
+      flag                  = flag;
+    }
+
+}
+
+define behavior for zi_scriptsl_itm alias item //alias <alias_name>
+persistent table zdt_scriptsl_itm
+draft table zdr_scriptsl_itm
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+
+
+  field ( readonly : update, numbering : managed ) item;
+  field ( mandatory : create, readonly : update ) scriptno;
+
+  field ( readonly ) id, currency, realizationamt, saleablevalue, salesflag, scriptdate;
+
+  determination get_scrip on modify { field scriptno; }
+  determination calculatevalue on modify { field Rate; field realizationamt; }
+
+  side effects
+  {
+    field scriptno affects field scriptdate, field realizationamt, field currency;
+    field realizationamt affects field _Head.sum_realizationamt;
+    field rate affects field saleablevalue, field _Head.sum_saleablevalue;
+  }
+
+  association _Head { with draft; }
+
+  mapping for zi_scriptsl_itm
+    {
+      accdocno          = accdocno;
+      scriptsalesno     = scriptsalesno;
+      scriptsalesdate   = scriptsalesdate;
+      scriptno          = scriptno;
+      scriptdate        = scriptdate;
+      saccode           = saccode;
+      realizationamt    = realizationamt;
+      rate              = rate;
+      saleablevalue     = saleablevalue;
+      customer          = customer;
+      customername      = customername;
+      salesflag         = salesflag;
+      cancelledaccdocno = cancelledaccdocno;
+    }
+
+}

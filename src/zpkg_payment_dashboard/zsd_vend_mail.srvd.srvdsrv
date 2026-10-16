@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Vendor Email'
+define service ZSD_VEND_MAIL {
+  expose ZC_VEND_MAIL;
+}

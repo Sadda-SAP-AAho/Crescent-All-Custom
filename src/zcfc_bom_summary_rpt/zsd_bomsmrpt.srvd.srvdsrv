@@ -1,0 +1,4 @@
+@EndUserText.label: 'BOM Summary Report'
+define service ZSD_BOMSMRPT {
+  expose ZC_BOMSMRPT;
+}

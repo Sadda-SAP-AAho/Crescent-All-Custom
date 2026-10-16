@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Sub-Contracting Material Reconciliation Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sub-Contracting Material Reconciliation"
+  },
+  "ui5AppDetails": {
+    "appId": "zsubcontrrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_C56E5A6F7D28FD0F558C647CA69268C03244DC7F_TM",
+    "semanticObject": "zsubcontrrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_C56E5A6F7D28FD0F558C647CA69268C03244DC7F_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sub-Contracting Material Reconciliation",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

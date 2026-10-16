@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Forward Contract Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Forward Contract Application"
+  },
+  "ui5AppDetails": {
+    "appId": "zforexapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_66DF6C1DB46494B849906391DEB31CA33826D9D4_TM",
+    "semanticObject": "z_forexapp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_66DF6C1DB46494B849906391DEB31CA33826D9D4_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Forward Contract Application"
+      }
+    }
+  ]
+}

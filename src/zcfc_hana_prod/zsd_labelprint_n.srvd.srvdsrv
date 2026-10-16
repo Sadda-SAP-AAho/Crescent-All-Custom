@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination for Label Print'
+define service ZSD_LABELPRINT_N {
+  expose ZC_LABELPRINT_N;
+}

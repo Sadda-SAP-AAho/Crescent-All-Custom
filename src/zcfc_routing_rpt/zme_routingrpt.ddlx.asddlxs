@@ -1,0 +1,161 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Material Info',
+                typeNamePlural:'Material Info',
+                title: { type: #STANDARD, label: 'Routing report', value: 'MfgOrderInternalID' }
+
+              }
+     }
+annotate entity ZC_ROUTINGRPT with
+{
+  @UI.facet:
+       [{id: 'GeneralData', isSummary: true, label: 'Item Details', type: #COLLECTION, position: 5},
+       { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: '', id: 'GeneralData1' }]
+
+  @UI: { lineItem: [{ position: 5 }],
+         identification: [{ position: 5 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+  MfgOrderInternalID;
+  @UI: { lineItem: [{ position: 10 }],
+      identification: [{ position: 10 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 10}]
+  OrderOperationInternalID;
+  @UI: { lineItem: [{ position: 15 }],
+      identification: [{ position: 15 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 15, importance: #HIGH }] }
+  @UI.selectionField: [{position: 15}]
+  ManufacturingOrder;
+  @UI: { lineItem: [{ position: 16 }],
+      identification: [{ position: 16 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 16, importance: #HIGH }] }
+  @UI.selectionField: [{position: 16}]
+  EarliestScheduledWaitStartDate;
+  @UI: { lineItem: [{ position: 20 }],
+      identification: [{ position: 20 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  @UI.selectionField: [{position: 20}]
+  ManufacturingOrderOperation;
+  @UI: { lineItem: [{ position: 21 }],
+      identification: [{ position: 21 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 21, importance: #HIGH }] }
+  @UI.selectionField: [{position: 21}]
+  ProductionOrderItem;
+  @UI: { lineItem: [{ position: 22 }],
+      identification: [{ position: 22 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 22, importance: #HIGH }] }
+  @UI.selectionField: [{position: 22}]
+  Product;
+  @UI: { lineItem: [{ position: 23 }],
+      identification: [{ position: 23 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 23, importance: #HIGH }] }
+  @UI.selectionField: [{position: 23}]
+  Plant;
+  @UI: { lineItem: [{ position: 24 }],
+      identification: [{ position: 24 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 24, importance: #HIGH }] }
+  @UI.selectionField: [{position: 24}]
+  OpenYieldQuantity;
+  @UI: { lineItem: [{ position: 25 }],
+      identification: [{ position: 25 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 25, importance: #HIGH }] }
+  @UI.selectionField: [{position: 25}]
+  MfgOrderOperationText;
+  @UI: { lineItem: [{ position: 30 }],
+      identification: [{ position: 30 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+  @UI.selectionField: [{position: 30}]
+  OperationControlProfile;
+  @UI: { lineItem: [{ position: 40 }],
+      identification: [{ position: 40 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 40, importance: #HIGH }] }
+  @UI.selectionField: [{position: 40}]
+  WorkCenterStandardWorkQtyUnit1;
+  @UI: { lineItem: [{ position: 50 }],
+      identification: [{ position: 50 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 50, importance: #HIGH }] }
+  @UI.selectionField: [{position: 50}]
+  WorkCenterStandardWorkQty1;
+  @UI: { lineItem: [{ position: 55 }],
+      identification: [{ position: 55 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 55, importance: #HIGH }] }
+  @UI.selectionField: [{position: 55}]
+  CostCtrActivityType1;
+  @UI: { lineItem: [{ position: 60 }],
+      identification: [{ position: 60 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 60, importance: #HIGH }] }
+  @UI.selectionField: [{position: 60}]
+  WorkCenterStandardWorkQtyUnit2;
+  @UI: { lineItem: [{ position: 62 }],
+      identification: [{ position: 62 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 62, importance: #HIGH }] }
+  @UI.selectionField: [{position: 62}]
+  WorkCenterStandardWorkQty2;
+  @UI: { lineItem: [{ position: 64 }],
+      identification: [{ position: 64 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 64, importance: #HIGH }] }
+  @UI.selectionField: [{position: 64}]
+  CostCtrActivityType2;
+  @UI: { lineItem: [{ position: 66 }],
+      identification: [{ position: 66 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 66, importance: #HIGH }] }
+  @UI.selectionField: [{position: 66}]
+  WorkCenterStandardWorkQtyUnit3;
+  @UI: { lineItem: [{ position: 68 }],
+      identification: [{ position: 68 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 68, importance: #HIGH }] }
+  @UI.selectionField: [{position: 68}]
+  WorkCenterStandardWorkQty3;
+  @UI: { lineItem: [{ position: 70 }],
+      identification: [{ position: 70 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 70, importance: #HIGH }] }
+  @UI.selectionField: [{position: 70}]
+  CostCtrActivityType3;
+  @UI: { lineItem: [{ position: 72 }],
+      identification: [{ position: 72 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 72, importance: #HIGH }] }
+  @UI.selectionField: [{position: 72}]
+  WorkCenterStandardWorkQtyUnit4;
+  @UI: { lineItem: [{ position: 74 }],
+      identification: [{ position: 74 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 74, importance: #HIGH }] }
+  @UI.selectionField: [{position: 74}]
+  WorkCenterStandardWorkQty4;
+  @UI: { lineItem: [{ position: 76 }],
+      identification: [{ position: 76 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 76, importance: #HIGH }] }
+  @UI.selectionField: [{position: 76}]
+  CostCtrActivityType4;
+  @UI: { lineItem: [{ position: 78 }],
+      identification: [{ position: 78 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 78, importance: #HIGH }] }
+  @UI.selectionField: [{position: 78}]
+  WorkCenterStandardWorkQtyUnit5;
+  @UI: { lineItem: [{ position: 80 }],
+      identification: [{ position: 80 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 80, importance: #HIGH }] }
+  @UI.selectionField: [{position: 80}]
+  WorkCenterStandardWorkQty5;
+  @UI: { lineItem: [{ position: 82 }],
+      identification: [{ position: 82 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 82, importance: #HIGH }] }
+  @UI.selectionField: [{position: 82}]
+  CostCtrActivityType5;
+  @UI: { lineItem: [{ position: 84 }],
+      identification: [{ position: 84 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 84, importance: #HIGH }] }
+  @UI.selectionField: [{position: 84}]
+  WorkCenterStandardWorkQtyUnit6;
+  @UI: { lineItem: [{ position: 86 }],
+      identification: [{ position: 86 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 86, importance: #HIGH }] }
+  @UI.selectionField: [{position: 86}]
+  WorkCenterStandardWorkQty6;
+  @UI: { lineItem: [{ position: 88 }],
+      identification: [{ position: 88 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 88, importance: #HIGH }] }
+  @UI.selectionField: [{position: 88}]
+  CostCtrActivityType6;
+
+}

@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "POD Master"
+  },
+  "ui5AppDetails": {
+    "appId": "zpodmasterrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_49ADE8E7B7803981C4BB60489522B633638122FA_TM",
+    "semanticObject": "zpodmasterrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_49ADE8E7B7803981C4BB60489522B633638122FA_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "POD Master",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

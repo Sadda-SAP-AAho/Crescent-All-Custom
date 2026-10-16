@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Bank Charges Name Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Bank Charges Name Application"
+  },
+  "ui5AppDetails": {
+    "appId": "zbnkcharg"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_9E1323FAAA66EF7449DE983775BAED05B9BC09F4_TM",
+    "semanticObject": "z_bnkcharg",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_9E1323FAAA66EF7449DE983775BAED05B9BC09F4_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Bank Charges Name Application"
+      }
+    }
+  ]
+}

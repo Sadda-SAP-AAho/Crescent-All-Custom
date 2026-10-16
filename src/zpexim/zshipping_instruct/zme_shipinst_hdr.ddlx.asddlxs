@@ -1,0 +1,104 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'Bookingno', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Shipping Instruction' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Shipping Instruction', value: 'Bookingno' } } }
+annotate entity ZC_SHIPINS_HDR with
+{
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'Shipping Instruction', type: #COLLECTION },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, id: 'GeneralData1' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15, label: 'Notify Party', id: 'GeneralData2' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 20, label: 'Delivery Address',id: 'GeneralData3' }
+
+  // { id: 'PackListI', label: 'Packing List Item', type: #LINEITEM_REFERENCE, position : 25, targetElement: '_Item' }
+  ]
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Bookingno', name:'ZCDS_BOOKINGNO_F4' },
+                                distinctValues: true,
+                                useForValidation: true }]
+  Bookingno;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Shipmenttype;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Shippingtype;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Expcarrvoyage;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ] 
+  Loadingpier;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ] 
+  Constreet1;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ] 
+  Consadd1;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+  Notifyp1name;
+   @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+  Notifyp1add1;
+   @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+  Notifyp1add2;
+   @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+  Notifyp2name;
+   @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+  Notifyp2add1;
+   @UI.lineItem: [ { position: 65 } ]
+  @UI.identification: [ { position: 65 } ]
+  @UI.fieldGroup: [ { position: 65,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+  Notifyp2add2;
+   @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+  Notifyp3name;
+   @UI.lineItem: [ { position: 75 } ]
+  @UI.identification: [ { position: 75 } ]
+  @UI.fieldGroup: [ { position: 75,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+  Notifyp3add1;
+   @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 80,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+  Notifyp3add2;
+   @UI.lineItem: [ { position: 85 } ]
+  @UI.identification: [ { position: 85 } ]
+  @UI.fieldGroup: [ { position: 85,  qualifier: 'GeneralData3', importance: #HIGH } ] 
+  Deliveradd;
+   @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 90,  qualifier: 'GeneralData3', importance: #HIGH } ] 
+  Deliveradd1;
+  @UI.lineItem: [ { position: 95 } ]
+  @UI.identification: [ { position: 95 } ]
+  @UI.fieldGroup: [ { position: 95,  qualifier: 'GeneralData3', importance: #HIGH } ] 
+  Deliveradd2;
+ @UI.hidden: true
+ Creationdate;
+  @UI: {
+      identification: [{position: 100 },  { type: #FOR_ACTION, dataAction: 'PRINT', label: 'Shipping Instruction Print'} ]
+  }
+ Tprint;
+
+}

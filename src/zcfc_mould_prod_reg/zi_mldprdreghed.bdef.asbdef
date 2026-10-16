@@ -1,0 +1,76 @@
+managed implementation in class zbp_i_mldprdreghed unique;
+strict;
+with draft;
+
+define behavior for ZI_MLDPRDREGHED //alias <alias_name>
+persistent table zdt_mldprdreghed
+draft table zdr_mldprdreghed
+lock master
+total etag ID
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly ) Plntnm, Cstcntrnm, Prftcntrnm;
+  field ( mandatory : create, readonly : update ) Prddate, Plntcd, Cstcntr;
+
+  create;
+  update;
+  delete;
+  determination updateheader on modify { field Plntcd; field Cstcntr; field Prftcntr; }
+
+  side effects
+  { field Plntcd affects field Plntnm;
+    field Cstcntr affects field Cstcntrnm;
+    field Prftcntr affects field Prftcntrnm;
+  }
+
+  validation checkvalidation1 on save { create; update; }
+
+
+  association _Item { create; }
+
+  mapping for zi_mldprdreghed
+    {
+      Prddate    = Prddate;
+      Plntcd     = Plntcd;
+      Plntnm     = Plntnm;
+      Cstcntr    = Cstcntr;
+      Cstcntrnm  = Cstcntrnm;
+      Prftcntr   = Prftcntr;
+      Prftcntrnm = Prftcntrnm;
+    }
+}
+
+define behavior for ZI_MLDPRDREGITM //alias <alias_name>
+persistent table zdt_mldprdregitm
+draft table zdr_mldprdregitm
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id;
+  update;
+  delete;
+
+
+  association _Head { with draft; }
+
+  mapping for zi_mldprdregitm
+    {
+      typeofmould = typeofmould;
+      qty         = qty;
+      remarks     = remarks;
+      extra1      = extra1;
+      extra2      = extra2;
+    }
+}

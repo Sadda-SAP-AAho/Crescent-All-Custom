@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgTableForTypeOfMo', 
+    typeNamePlural: 'TmgTableForTypeOfMos', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG table for Type of Moulding type', 
+      value: 'Mcode'
+    }
+  }
+}
+annotate view ZI_TmgTableForTypeOfMo with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgTableForTypeOfMo', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG table for Type of Moulding type', 
+    position: 1 
+  } ]
+  Mcode;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Mnane;
+}

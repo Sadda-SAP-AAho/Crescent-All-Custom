@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Costing PL Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Costing PL Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zcostingpl2"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_14304A1E3B8AE1C4B133B1F5A1BD9B1ACB3547FA_TM",
+    "semanticObject": "zcostingpl",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_14304A1E3B8AE1C4B133B1F5A1BD9B1ACB3547FA_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Costing PL Report"
+      }
+    }
+  ]
+}

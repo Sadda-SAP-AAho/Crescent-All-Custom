@@ -1,0 +1,232 @@
+managed implementation in class ZBP_R_ShippingBill unique;
+strict;
+with draft;
+
+
+define behavior for ZR_ShippingBillTP //alias ShippingBill
+
+persistent table zex_shipbill_hdr
+draft table zshippingbill00d
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+{
+
+  create;
+  update;
+  delete ( features : instance );
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare { validation save_details; }
+
+  action ( features : instance ) Cancel result [1] $self;
+
+  //-- Numbering
+  field ( readonly, numbering : managed ) InternalShipbill;
+
+  //-- Read Only Fields
+  field ( readonly ) CreatedAt, CreatedBy, LastChangedAt, Fob_Fc_V, Fob_Lc_V, TotalDutyDrawbackV, RodtepV,
+  Accountdocno, Accountdocyr, Accdocnodbk, Accdocyrdbk, statuscancel, invoicehed;
+
+  //-- Mandatory Fields
+  field ( mandatory : create, readonly : update ) ShippingBill, ShippingBillDate;
+
+  //-- Mandatory & Instance Features Fields
+  field ( features : instance ) Exchangerate, BillOfLading, BillOfLadingDate, CustomHandlingAgent, PortCode;
+  field ( features : instance ) Tpost, Tpostdbk;
+
+  validation save_details on save { create; update; }
+  validation validate_filedata on save { create; update; }
+
+
+
+  determination update_amt on save { create; update; }
+  determination change_details on modify { field Exchangerate; }
+  determination initialize_exc_rate on modify { field ShippingBill; }
+  determination acc_post on save { field Tpost; }
+  determination acc_postdbk on save { field Tpostdbk; }
+  determination uploadfile on save { create; }
+
+  side effects
+  {
+    field Exchangerate affects field RodtepV, field TotalDutyDrawbackV;
+  }
+
+  association _ShippingBillItemLIC { create ( features : instance ); with draft; }
+  association _ShippingBillItem { create ( features : instance ); with draft; }
+
+  mapping for zex_shipbill_hdr
+    {
+      InternalShipbill    = internal_shipbill;
+      ShippingBill        = shipping_bill;
+      ShippingBillDate    = shipping_bill_date;
+      //      ScrollNo            = scroll_no;
+      //      ScrollDate          = scroll_date;
+      CustomHandlingAgent = custom_handling_agent;
+      PortCode            = port_code;
+      PostingDate         = posting_date;
+      //      BillOfLading        = bill_of_lading;
+      //      BillOfLadingDate    = bill_of_lading_date;
+      LeoDate             = leo_date;
+      Fob_Lc_V            = fob_lc_v;
+      Fob_Lc_C            = fob_lc_c;
+      Fob_Fc_V            = fob_fc_v;
+      Fob_Fc_C            = fob_fc_c;
+      Exchangerate        = exchangerate;
+      //      TotalDutyDrawback   = total_duty_drawback;
+      TotalDutyDrawbackV  = total_duty_drawback_v;
+      TotalDutyDrawbackC  = total_duty_drawback_c;
+      //      Rodtep              = total_rodtep;
+      RodtepC             = total_rodtep_c;
+      RodtepV             = total_rodtep_v;
+      CountryBl           = country_bl;
+      StateOfOrigin       = state_of_origin;
+      DestinationCountry  = destination_country;
+      CreatedAt           = created_at;
+      CreatedBy           = created_by;
+      LastChangedBy       = last_changed_by;
+      LastChangedAt       = last_changed_at;
+      LocalLastChangedAt  = local_last_changed_at;
+      UsageAmount         = usageamount;
+      Tpost               = tpost;
+      Accountdocno        = accountdocno;
+      Accountdocyr        = accountdocyr;
+      Accpostref          = accpostref;
+      Tpostdbk            = tpostdbk;
+      Accdocnodbk         = accdocnodbk;
+      Accdocyrdbk         = accdocyrdbk;
+      Accpostrefdbk       = accpostrefdbk;
+      Closestatus         = closestatus;
+      invoicehed          = invoicehed;
+      PostingDateNew      = postingdatenew;
+      BRCDate             = brcdate;
+      BRCNo               = brcno;
+      BRCValue            = brcvalue;
+    }
+
+}
+
+define behavior for ZR_ShippingBillILICTP //alias ShippingBillItemLIC
+persistent table zex_shipbill_lic
+draft table zshippingbill02d
+lock dependent by _ShippingBill
+authorization dependent by _ShippingBill
+etag master LocalLastChangedAt
+{
+
+  update;
+  delete ( features : instance );
+
+  field ( readonly ) LocalLastChangedAt, InternalShipbill, PendingAmount, FobFc, Licencenumber;
+  field ( readonly, numbering : managed ) InternalShipbillItem;
+
+
+  determination update_utilization on modify { field Licencint; }
+  determination change_details on modify { field Usageamount; }
+
+
+  side effects
+  {
+
+    field Licencint affects field Licencenumber, field Pendingamount, field FobFc;//field assignamount;
+    field Usageamount affects field Pendingamount;// field assignamount;
+  }
+
+  association _ShippingBill { with draft; }
+  mapping for zex_shipbill_lic
+    {
+      InternalShipbillItem = internal_shipbill_item;
+      InternalShipbill     = internal_shipbill;
+      Licencenumber        = licencenumber;
+      Licencint            = Licencint;
+      Usageamount          = usageamount;
+      PendingAmount        = pendingamount;
+      FobFc                = fob_fc;
+      Locallastchangedat   = locallastchangedat;
+    }
+}
+
+define behavior for ZR_ShippingBillItemTP //alias ShippingBillItem
+persistent table zex_shipbill_itm
+draft table zshippingbill01d
+etag master LocalLastChangedAt
+lock dependent by _ShippingBill
+authorization dependent by _ShippingBill
+{
+
+
+  update;
+  //  update ( precheck );
+  delete ( features : instance );
+
+  field ( readonly, numbering : managed ) InternalShipbillItem;
+
+  field ( readonly ) LocalLastChangedAt, InternalShipbill, InvoiceValueFcC, InvoiceValueFcV,
+  total_duty_drawback_lc, total_duty_drawback_v_lc, total_rodtep_lc, total_rodtep_v_lc, InvoiceDate,
+  total_duty_drawback_v_fc, total_rodtep_v_fc;
+
+
+  determination change_details on modify { field Invoice; }
+
+  validation val_invoice on save { create; update; }
+
+  side effects
+  {
+
+    field InvoiceValueFcV affects field _ShippingBill.Fob_Fc_V, field _ShippingBill.Fob_Lc_V, field _ShippingBill.RodtepV,
+        field _ShippingBill.TotalDutyDrawbackV, field _ShippingBill.Exchangerate, field _ShippingBill.PortCode,
+        field _ShippingBill.CountryBl, field _ShippingBill.invoicehed, entity _ShippingBill;
+
+    field Invoice affects field _ShippingBill.Fob_Fc_V, field _ShippingBill.Fob_Lc_V, field _ShippingBill.RodtepV,
+        field _ShippingBill.TotalDutyDrawbackV, field _ShippingBill.Exchangerate, field _ShippingBill.PortCode,
+        field _ShippingBill.CountryBl, field _ShippingBill.invoicehed, entity _ShippingBill;
+
+  }
+
+  association _ShippingBill;
+
+  mapping for zex_shipbill_itm
+    {
+      InternalShipbillItem     = internal_shipbill_item;
+      InternalShipbill         = internal_shipbill;
+      Invoice                  = invoice;
+      InvoiceDate              = invoicedate;
+      InvoiceValueFcV          = invoice_value_fc_v;
+      InvoiceValueFcC          = invoice_value_fc_c;
+      Exchangerate             = exchangerate;
+      InvoiceValueLcV          = invoice_value_lc_v;
+      InvoiceValueLcC          = invoice_value_lc_c;
+      total_duty_drawback_lc   = total_duty_drawback_lc;
+      total_duty_drawback_v_lc = total_duty_drawback_v_lc;
+      total_rodtep_lc          = total_rodtep_lc;
+      total_rodtep_v_lc        = total_rodtep_v_lc;
+      LocalLastChangedAt       = local_last_changed_at;
+      total_duty_drawback_v_fc = total_duty_drawback_v_fc;
+      total_rodtep_v_fc        = total_rodtep_v_fc;
+    }
+
+}
+
+//
+//define behavior for ZI_BRC //alias ShippingBillItem
+//persistent table zdt_brc
+//draft table zdr_brc
+////etag master LocalLastChangedAt
+//lock dependent by _ShippingBill
+//authorization dependent by _ShippingBill
+//{
+//
+//
+//  update ( features : instance );
+//  delete ( features : instance );
+//
+//  field ( readonly, numbering : managed ) InternalShipbillItem;
+//  field ( readonly : update ) Brcno, Brcdate, Brcvalue;
+//
+//  association _ShippingBill { with draft; }
+//
+//
+//}

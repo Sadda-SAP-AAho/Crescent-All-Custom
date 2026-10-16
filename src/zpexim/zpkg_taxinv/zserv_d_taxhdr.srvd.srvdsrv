@@ -1,0 +1,4 @@
+@EndUserText.label: 'Shipping Instruction Header'
+define service ZSERV_D_TAXHDR {
+  expose ZC_TAXHDR;
+}

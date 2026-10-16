@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for GL wise Journal Entry Amt Comparison'
+define service ZSD_GLWISEJETTLAMT {
+  expose ZC_GLWISEJETTLAMT;
+}

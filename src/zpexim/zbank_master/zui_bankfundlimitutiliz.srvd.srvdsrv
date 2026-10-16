@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_BankFundLimitUtiliz_S'
+define service ZUI_BANKFUNDLIMITUTILIZ {
+  expose ZI_BANKFUNDLIMITUTILIZ_S as BankFundLimitUtiAll;
+  expose ZI_BANKFUNDLIMITUTILIZ as BankFundLimitUtiliz;
+}

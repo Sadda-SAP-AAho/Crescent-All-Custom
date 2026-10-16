@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition of Warehouse Stock'
+define service ZSD_MAT_WHSTOCK {
+  expose ZC_MAT_WHSTOCK;
+}

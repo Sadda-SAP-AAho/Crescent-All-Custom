@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination for Capacity Type Master'
+define service ZSD_CAPTYPMSTR_NEW {
+  expose ZC_CAPTYPMSTR_N;
+}

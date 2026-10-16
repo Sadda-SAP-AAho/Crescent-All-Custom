@@ -1,0 +1,4 @@
+@EndUserText.label: 'Production Plan vs Actual'
+define service ZSD_PLAN_ACTUAL {
+  expose ZC_PLAN_ACTUAL;
+}

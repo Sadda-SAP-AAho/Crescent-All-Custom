@@ -1,0 +1,5 @@
+@MappingRole: true
+define role ZI_TmgForInputReg {
+  grant select on ZI_TmgForInputReg
+  where ( ) = ASPECT pfcg_auth ( 'S_TABU_NAM', ACTVT = '03', TABLE = 'ZI_TMGFORINPUTREG' );
+}

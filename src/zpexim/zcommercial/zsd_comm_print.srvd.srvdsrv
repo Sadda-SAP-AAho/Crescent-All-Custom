@@ -1,0 +1,5 @@
+@EndUserText.label: 'Commercial Invoice Print'
+define service ZSD_COMM_PRINT {
+  expose ZVCOMMERCIALPRNT;
+  expose ZVCOMMITEMPRNT;
+}

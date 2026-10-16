@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for LABOUR BOOK'
+define service ZSD_LABOUR_BOOK {
+  expose ZC_LABOUR_BOOK;
+  expose ZC_LABOUR_BOOK_ITEM;
+}

@@ -1,0 +1,131 @@
+managed implementation in class zbp_i_dpr_head unique;
+strict ( 1 );
+with draft;
+
+define behavior for ZI_DPR_HEAD //alias <alias_name>
+with unmanaged save
+draft table zdr_dpr_di
+lock master
+total etag indate
+authorization master ( instance )
+//etag master <field_name>
+{
+  //  create;
+  update;
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Resume;
+  draft action Discard;
+  draft determine action Prepare;
+  //  delete;
+
+  field ( mandatory ) indate;
+  field ( readonly ) Plant, kostl;
+  action ( features : instance ) upd result [1] $self;
+
+  determination popudet on modify { field indate; }
+  side effects
+  {
+    action Upd affects entity _item;
+  }
+
+  association _item { create; }
+  mapping for zi_dpr_head
+    {
+
+      indate    = indate;
+      upd       = upd;
+      lastupdby = lastupdby;
+      lastupdon = lastupdon;
+      lastupdat = lastupdat;
+    }
+}
+
+define behavior for ZI_DPR_DI_ITM //alias <alias_name>
+draft table zdr_dpr_di_itm
+with unmanaged save
+lock dependent by _head
+authorization dependent by _head
+{
+  update;
+  delete;
+  field ( readonly ) Plant, kostl, Indate, Vdate, mtdytd, prodplanqty, totalpoured, mcloss, totalcast, pendcast,
+  stdgoodcast, actgoodcast, totgoodmould, totbadmould, bunchwt, bunchwtfar, rejwt,
+  seclinerej, rejper, finalrejper, rejlossval, excesswt, Packwt, Despwt, ontimdespqty,
+  ontimdespwt, chargoprn, spillage, stdyield, stdyieldfar, yield, yieldfar, stdlmcost,
+  lmcost, stdlmcicost, lmcostci, fgstock, sfgstock, Rmstock, Lmstock, Caststock,
+  Macstock, Grindstock, Paintstock, noofcompl, complamt, stcoststdgi, stcostactexp,
+  stcostmoustd, stcostmouact, stcostmeltstd, stcostmeltact, stcostothstd, stcostothacc,
+  trtmntcoststd, trtmntcostacc, powercoststd, powercostact, stdpowerunit, actpowunitaux,
+  actpoeunitfur, fixedcostloss, stdlabexp, actlabexp, productivity, otif, Kostl1;
+  association _head;
+  mapping for zi_dpr_di_itm
+    {
+      Indate        = Indate;
+      mtdytd        = mtdytd;
+      Kostl1        = Kostl1;
+      Vdate         = Vdate;
+      prodplanqty   = prodplanqty;
+      totalpoured   = totalpoured;
+      mcloss        = mcloss;
+      Totalcast     = Totalcast;
+      Pendcast      = Pendcast;
+      Stdgoodcast   = Stdgoodcast;
+      Actgoodcast   = Actgoodcast;
+      Totgoodmould  = Totgoodmould;
+      Totbadmould   = Totbadmould;
+      Bunchwt       = Bunchwt;
+      Bunchwtfar    = Bunchwtfar;
+      Rejwt         = Rejwt;
+      Seclinerej    = Seclinerej;
+      Rejper        = Rejper;
+      Finalrejper   = Finalrejper;
+      Rejlossval    = Rejlossval;
+      Excesswt      = Excesswt;
+      Packwt        = Packwt;
+      Despwt        = Despwt;
+      Ontimdespqty  = Ontimdespqty;
+      Ontimdespwt   = Ontimdespwt;
+      Chargoprn     = Chargoprn;
+      Spillage      = Spillage;
+      Stdyield      = Stdyield;
+      Stdyieldfar   = Stdyieldfar;
+      Yield         = Yield;
+      Yieldfar      = Yieldfar;
+      Stdlmcost     = Stdlmcost;
+      Lmcost        = Lmcost;
+      stdlmcicost   = stdlmcicost;
+      lmcostci      = lmcostci;
+      fgstock       = fgstock;
+      Sfgstock      = Sfgstock;
+      Rmstock       = Rmstock;
+      Lmstock       = Lmstock;
+      Caststock     = Caststock;
+      Macstock      = Macstock;
+      Grindstock    = Grindstock;
+      Paintstock    = Paintstock;
+      Noofcompl     = Noofcompl;
+      Complamt      = Complamt;
+      stcoststdgi   = stcoststdgi;
+      stcostactexp  = stcostactexp;
+      stcostmoustd  = stcostmoustd;
+      stcostmouact  = stcostmouact;
+      stcostmeltstd = stcostmeltstd;
+      stcostmeltact = stcostmeltact;
+      stcostothstd  = stcostothstd;
+      stcostothacc  = stcostothacc;
+      trtmntcoststd = trtmntcoststd;
+      trtmntcostacc = trtmntcostacc;
+      powercoststd  = powercoststd;
+      powercostact  = powercostact;
+      stdpowerunit  = stdpowerunit;
+      actpowunitaux = actpowunitaux;
+      actpoeunitfur = actpoeunitfur;
+      fixedcostloss = fixedcostloss;
+      stdlabexp     = stdlabexp;
+      actlabexp     = actlabexp;
+      productivity  = productivity;
+      Otif          = Otif;
+    }
+
+}

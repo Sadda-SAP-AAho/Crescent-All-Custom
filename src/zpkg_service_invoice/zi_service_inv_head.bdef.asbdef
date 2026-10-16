@@ -1,0 +1,30 @@
+managed implementation in class zbp_i_service_inv_head unique;
+strict ( 1 );
+
+define behavior for ZI_SERVICE_INV_HEAD //alias <alias_name>
+//persistent table <???>
+with unmanaged save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  //create;
+  update;
+  //delete;
+  field ( readonly ) InvoiceNo, FiscalYear;
+  action ( features : instance ) Print result [1] $self;
+  association _Item { create; }
+}
+
+define behavior for ZI_SERVICE_INV_ITEM //alias <alias_name>
+//persistent table <???>
+with unmanaged save
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  //update;
+  //delete;
+  field ( readonly ) InvoiceNo,Item,FiscalYear;
+  association _Head;
+}

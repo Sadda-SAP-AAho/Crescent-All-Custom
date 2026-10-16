@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_ShipmentTypeNew_S'
+define service ZUI_SHIPMENTTYPENEW {
+  expose ZI_SHIPMENTTYPENEW_S as ShipmentTypeNewAll;
+  expose ZI_SHIPMENTTYPENEW as ShipmentTypeNew;
+}

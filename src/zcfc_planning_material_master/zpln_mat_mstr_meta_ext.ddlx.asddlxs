@@ -1,0 +1,86 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Planning Material Master',
+    typeNamePlural: 'Planning Material Master Dashboard',
+    typeImageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgdkZGiw9frLmFH3f3k0GrhK0pi-GpDpM2bw&s'
+}
+annotate entity Z_C_PLN_MAT_MSTR_HD
+    with 
+{
+    @UI.facet: [
+    {  
+
+        id: 'hdr',
+        purpose: #STANDARD,
+        label: 'Material Information',
+        type: #IDENTIFICATION_REFERENCE,
+        position: 10
+    },
+    { 
+        id: 'item',
+        purpose: #STANDARD,
+        position: 20,
+        label: 'Resource Information',
+        type: #LINEITEM_REFERENCE,
+        targetElement: '_item'
+    }]
+    
+@UI.hidden: true   
+  Requestuuid;
+@Consumption.valueHelpDefinition: [{
+    entity: { name: 'ZMaterial_F4_help', element: 'Product' }
+
+}]
+@UI.lineItem: [{ position: 10 }]
+@UI.identification: [{ position: 10 }]
+@EndUserText.label: 'Material Code'
+    Material_code;
+@UI.lineItem: [{ position: 20 }]
+@UI.identification: [{ position: 20 }]
+@EndUserText.label: 'Material Description'    
+    Material_desc;
+@Consumption.valueHelpDefinition: [{
+    entity: {
+        name: 'ZMother_F4_Help',
+        element: 'Mother_Item'
+    }
+}]  
+@UI.lineItem: [{ position: 30 }]
+@UI.identification: [{ position: 30 }]
+@EndUserText.label: 'Mother Item'     
+    Mother_item;
+@Consumption.valueHelpDefinition: [{
+    entity: {
+        name: 'ZChild_F4_Help',
+        element: 'Child_Item'
+    }
+}]
+@UI.lineItem: [{ position: 40 }]
+@UI.identification: [{ position: 40 }]
+@EndUserText.label: 'Child Item'     
+    Child_item;
+@Consumption.valueHelpDefinition: [{
+    entity: { name: 'ZMother_Child_Cat_F4_Help', element: 'mother_child_catagory' }
+
+}]    
+@UI.lineItem: [{ position: 50 }]
+@UI.identification: [{ position: 50 }]
+@EndUserText.label: 'Mother/Child Category'     
+    Mother_child_catagory;    
+@UI.identification: [{ position: 60 }]
+@EndUserText.label: 'Created At'     
+    Created_at;
+@UI.identification: [{ position: 70 }]
+@EndUserText.label: 'Created By'         
+    Created_by;
+@UI.identification: [{ position: 80 }]
+@EndUserText.label: 'Last Changed At'         
+    Last_changed_at;
+@UI.hidden: true    
+    Last_local_changed_at;
+@UI.identification: [{ position: 90 }]
+@EndUserText.label: 'Last Changed By'         
+    Last_changed_by;  
+ 
+    
+}

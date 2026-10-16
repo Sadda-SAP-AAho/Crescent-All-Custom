@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Vendor wise Mail Maintenance",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Vendor wise Mail Maintenance"
+  },
+  "ui5AppDetails": {
+    "appId": "zvendmail"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_C47CC697A6BBEE8701D58A35604B318B6C0CA112_TM",
+    "semanticObject": "zvendmail",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_C47CC697A6BBEE8701D58A35604B318B6C0CA112_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Vendor wise Mail Maintenance"
+      }
+    }
+  ]
+}

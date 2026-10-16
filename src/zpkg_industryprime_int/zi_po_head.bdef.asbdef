@@ -1,0 +1,27 @@
+unmanaged implementation in class zbp_i_po_head unique;
+strict ( 1 );
+
+define behavior for ZI_PO_HEAD //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) Uuid;
+  association _item { create; }
+}
+
+define behavior for ZI_PO_ITEM //alias <alias_name>
+//late numbering
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Itemuuid;
+  association _head;
+}

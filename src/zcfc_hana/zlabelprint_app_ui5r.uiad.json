@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Label Print",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Label Print"
+  },
+  "ui5AppDetails": {
+    "appId": "zlabelprint"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_D600424334747DB38F182D06BFF7186CA19924CC_TM",
+    "semanticObject": "zlabelprint",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_D600424334747DB38F182D06BFF7186CA19924CC_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Label Print"
+      }
+    }
+  ]
+}

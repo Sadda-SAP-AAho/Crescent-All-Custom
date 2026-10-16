@@ -1,0 +1,40 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Management Dashboard-Actual Despatch',
+                typeNamePlural:'Management Dashboard-Actual Despatch',
+                title: { type: #STANDARD, label: 'Management Dashboard-Actual Despatch', value: 'plant' }
+
+              }
+     }
+annotate entity ZC_MGMTDASH_ACTDESP with
+{
+
+  @UI.facet:
+   [{id: 'GeneralData', isSummary: true, label: 'Item Details', type: #COLLECTION, position: 5},
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: '', id: 'GeneralData1' }]
+
+  @UI: { lineItem: [{ position: 1 }],
+         identification: [{ position: 1 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 1, importance: #HIGH }] }
+  @UI.selectionField: [{position: 1}]
+  Type;
+  @UI: { lineItem: [{ position: 5 }],
+         identification: [{ position: 5 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+  Plant;
+  @UI: { lineItem: [{ position: 10 }],
+      identification: [{ position: 10 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 10}]
+  ProfitCenter;
+  @UI: { lineItem: [{ position: 15 }],
+         identification: [{ position: 15 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 15, importance: #HIGH }] }
+  Act_Desp_Wt;
+  @UI: { lineItem: [{ position: 20 }],
+         identification: [{ position: 20 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  Act_Desp_Wt_MT;
+
+}

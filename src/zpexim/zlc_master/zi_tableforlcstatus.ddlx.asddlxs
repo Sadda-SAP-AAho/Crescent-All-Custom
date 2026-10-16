@@ -1,0 +1,73 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TableForLcStatus', 
+    typeNamePlural: 'TableForLcStatuss', 
+    title: {
+      type: #STANDARD, 
+      label: 'Table for LC Status', 
+      value: 'DocStatus'
+    }
+  }
+}
+annotate view ZI_TableForLcStatus with
+{
+  @UI.hidden: true
+  ConfigDeprecationCode_Critlty;
+  
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TableForLcStatus01', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Table for LC Status', 
+    position: 1 
+  } ]
+  DocStatus;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'StatusText'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'StatusText'
+  } ]
+  StatusText;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate'
+  } ]
+  @UI.textArrangement: #TEXT_ONLY
+  @UI.lineItem: [ {
+    position: 3 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate Selected Entry'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate Selected Entry'
+  } ]
+  ConfigDeprecationCode;
+}

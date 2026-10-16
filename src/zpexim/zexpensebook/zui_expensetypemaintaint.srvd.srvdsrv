@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_Expensetypemaintait_S'
+define service ZUI_EXPENSETYPEMAINTAINT {
+  expose ZI_EXPENSETYPEMAINTAIT_S as ExpensetypemaintAll;
+  expose ZI_EXPENSETYPEMAINTAINT as Expensetypemaintain;
+}

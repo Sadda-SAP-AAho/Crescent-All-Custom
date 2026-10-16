@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for GST Info Dashboard'
+define service ZSD_GSTINFODASH {
+  expose ZC_GSTINFODASH;
+}

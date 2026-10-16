@@ -1,0 +1,58 @@
+managed implementation in class zbp_i_gstnewvenref unique;
+strict;
+with draft;
+
+define behavior for ZI_GSTNEWVENREF //alias <alias_name>
+persistent table zdt_gstnewvenref
+draft table zdr_gstnewvenref
+lock master
+total etag Jeno
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly ) Jedate , Supplcode, Jerefno;
+  field ( mandatory ) Newvendrefno;
+
+  create;
+  update;
+  delete;
+
+
+  determination updateheader on modify { field Fisyear; field Jeno; }
+  side effects
+  {
+    field Fisyear affects field Jedate,
+        field Supplcode,
+        field Jerefno;
+
+    field Jeno affects field Jedate,
+        field Supplcode,
+        field Jerefno;
+  }
+
+  validation checkduplicate on save { create; update; }
+  validation checkvalidation1 on save { create; update; }
+  validation checkmandatory on save { create; update; }
+  validation checkdata on save { create; update; }
+
+  mapping for zi_gstnewvenref
+    {
+      Fisyear      = Fisyear;
+      Jeno         = Jeno;
+      Jedate       = Jedate;
+      Supplcode    = Supplcode;
+      Jerefno      = Jerefno;
+      Newvendrefno = Newvendrefno;
+    }
+
+}

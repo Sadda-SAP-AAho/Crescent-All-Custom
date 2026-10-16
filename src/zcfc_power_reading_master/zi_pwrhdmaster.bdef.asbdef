@@ -1,0 +1,43 @@
+managed implementation in class zbp_i_pwrhdmaster unique;
+strict;
+with draft;
+
+define behavior for ZI_PWRHDMASTER //alias <alias_name>
+persistent table zdt_pwrhdmaster
+draft table zdr_pwrhdmaster
+lock master
+total etag Subheadcd
+authorization master ( instance )
+//etag master <field_name>
+
+{
+ draft action (features : instance) Edit;
+ draft action Activate;
+ draft action Discard;
+ draft action Resume;
+ draft determine action Prepare
+ {
+ }
+  field ( readonly : update, numbering : managed) Id;
+
+  create;
+  update;
+  delete;
+
+  validation checksubhdcod on save { create; }
+
+  mapping for ZI_pwrhdmaster
+
+  {
+   Subheadcd = Subheadcd;
+   Subheadnm = Subheadnm;
+   Headcd = Headcd;
+   Headnm = Headnm;
+   Metertyp = Metertyp;
+   Ciprcnt = Ciprcnt;
+   Diprcnt = Diprcnt;
+   Msprcnt = Msprcnt;
+   Vacprcnt = Vacprcnt;
+   Othrprcnt = Othrprcnt;
+  }
+}

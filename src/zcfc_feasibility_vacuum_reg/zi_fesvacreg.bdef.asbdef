@@ -1,0 +1,113 @@
+managed implementation in class zbp_i_fesvacreg unique;
+strict;
+with draft;
+
+define behavior for ZI_FESVACREG //alias <alias_name>
+persistent table zdt_fesvacreg
+draft table zdr_fesvacreg
+lock master
+total etag ID
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly ) Formatno, Revnodate, Issuenodate, Prepdate;
+  //  field ( features : instance ) Attachment;
+
+  create;
+  update;
+  delete;
+
+
+  determination updateheader on modify { field Custcd; field Custcd2; }
+  side effects
+  { field Custcd affects field Custname;
+    field Custcd2 affects field Custname; }
+
+  validation checkvalidation on save { create; update; }
+  validation checkcomb on save { create; update; }
+  validation checkcostdate on save { create; update; }
+  validation checkeditflag on save { create; update; }
+  validation checkdrawno on save { create; update; }
+  validation checkmktuser on save { create; update; }
+  validation checkcustcode2 on save { create; update; }
+  validation checkuniquecust on save { create; update; }
+  validation checkline on save { create; update; }
+  validation checktolrncepm on save { create; update; }
+  validation checkpd3d on save { create; update; }
+
+  mapping for zi_fesvacreg
+    {
+      Formatno       = Formatno;
+      Revnodate      = Revnodate;
+      Issuenodate    = Issuenodate;
+      Prepdate       = Prepdate;
+      Rfqno          = Rfqno;
+      Rfqdate        = Rfqdate;
+      Matcd          = Matcd;
+      Custcd         = Custcd;
+      Custcd2        = Custcd2;
+      Custname       = Custname;
+      Pduser         = Pduser;
+      Annualqty      = Annualqty;
+      Paintinfo      = Paintinfo;
+      Process        = Process;
+      Packaging      = Packaging;
+      Childpart      = Childpart;
+      Spclrqmnt      = Spclrqmnt;
+      Weight_2d      = Weight_2d;
+      Weight_3d      = Weight_3d;
+      Ptolrnce       = Ptolrnce;
+      Ntolrnce       = Ntolrnce;
+      Tolrncepm      = Tolrncepm;
+      Stdtolrdim     = Stdtolrdim;
+      Gjl            = Gjl;
+      Remarksmkt     = Remarksmkt;
+      Mktgusr        = Mktgusr;
+      Length         = Length;
+      Width          = Width;
+      Height         = Height;
+      Line           = Line;
+      Boxsize1       = Boxsize1;
+      Boxsize2       = Boxsize2;
+      Pd2d           = Pd2d;
+      Pd3d           = Pd3d;
+      Remarkdensity  = Remarkdensity;
+      Noofcav        = Noofcav;
+      Yldprcnt       = Yldprcnt;
+      Corepercavity  = Corepercavity;
+      Corecstpercav  = Corecstpercav;
+      Insertpercav   = Insertpercav;
+      Insertcost     = Insertcost;
+      Pipepercav     = Pipepercav;
+      Pipecost       = Pipecost;
+      Htchpltpercav  = Htchpltpercav;
+      Htchpltcost    = Htchpltcost;
+      Oteherscost    = Oteherscost;
+      Mouldspd       = Mouldspd;
+      Mchnprcss      = Mchnprcss;
+      Patterncst     = Patterncst;
+      Toolscst       = Toolscst;
+      Jigfixcst      = Jigfixcst;
+      Srfcarea       = Srfcarea;
+      Nofpcsperpllt  = Nofpcsperpllt;
+      Noofpcspercont = Noofpcspercont;
+      Addcst         = Addcst;
+      Chldprtcst     = Chldprtcst;
+      Spclrqcst      = Spclrqcst;
+      Drlfacing      = Drlfacing;
+      Palletwt       = Palletwt;
+      Remarkspd      = Remarkspd;
+      Editflag       = Editflag;
+    }
+
+
+}

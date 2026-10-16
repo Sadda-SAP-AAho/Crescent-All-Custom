@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Material Serial Number'
+define service ZSD_MATSERIALNO {
+  expose ZC_MATSERIALNO;
+}

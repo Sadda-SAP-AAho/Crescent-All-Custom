@@ -1,0 +1,43 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Vendor Bank Item', value: 'Supp' } } }
+annotate entity ZC_VEND_BANK_ITM with
+{
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'Vendor Bank Item', type: #COLLECTION },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: '', id: 'GeneralData1' }]
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 10, criticality: 'Crcriticalitystatus' } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH, criticality: 'Crcriticalitystatus' } ]
+  Updstatus;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Supp;
+  @UI.hidden: true
+  Crcriticalitystatus;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Suppname;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Bankname;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Bankacc;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Bankcou;
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Bankkey;
+  @UI.hidden: true
+  Status;
+
+}

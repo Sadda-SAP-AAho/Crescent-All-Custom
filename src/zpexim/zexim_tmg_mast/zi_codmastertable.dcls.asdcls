@@ -1,0 +1,5 @@
+@MappingRole: true
+define role ZI_CodMasterTable {
+  grant select on ZI_CodMasterTable
+  where ( ) = ASPECT pfcg_auth ( 'S_TABU_NAM', ACTVT = '03', TABLE = 'ZI_CODMASTERTABLE' );
+}

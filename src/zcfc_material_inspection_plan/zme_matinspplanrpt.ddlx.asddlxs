@@ -1,0 +1,115 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Material wise Inspection Plan',
+                typeNamePlural:'Material wise Inspection Plan',
+                title: { type: #STANDARD, label: 'Material wise Inspection Plan' , value: 'MaterialCode' }
+
+              }
+     }
+annotate entity ZC_MATINSPPLANRPT with
+{
+  @UI.facet:
+      [{id: 'GeneralData', isSummary: true, label: 'Item Details', type: #COLLECTION, position: 5},
+      { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Material wise Inspection Plan', id: 'GeneralData1' }]
+
+  @UI: { lineItem: [{ position: 5 }],
+         identification: [{ position: 5 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+  MaterialCode;
+  @UI: { lineItem: [{ position: 6 }],
+       identification: [{ position: 6 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  MaterialDescription;
+  @UI: { lineItem: [{ position: 7 }],
+       identification: [{ position: 7 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  MaterialType;
+  @UI: { lineItem: [{ position: 8 }],
+      identification: [{ position: 8 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  MaterialTypeDescription;
+  @UI: { lineItem: [{ position: 9 }],
+       identification: [{ position: 9 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  MaterialGroup;
+  @UI: { lineItem: [{ position: 10 }],
+       identification: [{ position: 10 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  MaterialGroupDescription;
+@UI: { lineItem: [{ position: 11 }],
+       identification: [{ position: 11 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 11}]
+  KeyforTaskListGroup;
+  @UI: { lineItem: [{ position: 15 }],
+       identification: [{ position: 15 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 15}]
+  Characteristic;
+  @UI: { lineItem: [{ position: 20 }],
+       identification: [{ position: 20 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  ValidFromDate;
+  @UI: { lineItem: [{ position: 25 }],
+       identification: [{ position: 25 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Validtodate;
+  @UI: { lineItem: [{ position: 35 }],
+       identification: [{ position: 35 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Plant;
+   @UI: { lineItem: [{ position: 38 }],
+       identification: [{ position: 38 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Plnt;
+  @UI: { lineItem: [{ position: 39 }],
+       identification: [{ position: 39 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 39}]
+  MasterIC;
+  @UI: { lineItem: [{ position: 40 }],
+       identification: [{ position: 40 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  QuantitativeCharacteristic;
+  @UI: { lineItem: [{ position: 45 }],
+       identification: [{ position: 45 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Charattribute;
+  @UI: { lineItem: [{ position: 50 }],
+       identification: [{ position: 50 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  UnitofMeas;
+  @UI: { lineItem: [{ position: 55 }],
+       identification: [{ position: 55 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  TargetValue;
+  @UI: { lineItem: [{ position: 60 }],
+       identification: [{ position: 60 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  UpperSpecificationLimit;
+  @UI: { lineItem: [{ position: 65 }],
+       identification: [{ position: 65 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  LowerSpecificationLimit;
+  @UI: { lineItem: [{ position: 70 }],
+       identification: [{ position: 70 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  CodeGrpSelSet;
+  @UI: { lineItem: [{ position: 85 }],
+       identification: [{ position: 85 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  UseWhoCreatedRecord;
+  @UI: { lineItem: [{ position: 90 }],
+       identification: [{ position: 90 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  CreatedOn;
+  @UI: { lineItem: [{ position: 95 }],
+       identification: [{ position: 95 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  ChangedBy;
+  @UI: { lineItem: [{ position: 100 }],
+       identification: [{ position: 100 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  ChangedOn;
+}

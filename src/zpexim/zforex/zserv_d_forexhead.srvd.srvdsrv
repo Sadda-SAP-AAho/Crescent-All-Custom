@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition For Forward Contract'
+define service ZSERV_D_FOREXHEAD {
+  expose ZC_FOREXTP;
+  expose ZC_FOREXITMTP;
+}

@@ -1,0 +1,73 @@
+managed with additional save implementation in class ZBP_I_TMGFORDELETEPPDASH_S unique;
+strict;
+with draft;
+define behavior for ZI_TmgForDeletePpDash_S alias TmgForDeletePpDaAll
+draft table ZDT_PP_DELU_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TmgForDeletePpDash { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_TmgForDeletePpDash alias TmgForDeletePpDash ##UNMAPPED_FIELD
+persistent table ZDT_PP_DELUSR
+draft table ZDT_PP_DELUSR_D
+lock dependent by _TmgForDeletePpDaAll
+authorization dependent by _TmgForDeletePpDaAll
+
+{
+  field ( mandatory : create )
+   Userid;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Userid;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_PP_DELUSR
+  {
+    Userid = USERID;
+  }
+
+  association _TmgForDeletePpDaAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

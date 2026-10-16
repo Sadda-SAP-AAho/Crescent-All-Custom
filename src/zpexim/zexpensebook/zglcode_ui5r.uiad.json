@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "GL Code Maintenance",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "GL Code Maintenance"
+  },
+  "ui5AppDetails": {
+    "appId": "zgl"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_BFEBDCCF17B12890E683F210E1C4C5F40D20811C_TM",
+    "semanticObject": "ZGLCODE",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_BFEBDCCF17B12890E683F210E1C4C5F40D20811C_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "GL Code Maintenance"
+      }
+    }
+  ]
+}

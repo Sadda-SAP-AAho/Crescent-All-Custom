@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Payment DMS"
+  },
+  "ui5AppDetails": {
+    "appId": "zbankstatementdms"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_04193F51725800CA7BD466F32203D92B8C8943AE_TM",
+    "semanticObject": "zpaymentdms",
+    "action": "DISPLAY",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_04193F51725800CA7BD466F32203D92B8C8943AE_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Payment DMS",
+        "subtitle": "ZPYMTDMS"
+      }
+    }
+  ]
+}

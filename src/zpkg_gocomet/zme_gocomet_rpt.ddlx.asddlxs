@@ -1,0 +1,60 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'GoComet Report',
+                typeNamePlural:'GoComet Report',
+                title: { type: #STANDARD, label: 'GoComet Report', value: 'Trackno' }
+              }
+     }
+annotate view ZC_GOCOMET_RPT with
+{
+ @UI.facet: [
+       {
+       id: 'Header',
+       isSummary: true,
+       label: 'Go Comet Report',
+       type: #IDENTIFICATION_REFERENCE,
+       purpose: #STANDARD,
+       position: 10
+       } ]
+       
+       
+  @UI: { lineItem: [ { position: 20} ], identification: [{position: 20 }] }
+  Delmode;
+  @UI: { lineItem: [ { position: 30} ], identification: [{position: 30 }] } 
+  Refno;
+  @UI: { lineItem: [ { position: 40} ], identification: [{position: 40 }] }
+  Trackno;
+  @UI: { lineItem: [ { position: 50} ], identification: [{position: 50 }] }
+  Carrier;
+  @UI: { lineItem: [ { position: 60} ], identification: [{position: 60 }] }
+  Carnum;
+  @UI: { lineItem: [ { position: 70} ], identification: [{position: 70 }] }
+  Disdate;
+  @UI: { lineItem: [ { position: 80} ], identification: [{position: 80 }] }
+  Pol;
+  @UI: { lineItem: [ { position: 90} ], identification: [{position: 90 }] }
+  Pod;
+//  @UI.hidden: true
+//  Markcap;
+//  @UI.hidden: true
+//  Clntgrpcode;
+//  @UI.hidden: true
+//  Consgrpcode;
+//  @UI.hidden: true
+//  Carcode;
+//  @UI.hidden: true
+//  Vesname;
+//  @UI.hidden: true
+//  Consize;
+//  @UI.hidden: true
+//  Contype;
+//  @UI.hidden: true
+//  autocar;
+  @UI: { lineItem: [ { position: 200} ], identification: [{position: 200 }] }
+  Deldate;
+  @UI: { lineItem: [ { position: 210} ], identification: [{position: 210 }] }
+  Invno;
+  @UI: { lineItem: [ { position: 220} ], identification: [{position: 220 }] }
+  Invdt;
+
+}

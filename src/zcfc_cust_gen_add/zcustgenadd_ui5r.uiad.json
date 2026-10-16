@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Customer General Address"
+  },
+  "ui5AppDetails": {
+    "appId": "zcustgenadd"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_6784CD08D97C5DEEFAD8EBF372EA6D9BEA6595B6_TM",
+    "semanticObject": "zcustgenadd",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_6784CD08D97C5DEEFAD8EBF372EA6D9BEA6595B6_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Customer General Address",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

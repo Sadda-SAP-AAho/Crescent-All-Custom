@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service for credit note'
+define service ZFI_CREDIT_NOTE_SRV {
+  expose ZFI_CREDIT_NOTE;
+}

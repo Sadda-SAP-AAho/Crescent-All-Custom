@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "BOE Form Print",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "BOE Form Print"
+  },
+  "ui5AppDetails": {
+    "appId": "zboeformprint"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_F46F06E27EB3A397D09A8151D570D7AEFDCFC168_TM",
+    "semanticObject": "zboeformprint",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_F46F06E27EB3A397D09A8151D570D7AEFDCFC168_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "BOE Form Print"
+      }
+    }
+  ]
+}

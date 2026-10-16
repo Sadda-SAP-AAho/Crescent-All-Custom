@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "FOREX Adjustment Details",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "FOREX Adjustment Details"
+  },
+  "ui5AppDetails": {
+    "appId": "zforexadjdetrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_DAEE91C59C1104E23FF866F85289E2287C5CA4A6_TM",
+    "semanticObject": "zforexadjdetrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_DAEE91C59C1104E23FF866F85289E2287C5CA4A6_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "FOREX Adjustment Details",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

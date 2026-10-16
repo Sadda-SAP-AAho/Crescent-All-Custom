@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Sales Order wise Realization Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Order wise Realization Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zsalrea"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_3E734148357F8981832BB26414E0ADC8E50820E6_TM",
+    "semanticObject": "zsalrea",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_3E734148357F8981832BB26414E0ADC8E50820E6_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Order wise Realization Report"
+      }
+    }
+  ]
+}

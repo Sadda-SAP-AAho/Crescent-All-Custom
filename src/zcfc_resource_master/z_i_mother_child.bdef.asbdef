@@ -1,0 +1,39 @@
+managed implementation in class zbp_i_mother_child unique;
+//strict ( 2 );
+
+with draft;
+define behavior for Z_I_Mother_Child  alias hdr
+persistent table zmthr_chld_ctgry
+draft table zmthr_chld_drft
+lock master
+total etag Last_changed_at
+authorization master ( instance )
+etag master Last_changed_at
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( numbering : managed, readonly ) Requestuuid;
+
+  field ( readonly ) Created_at,Created_by,Last_changed_at, Last_changed_by;
+
+
+
+
+validation getChild on save  { field Mother_child_catagory; create; }
+
+
+mapping for zmthr_chld_ctgry
+{
+  Requestuuid           = requestuuid;
+  Mother_child_catagory = mother_child_catagory;
+  Created_at = created_at;
+  Created_by =  created_by;
+  Last_changed_at = last_changed_at;
+  Last_changed_by =  last_changed_by;
+
+}
+
+
+
+}

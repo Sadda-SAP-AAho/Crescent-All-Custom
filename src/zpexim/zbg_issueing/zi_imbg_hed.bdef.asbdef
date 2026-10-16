@@ -1,0 +1,102 @@
+managed implementation in class zbp_i_imbg_hed unique;
+strict;
+with draft;
+
+define behavior for ZI_IMBG_HED //alias <alias_name>
+persistent table zdt_imbg_hed
+draft table zdr_imbg_hed
+lock master
+total etag Imbgrefno
+authorization master ( instance )
+//etag master <field_name>
+{
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update ) Companycode, Imbgrefno;
+  field ( features : instance ) Bgstat, Bgexchangerate,Bgcleanassign;
+  field ( readonly ) Bgappnam, City, Country;
+  field ( readonly ) Bankaddr, Bankbrnch, Bankl, Banknam, Bankvendor, Bankvendorname, Swift,
+  Zifsccode, Bgtenure, Bgbenefname, Bglcamt, banklimit, Netbglimit, Bgcleanlimit;
+  field ( mandatory ) Hbkid, Bgreqdt, Bgeffdt, Bgexpdt, Bgclaimexpdt, Bgtype, Bgcatag, Bgcharacter, Bgamt;
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  determination updatedetails on save { create; }
+  determination get_companydtls on modify { field Companycode; }
+  determination get_bankdtls on modify { field Hbkid; }
+  determination upd_lcamt on modify { field Bgcurrencyfc; field Bgamt; }
+  determination upd_lcamt_exchange on modify { field Bgexchangerate; }
+  determination upd_tenure on modify { field Bgreqdt; field Bgeffdt; field Bgexpdt; field Bgclaimexpdt; }
+
+
+  side effects
+  {
+    field Bgeffdt affects field Bgtenure;
+    field Bgclaimexpdt affects field Bgtenure;
+    field Bgcurrencyfc affects field Bglcamt, field Netbglimit, field Bgexchangerate;
+    field Bgexchangerate affects field Bglcamt, field Netbglimit;
+    field Bgamt affects field Bglcamt, field Netbglimit, field Bgexchangerate;
+
+    field Hbkid affects field banklimit, field bgcleanlimit;
+  }
+  mapping for zi_imbg_hed
+    {
+      companycode      = Companycode;
+      imbgrefno        = Imbgrefno;
+      version          = Version;
+      bgappnam         = Bgappnam;
+      bgstat           = Bgstat;
+      city             = City;
+      country          = Country;
+      bgcharacter      = Bgcharacter;
+      hbkid            = Hbkid;
+      hktid            = Hktid;
+      bankl            = Bankl;
+      banknam          = Banknam;
+      bankaddr         = Bankaddr;
+      bankbrnch        = Bankbrnch;
+      zifsccode        = Zifsccode;
+      swift            = Swift;
+      bankvendor       = Bankvendor;
+      Bankvendorname   = Bankvendorname;
+      bgreqdt          = Bgreqdt;
+      bgeffdt          = Bgeffdt;
+      bgexpdt          = Bgexpdt;
+      bgclaimexpdt     = Bgclaimexpdt;
+      bgtenure         = Bgtenure;
+      bgtype           = Bgtype;
+      bgexchangerate   = Bgexchangerate;
+      bgcatag          = Bgcatag;
+      bgcurrency       = Bgcurrency;
+      Bgcurrencyfc     = Bgcurrencyfc;
+      bgamt            = Bgamt;
+      bglcamt          = Bglcamt;
+      bcopenchrgs      = Bcopenchrgs;
+      bgbenefcode      = Bgbenefcode;
+      bgbenefname      = Bgbenefname;
+      bgaddress        = Bgaddress;
+      bgcountry        = Bgcountry;
+      bgcity           = Bgcity;
+      bgstate          = Bgstate;
+      bgpostalcode     = Bgpostalcode;
+      bgpurpose        = Bgpurpose;
+      banklimit        = Banklimit;
+      netbglimit       = Netbglimit;
+      bgcleanlimit     = Bgcleanlimit;
+      bgcleanassign    = Bgcleanassign;
+      bgbankfd         = Bgbankfd;
+      bgfdtagprovision = Bgfdtagprovision;
+    }
+
+
+}

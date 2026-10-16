@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_ProductGroupMainten_S'
+define service ZUI_PRODUCTGROUPMAINTEN {
+  expose ZI_PRODUCTGROUPMAINTEN_S as ProductGroupMainAll;
+  expose ZI_PRODUCTGROUPMAINTEN as ProductGroupMainten;
+}

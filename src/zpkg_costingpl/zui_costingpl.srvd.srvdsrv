@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_CostingPl_S'
+define service ZUI_COSTINGPL {
+  expose ZI_COSTINGPL_S as CostingPlAll;
+  expose ZI_COSTINGPL as CostingPl;
+}

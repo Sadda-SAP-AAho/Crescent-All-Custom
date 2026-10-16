@@ -1,0 +1,4 @@
+@EndUserText.label: 'Sales Customer'
+define service ZSERV_D_SALESCUSTOMER {
+  expose ZR_SALESCUSTOMER;
+}

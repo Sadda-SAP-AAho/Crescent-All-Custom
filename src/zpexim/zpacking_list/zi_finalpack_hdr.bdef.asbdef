@@ -1,0 +1,143 @@
+managed implementation in class zbp_i_finalpack_hdr unique;
+strict;
+with draft;
+define behavior for zi_finalpack_hdr //alias <alias_name>
+persistent table zdt_finlpack_hdr
+draft table zdr_finlpack_hdr
+lock master
+total etag Createdat
+authorization master ( instance )
+with additional save
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+  field ( readonly : update, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update ) comm_inv;
+  field ( readonly ) Packinglist, Salesorg, Plant, Createdby, Createdon,
+                     Createdat, Changeddby, Changedon, Changedat, Status;
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+  action ( features : instance ) UPDATE result [1] $self;
+
+  action ( features : instance ) Cancel result [1] $self;
+  action ( features : instance ) Prnt   result [1] $self;
+//  action ( features : instance ) Print   result [1] $self;
+
+  determination determinepackinglist on save { create; }
+  determination deliverydetails on modify { field comm_inv; }
+  determination get_prfld on save { create; }
+  validation checkdel on save { create; }
+
+  association _Item { create ( features : instance ); with draft; }
+  association _Item1 { create ( features : instance ); with draft; }
+
+  mapping for ZI_FINALPACK_HDR
+  {
+     Packinglist = Packinglist;
+     comm_inv    = comm_inv;
+     Salesorg    = Salesorg;
+     Plant       = Plant;
+     Createdby   = Createdby;
+     Createdon   = Createdon;
+     Createdat   = Createdat;
+     Changeddby  = Changeddby;
+     Changedon   = Changedon;
+     Changedat   = Changedat;
+     Canind      = Canind;
+     Cancelby    = Cancelby;
+     Dprint      = Dprint;
+     Cancelon    = Cancelon;
+     Status      = Status;
+     Remarks     = Remarks;
+     Custfrght   = Custfrght;
+  }
+}
+
+define behavior for zi_finalpack_itm //alias <alias_name>
+persistent table zdt_finlpack_itm
+draft table zdr_finlpack_itm
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update( features : instance );
+  delete( features : instance );
+
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id, Packinglist, Delivery, Posnr, Plant, maktx,Matnr, Meins, Mateachpkg,
+                     Eachnetwt, Eachgrowt, Netwt, Growt, Packmat, Wtunit, Matnetwt;
+
+  field ( features : instance ) Priority, Packqty, Qty, Packmattyp, Packmatnwt;
+
+//  action ( features : instance ) Copy result [1] $self;
+//
+  determination updateval on modify { field Priority; field packqty; field qty; field Packmatnwt; }
+  determination updatedate on save { field Priority; field packqty; field qty; field Packmatnwt; }
+//  determination calcqty on modify { field Packqty; }
+  side effects
+  {
+    field Packqty    affects field Netwt, field Growt, field Eachnetwt, field Eachgrowt, entity _Head;
+    field Priority   affects field Netwt, field Growt, field Eachnetwt, field Eachgrowt, entity _Head;
+    field Qty        affects field Netwt, field Growt, field Eachnetwt, field Eachgrowt, entity _Head;
+    field Packmatnwt affects field Netwt, field Growt, field Eachnetwt, field Eachgrowt, entity _Head;
+ //   action Copy      affects entity _Head;
+  }
+
+  association _Head { with draft; }
+
+  mapping for ZI_FINALPACK_ITM
+  {
+    Packinglist = Packinglist;
+    Delivery    = Delivery;
+    Posnr       = Posnr;
+    Plant       = Plant;
+    Matnr       = Matnr;
+    Maktx       = Maktx;
+    Meins       = Meins;
+    Qty         = Qty;
+    Packqty     = Packqty;
+    Priority    = Priority;
+    Packmat     = Packmat;
+    Packmatnwt  = Packmatnwt;
+    Matnetwt    = Matnetwt;
+    Eachnetwt   = Eachnetwt;
+    Eachgrowt   = Eachgrowt;
+    Netwt       = Netwt;
+    Growt       = Growt;
+    Copy        = copy;
+    Wtunit      = Wtunit;
+    Packmattyp  = Packmattyp;
+    Mateachpkg  = Mateachpkg;
+    Unitfob     = Unitfob;
+  }
+}
+
+define behavior for ZI_FPLPRINTFIELD //alias <alias_name>
+persistent table zdt_packprint
+draft table zdr_packprint
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  //delete;
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) id, Packinglist, Field, Fieldname;
+
+  association _head { with draft; }
+  mapping for ZI_FPLPRINTFIELD
+    {
+      Packinglist = Packinglist;
+      Field      = Field;
+      Fieldname  = Fieldname;
+      Printallow = Printallow;
+      Printseq   = Printseq;
+    }
+}

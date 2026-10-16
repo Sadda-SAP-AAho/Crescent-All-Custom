@@ -1,0 +1,15 @@
+managed implementation in class zbp_i_variance_gl unique;
+strict ( 2 );
+
+define behavior for ZI_VARIANCE_GL //alias <alias_name>
+persistent table zdt_variance_gl
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( numbering : managed, readonly ) id;
+  field ( mandatory : update  )  Prefix;
+}

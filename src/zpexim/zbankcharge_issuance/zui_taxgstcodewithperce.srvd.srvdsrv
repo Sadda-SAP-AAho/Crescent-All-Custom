@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TaxGstCodeWithPerce_S'
+define service ZUI_TAXGSTCODEWITHPERCE {
+  expose ZI_TAXGSTCODEWITHPERCE_S as TaxGstCodeWithPeAll;
+  expose ZI_TAXGSTCODEWITHPERCE as TaxGstCodeWithPerce;
+}

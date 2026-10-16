@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Labour Booking Report'
+define service ZSD_LABBKNGRPT {
+  expose ZC_LABBKNGRPT_N;
+}

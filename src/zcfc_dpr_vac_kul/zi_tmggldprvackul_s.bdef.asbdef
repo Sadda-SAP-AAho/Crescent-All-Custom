@@ -1,0 +1,76 @@
+managed with additional save implementation in class ZBP_I_TMGGLDPRVACKUL_S unique;
+strict;
+with draft;
+define behavior for ZI_TmgGlDprVacKul_S alias TmgGlDprVacKulAll
+draft table ZDT_GL_DPR_VK_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TmgGlDprVacKul { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+
+}
+
+define behavior for ZI_TmgGlDprVacKul alias TmgGlDprVacKul ##UNMAPPED_FIELD
+persistent table ZDT_GL_DPR_VCKL
+draft table ZDT_GL_DPR_VC_D
+lock dependent by _TmgGlDprVacKulAll
+authorization dependent by _TmgGlDprVacKulAll
+{
+  field ( mandatory : create )
+   Costtype,
+   Hkont;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Costtype,
+   Hkont;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_GL_DPR_VCKL
+  {
+    Costtype = COSTTYPE;
+    Hkont = HKONT;
+  }
+
+  association _TmgGlDprVacKulAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+
+}

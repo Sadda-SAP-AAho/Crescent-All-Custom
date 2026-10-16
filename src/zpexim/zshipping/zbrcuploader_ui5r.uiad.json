@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "BRC Uploader",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "BRC Uploader"
+  },
+  "ui5AppDetails": {
+    "appId": "zbrcuploader"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_A094B4C4D91D0B2B5210E5EFF6BC74DE03AEF300_TM",
+    "semanticObject": "ZBRCUPLOADER",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_A094B4C4D91D0B2B5210E5EFF6BC74DE03AEF300_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "BRC Uploader"
+      }
+    }
+  ]
+}

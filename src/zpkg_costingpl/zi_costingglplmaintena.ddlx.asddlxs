@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'CostingGlPlMaintena', 
+    typeNamePlural: 'CostingGlPlMaintenas', 
+    title: {
+      type: #STANDARD, 
+      label: 'Costing GL PL Maintenance Table', 
+      value: 'Gltype'
+    }
+  }
+}
+annotate view ZI_CostingGlPlMaintena with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_CostingGlPlMaintena', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Costing GL PL Maintenance Table', 
+    position: 1 
+  } ]
+  Gltype;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Gl;
+}

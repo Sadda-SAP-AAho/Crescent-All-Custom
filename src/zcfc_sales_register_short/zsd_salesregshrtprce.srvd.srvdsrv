@@ -1,0 +1,4 @@
+@EndUserText.label: 'Sales Register Short(Price)'
+define service ZSD_SALESREGSHRTPRCE {
+  expose ZC_SALESREGSHRTPRCE;
+}

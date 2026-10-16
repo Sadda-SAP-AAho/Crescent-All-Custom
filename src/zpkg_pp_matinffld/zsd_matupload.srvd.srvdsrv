@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Material Upload'
+define service ZSD_MATUPLOAD {
+  expose ZC_MATINFO_FILE;
+  expose ZC_MATITEM_FILE;
+}

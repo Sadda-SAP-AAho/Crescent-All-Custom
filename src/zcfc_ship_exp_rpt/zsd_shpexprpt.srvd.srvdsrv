@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Shipping Expense Report'
+define service ZSD_SHPEXPRPT {
+  expose ZC_SHPEXPRPT;
+}

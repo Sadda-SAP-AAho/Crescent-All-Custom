@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for DPR DI'
+define service ZSD_DPR_DI {
+  expose ZC_DPR_HEAD;
+  expose ZC_DPR_DI_ITM;
+}

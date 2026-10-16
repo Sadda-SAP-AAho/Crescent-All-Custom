@@ -1,0 +1,18 @@
+projection;
+strict ( 1 );
+use draft;
+use side effects;
+
+define behavior for ZC_MATFLD //alias <alias_name>
+{
+  use create;
+  use update;
+//  use action deleteall;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+}

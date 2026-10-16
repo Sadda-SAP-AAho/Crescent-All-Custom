@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Power Reading Register",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Power Reading Register"
+  },
+  "ui5AppDetails": {
+    "appId": "zpwrrdngregrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_A4D3CE57B4BB10BF0AC31EF7355CABFFD361FDD3_TM",
+    "semanticObject": "zpwrrdngregrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_A4D3CE57B4BB10BF0AC31EF7355CABFFD361FDD3_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Power Reading Register",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

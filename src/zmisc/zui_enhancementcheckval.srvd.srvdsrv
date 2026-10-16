@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_EnhancementCheckVal_S'
+define service ZUI_ENHANCEMENTCHECKVAL {
+  expose ZI_ENHANCEMENTCHECKVAL_S as EnhancementCheckAll;
+  expose ZI_ENHANCEMENTCHECKVAL as EnhancementCheckVal;
+}

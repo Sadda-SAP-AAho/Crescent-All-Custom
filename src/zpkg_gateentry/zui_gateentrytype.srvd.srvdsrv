@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_GateentryTyp_S'
+define service ZUI_GATEENTRYTYPE {
+  expose ZI_GATEENTRYTYP_S as GateentryTypeAll;
+  expose ZI_GATEENTRYTYP as GateentryTyp;
+}

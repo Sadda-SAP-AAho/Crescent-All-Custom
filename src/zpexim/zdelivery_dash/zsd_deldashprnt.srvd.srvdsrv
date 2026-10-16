@@ -1,0 +1,9 @@
+@EndUserText.label: 'Delivery Dashboard Print'
+define service ZSD_DELDASHPRNT {
+  expose ZV_DELDASHPRNT_HDR;
+  expose ZV_PROFORMA_ITMFINAL;
+  expose ZCDS_TABLE2;
+  expose ZCDS_TABLE3;
+  expose ZCDS_TABLE4;
+  expose ZCDS_CONCATPO;
+}

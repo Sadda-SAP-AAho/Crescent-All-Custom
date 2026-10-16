@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for DPR VACUUM KUL'
+define service ZSD_DPR_VACK {
+  expose ZC_DPR_VACK_HEAD;
+  expose ZC_DPR_VACK_ITM;
+}

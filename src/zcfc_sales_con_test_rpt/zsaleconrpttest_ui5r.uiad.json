@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Sales Contract Report Test",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Contract Report Test"
+  },
+  "ui5AppDetails": {
+    "appId": "zsaleconrpttest"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_3C308BDBBBEAAF4FFC9979A83F64ED6A7E997456_TM",
+    "semanticObject": "zsaleconrpttest",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_3C308BDBBBEAAF4FFC9979A83F64ED6A7E997456_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Contract Report Test"
+      }
+    }
+  ]
+}

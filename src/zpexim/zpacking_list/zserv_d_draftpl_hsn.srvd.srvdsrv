@@ -1,0 +1,7 @@
+@EndUserText.label: 'Draft Packing List'
+define service ZSERV_D_DRAFTPL_HSN {
+  expose ZCUS_DRAFTPL;
+  expose ZI_DRAFTPL_PRINT;
+  expose ZCDS_CONCATPO;
+  expose ZVDRAFTQTY_CR;
+}

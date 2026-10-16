@@ -1,0 +1,36 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'MaintenanceForLoanT', 
+    typeNamePlural: 'MaintenanceForLoanTs', 
+    title: {
+      type: #STANDARD, 
+      label: 'Maintenance for loan type', 
+      value: 'Loantype'
+    }
+  }
+}
+annotate view ZI_MaintenanceForLoanT with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_MaintenanceForLoanT', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Maintenance for loan type', 
+    position: 1 
+  } ]
+  Loantype;
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Documenttype;
+}

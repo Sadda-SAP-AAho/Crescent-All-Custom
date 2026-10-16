@@ -1,0 +1,5 @@
+@EndUserText.label: 'Contractor wise report'
+define service ZSERV_D_CONTRACT {
+  expose ZI_CONTRACT_HDR;
+  expose ZI_CONTRACT_ITM;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'Shipping Instruction Print'
+define service ZSERV_SHIP_PRINT {
+  expose ZCUS_SHIPPINGINSTRUC;
+  expose ZCDS_TBLFUNC_HSN;
+  expose ZCDS_CONTSIZE;
+}

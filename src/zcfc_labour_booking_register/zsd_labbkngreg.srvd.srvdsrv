@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Labour Booking Register'
+define service ZSD_LABBKNGREG {
+  expose ZC_LABBKREGHEAD;
+  expose ZC_LABBKREGITEM;
+}

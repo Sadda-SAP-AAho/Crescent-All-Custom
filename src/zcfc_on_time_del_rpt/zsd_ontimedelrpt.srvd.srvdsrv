@@ -1,0 +1,4 @@
+@EndUserText.label: 'On Time Delivery Report'
+define service ZSD_ONTIMEDELRPT {
+  expose ZC_ONTIMEDELRPT;
+}

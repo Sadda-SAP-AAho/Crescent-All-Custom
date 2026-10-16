@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForConsumpt_S'
+define service ZUI_TMGTABLEFORCONSUMPT {
+  expose ZI_TMGTABLEFORCONSUMPT_S as TmgTableForConsuAll;
+  expose ZI_TMGTABLEFORCONSUMPT as TmgTableForConsumpt;
+}

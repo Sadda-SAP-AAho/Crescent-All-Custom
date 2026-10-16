@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_PowerHeadMaster_S'
+define service ZUI_POWERHEADMASTER {
+  expose ZI_POWERHEADMASTER_S as PowerHeadMasterAll;
+  expose ZI_POWERHEADMASTER as PowerHeadMaster;
+}

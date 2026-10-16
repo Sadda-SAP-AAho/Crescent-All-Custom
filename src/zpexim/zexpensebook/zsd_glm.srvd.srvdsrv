@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination for the GL Maintenance App'
+define service ZSD_GLM {
+  expose ZC_GLM;
+}

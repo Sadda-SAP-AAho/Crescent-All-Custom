@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_IpPurchaseGroup_S'
+define service ZUI_IPPURCHASEGROUP {
+  expose ZI_IPPURCHASEGROUP_S as IpPurchaseGroupAll;
+  expose ZI_IPPURCHASEGROUP as IpPurchaseGroup;
+}

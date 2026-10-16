@@ -1,0 +1,101 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'comm_inv', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Final Packing List' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Final Packing List', value: 'comm_inv' } } }
+annotate entity ZC_FINALPACK_HDR with 
+{
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'Packing List', type: #COLLECTION },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Shipping Bill Details', id: 'GeneralData1' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15, label: 'Creation Details', id: 'GeneralData2' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 20, label: 'Changed Details', id: 'GeneralData3' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData4', parentId: 'GeneralData', position: 25, label: 'Freight Details', id: 'GeneralData4' },
+
+  { id: 'PackListI', label: 'Packing List Item', type: #LINEITEM_REFERENCE, position : 25, targetElement: '_Item' },
+  { id: 'PackListI1', label: 'Packing List Print Fields', type: #LINEITEM_REFERENCE, position : 30, targetElement: '_Item1' }]
+  @UI.hidden: true
+  Id;
+
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Packinglist;
+  
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.selectionField: [{ position: 10 }]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ] 
+//  @Consumption.valueHelpDefinition: [{ entity:{ element: 'BillingDocument', name:'ZCDS_COMMERCIAL_INV' },
+//                                                distinctValues: true,
+//                                                useForValidation: true } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'BillingDocument', name:'ZR_COMMINV_F4' },
+                                  distinctValues: true,
+                                  useForValidation: true }]
+  comm_inv;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ] 
+  Salesorg;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ] 
+  Plant;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+  Createdby;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+  Createdon;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+  Createdat;
+  @UI.lineItem: [ { position: 61 } ]
+  @UI.identification: [ { position: 61 } ]
+  @UI.fieldGroup: [ { position: 61,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+  Remarks;
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData3', importance: #HIGH } ] 
+  Changeddby;
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 80,  qualifier: 'GeneralData3', importance: #HIGH } ] 
+  Changedon;
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 90,  qualifier: 'GeneralData3', importance: #HIGH } ] 
+  Changedat;
+  @UI.hidden: true
+  Canind;
+  @UI.hidden: true
+  Cancelby;
+  @UI.hidden: true
+  Cancelon;
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 100,  qualifier: 'GeneralData3', importance: #HIGH } ] 
+  Status;
+  @UI.lineItem: [ { position: 105 } ]
+  @UI.identification: [ { position: 105 } ]
+  @UI.fieldGroup: [ { position: 105,  qualifier: 'GeneralData4', importance: #HIGH } ] 
+  Custfrght;
+  @UI.hidden: true
+  @UI: { identification: [{ position: 400 },
+                          { type: #FOR_ACTION, dataAction: 'Cancel', label: 'Set Cancel', iconUrl: 'sap-icon://close-command-field' }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 300, importance: #HIGH }] }
+  Cancel;
+  @UI.hidden: true
+  @UI: {
+      identification: [{position: 138 },  { type: #FOR_ACTION, dataAction: 'PRNT', label: 'Final Packing List Print'} ]
+  }
+  Prnt; 
+   @UI.hidden: true
+  @UI: {
+      identification: [{position: 139 },  { type: #FOR_ACTION, dataAction: 'UPDATE', label: 'Update Print Item'} ]
+  }
+  updateitem;
+}

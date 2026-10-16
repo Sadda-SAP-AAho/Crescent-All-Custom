@@ -1,0 +1,54 @@
+managed implementation in class zbp_r_scitm_01 unique;
+strict ( 2 );
+
+define behavior for ZR_SCITM_01 alias ZRSCITM
+persistent table zsc_itm
+lock master
+authorization master ( instance )
+{
+  field ( mandatory : create )
+   Docuuid,
+   LineNumber;
+
+  field ( readonly )
+   CreatedBy,
+   CreatedAt,
+   ChangedBy,
+   ChangedAt,
+   LocalChangedAt;
+
+  field ( readonly : update )
+   Docuuid,
+   LineNumber;
+
+  create;
+  update;
+  delete;
+
+  mapping for ZSC_ITM
+  {
+    Docuuid = DOCUUID;
+    LineNumber = LINE_NUMBER;
+    ProductCode = PRODUCT_CODE;
+    Plant = PLANT;
+    PartNumber = PART_NUMBER;
+    Revision = REVISION;
+    ConditionType = CONDITION_TYPE;
+    Description = DESCRIPTION;
+    OrderQty = ORDER_QTY;
+    UOM = UOM;
+    UnitPrice = UNIT_PRICE;
+    ExtPrice = EXT_PRICE;
+    DueDate = DUE_DATE;
+    ShipByDate = SHIP_BY_DATE;
+    TaxApplicable = TAX_APPLICABLE;
+    Currency = CURRENCY;
+    LineAdded = LINE_ADDED;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    ChangedBy = CHANGED_BY;
+    ChangedAt = CHANGED_AT;
+    LocalChangedAt = LOCAL_CHANGED_AT;
+  }
+
+}

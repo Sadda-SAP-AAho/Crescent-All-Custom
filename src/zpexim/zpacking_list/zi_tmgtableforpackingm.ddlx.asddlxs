@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgTableForPackingM', 
+    typeNamePlural: 'TmgTableForPackingMs', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG table for Packing Material Type', 
+      value: 'Packmattyp'
+    }
+  }
+}
+annotate view ZI_TmgTableForPackingM with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgTableForPackingM', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG table for Packing Material Type', 
+    position: 1 
+  } ]
+  Packmattyp;
+}

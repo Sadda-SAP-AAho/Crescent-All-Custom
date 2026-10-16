@@ -1,0 +1,4 @@
+@EndUserText.label: 'Servoce Definition For Material Info'
+define service ZSD_MATERIAL_INFO {
+  expose ZC_MATERIAL_INFO;
+}

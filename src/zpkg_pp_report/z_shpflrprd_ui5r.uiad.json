@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Shop Floor vs Actual Production Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Shop Floor vs Actual Production Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zshpflrprd"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_A72523CC361CF6E726CE958D4C37BD89017D3EB7_TM",
+    "semanticObject": "z_shpflrprd",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_A72523CC361CF6E726CE958D4C37BD89017D3EB7_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Shop Floor vs Actual Production Report"
+      }
+    }
+  ]
+}

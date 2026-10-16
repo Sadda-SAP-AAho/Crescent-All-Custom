@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Down Payment Request Uploader",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Down Payment Request Uploader"
+  },
+  "ui5AppDetails": {
+    "appId": "zadvupload.zadvupload"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_EBBFF50BB6E7D8C1B72EC0BEE0925CCBE5154AB5_TM",
+    "semanticObject": "zsmadvupload",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_EBBFF50BB6E7D8C1B72EC0BEE0925CCBE5154AB5_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Down Payment Request Uploader"
+      }
+    }
+  ]
+}

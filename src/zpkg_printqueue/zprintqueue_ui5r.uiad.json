@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Print Queue",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Print Queue"
+  },
+  "ui5AppDetails": {
+    "appId": "zprintqueue.zprintqueue"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_9E46D2CAEE1B44193486EF467FB1BB667F59B294_TM",
+    "semanticObject": "zprintqueue",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_9E46D2CAEE1B44193486EF467FB1BB667F59B294_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Print Queue",
+        "subtitle": "Maintenance"
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "GSTR 2B Register",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "GSTR 2B"
+  },
+  "ui5AppDetails": {
+    "appId": "zgstr2breg"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_6BAE035D8DBD47B8A9FB3C46CEA3FF308AC7F484_TM",
+    "semanticObject": "zgstr2breg",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_6BAE035D8DBD47B8A9FB3C46CEA3FF308AC7F484_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "GSTR 2B",
+        "subtitle": "Register"
+      }
+    }
+  ]
+}

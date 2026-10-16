@@ -1,0 +1,13 @@
+unmanaged implementation in class zbp_c_ghead_api_tp unique;
+strict ( 1 );
+
+define behavior for Z_C_GHEAD_API_TP //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+}

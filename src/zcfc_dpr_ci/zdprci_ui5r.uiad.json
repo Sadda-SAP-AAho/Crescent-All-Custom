@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "DPR CI Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "DPR CI"
+  },
+  "ui5AppDetails": {
+    "appId": "zdprci"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_6BA106D445DE9E1F00898687EE7F31729A33B6B8_TM",
+    "semanticObject": "zdprci",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_6BA106D445DE9E1F00898687EE7F31729A33B6B8_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "DPR CI",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZC_CAPTYPMSTR_N with
+{
+  @UI.facet :
+  [
+   { id : 'GeneralData' , isSummary: true, label : 'Capacity Type Master' , type : #COLLECTION},
+   { type: #FIELDGROUP_REFERENCE , targetQualifier: 'GeneralData1', parentId: 'GeneralData', position : 10 , label: 'Header', id: 'GeneralData1' }
+
+  ]
+
+  @UI.hidden: true
+  Id;
+
+  @UI.lineItem: [{position: 5}]
+  @UI.identification: [{position: 5}]
+  @UI.fieldGroup: [{position: 5,qualifier: 'GeneralData1', importance: #HIGH}]
+  @Consumption.valueHelpDefinition: [{ entity:{  element : 'Type_of_Mould', name: 'ZCDS_TYPEOFMOULD'},
+  distinctValues: true,
+  useForValidation: true,
+  additionalBinding: [{ localElement: 'capname', element: 'Type_of_Mould_Name',usage: #RESULT}]}]
+
+  capcode;
+
+  @UI.lineItem: [{position: 10}]
+  @UI.identification: [{position: 10}]
+  @UI.fieldGroup: [{position: 10,qualifier: 'GeneralData1', importance: #HIGH}]
+
+  capname;
+
+  @UI.lineItem: [{position: 15}]
+  @UI.identification: [{position: 15}]
+  @UI.fieldGroup: [{position: 15,qualifier: 'GeneralData1', importance: #HIGH}]
+
+  capperday;
+
+  @UI.lineItem: [{position: 20}]
+  @UI.identification: [{position: 20}]
+  @UI.fieldGroup: [{position: 20,qualifier: 'GeneralData1', importance: #HIGH}]
+
+  noofline;
+
+  @UI.lineItem: [{position: 25}]
+  @UI.identification: [{position: 25}]
+  @UI.fieldGroup: [{position: 25,qualifier: 'GeneralData1', importance: #HIGH}]
+
+  noofbox;
+
+  @UI.lineItem: [{position: 30}]
+  @UI.identification: [{position: 30}]
+  @UI.fieldGroup: [{position: 30,qualifier: 'GeneralData1', importance: #HIGH}]
+
+  noofpatt;
+
+  @UI.lineItem: [{position: 35}]
+  @UI.identification: [{position: 35}]
+  @UI.fieldGroup: [{position: 35,qualifier: 'GeneralData1', importance: #HIGH}]
+  @Consumption.valueHelpDefinition: [{ entity:{  element : 'Capacity_Category', name: 'ZCDS_CAPCATEGORY'},
+  distinctValues: true,
+  useForValidation: true}]
+
+  capcatg;
+
+  @UI.lineItem: [{position: 40}]
+  @UI.identification: [{position: 40}]
+  @UI.fieldGroup: [{position: 40,qualifier: 'GeneralData1', importance: #HIGH}]
+
+  ratefc2;
+}

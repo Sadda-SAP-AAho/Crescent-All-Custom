@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Sales Contract Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Contract Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zsalescontrptapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_9DD7EE80D6F6AED89BAE46743A80E05BA8B6F1D1_TM",
+    "semanticObject": "zsalescontapp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_9DD7EE80D6F6AED89BAE46743A80E05BA8B6F1D1_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Contract Report"
+      }
+    }
+  ]
+}

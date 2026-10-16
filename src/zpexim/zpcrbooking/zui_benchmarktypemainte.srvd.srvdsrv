@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_BenchmarkTypeMainte_S'
+define service ZUI_BENCHMARKTYPEMAINTE {
+  expose ZI_BENCHMARKTYPEMAINTE_S as BenchmarkTypeMaiAll;
+  expose ZI_BENCHMARKTYPEMAINTE as BenchmarkTypeMainte;
+}

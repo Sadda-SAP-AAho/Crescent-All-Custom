@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Def for Conf Post Dashboard'
+define service ZSD_CONFPOST_HDR {
+  expose ZC_CONFPOST_HDR;
+  expose ZC_CONFPOST_ITM;
+  expose ZC_CONFPOST_ORD;
+}

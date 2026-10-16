@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for PO report'
+define service ZSERV_PORPT {
+  expose ZC_PORPT_HDR;
+  expose ZC_PORPT_ITM;
+}

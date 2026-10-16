@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Monitor Purchase Order Item"
+  },
+  "ui5AppDetails": {
+    "appId": "zmonitrpoitem"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_452B6885D1D6820AE8F952536B0D301AB1E61002_TM",
+    "semanticObject": "zmonitrpoitem",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_452B6885D1D6820AE8F952536B0D301AB1E61002_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Monitor Purchase Order Item",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

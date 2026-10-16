@@ -1,0 +1,85 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+    headerInfo: {
+        typeName: 'DeliveryDocumentLineItem',
+        typeNamePlural: 'DeliveryDocumentLineItems',
+        title: {
+            type: #STANDARD,
+            value: 'DeliveryDocumentItem'
+        }
+} 
+}
+annotate entity ZC_PACKING_LIST_ITM
+    with 
+{
+    @UI.facet: [{ id: 'DeliveryItem' ,
+                  purpose: #STANDARD ,  
+                  type: #IDENTIFICATION_REFERENCE,
+                  label: 'Delivery Item',
+                  position: 10 }]
+    @EndUserText.label: 'Delivery Document'
+    @UI.identification: [{ importance: #HIGH , position: 10, label : 'Delivery Document' }]
+    DeliveryDocument;
+    @EndUserText.label: 'Delivery Document Item'
+    @UI.lineItem: [{ importance: #HIGH , position: 10 }]
+    @UI.identification: [{ importance: #HIGH , position: 20, label : 'Delivery Document Item' }]
+    DeliveryDocumentItem;
+    @EndUserText.label: 'Material No'
+    @UI.lineItem: [{ importance: #HIGH , position: 20 }]
+    @UI.identification: [{ importance: #HIGH , position: 30, label : 'Material No' }]
+    Material;
+    @EndUserText.label: 'Item Description'
+    @UI.lineItem: [{ importance: #MEDIUM , position: 30 }]
+    @UI.identification: [{ importance: #MEDIUM , position: 40, label : 'Item Description' }]
+    DeliveryDocumentItemText;
+    @EndUserText.label: 'Material'
+    @UI.lineItem: [{ importance: #HIGH , position: 40 }]
+    @UI.identification: [{ importance: #HIGH , position: 50, label : 'Material' }]
+    ConsumptionTaxCtrlCode;
+    @EndUserText.label: 'Customer O/No'
+    @UI.lineItem: [{ importance: #HIGH , position: 50 }]
+    @UI.identification: [{ importance: #HIGH , position: 60, label : 'Customer O/No' }]
+    PurchaseOrderByCustomer;
+    @EndUserText.label: 'Customer O/Date'
+    @UI.lineItem: [{ importance: #MEDIUM , position: 60 }]
+    @UI.identification: [{ importance: #MEDIUM , position: 70, label : 'Customer O/Date' }]
+    CustomerPurchaseOrderDate;
+    @EndUserText.label: 'Total Qty'
+    @UI.lineItem: [{ importance: #HIGH , position: 70 }]
+    @UI.identification: [{ importance: #HIGH , position: 80, label : 'Total Qty' }]
+    ActualDeliveryQuantity;
+    @EndUserText.label: 'UOM'
+    @UI.lineItem: [{ importance: #HIGH , position: 80 }]
+    @UI.identification: [{ importance: #HIGH , position: 90, label : 'UOM' }]
+    DeliveryQuantityUnit;
+    @EndUserText.label: 'Package Number'
+    @UI.lineItem: [{ importance: #HIGH , position: 90 }]
+    @UI.identification: [{ importance: #HIGH , position: 100, label : 'Package Number' }]
+    PackageNumber;
+    @EndUserText.label: 'Each Package Net Wt-Kg'
+    @UI.lineItem: [{ importance: #MEDIUM , position: 100 }]
+    @UI.identification: [{ importance: #MEDIUM , position: 110, label : 'Each Package Net Wt-Kg' }]
+    EachNetWeight;
+    @EndUserText.label: 'Each package gross Wt-Kg'
+    @UI.lineItem: [{ importance: #MEDIUM , position: 110 }]
+    @UI.identification: [{ importance: #MEDIUM , position: 120, label : 'Each package gross Wt-Kg' }]
+    EachGrossWeight;
+    @EndUserText.label: 'Net Total Wt-Kg'
+    @UI.lineItem: [{ importance: #HIGH , position: 120 }]
+    @UI.identification: [{ importance: #HIGH , position: 130, label : 'Net Total Wt-Kg' }]
+    NetWeight;
+    @EndUserText.label: 'Gross Total Wt-Kg'
+    @UI.lineItem: [{ importance: #HIGH , position: 130 }]
+    @UI.identification: [{ importance: #HIGH , position: 140, label : 'Gross Total Wt-Kg' }]
+    GrossWeight;
+    @EndUserText.label: 'Package Type'
+    @UI.lineItem: [{ importance: #MEDIUM , position: 140 }]
+    @UI.identification: [{ importance: #MEDIUM , position: 150, label : 'Package Type' }]
+    PackageType;
+    @UI.hidden: true
+    @EndUserText.label: 'Weight Unit'
+    WeightUnit;
+    @UI.hidden: true
+    @EndUserText.label: 'Meins'
+    Meins;
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Commercial Invoice Info Uploader'
+define service ZSD_COMM_INV_INFO_UPD {
+  expose ZC_INVINFO_FILE;
+  expose ZC_INVITEM_FILE;
+}

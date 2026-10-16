@@ -1,0 +1,4 @@
+@EndUserText.label: 'Management Dashboard OTD'
+define service ZSD_MGMTDASH_OTD {
+  expose ZC_MGMTDASH_OTD;
+}

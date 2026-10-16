@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD for Planning Report'
+define service ZSD_PLAN_RPT {
+  expose ZC_PLAN_RPT;
+}

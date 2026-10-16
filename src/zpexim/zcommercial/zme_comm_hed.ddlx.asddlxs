@@ -1,0 +1,251 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'Commid', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Commercial Invoice' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Commercial Invoice', value: 'Commid' } } }
+annotate entity ZC_COMM_HED with
+{
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'Commercial Invoice', type: #COLLECTION },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, id: 'GeneralData1' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15, id: 'GeneralData2' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 20, id: 'GeneralData3' },
+  { id: 'COMPRINT', label:'Commercial Print Field', type: #LINEITEM_REFERENCE, position : 25, targetElement: '_item' }
+
+  // { id: 'PackListI', label: 'Packing List Item', type: #LINEITEM_REFERENCE, position : 25, targetElement: '_Item' }
+  ]
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'BillingDocument', name:'ZR_COMMINV_F4' },
+                                  distinctValues: true,
+                                  useForValidation: true ,
+                                   additionalBinding: [{ localElement: 'Documentdate',
+                                                      element: 'BillingDocumentDate',
+                                                      usage: #FILTER_AND_RESULT }]
+                                                       }]
+  Commid;
+  @UI.lineItem: [ { position: 7 } ]
+  @UI.identification: [ { position: 7 } ]
+  @UI.fieldGroup: [ { position: 7,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Documentdate;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Bankrefno;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Ladingno;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Ladingdt;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Billcloseflag;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Fundplanremark;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Isfsenddt;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Lcbankadd1;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Lcbankadd2;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Boeddt;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Docpresentbnkdt;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Swiftdt;
+  @UI.lineItem: [ { position: 65 } ]
+  @UI.identification: [ { position: 65 } ]
+  @UI.fieldGroup: [ { position: 65,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Scrollno;
+
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Vesselsaildt;
+  @UI.lineItem: [ { position: 75 } ]
+  @UI.identification: [ { position: 75 } ]
+  @UI.fieldGroup: [ { position: 75,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Initmationdt;
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 80,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Paymentprocess;
+  @UI.lineItem: [ { position: 85 } ]
+  @UI.identification: [ { position: 85 } ]
+  @UI.fieldGroup: [ { position: 85,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Scripno;
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 90,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Shbillrecddt;
+  @UI.lineItem: [ { position: 95 } ]
+  @UI.identification: [ { position: 95 } ]
+  @UI.fieldGroup: [ { position: 95,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Correctblsendon;
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 100,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Draftblcnfdt;
+  @UI.lineItem: [ { position: 105 } ]
+  @UI.identification: [ { position: 105 } ]
+  @UI.fieldGroup: [ { position: 105,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Blrcvdt;
+  @UI.lineItem: [ { position: 110 } ]
+  @UI.identification: [ { position: 110 } ]
+  @UI.fieldGroup: [ { position: 110,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Docsentcustdt;
+  @UI.lineItem: [ { position: 115 } ]
+  @UI.identification: [ { position: 115 } ]
+  @UI.fieldGroup: [ { position: 115,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Atadate;
+  @UI.lineItem: [ { position: 120 } ]
+  @UI.identification: [ { position: 120 } ]
+  @UI.fieldGroup: [ { position: 120,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Drftblrcvdt;
+  @UI.lineItem: [ { position: 125} ]
+  @UI.identification: [ { position:  125} ]
+  @UI.fieldGroup: [ { position: 125,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Rotationno;
+  @UI.lineItem: [ { position: 130} ]
+  @UI.identification: [ { position:  130} ]
+  @UI.fieldGroup: [ { position: 130,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Tpno;
+  @UI.lineItem: [ { position: 135} ]
+  @UI.identification: [ { position: 135} ]
+  @UI.fieldGroup: [ { position: 135,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Tpdate;
+  @UI.hidden: true
+  @UI: {
+      identification: [{position: 138 },  { type: #FOR_ACTION, dataAction: 'PRINT', label: 'Print Shipping Notification'} ]
+  }
+  Tprint;
+  @UI.hidden: true
+  @UI: {
+      identification: [{position: 138 },  { type: #FOR_ACTION, dataAction: 'UPDATE', label: 'Update Print Item'} ]
+  }
+  updateitem;
+//  @UI.lineItem: [ { position: 140} ]
+//  @UI.identification: [ { position:140 } ]
+//  @UI.fieldGroup: [ { position: 140,  qualifier: 'GeneralData3', importance: #HIGH } ]
+//  Leodate;
+  @UI.lineItem: [ { position: 145} ]
+  @UI.identification: [ { position:145 } ]
+  @UI.fieldGroup: [ { position: 145,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Ebrcno;
+  @UI.lineItem: [ { position: 150} ]
+  @UI.identification: [ { position: 150} ]
+  @UI.fieldGroup: [ { position: 150,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Ebrcrcvdt;
+  @UI.lineItem: [ { position: 151 } ]
+  @UI.identification: [ { position: 151 } ]
+  @UI.fieldGroup: [ { position: 151,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Vesselcode;
+  @UI.lineItem: [ { position: 155 } ]
+  @UI.identification: [ { position: 155 } ]
+  @UI.fieldGroup: [ { position: 155,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Vesselname;
+  //  @UI.hidden: true
+  //  Waers;
+  //  @UI.lineItem: [ { position: 160 } ]
+  //  @UI.identification: [ { position: 160 } ]
+  //  @UI.fieldGroup: [ { position: 160,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  //  Ebrcvalfc;
+  @UI.lineItem: [ { position: 165 } ]
+  @UI.identification: [ { position: 165} ]
+  @UI.fieldGroup: [ { position: 165,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Awbno;
+  @UI.lineItem: [ { position: 170} ]
+  @UI.identification: [ { position: 170} ]
+  @UI.fieldGroup: [ { position: 170,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Rcvconsignbnkdt;
+  @UI.lineItem: [ { position: 175} ]
+  @UI.identification: [ { position: 175} ]
+  @UI.fieldGroup: [ { position: 175,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Planingweek;
+  @UI.lineItem: [ { position: 180 } ]
+  @UI.identification: [ { position: 180} ]
+  @UI.fieldGroup: [ { position: 180,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Planingmonth;
+  @UI.lineItem: [ { position: 185} ]
+  @UI.identification: [ { position: 185} ]
+  @UI.fieldGroup: [ { position: 185,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Custrqstdt;
+  @UI.lineItem: [ { position: 190} ]
+  @UI.identification: [ { position: 190} ]
+  @UI.fieldGroup: [ { position: 190,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Customercode;
+  @UI.lineItem: [ { position: 195} ]
+  @UI.identification: [ { position: 195} ]
+  @UI.fieldGroup: [ { position: 195,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Customername;
+  @UI.lineItem: [ { position: 200} ]
+  @UI.identification: [ { position: 200} ]
+  @UI.fieldGroup: [ { position: 200,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Payrecvbank;
+  @UI.lineItem: [ { position: 205} ]
+  @UI.identification: [ { position: 205} ]
+  @UI.fieldGroup: [ { position: 205,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  @UI.multiLineText
+  Payrecvbankadrc;
+  @UI.lineItem: [ { position: 206} ]
+  @UI.identification: [ { position: 206} ]
+  @UI.fieldGroup: [ { position: 206,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Descgoods1;
+  @UI.lineItem: [ { position: 207} ]
+  @UI.identification: [ { position: 207} ]
+  @UI.fieldGroup: [ { position: 207,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Descgoods2;
+  @UI.lineItem: [ { position: 208} ]
+  @UI.identification: [ { position: 208} ]
+  @UI.fieldGroup: [ { position: 208,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Remarks1;
+  @UI.lineItem: [ { position: 209} ]
+  @UI.identification: [ { position: 209} ]
+  @UI.fieldGroup: [ { position: 209,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Remarks2;
+  @UI.lineItem: [ { position: 210} ]
+  @UI.identification: [ { position: 210} ]
+  @UI.fieldGroup: [ { position: 210,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Irmno;
+  @UI.hidden: true
+  createdat;
+  @UI: {
+     identification: [{position: 186 },  { type: #FOR_ACTION, dataAction: 'COMMPRINT', label: 'Final Commercial Invoice'} ]
+  }
+
+  Cprint;
+  
+
+      @UI: {
+     identification: [{position: 210 },  { type: #FOR_ACTION, dataAction: 'COMMSPLITVAL', label: 'Final Commercial Invoice-Split Value'} ]
+  }
+  Csprint;
+  @UI.identification: [{ position: 220 }, { type: #FOR_ACTION, dataAction: 'FINALINVOICEFOB', label: 'Final Invoice-FOB' }]
+  Fobprint;
+  @UI.hidden: true
+  Flag;
+}

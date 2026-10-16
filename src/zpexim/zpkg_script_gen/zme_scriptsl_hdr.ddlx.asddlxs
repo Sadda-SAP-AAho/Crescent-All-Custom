@@ -1,0 +1,124 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Script Sales Dashboard',
+title: { type: #STANDARD, value: 'scriptsalesno' }
+}
+}
+annotate entity zc_scriptsl_hdr with
+{
+  @UI.facet:
+  [
+   { id : 'GeneralData', isSummary: true, label: 'Script Sales', position: 5, type: #COLLECTION },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, id: 'GeneralData1',label: 'Main'},
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 20, id: 'GeneralData2',label: 'Header'},
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 30, id: 'GeneralData3',label: 'Amount'},
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData4', parentId: 'GeneralData', position: 40, id: 'GeneralData4',label: 'Account Post'},
+
+    { id: 'ScriptSales', label: 'Script Item Details', type: #LINEITEM_REFERENCE, position : 15, targetElement: '_Item' }
+
+  ]
+
+  @UI.hidden: true
+  id;
+  @UI.lineItem: [ { position: 1 } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.selectionField: [{ position: 1 }]
+  @UI.fieldGroup: [ { position: 1,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'CompanyCode', name:'I_CompanyCode' },
+                                            distinctValues: true,
+                                            useForValidation: true
+                                    } ]
+
+  companycode;
+   @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.selectionField: [{ position: 5 }]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'BusinessPlace', name:'ZI_BUPLA_F4' },
+                                                distinctValues: true,
+                                                useForValidation: true,
+                                        additionalBinding: [{ localElement: 'companycode', element: 'CompanyCode',usage: #RESULT}]
+                                    } ]
+
+  bupla;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.selectionField: [{ position: 10 }]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  scriptsalesno;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.selectionField: [{ position: 15 }]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  scriptsalesdate;
+  @UI.hidden: true
+  //  @UI.lineItem: [ { position: 17 } ]
+  //  @UI.identification: [ { position: 17 } ]
+  //  @UI.fieldGroup: [ { position: 17,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  //  @Consumption.valueHelpDefinition: [{ entity:{ element: 'scriptno', name: 'ZCDS_SCRIPT_SALES' },
+  //                                  distinctValues: true,
+  //                                  useForValidation: true }]
+  scriptno;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [ { entity:{ element: 'ConsumptionTaxCtrlCode', name: 'ZC_HSN_CODE' },
+                                          distinctValues: true,
+                                           useForValidation: true
+                                        }]
+  saccode;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Customer', name: 'ZF4_CUSTOMER' },
+                                                  distinctValues: true,
+                                                  useForValidation: true,
+                                       additionalBinding: [{ localElement: 'customername', element: 'CustomerFullName',usage: #RESULT}] }]
+  customer;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  customername;
+  @UI.lineItem: [ { position: 32 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  status;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  sum_realizationamt;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  sum_saleablevalue;
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData4', importance: #HIGH } ]
+
+  post;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData4', importance: #HIGH } ]
+
+  accdocno;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData4', importance: #HIGH } ]
+
+  docyear;
+  @UI.hidden: true
+  accpostref;
+  @UI.hidden: true
+  glno;
+
+    @UI: {
+      identification: [{position: 200 },  { type: #FOR_ACTION, dataAction: 'PRINTSCRIPTINV', label: 'Print Script Invoice'} ]
+  }
+  printsi;
+}

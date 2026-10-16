@@ -1,0 +1,27 @@
+projection;
+strict ( 1 );
+use draft;
+
+define behavior for ZC_MLDPRDREGHED //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use association _Item { create; }
+}
+
+define behavior for ZC_MLDPRDREGITM //alias <alias_name>
+{
+
+  use update;
+  use delete;
+
+  use association _Head { with draft; }
+}

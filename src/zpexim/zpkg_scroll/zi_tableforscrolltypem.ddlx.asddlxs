@@ -1,0 +1,49 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TableForScrollTypeM', 
+    typeNamePlural: 'TableForScrollTypeMs', 
+    title: {
+      type: #STANDARD, 
+      label: 'Table for Scroll Type Maintenance', 
+      value: 'Type'
+    }
+  }
+}
+annotate view ZI_TableForScrollTypeM with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TableForScrollTypeM', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Table for Scroll Type Maintenance', 
+    position: 1 
+  } ]
+  Type;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Description'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Description'
+  } ]
+  Description;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Glaccount'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Glaccount'
+  } ]
+  Glaccount;
+}

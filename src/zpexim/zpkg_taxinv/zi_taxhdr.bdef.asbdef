@@ -1,0 +1,58 @@
+managed implementation in class zbp_i_taxhdr unique;
+strict ( 1 );
+with draft;
+define behavior for zi_taxhdr //alias <alias_name>
+persistent table zdt_taxhdr
+draft table zdr_taxhdr
+with additional save
+lock master
+total etag Invdate
+
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+  field ( readonly : update, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update ) Billingdoc;
+  field ( readonly ) Invdate, Invtype, Invcreatedby, Delivery;
+  //  field ( features : instance )Invcreatedby;
+  action ( features : instance ) Printigst result [1] $self;
+  action ( features : instance ) Printlut result [1] $self;
+  action ( features : instance ) Printdom result [1] $self;
+  action ( features : instance ) PrintPro result [1] $self;
+  action ( features : instance ) PrintPat result [1] $self;
+  action ( features : instance ) PrintSam result [1] $self;
+  determination headerdetails on modify { field Billingdoc; }
+
+
+  side effects
+  {
+    field Billingdoc affects field Invdate, field Invtype, field Invcreatedby;
+
+  }
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+  mapping for zi_taxhdr
+    {
+      Billingdoc   = Billingdoc;
+      Delivery     = Delivery;
+      Invcreatedby = Invcreatedby;
+      Invdate      = Invdate;
+      Invtype      = Invtype;
+      Taxdomprint  = Taxdomprint;
+      Taxlutprint  = Taxlutprint;
+      Taxigstprint = Taxigstprint;
+      Proinvprint  = Proinvprint;
+      Patinvprint  = Patinvprint;
+      Samcusprint  = Samcusprint;
+      Flag         = Flag;
+    }
+}

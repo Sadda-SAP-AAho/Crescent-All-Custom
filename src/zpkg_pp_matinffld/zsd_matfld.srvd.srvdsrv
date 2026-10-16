@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Material Info'
+define service ZSD_MATFLD {
+  expose ZC_MATFLD;
+}

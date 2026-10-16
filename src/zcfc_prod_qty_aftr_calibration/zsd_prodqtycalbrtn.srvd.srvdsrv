@@ -1,0 +1,4 @@
+@EndUserText.label: 'Production Qty after Calibration'
+define service ZSD_PRODQTYCALBRTN {
+  expose ZC_PRODQTYCALBRTN;
+}

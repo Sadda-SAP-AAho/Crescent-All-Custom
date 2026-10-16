@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service for Resource Master'
+define service ZRSRC_MSTR_SRV {
+  expose Z_C_RESOURCE_MASTER;
+  expose ZPlant_F4;
+}

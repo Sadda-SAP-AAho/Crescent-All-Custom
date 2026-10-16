@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Pricing Entity'
+define service ZUI_CUSTDISCOUNT1_API_O4 {
+  expose ZCE_CUSTDISCOUNTREPORT1 as CustomerDiscountReport;
+}

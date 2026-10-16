@@ -1,0 +1,73 @@
+managed with additional save implementation in class ZBP_I_TMGPRICEVALEXCUSER_S unique;
+strict;
+with draft;
+define behavior for ZI_TmgPriceValExcUser_S alias TmgPriceValExcUsAll
+draft table ZDT_EXP_PEC_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TmgPriceValExcUser { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_TmgPriceValExcUser alias TmgPriceValExcUser ##UNMAPPED_FIELD
+persistent table ZDT_EXP_PEC_USR
+draft table ZDT_EXP_PEC_U_D
+lock dependent by _TmgPriceValExcUsAll
+authorization dependent by _TmgPriceValExcUsAll
+
+{
+  field ( mandatory : create )
+   Userid;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Userid;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_EXP_PEC_USR
+  {
+    Userid = USERID;
+  }
+
+  association _TmgPriceValExcUsAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

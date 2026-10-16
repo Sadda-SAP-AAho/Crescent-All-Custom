@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Power Reading Master Report'
+define service ZSD_PWRRDNGMSTRREPT {
+  expose ZC_PWRRDNGMSTRREPT;
+}

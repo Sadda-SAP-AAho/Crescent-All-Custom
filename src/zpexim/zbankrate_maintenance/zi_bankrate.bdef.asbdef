@@ -1,0 +1,46 @@
+managed implementation in class zbp_i_bankrate unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_BANKRATE //alias <alias_name>
+persistent table zdb_bankrate
+draft table zdr_bankrate
+lock master
+total etag locallastchangedat
+//authorization master ( instance )
+authorization master (global)
+//etag master <field_name>
+{
+  create;
+  update ( features : instance );
+  delete;
+  field ( readonly, numbering : managed ) internaid;
+  field ( mandatory : create, readonly : update ) Bukrs, Bankl;
+  field ( features : instance ) Maincharges;
+
+
+
+
+  draft action Edit;
+  draft action Activate;
+  draft action Resume;
+  draft action Discard;
+  draft determine action Prepare;
+
+  mapping for zi_bankrate
+    {
+      Bankl        = bankl;
+      Bukrs        = bukrs;
+      interestrate = interestrate;
+      exp_imp_type = exp_imp_type;
+      type         = type;
+      lc_charges   = lc_charges;
+      swiftcharges = swiftcharges;
+      maincharges  = maincharges;
+      amendement   = amendement;
+      commisson    = commisson;
+      rate         = rate;
+      sfms         = Sfms;
+      taxcode      = taxcode;
+    }
+}

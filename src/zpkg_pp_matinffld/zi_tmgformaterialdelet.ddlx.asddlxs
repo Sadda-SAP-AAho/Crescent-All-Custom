@@ -1,0 +1,65 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgForMaterialDelet', 
+    typeNamePlural: 'TmgForMaterialDelets', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG for material deletion in mat info up', 
+      value: 'Cbuserid'
+    }
+  }
+}
+annotate view ZI_TmgForMaterialDelet with
+{
+  @UI.hidden: true
+  ConfigDeprecationCode_Critlty;
+  
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgForMaterialDelet', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG for material deletion in mat info up', 
+    position: 1 
+  } ]
+  Cbuserid;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate'
+  } ]
+  @UI.textArrangement: #TEXT_ONLY
+  @UI.lineItem: [ {
+    position: 2 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate Selected Entry', 
+    invocationGrouping: #CHANGE_SET
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate Selected Entry', 
+    invocationGrouping: #CHANGE_SET
+  } ]
+  ConfigDeprecationCode;
+}

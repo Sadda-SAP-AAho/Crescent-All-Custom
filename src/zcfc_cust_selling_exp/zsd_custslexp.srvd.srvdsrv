@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Customer Selling Expense'
+define service ZSD_CUSTSLEXP {
+  expose ZC_CUSTSLEXPHDR;
+  expose ZC_CUSTSLEXPITM;
+}

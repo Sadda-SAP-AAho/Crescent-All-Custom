@@ -1,0 +1,59 @@
+    @Metadata.layer: #CUSTOMER
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Receipt From Production Log', value: 'Matnr' } } }
+annotate entity ZC_CONFPOST_LOG with
+{
+  @UI.facet:
+  [{ id: 'GeneralDataI', isSummary: true, label: 'Receipt From Production Order', type: #COLLECTION, purpose: #STANDARD },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralDataI', position: 10, label: '', id: 'GeneralData1' } ]
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Log;
+  @UI.hidden: true
+  Refitem;
+  @UI.hidden: true
+  Reford;
+  @UI.hidden: true
+  Shpflrno;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Matnr;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Plant;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Prodord;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Qty;
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Meins;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Postedby;
+  @UI.lineItem: [ { position: 65 } ]
+  @UI.identification: [ { position: 65 } ]
+  @UI.fieldGroup: [ { position: 65,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Postedon;
+  @UI.lineItem: [ { position: 75 } ]
+  @UI.identification: [ { position: 75 } ]
+  @UI.fieldGroup: [ { position: 75,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Postedat;
+  @UI.lineItem: [ { position: 85 } ]
+  @UI.identification: [ { position: 85 } ]
+  @UI.fieldGroup: [ { position: 85,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Uniqueid;
+  @UI.lineItem: [ { position: 95 } ]
+  @UI.identification: [ { position: 95 } ]
+  @UI.fieldGroup: [ { position: 95,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Movtype;
+
+}

@@ -1,0 +1,7 @@
+@EndUserText.label: 'FD Header'
+define service ZSERV_D_FDHEADER {
+  expose ZC_FDHEAD;
+  expose ZC_FDINCGL;
+  expose ZC_FDINTEREST;
+  expose ZC_FDOUTGL;
+}

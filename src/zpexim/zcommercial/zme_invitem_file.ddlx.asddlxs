@@ -1,0 +1,44 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Commercial Invoice Information Item', value: 'Commid' } } }
+annotate entity ZC_INVITEM_FILE with
+{
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'Commercial Invoice Information Item', type: #COLLECTION },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: '', id: 'GeneralData1' }]
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 1, criticality: 'Crcriticalitystatus' } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.fieldGroup: [ { position: 1,  qualifier: 'GeneralData1', importance: #HIGH, criticality: 'Crcriticalitystatus' } ]
+  Updstatus;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'commid', name:'ZI_COMMINV_F4' },
+                                              distinctValues: true,
+                                              useForValidation: true
+  }]
+  Commid;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Bankrefno;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Billcloseflag;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Fundplanremark;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Planingmonth;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Msg;
+  @UI.hidden: true
+  Status;
+}

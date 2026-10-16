@@ -1,0 +1,37 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+  <tt:root name="DATA"/>
+  <tt:template>
+    <Document>
+      <CstmrPmtStsRpt>
+        <GrpHdr>
+          <tt:value ref="DATA.HDR.MSG_ID" name="MsgId"/>
+          <tt:value ref="DATA.HDR.CRE_DT_TM" name="CreDtTm"/>
+          <InitgPty>
+            <Id>
+              <OrgId>
+                <tt:value ref="DATA.HDR.BIC" name="BICOrBEI"/>
+              </OrgId>
+            </Id>
+          </InitgPty>
+        </GrpHdr>
+        <OrgnlGrpInfAndSts>
+          <tt:value ref="DATA.ORGNL_GRP_INFO.MSG_ID" name="OrgnlMsgId"/>
+          <tt:value ref="DATA.ORGNL_GRP_INFO.MSG_NM_ID" name="OrgnlMsgNmId"/>
+          <tt:value ref="DATA.ORGNL_GRP_INFO.CRE_DT_TM" name="OrgnlCreDtTm"/>
+          <tt:value ref="DATA.ORGNL_GRP_INFO.NB_OF_TXS" name="OrgnlNbOfTxs"/>
+          <tt:value ref="DATA.ORGNL_GRP_INFO.CTRL_SUM" name="OrgnlCtrlSum"/>
+          <tt:value ref="DATA.ORGNL_GRP_INFO.GRP_STS" name="GrpSts"/>
+          <StsRsnInf>
+            <Rsn>
+              <tt:value ref="DATA.ORGNL_GRP_INFO.STS_RSN_INF.RSN.CD" name="Cd"/>
+            </Rsn>
+            <tt:loop ref="DATA.ORGNL_GRP_INFO.STS_RSN_INF.ADDTL_INF">
+              <tt:value/>
+            </tt:loop>
+          </StsRsnInf>
+        </OrgnlGrpInfAndSts>
+      </CstmrPmtStsRpt>
+    </Document>
+  </tt:template>
+</tt:transform>

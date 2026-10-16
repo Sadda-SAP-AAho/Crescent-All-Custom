@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_FinalPlPrintFieldTm_S'
+define service ZUI_FINALPLPRINTFIELDTM {
+  expose ZI_FINALPLPRINTFIELDTM_S as FinalPlPrintFielAll;
+  expose ZI_FINALPLPRINTFIELDTM as FinalPlPrintFieldTm;
+}

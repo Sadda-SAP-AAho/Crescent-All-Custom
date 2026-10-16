@@ -1,0 +1,4 @@
+@EndUserText.label: 'Daily Production Casting Report-Inspection Parameter'
+define service ZSD_PP_CASTING_RPT {
+  expose ZC_PP_CASTING_RPT;
+}

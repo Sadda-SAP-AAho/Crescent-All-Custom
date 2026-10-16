@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for Credit Note SD'
+define service ZSD_SALES_CREDIT_NOTE_SRV {
+  expose zsd_sales_credit_note as creditnote_sd;
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Serv. Def. for Spcl Price for M/L Header'
+define service ZSD_SPCLPRCEMLH {
+  expose ZC_SPCLPRCEMLH;
+  expose ZC_SPCLPRCEMLL;
+}

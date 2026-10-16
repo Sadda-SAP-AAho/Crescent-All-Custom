@@ -1,0 +1,43 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZC_MONTHBUD_HED with
+{
+  @UI.facet :
+  [
+   { id : 'GeneralData' , isSummary: true, label : 'Monthly Budget' , type : #COLLECTION},
+   { type: #FIELDGROUP_REFERENCE , targetQualifier: 'GeneralData1', parentId: 'GeneralData', position : 10 , label: 'Header', id: 'GeneralData1' },
+
+   { id : 'Item1', label: 'Item' },
+   { type: #LINEITEM_REFERENCE, position: 25, targetElement: '_Item' }
+  ]
+
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Keyid;
+  @UI.hidden: true
+  Creon;
+  @UI.hidden: true
+  Creby;
+  @UI.lineItem: [{position: 5}]
+  @UI.identification: [{position: 5}]
+  @UI.fieldGroup: [{position: 5,qualifier: 'GeneralData1', importance: #HIGH}]
+  Budgetcode;
+  @UI.lineItem: [{position: 10}]
+  @UI.identification: [{position: 10}]
+  @UI.fieldGroup: [{position: 10,qualifier: 'GeneralData1', importance: #HIGH}]
+  Budgetname;
+  @UI.lineItem: [{position: 15}]
+  @UI.identification: [{position: 15}]
+  @UI.fieldGroup: [{position: 15,qualifier: 'GeneralData1', importance: #HIGH}]
+  @Consumption.valueHelpDefinition: [{ entity:{  element : 'Fiscal_Year', name: 'ZCDS_Fiscal_F4'},
+  distinctValues: true,
+  useForValidation: true }]
+  Fiscalyear;
+  @UI.lineItem: [{position: 20}]
+  @UI.identification: [{position: 20}]
+  @UI.fieldGroup: [{position: 20,qualifier: 'GeneralData1', importance: #HIGH}]
+  @Consumption.valueHelpDefinition: [{ entity:{  element : 'Currency', name: 'ZCDS_CURRENCY_F4'},
+  distinctValues: true,
+  useForValidation: true }]
+  Currency;
+}

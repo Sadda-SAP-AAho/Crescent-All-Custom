@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgCostCenterVsDepa', 
+    typeNamePlural: 'TmgCostCenterVsDepas', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG Cost Center Vs Department', 
+      value: 'Kostl'
+    }
+  }
+}
+annotate view ZI_TmgCostCenterVsDepa with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgCostCenterVsDepa', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG Cost Center Vs Department', 
+    position: 1 
+  } ]
+  Kostl;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Dept;
+}

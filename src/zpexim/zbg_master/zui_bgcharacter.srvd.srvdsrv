@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_BgCharacter_S'
+define service ZUI_BGCHARACTER {
+  expose ZI_BGCHARACTER_S as BgCharacterAll;
+  expose ZI_BGCHARACTER as BgCharacter;
+}

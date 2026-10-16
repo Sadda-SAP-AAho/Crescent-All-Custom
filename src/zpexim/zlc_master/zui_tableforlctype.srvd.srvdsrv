@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TableForLcType_S'
+define service ZUI_TABLEFORLCTYPE {
+  expose ZI_TABLEFORLCTYPE_S as TableForLcTypeAll;
+  expose ZI_TABLEFORLCTYPE as TableForLcType;
+}

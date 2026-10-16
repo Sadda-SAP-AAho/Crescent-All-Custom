@@ -1,0 +1,95 @@
+managed implementation in class zbp_i_labour_book unique;
+strict;
+with draft;
+
+define behavior for zi_labour_book //alias <alias_name>
+persistent table zlabour_book
+draft table zlabour_book_d
+lock master
+total etag Docnum
+authorization master ( instance )
+
+{
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly ) Docnum, Plantname;
+
+//  field ( readonly ) Plantname, Costcentername, Contractorname, Operationname;
+
+  create;
+  update;
+  delete;
+  determination determinedocnum on save { create; }
+  determination updateheader on modify { field Plantcode; }
+
+  side effects { field Plantcode affects field Plantname; field Costcentercode affects field Costcentername; field Contractorcode affects field Contractorname;
+                 field Operationcode affects field Operationname; }
+  association _items { create; }
+  validation checkcombination on save { create; update; }
+
+  mapping for zlabour_book
+  {
+
+   id  = id;
+   Fisyear = fisyear;
+   Keyid = keyid;
+   Creon = creon;
+   Creby = creby;
+   Docnum = docnum;
+   Reportdate = reportdate;
+   Plantcode = plantcode;
+   Plantname = plantname;
+   Costcentercode = costcentercode;
+   Costcentername = costcentername;
+   Contractorcode = contractorcode;
+   Contractorname = contractorname;
+   Operationcode = operationcode;
+   Operationname = operationname;
+
+}
+
+
+
+}
+
+define behavior for ZI_LABOUR_BOOK_ITEM //alias <alias_name>
+implementation in class zbp_i_labour_book_item unique
+persistent table zlabor_book_item
+draft table zlaborbookitem_d
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly : update ) Item, Workcode;
+  field ( readonly ) Id;
+
+//  field ( readonly : update ) Workcode;
+  determination calculateAmount on modify { create; field Quantity; field Rate;  }
+  association _Head;
+
+  mapping for zlabor_book_item
+  {
+
+    Id = id;
+    item = item;
+    Workcode = workcode;
+    Workname = workname;
+    Uom = uom;
+    Quantity = quantity;
+    Rate = rate;
+    Amount = amount;
+    Approvedbycode = approvedbycode;
+    Approvedbyname = approvedbyname;
+  }
+
+}

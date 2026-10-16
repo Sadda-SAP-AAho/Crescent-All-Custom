@@ -1,0 +1,31 @@
+@Metadata.layer: #CUSTOMER
+
+@UI.headerInfo.title: { type: #STANDARD, label: 'Variance GL', value: 'id' }
+
+@UI.presentationVariant: [ { sortOrder: [ { by: 'id', direction: #ASC } ],
+                             visualizations: [ { type: #AS_LINEITEM } ],
+                             text: 'Variance GL' } ]
+annotate view ZC_VARIANCE_GL with
+{
+  @UI.facet: [ { id: 'GeneralZata',
+                    isSummary: true,
+                    label: 'Variance Report',
+                    position: 5,
+                    type: #COLLECTION } ,
+                    { type: #FIELDGROUP_REFERENCE,
+                   targetQualifier: 'GeneralData1',
+                   parentId: 'GeneralZata',
+                   position: 10,
+                   label: 'Header',
+                   id: 'GeneralData1' } ]
+  id;
+  @UI.fieldGroup: [ { position: 25, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.lineItem: [ { position: 25 } ]
+  Prefix;
+  @UI.fieldGroup: [ { position: 25, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.lineItem: [ { position: 25 } ]
+  Glaccount;
+
+}

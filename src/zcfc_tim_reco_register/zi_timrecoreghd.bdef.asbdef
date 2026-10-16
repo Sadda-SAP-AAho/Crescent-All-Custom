@@ -1,0 +1,77 @@
+managed implementation in class zbp_i_timrecoreghd unique;
+strict;
+with draft;
+
+
+define behavior for ZI_TIMRECOREGHD //alias <alias_name>
+
+persistent table zdt_timrecoreghd
+draft table zdr_timrecoreghd
+lock master
+total etag Docnum
+authorization master ( instance )
+//etag master <field_name>
+
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly ) Docnum;
+
+  create;
+  update;
+  delete;
+  determination determinedocnum on save { create; }
+
+  association _Item { create; }
+
+  mapping for zi_timrecoreghd
+    {
+      Fisyear   = Fisyear;
+      Docnum    = Docnum;
+      Keyid     = Keyid;
+      Creon     = Creon;
+      Creby     = Creby;
+      Remadvno  = Remadvno;
+      Entrydate = Entrydate;
+      Remarks   = Remarks;
+    }
+}
+
+define behavior for ZI_TIMRECOREGIT //alias <alias_name>
+persistent table zdt_timrecoregit
+draft table zdr_timrecoregit
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id;
+  update;
+  delete;
+  validation checkrefdrnoteno on save { create; }
+  validation gstinvno on save { create; }
+
+  association _Head { with draft; }
+
+  mapping for zi_timrecoregit
+    {
+      Suppref     = Suppref;
+      Invno       = Invno;
+      Invdate     = Invdate;
+      Amount      = Amount;
+      Currency    = Currency;
+      Remarks     = Remarks;
+      Tdsothr     = Tdsothr;
+      Payamount   = Payamount;
+      Paycurr     = Paycurr;
+      Refdrnoteno = Refdrnoteno;
+      Gstinvno    = Gstinvno;
+    }
+}

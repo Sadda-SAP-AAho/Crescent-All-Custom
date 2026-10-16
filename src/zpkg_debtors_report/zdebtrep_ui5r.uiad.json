@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Debtor's Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Debtor's Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zdebtrep.zdebtrep"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_16725A6F15B1D3146580A84AE8C3CC76176D8848_TM",
+    "semanticObject": "zsmdebtorrep",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_16725A6F15B1D3146580A84AE8C3CC76176D8848_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Debtor's Report",
+        "subtitle": "Application"
+      }
+    }
+  ]
+}

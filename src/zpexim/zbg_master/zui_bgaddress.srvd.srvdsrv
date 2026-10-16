@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_BgAddress_S'
+define service ZUI_BGADDRESS {
+  expose ZI_BGADDRESS_S as BgAddressAll;
+  expose ZI_BGADDRESS as BgAddress;
+}

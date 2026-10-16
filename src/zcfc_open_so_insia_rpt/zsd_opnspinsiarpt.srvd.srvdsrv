@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Open SO Report - Insia'
+define service ZSD_OPNSPINSIARPT {
+  expose ZC_OPNSPINSIARPT;
+}

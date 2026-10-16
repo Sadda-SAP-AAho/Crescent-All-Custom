@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Paint BOM Master",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Paint BOM Master"
+  },
+  "ui5AppDetails": {
+    "appId": "zpaintbomstr"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_0B00EFA701D1E72BBCE3BDAEC21E4638E32F64AC_TM",
+    "semanticObject": "zpaintbomstr",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_0B00EFA701D1E72BBCE3BDAEC21E4638E32F64AC_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Paint BOM Master"
+      }
+    }
+  ]
+}

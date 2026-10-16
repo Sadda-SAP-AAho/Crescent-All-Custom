@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "PO Dashboard",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "PO Dashboard"
+  },
+  "ui5AppDetails": {
+    "appId": "zporpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_FA8C73A24F993114BB42D71C00159AA8B7F808E5_TM",
+    "semanticObject": "zporptapp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_FA8C73A24F993114BB42D71C00159AA8B7F808E5_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "PO Dashboard",
+        "subtitle": "Industry Prime"
+      }
+    }
+  ]
+}

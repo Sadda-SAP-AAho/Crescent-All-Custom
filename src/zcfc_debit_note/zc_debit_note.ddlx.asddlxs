@@ -1,0 +1,465 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.typeName: 'Projection CDS View for ZDEBIT_NOTE'
+@UI.headerInfo.typeNamePlural: 'Projection CDS View for ZDEBIT_NOTE'
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'CompanyCode'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'CompanyCode'
+annotate view ZC_DEBIT_NOTE with
+{
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @UI.identification: [ {
+    position: 10 
+  } ]
+  @UI.lineItem: [ {
+    position: 10 
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  CompanyCode;
+  
+  @UI.identification: [ {
+    position: 20 
+  } ]
+  @UI.lineItem: [ {
+    position: 20 
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  FiscalYear;
+  
+  @UI.identification: [ {
+    position: 30 
+  } ]
+  @UI.lineItem: [ {
+    position: 30 
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  Document_No;
+  
+  @UI.identification: [ {
+    position: 40 
+  } ]
+  @UI.lineItem: [ {
+    position: 40 
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  Document_Date;
+  
+  @UI.identification: [ {
+    position: 50 
+  } ]
+  @UI.lineItem: [ {
+    position: 50 
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  ref_doc;
+  
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  @UI.lineItem: [ {
+    position: 60 
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  ref_date;
+  
+  @UI.identification: [ {
+    position: 70 
+  } ]
+  @UI.lineItem: [ {
+    position: 70 
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  GLAccount;
+  
+  @UI.identification: [ {
+    position: 80 
+  } ]
+  @UI.lineItem: [ {
+    position: 80 
+  } ]
+  @UI.selectionField: [ {
+    position: 80 
+  } ]
+  GLAccountLongName;
+  
+  @UI.identification: [ {
+    position: 90 
+  } ]
+  @UI.lineItem: [ {
+    position: 90 
+  } ]
+  @UI.selectionField: [ {
+    position: 90 
+  } ]
+  HSN;
+  
+  @UI.identification: [ {
+    position: 100 
+  } ]
+  @UI.lineItem: [ {
+    position: 100 
+  } ]
+  @UI.selectionField: [ {
+    position: 100 
+  } ]
+  Material_Code;
+  
+  @UI.identification: [ {
+    position: 110 
+  } ]
+  @UI.lineItem: [ {
+    position: 110 
+  } ]
+  @UI.selectionField: [ {
+    position: 110 
+  } ]
+  Material_Description;
+  
+  @UI.identification: [ {
+    position: 120 
+  } ]
+  @UI.lineItem: [ {
+    position: 120 
+  } ]
+  @UI.selectionField: [ {
+    position: 120 
+  } ]
+  Quantity;
+  
+  @UI.identification: [ {
+    position: 130 
+  } ]
+  @UI.lineItem: [ {
+    position: 130 
+  } ]
+  @UI.selectionField: [ {
+    position: 130 
+  } ]
+  UOM;
+  
+  @EndUserText.label: 'Unit_Price'
+  @UI.identification: [ {
+    position: 140 , 
+    label: 'Unit_Price'
+  } ]
+  @UI.lineItem: [ {
+    position: 140 , 
+    label: 'Unit_Price'
+  } ]
+  @UI.selectionField: [ {
+    position: 140 
+  } ]
+  Unit_Price;
+  
+  @EndUserText.label: 'Total_Price'
+  @UI.identification: [ {
+    position: 150 , 
+    label: 'Total_Price'
+  } ]
+  @UI.lineItem: [ {
+    position: 150 , 
+    label: 'Total_Price'
+  } ]
+  @UI.selectionField: [ {
+    position: 150 
+  } ]
+  Total_Price;
+  
+  @EndUserText.label: 'Cgst_Amt'
+  @UI.identification: [ {
+    position: 160 , 
+    label: 'Cgst_Amt'
+  } ]
+  @UI.lineItem: [ {
+    position: 160 , 
+    label: 'Cgst_Amt'
+  } ]
+  @UI.selectionField: [ {
+    position: 160 
+  } ]
+  Cgst_Amt;
+  
+  @EndUserText.label: 'Cgst_Rate'
+  @UI.identification: [ {
+    position: 170 , 
+    label: 'Cgst_Rate'
+  } ]
+  @UI.lineItem: [ {
+    position: 170 , 
+    label: 'Cgst_Rate'
+  } ]
+  @UI.selectionField: [ {
+    position: 170 
+  } ]
+  Cgst_Rate;
+  
+  @EndUserText.label: 'Sgst_Amt'
+  @UI.identification: [ {
+    position: 180 , 
+    label: 'Sgst_Amt'
+  } ]
+  @UI.lineItem: [ {
+    position: 180 , 
+    label: 'Sgst_Amt'
+  } ]
+  @UI.selectionField: [ {
+    position: 180 
+  } ]
+  Sgst_Amt;
+  
+  @EndUserText.label: 'Sgst_Rate'
+  @UI.identification: [ {
+    position: 190 , 
+    label: 'Sgst_Rate'
+  } ]
+  @UI.lineItem: [ {
+    position: 190 , 
+    label: 'Sgst_Rate'
+  } ]
+  @UI.selectionField: [ {
+    position: 190 
+  } ]
+  Sgst_Rate;
+  
+  @EndUserText.label: 'Igst_Amt'
+  @UI.identification: [ {
+    position: 200 , 
+    label: 'Igst_Amt'
+  } ]
+  @UI.lineItem: [ {
+    position: 200 , 
+    label: 'Igst_Amt'
+  } ]
+  @UI.selectionField: [ {
+    position: 200 
+  } ]
+  Igst_Amt;
+  
+  @EndUserText.label: 'Igst_Rate'
+  @UI.identification: [ {
+    position: 210 , 
+    label: 'Igst_Rate'
+  } ]
+  @UI.lineItem: [ {
+    position: 210 , 
+    label: 'Igst_Rate'
+  } ]
+  @UI.selectionField: [ {
+    position: 210 
+  } ]
+  Igst_Rate;
+  
+  @UI.identification: [ {
+    position: 220 
+  } ]
+  @UI.lineItem: [ {
+    position: 220 
+  } ]
+  @UI.selectionField: [ {
+    position: 220 
+  } ]
+  Vendor_Name;
+  
+  @EndUserText.label: 'Vendor_Address_Line1'
+  @UI.identification: [ {
+    position: 230 , 
+    label: 'Vendor_Address_Line1'
+  } ]
+  @UI.lineItem: [ {
+    position: 230 , 
+    label: 'Vendor_Address_Line1'
+  } ]
+  @UI.selectionField: [ {
+    position: 230 
+  } ]
+  Vendor_Address_Line1;
+  
+  @UI.identification: [ {
+    position: 240 
+  } ]
+  @UI.lineItem: [ {
+    position: 240 
+  } ]
+  @UI.selectionField: [ {
+    position: 240 
+  } ]
+  Vendor_Address_Line3;
+  
+  @UI.identification: [ {
+    position: 250 
+  } ]
+  @UI.lineItem: [ {
+    position: 250 
+  } ]
+  @UI.selectionField: [ {
+    position: 250 
+  } ]
+  Vendor_Address_Line4;
+  
+  @EndUserText.label: 'Vendor_Full_Address'
+  @UI.identification: [ {
+    position: 260 , 
+    label: 'Vendor_Full_Address'
+  } ]
+  @UI.lineItem: [ {
+    position: 260 , 
+    label: 'Vendor_Full_Address'
+  } ]
+  @UI.selectionField: [ {
+    position: 260 
+  } ]
+  Vendor_Full_Address;
+  
+  @UI.identification: [ {
+    position: 270 
+  } ]
+  @UI.lineItem: [ {
+    position: 270 
+  } ]
+  @UI.selectionField: [ {
+    position: 270 
+  } ]
+  Vendor_GST_No;
+  
+  @EndUserText.label: 'Vendor_PAN_No'
+  @UI.identification: [ {
+    position: 280 , 
+    label: 'Vendor_PAN_No'
+  } ]
+  @UI.lineItem: [ {
+    position: 280 , 
+    label: 'Vendor_PAN_No'
+  } ]
+  @UI.selectionField: [ {
+    position: 280 
+  } ]
+  Vendor_PAN_No;
+  
+  @UI.identification: [ {
+    position: 290 
+  } ]
+  @UI.lineItem: [ {
+    position: 290 
+  } ]
+  @UI.selectionField: [ {
+    position: 290 
+  } ]
+  Place_Of_Supply_City;
+  
+  @UI.identification: [ {
+    position: 300 
+  } ]
+  @UI.lineItem: [ {
+    position: 300 
+  } ]
+  @UI.selectionField: [ {
+    position: 300 
+  } ]
+  Note_In_Header;
+  
+  @EndUserText.label: 'PAN_No'
+  @UI.identification: [ {
+    position: 310 , 
+    label: 'PAN_No'
+  } ]
+  @UI.lineItem: [ {
+    position: 310 , 
+    label: 'PAN_No'
+  } ]
+  @UI.selectionField: [ {
+    position: 310 
+  } ]
+  PAN_No;
+  
+  @EndUserText.label: 'Plant_Address_Line1'
+  @UI.identification: [ {
+    position: 320 , 
+    label: 'Plant_Address_Line1'
+  } ]
+  @UI.lineItem: [ {
+    position: 320 , 
+    label: 'Plant_Address_Line1'
+  } ]
+  @UI.selectionField: [ {
+    position: 320 
+  } ]
+  Plant_Address_Line1;
+  
+  @EndUserText.label: 'Plant_Address_Line2'
+  @UI.identification: [ {
+    position: 330 , 
+    label: 'Plant_Address_Line2'
+  } ]
+  @UI.lineItem: [ {
+    position: 330 , 
+    label: 'Plant_Address_Line2'
+  } ]
+  @UI.selectionField: [ {
+    position: 330 
+  } ]
+  Plant_Address_Line2;
+  
+  @UI.identification: [ {
+    position: 340 
+  } ]
+  @UI.lineItem: [ {
+    position: 340 
+  } ]
+  @UI.selectionField: [ {
+    position: 340 
+  } ]
+  Plant;
+  
+  @UI.identification: [ {
+    position: 350 
+  } ]
+  @UI.lineItem: [ {
+    position: 350 
+  } ]
+  @UI.selectionField: [ {
+    position: 350 
+  } ]
+  Plant_State_Code;
+  
+  @UI.identification: [ {
+    position: 360 
+  } ]
+  @UI.lineItem: [ {
+    position: 360 
+  } ]
+  @UI.selectionField: [ {
+    position: 360 
+  } ]
+  BusinessPlace;
+  
+  @UI.identification: [ {
+    position: 370 
+  } ]
+  @UI.lineItem: [ {
+    position: 370 
+  } ]
+  @UI.selectionField: [ {
+    position: 370 
+  } ]
+  GSTN_No;
+}

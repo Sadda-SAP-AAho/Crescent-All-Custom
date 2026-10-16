@@ -1,0 +1,74 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Script Sales Dashboard',
+title: { type: #STANDARD, value: 'scriptsalesno' }
+}
+}
+annotate entity zc_scriptsl_itm with
+{
+  @UI.facet: [
+  { id: 'GeneralData', isSummary: true, label: 'Script Sales Item Details', type: #COLLECTION, purpose: #STANDARD },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Script Details', id: 'GeneralData1' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15, label: 'Values', id: 'GeneralData2' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 20, label: 'Customer Details', id: 'GeneralData3' }]
+  @UI.hidden: true
+  id;
+  @UI.hidden: true
+  item;
+  @UI.hidden: true
+  accdocno;
+  @UI.hidden: true
+  scriptsalesno;
+  @UI.hidden: true
+  scriptsalesdate;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'scriptno', name: 'ZCDS_SCRIPT_SALES' },
+                                                  distinctValues: true,
+                                                  useForValidation: true }]
+  scriptno;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  scriptdate;
+  @UI.hidden: true
+  saccode;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.hidden: true
+  currency;
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  realizationamt;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Rate;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  saleablevalue;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 65 } ]
+  @UI.identification: [ { position: 65 } ]
+  @UI.fieldGroup: [ { position: 65,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  customer;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  customername;
+  @UI.lineItem: [ { position: 75 } ]
+  @UI.identification: [ { position: 75 } ]
+  @UI.fieldGroup: [ { position: 75,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  salesflag;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 80,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  cancelledaccdocno;
+
+}

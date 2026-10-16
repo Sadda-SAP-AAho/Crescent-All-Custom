@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Capacity Type Master",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Capacity Type Master"
+  },
+  "ui5AppDetails": {
+    "appId": "zcaptypmstr"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_4B8E365AD4063CFD4B0578E6DB84391D54BBB348_TM",
+    "semanticObject": "zcaptypmstr",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_4B8E365AD4063CFD4B0578E6DB84391D54BBB348_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Capacity Type Master",
+        "subtitle": "Capacity Type Master"
+      }
+    }
+  ]
+}

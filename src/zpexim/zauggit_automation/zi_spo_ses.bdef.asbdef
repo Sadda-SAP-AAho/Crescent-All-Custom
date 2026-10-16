@@ -1,0 +1,23 @@
+managed implementation in class zbp_i_spo_ses unique;
+strict;
+
+define behavior for ZI_SPO_SES //alias <alias_name>
+persistent table zdt_expensecal
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+ static action ServicePo parameter ZA_SETCOMMID_PARAM result [1] $self;
+//  field ( readonly : update, numbering : managed ) Id; ( features : instance )
+ //field ( readonly : update, numbering : managed ) Commid;
+//field ( readonly : update, numbering : managed ) Id;
+  mapping for zi_expensecal
+    {
+      Commid   = Commid;
+
+    }
+
+}

@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "GRPO Standard Actual Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "GRPO Standard Actual Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zgrporep"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_F9FEAE7DE226F078E5A8D5E0942D1393D5358B69_TM",
+    "semanticObject": "zgrporep",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_F9FEAE7DE226F078E5A8D5E0942D1393D5358B69_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "GRPO Standard Actual Report"
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination for Daily Prod casting Report'
+define service Zsd_pp_casting_report {
+  expose zc_pp_casting_report;
+}

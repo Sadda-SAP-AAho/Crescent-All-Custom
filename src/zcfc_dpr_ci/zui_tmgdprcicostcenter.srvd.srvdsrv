@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgDprCiCostCenter_S'
+define service ZUI_TMGDPRCICOSTCENTER {
+  expose ZI_TMGDPRCICOSTCENTER_S as TmgDprCiCostCentAll;
+  expose ZI_TMGDPRCICOSTCENTER as TmgDprCiCostCenter;
+}

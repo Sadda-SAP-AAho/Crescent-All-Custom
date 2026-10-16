@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination for Shop Floor Report'
+define service ZSD_SHPFLRRPT {
+  expose ZC_SHPFLRRPT;
+}

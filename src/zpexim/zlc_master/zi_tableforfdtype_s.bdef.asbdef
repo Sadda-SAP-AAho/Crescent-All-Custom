@@ -1,0 +1,82 @@
+managed with additional save implementation in class ZBP_I_TABLEFORFDTYPE_S unique;
+strict;
+with draft;
+define behavior for ZI_TableForFdType_S alias TableForFdTypeAll
+draft table ZDT_FD_TYPE_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   HideTransport,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare {
+    validation TableForFdType ~ ValidateDataConsistency;
+  }
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TableForFdType { create ( features : instance ); with draft; }
+}
+
+define behavior for ZI_TableForFdType alias TableForFdType
+persistent table ZDT_FD_TYPE
+draft table ZDT_FD_TYPE_D
+etag master LocalLastChangedAt
+lock dependent by _TableForFdTypeAll
+authorization dependent by _TableForFdTypeAll
+
+{
+  field ( mandatory : create )
+   FdType;
+
+  field ( readonly )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt,
+   ConfigDeprecationCode;
+
+  field ( readonly : update )
+   FdType;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+
+  update( features : global );
+  delete( features : instance );
+
+  action ( features : instance ) Deprecate result [1] $self;
+  action ( features : instance ) Invalidate result [1] $self;
+  factory action ( features : instance ) CopyTableForFdType parameter ZD_CopyTableForFdTypeP [1];
+
+  mapping for ZDT_FD_TYPE
+  {
+    FdType = FD_TYPE;
+    FdDesc = FD_DESC;
+    ConfigDeprecationCode = CONFIGDEPRECATIONCODE;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _TableForFdTypeAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+  validation ValidateDataConsistency on save { create; update; }
+}

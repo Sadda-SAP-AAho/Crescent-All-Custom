@@ -1,0 +1,4 @@
+@EndUserText.label: 'Production Order Status Report'
+define service ZSD_PRODORDRSTATSRPT {
+  expose ZC_PRODORDRSTATSRPT;
+}

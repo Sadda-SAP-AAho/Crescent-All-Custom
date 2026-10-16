@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Material Wise Inspection Report'
+define service ZSD_MATINSPPLANRPT {
+  expose ZC_MATINSPPLANRPT;
+}

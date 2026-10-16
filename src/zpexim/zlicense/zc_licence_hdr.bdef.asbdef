@@ -1,0 +1,23 @@
+projection;
+strict;
+use draft;
+use side effects;
+
+define behavior for ZC_LICENCE_HDR //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Cancel;
+  //=== Custom action Button ====//
+  use action Cal;
+
+  //  use action Print;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+}

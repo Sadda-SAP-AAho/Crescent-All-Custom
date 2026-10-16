@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD'
+define service ZSD_DEBTORREP {
+  expose zc_debitor;
+}

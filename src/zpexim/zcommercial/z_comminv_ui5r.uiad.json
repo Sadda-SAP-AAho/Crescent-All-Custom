@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Commercial Invoice Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Commercial Invoice Application"
+  },
+  "ui5AppDetails": {
+    "appId": "zcomminv"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_F36850D0472450434DBD11DA956173026512B0E7_TM",
+    "semanticObject": "z_comminvapp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_F36850D0472450434DBD11DA956173026512B0E7_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Commercial Invoice Application"
+      }
+    }
+  ]
+}

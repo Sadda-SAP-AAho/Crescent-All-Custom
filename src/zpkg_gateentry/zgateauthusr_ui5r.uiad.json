@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Gate Entry Authorization Maintenance",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Gate Entry Authorization Maintenance"
+  },
+  "ui5AppDetails": {
+    "appId": "zgateauthusr"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_6BAB1AE1D3C02F422C014FB96E877BB7FE43C7D4_TM",
+    "semanticObject": "Zgateauthusr",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_6BAB1AE1D3C02F422C014FB96E877BB7FE43C7D4_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Gate Entry Authorization Maintenance"
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'DynamicItemTablePri', 
+    typeNamePlural: 'DynamicItemTablePris', 
+    title: {
+      type: #STANDARD, 
+      label: 'Dynamic Item Table Print Fields', 
+      value: 'Field'
+    }
+  }
+}
+annotate view ZI_DynamicItemTablePri with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_DynamicItemTablePri', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Dynamic Item Table Print Fields', 
+    position: 1 
+  } ]
+  Field;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Fieldname'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Fieldname'
+  } ]
+  Fieldname;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Printallow'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Printallow'
+  } ]
+  Printallow;
+  
+  @UI.identification: [ {
+    position: 4 , 
+    label: 'Printseq'
+  } ]
+  @UI.lineItem: [ {
+    position: 4 , 
+    label: 'Printseq'
+  } ]
+  Printseq;
+}

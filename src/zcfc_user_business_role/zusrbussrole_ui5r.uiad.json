@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "User wise Business Role",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "User wise Business Role"
+  },
+  "ui5AppDetails": {
+    "appId": "zusrbussrole"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_5083CE688F06CC062E33F5BE23319A7080E45CDE_TM",
+    "semanticObject": "zusrbussrole",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_5083CE688F06CC062E33F5BE23319A7080E45CDE_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "User wise Business Role"
+      }
+    }
+  ]
+}

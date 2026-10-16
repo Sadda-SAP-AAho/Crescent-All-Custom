@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Commitment Dashboard"
+  },
+  "ui5AppDetails": {
+    "appId": "com.infocus.salescommitment.zsalescommitment"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_052FD282AF92F0B77E51E6134F9D20CB75D88FA1_TM",
+    "semanticObject": "ZSALESCOMMITMENT",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_052FD282AF92F0B77E51E6134F9D20CB75D88FA1_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Commitment Dashboard"
+      }
+    }
+  ]
+}

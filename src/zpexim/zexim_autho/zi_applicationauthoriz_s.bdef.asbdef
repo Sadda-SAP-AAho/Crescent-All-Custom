@@ -1,0 +1,77 @@
+managed with additional save implementation in class ZBP_I_APPLICATIONAUTHORIZ_S unique;
+strict;
+with draft;
+define behavior for ZI_ApplicationAuthoriz_S alias ApplicationAuthoAll
+draft table ZEX_APP_AUT_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _ApplicationAuthoriz { create ( features : instance ); with draft; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_ApplicationAuthoriz alias ApplicationAuthoriz ##UNMAPPED_FIELD
+persistent table ZEX_APP_AUTHO
+draft table ZEX_APP_AUTHO_D
+lock dependent by _ApplicationAuthoAll
+authorization dependent by _ApplicationAuthoAll
+
+{
+  field ( readonly )
+   SingletonID,
+   InternalAuth;
+
+  field ( numbering : managed )
+   InternalAuth;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZEX_APP_AUTHO
+  {
+    InternalAuth = INTERNAL_AUTH;
+    AppName = APP_NAME;
+    UserId = USER_ID;
+    AuthType = AUTH_TYPE;
+    CreatedAt = CREATED_AT;
+    CreatedBy = CREATED_BY;
+    LastChangedBy = LAST_CHANGED_BY;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _ApplicationAuthoAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

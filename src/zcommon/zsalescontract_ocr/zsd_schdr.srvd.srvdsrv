@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Definition for Sales Contract'
+define service ZSD_SCHDR {
+  expose ZC_SCHDR as Header;
+  expose ZC_SCTAX as Taxes;
+  expose ZC_SCITM as Items;
+}

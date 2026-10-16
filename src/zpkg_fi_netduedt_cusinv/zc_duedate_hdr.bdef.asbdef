@@ -1,0 +1,21 @@
+projection;
+strict ( 1 );
+use draft;
+use side effects;
+
+define behavior for ZC_DUEDATE_HDR //alias <alias_name>
+{
+  use create;
+  use update;
+  //    use delete;
+
+  use action Calc;
+  use action Post;
+  use action Upd;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+}

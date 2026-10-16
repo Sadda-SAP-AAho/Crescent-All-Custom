@@ -1,0 +1,44 @@
+managed implementation in class zbp_i_advanceupload unique;
+strict ( 2 );
+with draft;
+
+define behavior for zi_advanceupload //alias <alias_name>
+persistent table zadvpay_hdr
+lock master
+total etag id
+draft table zdr_advpay_hdr
+authorization master ( instance )
+etag master id
+//etag master <field_name>
+{
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Id;
+  action ( features : instance ) uploadExcelData result [1] $self;
+  field ( numbering : managed ) id;
+  determination change_status on save { create;  }
+  determination postadv on save { field Post; }
+  association _item { create ( features : instance ); with draft; }
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+}
+
+define behavior for zi_advanceuploaditm //alias <alias_name>
+persistent table zadvpay_itm
+lock dependent by _head
+draft table zdr_advpay_itm
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Id;
+  association _head;
+}

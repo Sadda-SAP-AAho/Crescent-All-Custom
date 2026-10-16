@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "COGS Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "COGS Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zcogs"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_01B577FA00C817523A35208BF2551B7BCA13C9F6_TM",
+    "semanticObject": "ZCOGS",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_01B577FA00C817523A35208BF2551B7BCA13C9F6_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "COGS Report"
+      }
+    }
+  ]
+}

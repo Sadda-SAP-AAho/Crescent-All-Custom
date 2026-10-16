@@ -1,0 +1,141 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Rework Material Reco-Report',
+                typeNamePlural:'Rework Material Reco-Report',
+                title: { type: #STANDARD, label: 'Rework Material Reco-Report', value: 'ProdOrdrNo' }
+
+              }
+     }
+annotate entity ZC_REWRKMATRECO with
+{
+  @UI.facet:
+   [{id: 'GeneralData', isSummary: true, label: 'Item Details', type: #COLLECTION, position: 5},
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: '', id: 'GeneralData1' }]
+  @UI: { lineItem: [{ position: 5 }],
+         identification: [{ position: 5 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+  ProdOrdrNo;
+  @UI.hidden: true
+  plant;
+  @UI.hidden: true
+  Sl;
+  @UI.hidden: true
+  Comp;
+  @UI: { lineItem: [{ position: 10 }],
+         identification: [{ position: 10 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 10}]
+  OrdrActRelDate;
+  @UI: { lineItem: [{ position: 15 }],
+     identification: [{ position: 15 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  CreatedBy;
+  @UI: { lineItem: [{ position: 20 }],
+     identification: [{ position: 20 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  CreationDate;
+  @UI: { lineItem: [{ position: 25 }],
+         identification: [{ position: 25 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  LastUptBy;
+  @UI: { lineItem: [{ position: 30 }],
+         identification: [{ position: 30 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  LastUptDate;
+  @UI: { lineItem: [{ position: 35 }],
+         identification: [{ position: 35 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 35}]
+  PlantCode;
+  @UI: { lineItem: [{ position: 40 }],
+         identification: [{ position: 40 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 40}]
+  PlantName;
+  @UI: { lineItem: [{ position: 45 }],
+         identification: [{ position: 45 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 45}]
+  ProfitCenterCode;
+  @UI: { lineItem: [{ position: 50 }],
+         identification: [{ position: 50 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  ProfitCenterName;
+  @UI: { lineItem: [{ position: 55 }],
+         identification: [{ position: 55 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  SlNo;
+  @UI: { lineItem: [{ position: 60 }],
+         identification: [{ position: 60 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 60}]
+  CompNo;
+  @UI: { lineItem: [{ position: 65 }],
+         identification: [{ position: 65 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  CompDesc;
+  @UI: { lineItem: [{ position: 70 }],
+         identification: [{ position: 70 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 70}]
+  CompGrp;
+  @UI.hidden: true
+  BaseUnit;
+  @UI: { lineItem: [{ position: 75 }],
+         identification: [{ position: 75 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  CompPlanedQty;
+  @UI: { lineItem: [{ position: 80 }],
+         identification: [{ position: 80 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  CompIssuedQty;
+  @UI.hidden: true
+  WeightUnit;
+  @UI: { lineItem: [{ position: 85 }],
+         identification: [{ position: 85 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  CompNetUnitWt;
+  @UI: { lineItem: [{ position: 90 }],
+         identification: [{ position: 90 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  CompNetWt;
+  @UI: { lineItem: [{ position: 95 }],
+         identification: [{ position: 95 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 95}]
+  MatlDocNo;
+  @UI: { lineItem: [{ position: 100 }],
+     identification: [{ position: 100 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 100}]
+  MatlDocPostDt;
+  @UI: { lineItem: [{ position: 105 }],
+     identification: [{ position: 105 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Currency;
+  @UI: { lineItem: [{ position: 110 }],
+     identification: [{ position: 110 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  AmtinLocCurr;
+  @UI: { lineItem: [{ position: 115 }],
+     identification: [{ position: 115 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 115}]
+  MovementType;
+  @UI: { lineItem: [{ position: 120 }],
+     identification: [{ position: 120 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 120}]
+  DrCrIndiCator;
+  @UI: { lineItem: [{ position: 125 }],
+     identification: [{ position: 125 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 125}]
+  GlCode;
+  @UI: { lineItem: [{ position: 130 }],
+     identification: [{ position: 130 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  GLName;
+
+}

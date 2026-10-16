@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Production Plan Vs Actual",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Production Plan Vs Actual"
+  },
+  "ui5AppDetails": {
+    "appId": "zplanactual"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_C11C3CBA08E2F75555BDBA08B6B4103E50CB1594_TM",
+    "semanticObject": "zplanactual",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_C11C3CBA08E2F75555BDBA08B6B4103E50CB1594_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Production Plan Vs Actual"
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Sales Detention Rate",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Detention Rate"
+  },
+  "ui5AppDetails": {
+    "appId": "zsalesdetrate"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_6FB0D84F500C62FE7F1AA9A007D6121ADA3521CF_TM",
+    "semanticObject": "zsalesdetrate",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_6FB0D84F500C62FE7F1AA9A007D6121ADA3521CF_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Detention Rate",
+        "subtitle": "Maintenance"
+      }
+    }
+  ]
+}

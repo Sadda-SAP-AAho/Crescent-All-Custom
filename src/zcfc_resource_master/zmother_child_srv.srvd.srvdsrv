@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service for Mother Child'
+define service ZMother_Child_SRV {
+  expose Z_C_MOTHER_CHILD;
+}

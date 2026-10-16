@@ -1,0 +1,45 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'PolMasterTable', 
+    typeNamePlural: 'PolMasterTables', 
+    title: {
+      type: #STANDARD, 
+      label: 'POL Master Table', 
+      value: 'Polcode'
+    }
+  }
+}
+annotate view ZI_PolMasterTable with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_PolMasterTable', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'POL Master Table', 
+    position: 1 
+  } ]
+  Polcode;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Polcodename;
+  
+  @UI.identification: [ {
+    position: 3 
+  } ]
+  @UI.lineItem: [ {
+    position: 3 
+  } ]
+  Gotrackcode;
+}

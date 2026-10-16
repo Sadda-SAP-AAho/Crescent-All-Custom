@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgTableForConsumpt', 
+    typeNamePlural: 'TmgTableForConsumpts', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG table for Consumption Base', 
+      value: 'Conbase'
+    }
+  }
+}
+annotate view ZI_TmgTableForConsumpt with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgTableForConsumpt', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG table for Consumption Base', 
+    position: 1 
+  } ]
+  Conbase;
+}

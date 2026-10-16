@@ -1,0 +1,53 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'BankFundLimitUtiliz', 
+    typeNamePlural: 'BankFundLimitUtilizs', 
+    title: {
+      type: #STANDARD, 
+      label: 'Bank Fund Limit Utilization of TMG', 
+      value: 'Hbkid'
+    }
+  }
+}
+annotate view ZI_BankFundLimitUtiliz with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_BankFundLimitUtiliz', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Bank Fund Limit Utilization of TMG', 
+    position: 1 
+  } ]
+  Hbkid;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Hktid;
+  
+  @UI.identification: [ {
+    position: 3 
+  } ]
+  @UI.lineItem: [ {
+    position: 3 
+  } ]
+  Loantype;
+  
+  @UI.identification: [ {
+    position: 4 
+  } ]
+  @UI.lineItem: [ {
+    position: 4 
+  } ]
+  Glaccount;
+}

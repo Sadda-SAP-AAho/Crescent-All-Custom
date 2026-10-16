@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service of Appl for Certificate of Orign'
+define service ZAPPL_Crt_Orgn_SRV {
+  expose ZCFC_APP_CERT_ORGN_HDR  as headerSet;
+  expose ZCFC_APP_CERT_ORGN_ITEM as itemSet;
+  expose ZCFC_BILLING_DOC_F4     as billingDocumentF4;
+}

@@ -1,0 +1,63 @@
+@Metadata.layer: #CUSTOMER
+
+annotate view ZC_ShippingBillLICTP with
+{
+
+  @UI.facet: [
+        { id: 'GeneralI',isSummary: true, label: 'License Details', type: #COLLECTION, purpose: #STANDARD },
+        { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1',parentId: 'GeneralI',label: 'Section 1', id: 'GeneralData1' }
+             ]
+
+  @UI.hidden: true
+  InternalShipbillItem;
+
+  @UI.hidden: true
+  InternalShipbill;
+
+  @UI: {
+        lineItem: [ { position: 9} ],
+        identification: [{position: 9 }],
+        fieldGroup: [{qualifier: 'GeneralData1',position: 9,importance: #HIGH }]
+  }
+
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'ecomno', name:'ZR_LIC_F4' },
+                                              distinctValues: true,
+                                              useForValidation: true,
+                          additionalBinding: [{ localElement: 'Licencenumber', element: 'licno', usage: #FILTER_AND_RESULT },
+                                              { localElement: 'FobFc',         element: 'waers', usage: #FILTER_AND_RESULT }
+                                             ]
+                                  }]
+  Licencint;
+  @UI: {
+        lineItem: [ { position: 10} ],
+        identification: [{position: 10 }],
+        fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
+  }
+
+  Licencenumber;
+
+  @UI: {
+        lineItem: [ { position: 15} ],
+        identification: [{position: 15 }],
+        fieldGroup: [{qualifier: 'GeneralData1',position: 15,importance: #HIGH }]
+  }
+  
+  Usageamount;
+  @UI: {
+        lineItem: [ { position: 20} ],
+        identification: [{position: 20 }],
+        fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }]
+  }
+  
+  PendingAmount;
+  @UI: {
+        lineItem: [ { position: 25} ],
+        identification: [{position: 25 }],
+        fieldGroup: [{qualifier: 'GeneralData1',position: 25,importance: #HIGH }]
+  }
+  FobFc;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+}

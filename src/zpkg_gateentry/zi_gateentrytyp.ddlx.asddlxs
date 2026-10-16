@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'GateentryTyp', 
+    typeNamePlural: 'GateentryTyps', 
+    title: {
+      type: #STANDARD, 
+      label: 'GateEntry Typ', 
+      value: 'Gateentrytype'
+    }
+  }
+}
+annotate view ZI_GateentryTyp with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_GateentryTyp', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'GateEntry Typ', 
+    position: 1 
+  } ]
+  Gateentrytype;
+}

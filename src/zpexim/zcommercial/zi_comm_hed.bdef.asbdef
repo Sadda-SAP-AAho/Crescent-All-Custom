@@ -1,0 +1,132 @@
+managed implementation in class zbp_i_comm_hed unique;
+strict;
+with draft;
+
+define behavior for ZI_COMM_HED //alias <alias_name>
+persistent table zdt_comm_hed
+draft table zdr_comm_hed
+with additional save
+lock master
+total etag createdat
+authorization master ( instance )
+
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+  field ( readonly : update, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update ) Commid;
+  field ( readonly ) Documentdate, Customercode, Customername, Payrecvbank, Payrecvbankadrc;
+  field ( features : instance ) Atadate, Awbno, Bankrefno, Billcloseflag, Blrcvdt, Boeddt, Correctblsendon,
+  Custrqstdt, Docpresentbnkdt, Docsentcustdt, Draftblcnfdt, Drftblrcvdt, Ebrcno, Ebrcrcvdt, Ebrcvalfc,
+  Fundplanremark, Initmationdt, Isfsenddt, Ladingdt, Ladingno, Lcbankadd1, Lcbankadd2,
+  //  Leodate,
+  Paymentprocess, Planingmonth, Planingweek,Rcvconsignbnkdt, Rotationno, Scripno, Scrollno, Shbillrecddt,
+  Swiftdt, Tpdate, Tpno, Vesselsaildt, Waers, createdat, Vesselname, Remarks1, Remarks2, Irmno;
+
+  //======= Standard Action Button =====//
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  //======= Custom Action Button =====//
+  action ( features : instance ) Cancel result [1] $self;
+  action ( features : instance ) Print result [1] $self;
+  action ( features : instance ) Commprint result [1] $self;
+  action ( features : instance ) UPDATE result [1] $self;
+  action ( features : instance ) COMMSPLITVAL result [1] $self;
+  action ( features : instance ) FINALINVOICEFOB result [1] $self;
+
+  //======= Detrermination on action =====//
+  determination shipnotdetails on modify { field Commid; }
+  determination details on modify { field Commid; }
+  determination get_printfld on save { create; }
+
+  //======= Detrermination on Validation =====//
+  validation checkdoc on save { create; }
+
+
+  association _item { create ( features : instance ); with draft; }
+
+  mapping for zi_comm_hed
+    {
+      Atadate         = Atadate;
+      Awbno           = Awbno;
+      Bankrefno       = Bankrefno;
+      Billcloseflag   = Billcloseflag;
+      Blrcvdt         = Blrcvdt;
+      Boeddt          = Boeddt;
+      Commid          = Commid;
+      Correctblsendon = Correctblsendon;
+      Custrqstdt      = Custrqstdt;
+      Docpresentbnkdt = Docpresentbnkdt;
+      Docsentcustdt   = Docsentcustdt;
+      Draftblcnfdt    = Draftblcnfdt;
+      Ebrcno          = Ebrcno;
+      Ebrcrcvdt       = Ebrcrcvdt;
+      Ebrcvalfc       = Ebrcvalfc;
+      Fundplanremark  = Fundplanremark;
+      Initmationdt    = Initmationdt;
+      Isfsenddt       = Isfsenddt;
+      Ladingdt        = Ladingdt;
+      Ladingno        = Ladingno;
+      Lcbankadd1      = Lcbankadd1;
+      Lcbankadd2      = Lcbankadd2;
+      Tprint          = Tprint;
+      //      Leodate         = Leodate;
+      Paymentprocess  = Paymentprocess;
+      Planingmonth    = Planingmonth;
+      Planingweek     = Planingweek;
+      Rcvconsignbnkdt = Rcvconsignbnkdt;
+      Rotationno      = Rotationno;
+      Scripno         = Scripno;
+      Scrollno        = Scrollno;
+      Shbillrecddt    = Shbillrecddt;
+      Swiftdt         = Swiftdt;
+      Tpdate          = Tpdate;
+      Tpno            = Tpno;
+      Vesselsaildt    = Vesselsaildt;
+      Waers           = Waers;
+      createdat       = createdat;
+      Cprint          = Cprint;
+      CsPrint         = Csprint;
+      Customercode    = Customercode;
+      Customername    = Customername;
+      Payrecvbank     = Payrecvbank;
+      Payrecvbankadrc = Payrecvbankadrc;
+      Remarks1        = Remarks1;
+      Remarks2        = Remarks2;
+      Irmno           = Irmno;
+    }
+
+}
+
+define behavior for ZI_COMPRINTFLD //alias <alias_name>
+persistent table zdt_comprintfld
+draft table zdr_comprintfld
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  //  delete;
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) id, Commid, Field;
+
+  //  field ( features : instance ) Fieldname; // for Edit Text
+
+  association _head { with draft; }
+  mapping for zi_comprintfld
+    {
+      Commid     = Commid;
+      Field      = Field;
+      Fieldname  = Fieldname;
+      Printallow = Printallow;
+      Printseq   = Printseq;
+    }
+}

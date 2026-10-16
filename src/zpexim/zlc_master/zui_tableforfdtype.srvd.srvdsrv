@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TableForFdType_S'
+define service ZUI_TABLEFORFDTYPE {
+  expose ZI_TABLEFORFDTYPE_S as TableForFdTypeAll;
+  expose ZI_TABLEFORFDTYPE as TableForFdType;
+}

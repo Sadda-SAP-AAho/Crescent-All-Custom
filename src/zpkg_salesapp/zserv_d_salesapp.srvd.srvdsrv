@@ -1,0 +1,4 @@
+@EndUserText.label: 'Sales Application'
+define service ZSERV_D_SALESAPP {
+  expose ZR_SALESAPP;
+}

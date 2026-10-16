@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Bank Charges Header'
+define service ZSERV_D_BNKCHARGE_HDR {
+  expose ZC_BNKCHARGE_HDR;
+}

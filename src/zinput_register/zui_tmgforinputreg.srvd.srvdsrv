@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgForInputReg_S'
+define service ZUI_TMGFORINPUTREG {
+  expose ZI_TMGFORINPUTREG_S as TmgForInputRegAll;
+  expose ZI_TMGFORINPUTREG as TmgForInputReg;
+}

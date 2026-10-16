@@ -1,0 +1,96 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'ApprovalMatrixForPa', 
+    typeNamePlural: 'ApprovalMatrixForPas', 
+    title: {
+      type: #STANDARD, 
+      label: 'Approval Matrix For Payments', 
+      value: 'Companycode'
+    }
+  }
+}
+annotate view ZI_ApprovalMatrixForPa with
+{
+  @UI.hidden: true
+  ConfigDeprecationCode_Critlty;
+  
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'CopyApprovalMatrixForPa', 
+    label: 'Copy Selected Entry', 
+    invocationGrouping: #CHANGE_SET
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_ApprovalMatrixForPa', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Approval Matrix For Payments', 
+    position: 1 
+  } ]
+  Companycode;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Userid;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Apprlevel'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Apprlevel'
+  } ]
+  Apprlevel;
+  
+  @UI.identification: [ {
+    position: 4 , 
+    label: 'Final'
+  } ]
+  @UI.lineItem: [ {
+    position: 4 , 
+    label: 'Final'
+  } ]
+  Final;
+  
+  @UI.identification: [ {
+    position: 5 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate'
+  } ]
+  @UI.lineItem: [ {
+    position: 5 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate Selected Entry'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate Selected Entry'
+  } ]
+  ConfigDeprecationCode;
+}

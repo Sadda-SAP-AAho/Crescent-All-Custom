@@ -1,0 +1,4 @@
+@EndUserText.label: 'Sales Material'
+define service ZSERV_D_SALESMATERIAL {
+  expose ZR_SALESMATERIALSTOCK_2;
+}

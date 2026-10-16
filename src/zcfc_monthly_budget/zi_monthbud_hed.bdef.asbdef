@@ -1,0 +1,85 @@
+managed implementation in class zbp_i_monthbud_hed unique;
+strict;
+with draft;
+
+define behavior for ZI_MONTHBUD_HED //alias <alias_name>
+persistent table zdt_monthbud_hed
+draft table zdr_monthbud_hed
+lock master
+total etag budgetcode
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly ) budgetcode;
+
+  create;
+  update;
+  delete;
+  determination determinedocnum on save { create; }
+
+  association _Item { create; }
+
+  validation checkcomb on save { create; update; }
+  validation checkvalidation on save { create; update; }
+
+
+  mapping for zi_monthbud_hed
+    {
+      Keyid      = Keyid;
+      Creon      = Creon;
+      Creby      = Creby;
+      Budgetcode = Budgetcode;
+      Budgetname = Budgetname;
+      Fiscalyear = Fiscalyear;
+      Currency   = Currency;
+    }
+}
+
+define behavior for ZI_MONTHBUD_ITM //alias <alias_name>
+persistent table zdt_monthbud_itm
+draft table zdr_monthbud_itm
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id, Cstcntrnam, Glname;
+  update;
+  delete;
+  determination updateitem on modify { field Cstcntrcd; field Glcode; }
+
+  side effects
+  { field Cstcntrcd affects field Cstcntrnam;
+    field Glcode affects field Glname; }
+
+  association _Head { with draft; }
+
+  mapping for zi_monthbud_itm
+    {
+      Cstcntrcd  = Cstcntrcd;
+      Cstcntrnam = Cstcntrnam;
+      Glcode     = Glcode;
+      Glname     = Glname;
+      aprilamt   = aprilamt;
+      mayamt     = mayamt;
+      juneamt    = juneamt;
+      julyamt    = julyamt;
+      augamt     = augamt;
+      septamt    = septamt;
+      octamt     = octamt;
+      novamt     = novamt;
+      decamt     = decamt;
+      janamt     = janamt;
+      febamt     = febamt;
+      marchamt   = marchamt;
+    }
+}

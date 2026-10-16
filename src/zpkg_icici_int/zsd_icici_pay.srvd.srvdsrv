@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for ICICI Pay'
+define service ZSD_ICICI_PAY {
+  expose ZI_ICICI_PAY;
+}

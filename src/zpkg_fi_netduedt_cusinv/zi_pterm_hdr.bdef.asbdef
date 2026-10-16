@@ -1,0 +1,42 @@
+managed implementation in class zbp_i_pterm_hdr unique;
+strict;
+with draft;
+define behavior for ZI_PTERM_HDR //alias <alias_name>
+persistent table zdt_pterm
+draft table zdr_pterm
+lock master
+total etag Zterm
+authorization master ( instance )
+{
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update ) Zterm;
+  field ( readonly ) Pdesc, Credt, Lastchngdt, Basistxt;
+  field ( features : instance ) Basis, Noofday;
+
+  determination upddet  on modify { field Zterm; }
+  determination upddate on modify { field noofday, Basis; }
+  determination savedata on save { create; }
+  validation checkval on save { create; }
+
+  create;
+  update( features : instance );
+  delete( features : instance );
+  mapping for ZI_PTERM_HDR
+  {
+     Zterm      = Zterm;
+     Pdesc      = Pdesc;
+     Basis      = Basis;
+     Noofday    = Noofday;
+     Credt      = Credt;
+     Lastchngdt = Lastchngdt;
+  }
+}

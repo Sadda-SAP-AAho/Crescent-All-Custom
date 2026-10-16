@@ -1,0 +1,28 @@
+projection;
+strict;
+use draft;
+use side effects;
+define behavior for ZC_FOREXTP //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use action Upd;
+
+  use association _item { create; with draft; }
+}
+
+define behavior for ZC_FOREXITMTP //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head { with draft; }
+}

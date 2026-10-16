@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Production Order Material Reconciliation",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Production Order Material Reconciliation"
+  },
+  "ui5AppDetails": {
+    "appId": "zprodordrrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_1DE482AF378C13C8EA51021BB5075D834CB16437_TM",
+    "semanticObject": "zprodordrrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_1DE482AF378C13C8EA51021BB5075D834CB16437_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Production Order Material Reconciliation",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

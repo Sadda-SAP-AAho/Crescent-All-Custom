@@ -1,0 +1,23 @@
+managed implementation in class zbp_r_fgbomlist unique;
+strict ( 2 );
+
+define behavior for ZR_FGBOMLIST alias FGBOMLIST
+persistent table zdt_fgboms
+lock master
+authorization master ( instance )
+etag master FG
+{
+  create (authorization : global);
+//  update;
+  delete;
+  field ( readonly:update ) Plant, FG;
+
+
+  mapping for zdt_fgboms{
+        Plant = plant;
+        OpNo = opno;
+        FG = fg;
+        operation = operation;
+        Material = material;
+  }
+}

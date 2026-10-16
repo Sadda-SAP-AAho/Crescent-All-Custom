@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_PodMasterTable_S'
+define service ZUI_PODMASTERTABLE {
+  expose ZI_PODMASTERTABLE_S as PodMasterTableAll;
+  expose ZI_PODMASTERTABLE as PodMasterTable;
+}

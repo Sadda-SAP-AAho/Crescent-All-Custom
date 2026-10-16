@@ -1,0 +1,4 @@
+@EndUserText.label: 'Customer Partner Function Address'
+define service ZSD_CUSFUNCADD {
+  expose ZI_CUSFUNCADD;
+}

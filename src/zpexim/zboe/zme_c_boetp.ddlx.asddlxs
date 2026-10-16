@@ -1,0 +1,107 @@
+@Metadata.layer: #CUSTOMER
+@UI:{ headerInfo: { typeName: 'Bill of Entry',typeNamePlural: 'Bill of Entry'},
+      presentationVariant: [{ sortOrder: [{ by: 'Locallastchangedat',direction: #DESC}], visualizations: [{ type: #AS_LINEITEM}] }]
+    }
+
+annotate view ZC_BOETP with
+{
+  @UI.facet:
+  [
+   {id: 'GeneralData',isSummary: true, label: 'Licence Header',type: #COLLECTION},
+   {type: #FIELDGROUP_REFERENCE,targetQualifier: 'GeneralData0',position: 10,parentId: 'GeneralData',label: 'Main',id: 'GeneralData0'},
+   {type: #FIELDGROUP_REFERENCE,targetQualifier: 'GeneralData1',position: 11,parentId: 'GeneralData',label: 'Technical',id: 'GeneralData1'},
+
+   {id: 'idLineLIC', type: #LINEITEM_REFERENCE,label: 'License Details',position: 20 ,targetElement: '_BOELIC'},
+   {id: 'idLineitem',type: #LINEITEM_REFERENCE,label: 'Item Details',   position: 30 ,targetElement: '_BOEItem'}
+  ]
+
+  //section 1
+  @UI.hidden: true
+  InternalBoe;
+
+  @UI: {
+          lineItem: [ { position: 10} ],
+          selectionField: [{position: 10 }],
+          identification: [{position: 10 }],
+          fieldGroup: [{qualifier: 'GeneralData0',position: 10,importance: #HIGH }]
+  }
+  Boenumber;
+
+  @UI: {
+          lineItem: [ { position: 20} ],
+          selectionField: [{position: 20 }],
+          identification: [{position: 20 }],
+          fieldGroup: [{qualifier: 'GeneralData0',position: 20,importance: #HIGH }]
+  }
+  Boedate;
+
+  @UI: {
+          lineItem: [ { position: 30} ],
+          identification: [{position: 30 }],
+          fieldGroup: [{qualifier: 'GeneralData0',position: 30,importance: #HIGH }]
+  }
+  Blnumber;
+
+  @UI: {
+          lineItem: [ { position: 40} ],
+          identification: [{position: 40 }],
+          fieldGroup: [{qualifier: 'GeneralData0',position: 40,importance: #HIGH }]
+  }
+  Bldate;
+
+  @UI: {
+          lineItem: [ { position: 50} ],
+          identification: [{position: 50 }],
+          fieldGroup: [{qualifier: 'GeneralData0',position: 50,importance: #HIGH }]
+  }
+  Exchangerate;
+
+  @UI: {
+          lineItem: [ { position: 60} ],
+          identification: [{position: 60 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
+  }
+  Supplier;
+
+  @UI: {
+          lineItem: [ { position: 70} ],
+          identification: [{position: 70 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }]
+  }
+  suppliername;
+
+  @UI: {
+          lineItem: [ { position: 80} ],
+          identification: [{position: 80 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 30,importance: #HIGH }]
+  }
+  Shipmentmode;
+
+  @UI: {
+          fieldGroup: [{qualifier: 'GeneralData1',position: 40,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'text', name:'ZI_POL_F4' },
+                                             distinctValues: true,
+                                             useForValidation: true
+                                 }]
+  Loadingport;
+
+  @UI: {
+          fieldGroup: [{qualifier: 'GeneralData1',position: 50,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'text', name:'ZI_POD_F4' },
+                                             distinctValues: true,
+                                             useForValidation: true
+                                 }]
+  Unloadingport;
+
+  @UI: {
+          fieldGroup: [{qualifier: 'GeneralData1',position: 60,importance: #HIGH }]
+  }
+  Incoterms;
+
+  @UI.hidden: true
+  Locallastchangedat;
+
+
+}

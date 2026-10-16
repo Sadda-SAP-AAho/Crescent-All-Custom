@@ -1,0 +1,5 @@
+@EndUserText.label: 'Scroll Header'
+define service ZSERV_D_SCROLLHD {
+  expose ZC_SCROLLHD;
+  expose ZC_SCROLLIT;
+}

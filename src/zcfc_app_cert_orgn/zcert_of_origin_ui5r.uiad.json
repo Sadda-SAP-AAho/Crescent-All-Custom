@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Certificate of Origin"
+  },
+  "ui5AppDetails": {
+    "appId": "cerftificateoforigin"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_71F1255ADDE51903DF5AA1E32DFD80EE864D9BE0_TM",
+    "semanticObject": "ZCERTOFORIGIN",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_71F1255ADDE51903DF5AA1E32DFD80EE864D9BE0_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Certificate of Origin"
+      }
+    }
+  ]
+}

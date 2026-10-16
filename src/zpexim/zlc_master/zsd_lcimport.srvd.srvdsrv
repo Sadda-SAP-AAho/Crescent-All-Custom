@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Defination of LC Import'
+define service zsd_lcimport {
+  expose zc_lchead;
+  expose ZC_LCBANK_DLTS;
+  expose zc_lcimpoi;
+  expose zc_lcbank_ref;
+}

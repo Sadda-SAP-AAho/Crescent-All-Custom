@@ -1,0 +1,5 @@
+@EndUserText.label: 'Interest Calc.'
+define service ZSERV_D_INTCAL {
+  expose ZC_INTCAL_HD;
+  expose ZC_INTCAL_IT;
+}

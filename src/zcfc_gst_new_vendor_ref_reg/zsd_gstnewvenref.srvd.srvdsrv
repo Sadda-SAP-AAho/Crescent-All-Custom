@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for ZC_GSTNEWVENREF'
+define service ZSD_GSTNEWVENREF {
+  expose ZC_GSTNEWVENREF;
+}

@@ -1,0 +1,87 @@
+managed implementation in class zbp_r_scrollhead unique;
+strict;
+with draft;
+
+
+define behavior for ZR_SCROLLHEAD alias head
+persistent table zdt_scroll_head
+draft table zdt_scroll_hddr
+lock master
+total etag local_last_changed_at
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  action ( features : instance ) uploadExcelData result [1] $self;
+
+  field ( mandatory : create, readonly : update ) scrollno, scrolldate, scrolltype;
+  field ( readonly ) statusdesc, statuscode, accountingdocdet, rodtepttl, appliedamountttl;
+  field ( features : instance, mandatory ) post;
+  //  field ( readonly ) filename;
+  field ( features : instance ) Attachment;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  field ( readonly, numbering : managed ) id;
+
+  validation check on save { create; update; }
+  validation upload_filedata on save { create; update; }
+
+  determination post on save { field post; }
+  determination status on save { create; update; }
+  determination shippingbill on save { field shippingbill; }
+  determination fields on modify { field Filename; }
+  determination uploadfile on save { create; }
+
+
+
+  association _item { create ( features : instance ); with draft; }
+
+  mapping for zr_scrollhead
+    {
+      accountingdocdet = accountingdocdet;
+      appliedamountttl = appliedamountttl;
+      post             = post;
+      rodtepttl        = rodtepttl;
+      scrolldate       = scrolldate;
+      scrollno         = scrollno;
+      scrolltype       = scrolltype;
+      statuscode       = statuscode;
+      statusdesc       = statusdesc;
+    }
+}
+
+define behavior for ZR_SCROLLITEM alias item
+persistent table zdt_scroll_item
+draft table zdt_scroll_itdr
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly ) id, port_codename, fob_lc_v, rodtep_dd_v, shipping_bill, shipping_bill_date, port_code;
+  field ( readonly, numbering : managed ) item;
+
+  determination values on modify { field shipping_bill; }
+  determination update_head on save { create; update; }
+  determination update_apply_amt on modify { field appliedamount; }
+
+  validation check_data on save { create; update; }
+
+  side effects
+  {
+    field shipping_bill affects field _head.rodtepttl;
+    field appliedamount affects field _head.rodtepttl, field _head.appliedamountttl;
+  }
+
+  association _head;
+}

@@ -1,0 +1,95 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Resource',
+    typeNamePlural: 'Resource Master',
+    typeImageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgdkZGiw9frLmFH3f3k0GrhK0pi-GpDpM2bw&s'
+//    title: {
+//        type: #STANDARD,
+//        label: 'Resource Master'
+//    },
+//    description: {
+//    type: #STANDARD,
+//    label: 'Resource Master'
+//}
+}                                                                                         
+
+
+
+annotate entity Z_C_RESOURCE_MASTER
+    with 
+{
+    @UI.facet: [{ id: 'head', type: #IDENTIFICATION_REFERENCE, position: 10, purpose: #STANDARD, label: 'Resource Master Dashboard'  }]
+
+@UI.hidden: true
+Requestuuid;
+
+@UI.lineItem: [{ position: 10  }]
+@UI.identification: [{position: 10}]    
+@EndUserText.label: 'Resource Code'
+ Resource_code;
+@UI.lineItem: [{ position: 20  }]
+@UI.identification: [{position: 20}]    
+@EndUserText.label: 'Resource Name' 
+      Resource_name;
+@UI.lineItem: [{ position: 30  }]
+@UI.identification: [{position: 30}]    
+@EndUserText.label: 'Plant'      
+@Consumption.valueHelpDefinition: [{
+    entity: {
+        name: 'ZPLANT_F4',
+        element: 'plant'
+    }
+}] 
+      Plant;
+@UI.lineItem: [{ position: 40  }]
+@UI.identification: [{position: 40}]    
+@EndUserText.label: 'No of Resource'       
+      No_of_resource;
+@UI.lineItem: [{ position: 50  }]
+@UI.identification: [{position: 50}]    
+@EndUserText.label: 'Available Hours per Day'          
+      available_hours_per_day;
+@UI.lineItem: [{ position: 60  }]
+@UI.identification: [{position: 60}]    
+@EndUserText.label: 'Capacity/Hours in Kg'    
+      Capacity_hrs_in_kg;
+@UI.lineItem: [{ position: 70  }]
+@UI.identification: [{position: 70}]    
+@EndUserText.label: 'Set Up Time'          
+      Set_up_time;
+@UI.lineItem: [{ position: 90  }]
+@UI.identification: [{position: 80}]    
+@EndUserText.label: 'Lead Time'    
+      Lead_time;
+@UI.lineItem: [{ position: 100  }]
+@UI.identification: [{position: 90}]    
+@EndUserText.label: 'No of Shift'          
+      No_of_shift;
+@UI.lineItem: [{ position: 110  }]
+@UI.identification: [{position: 100}]    
+@EndUserText.label: 'Extra 1'          
+      Extra1;
+@UI.lineItem: [{ position: 120  }]
+@UI.identification: [{position: 110}]    
+@EndUserText.label: 'Extra 2'          
+      Extra2;
+@UI.lineItem: [{ position: 130  }]
+@UI.identification: [{position: 120}]    
+@EndUserText.label: 'Created at'          
+      Created_at;
+@UI.lineItem: [{ position: 140  }]
+@UI.identification: [{position: 130}]    
+@EndUserText.label: 'Created by'          
+      Created_by;
+@UI.lineItem: [{ position: 150  }]
+@UI.identification: [{position: 140}]    
+@EndUserText.label: 'Last Changed at'          
+      Last_changed_at;
+@UI.lineItem: [{ position: 160  }]
+@UI.identification: [{position: 150}]    
+@EndUserText.label: 'Last Changed by'          
+      Last_changed_by;   
+    
+    
+    
+}

@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_Location_S'
+define service ZUI_LOCATION {
+  expose ZI_LOCATION_S as LocationAll;
+  expose ZI_LOCATION as Location;
+}

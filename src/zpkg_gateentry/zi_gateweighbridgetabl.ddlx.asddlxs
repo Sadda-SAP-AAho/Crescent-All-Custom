@@ -1,0 +1,88 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'GateWeighbridgeTabl',
+    typeNamePlural: 'GateWeighbridgeTabls',
+    title: {
+      type: #STANDARD,
+      label: 'gate weighbridge table',
+      value: 'Gateno'
+    }
+  }
+}
+annotate view ZI_GateWeighbridgeTabl with
+{
+  @UI.hidden: true
+  ConfigDeprecationCode_Critlty;
+
+  @UI.identification: [ {
+    position: 1
+  } ]
+  @UI.lineItem: [ {
+    position: 1
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_GateWeighbridgeTabl',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'gate weighbridge table',
+    position: 1
+  } ]
+  @EndUserText.label: 'Gate Number'
+  @Consumption.valueHelpDefinition: [{ entity:{  name:'ZR_F4_GATEENTRY',element: 'value_low' },
+                                      distinctValues: true,
+                                      useForValidation: true }]
+  Gateno;
+
+  @UI.identification: [ {
+    position: 2
+  } ]
+  @UI.lineItem: [ {
+    position: 2
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity:{  name:'ZR_F4_WEIGH',element: 'value_low' },
+                                      distinctValues: true,
+                                      useForValidation: true }]
+  @EndUserText.label: 'Weighbridge Number'
+  Weighbridge;
+
+  @UI.identification: [ {
+    position: 3
+  } ]
+  @UI.lineItem: [ {
+    position: 3
+  } ]
+  @EndUserText.label: 'Number Range object'
+  Object;
+
+  @UI.identification: [ {
+    position: 4 ,
+    criticality: 'ConfigDeprecationCode_Critlty'
+  },
+  {
+    type: #FOR_ACTION,
+    dataAction: 'Deprecate',
+    label: 'Deprecate'
+  },
+  {
+    type: #FOR_ACTION,
+    dataAction: 'Invalidate',
+    label: 'Invalidate'
+  } ]
+  @UI.textArrangement: #TEXT_ONLY
+  @UI.lineItem: [ {
+    position: 4 ,
+    criticality: 'ConfigDeprecationCode_Critlty'
+  },
+  {
+    type: #FOR_ACTION,
+    dataAction: 'Deprecate',
+    label: 'Deprecate Selected Entry'
+  },
+  {
+    type: #FOR_ACTION,
+    dataAction: 'Invalidate',
+    label: 'Invalidate Selected Entry'
+  } ]
+  ConfigDeprecationCode;
+}

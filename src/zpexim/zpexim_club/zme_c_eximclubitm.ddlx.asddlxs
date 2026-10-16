@@ -1,0 +1,207 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: {
+  presentationVariant: [{ sortOrder: [{ by: 'invoice', direction:  #ASC }],
+                          visualizations: [{type: #AS_LINEITEM}],
+                          text: 'Invoice' }]
+     }
+
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Invoice', value: 'invoice' } } }
+
+annotate view ZC_EXIMCLUBITM with
+{
+
+  @UI.facet: [
+  {
+  id: 'GeneralI',
+  isSummary: true,
+  label: 'Finished Materials',
+  type: #COLLECTION,
+  purpose: #STANDARD
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData1',
+  parentId: 'GeneralI',
+  label: 'Invoice Detail',
+  id: 'GeneralData1'
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData2',
+  parentId: 'GeneralI',
+  label: 'Quantity/Amount',
+  id: 'GeneralData2'
+  }
+  ]
+
+  @UI.hidden: true
+  id;
+
+  @UI.hidden: true
+  item;
+
+  @UI.hidden: true
+  clubnointernal;
+
+  @UI: {
+          identification: [{position: 10 }],
+          lineItem: [{position: 10 }],
+          fieldGroup: [{qualifier: 'GeneralData1', position: 10,importance: #HIGH }]
+  }
+
+  @Consumption.valueHelpDefinition: [{
+        entity:{
+        element: 'BillingCombo',
+        name:'ZI_CLUBBILDOCF4TP_1'
+        },
+
+        distinctValues: true,
+        useForValidation: true,
+        enabled: '',
+
+        additionalBinding:
+        [
+        {
+          localParameter: '',
+          localElement: 'invoice',
+          localConstant: '',
+          parameter: '',
+          element: 'BillingDocument',
+          usage: #RESULT
+         },
+        {
+          localParameter: '',
+          localElement: 'posnr',
+          localConstant: '',
+          parameter: '',
+          element: 'BillingDocumentItem',
+          usage: #RESULT
+         },
+        {
+          localParameter: '',
+          localElement: 'matnr',
+          localConstant: '',
+          parameter: '',
+          element: 'Product',
+          usage: #RESULT
+         },
+        {
+          localParameter: '',
+          localElement: 'maktx',
+          localConstant: '',
+          parameter: '',
+          element: 'BillingDocumentItemText',
+          usage: #RESULT
+         },
+        {
+          localParameter: '',
+          localElement: 'plant',
+          localConstant: '',
+          parameter: '',
+          element: 'Plant',
+          usage: #RESULT
+         },
+         {
+          localParameter: '',
+          localElement: 'hsnsac',
+          localConstant: '',
+          parameter: '',
+          element: 'HSNSAC',
+          usage: #RESULT
+         }
+         ]
+        }
+      ]
+
+  choose;
+
+  @UI: {
+          identification: [{position: 20 }],
+          lineItem: [{position: 20 }],
+          fieldGroup: [{qualifier: 'GeneralData1', position: 20,importance: #HIGH }]
+  }
+  invoice;
+
+  @UI: {
+          identification: [{position: 30 }],
+          lineItem: [{position: 30 }],
+          fieldGroup: [{qualifier: 'GeneralData1', position: 30,importance: #HIGH }]
+  }
+  posnr;
+
+  @UI.hidden: true
+  matnr;
+
+  @UI: {
+          identification: [{position: 50 }],
+          lineItem: [{position: 50 }],
+          fieldGroup: [{qualifier: 'GeneralData1', position: 50,importance: #HIGH }]
+  }
+  maktx;
+
+  @UI: {
+          identification: [{position: 60 }],
+          lineItem: [{position: 60 }],
+          fieldGroup: [{qualifier: 'GeneralData1', position: 60,importance: #HIGH }]
+  }
+  hsnsac;
+
+  @UI: {
+          identification: [{position: 70 }],
+          lineItem: [{position: 70 }],
+          fieldGroup: [{qualifier: 'GeneralData1', position: 70,importance: #HIGH }]
+  }
+  plant;
+
+  @UI: {
+          identification: [{position: 80 }],
+          lineItem: [{position: 80 }],
+          fieldGroup: [{qualifier: 'GeneralData2', position: 10,importance: #HIGH }]
+  }
+  availableqty;
+
+  @UI: {
+          identification: [{position: 90 }],
+          lineItem: [{position: 90 }],
+          fieldGroup: [{qualifier: 'GeneralData2', position: 20,importance: #HIGH }]
+  }
+  appliedqty;
+
+  @UI.hidden: true
+  uom;
+
+  @UI: {
+          identification: [{position: 110 }],
+          lineItem: [{position: 110 }],
+          fieldGroup: [{qualifier: 'GeneralData2', position: 40,importance: #HIGH }]
+  }
+  netprice;
+
+  @UI: {
+          identification: [{position: 120 }],
+          lineItem: [{position: 120 }],
+          fieldGroup: [{qualifier: 'GeneralData2', position: 40,importance: #HIGH }]
+  }
+  netvalue;
+
+  @UI.hidden: true
+  currency;
+
+  @UI: {
+          identification: [{position: 140 }],
+          lineItem: [{position: 140 }],
+          fieldGroup: [{qualifier: 'GeneralData2', position: 60,importance: #HIGH }]
+  }
+  netweight;
+
+  @UI: {
+          identification: [{position: 150 }],
+          lineItem: [{position: 150 }],
+          fieldGroup: [{qualifier: 'GeneralData2', position: 70,importance: #HIGH }]
+  }
+  grossweight;
+
+}

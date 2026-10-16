@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "DPR DI Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "DPR DI Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zdprdi"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_DED1C3668EA7E0372B8E0295A39B59578267C423_TM",
+    "semanticObject": "zdprdi",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_DED1C3668EA7E0372B8E0295A39B59578267C423_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "DPR DI Report"
+      }
+    }
+  ]
+}

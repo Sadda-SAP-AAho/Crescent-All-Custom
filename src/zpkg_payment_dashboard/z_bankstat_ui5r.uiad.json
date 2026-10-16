@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Bank Status for Payment Dashboard",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Bank Status for Payment Dashboard"
+  },
+  "ui5AppDetails": {
+    "appId": "zbankstst"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_0FF2CCE5463FF7848BDEC4B060C0102A022A3A34_TM",
+    "semanticObject": "z_bankstst",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_0FF2CCE5463FF7848BDEC4B060C0102A022A3A34_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Bank Status for Payment Dashboard"
+      }
+    }
+  ]
+}

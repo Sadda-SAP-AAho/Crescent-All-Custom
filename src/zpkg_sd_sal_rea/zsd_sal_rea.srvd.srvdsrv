@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Sales Realization Report'
+define service ZSD_SAL_REA {
+  expose ZC_SAL_REA;
+}

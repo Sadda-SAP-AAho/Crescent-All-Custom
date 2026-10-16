@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Partner Bank Update",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Partner Bank Update"
+  },
+  "ui5AppDetails": {
+    "appId": "zppvenbank"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_1ABA45094163B429D86C7FD56CE49764422B43AB_TM",
+    "semanticObject": "zpp_venbank",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_1ABA45094163B429D86C7FD56CE49764422B43AB_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Partner Bank Update"
+      }
+    }
+  ]
+}

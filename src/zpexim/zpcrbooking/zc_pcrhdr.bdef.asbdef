@@ -1,0 +1,47 @@
+projection;
+strict;
+use draft;
+use side effects;
+
+define behavior for ZC_PCRHDR //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use action Upd;
+
+  use association _item { create; with draft; }
+  use association _item1 { create; with draft; }
+  use association _item2 { create; with draft; }
+}
+
+define behavior for ZC_PCRITM //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head { with draft; }
+}
+
+define behavior for ZC_PCRITM1 //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head { with draft; }
+}
+
+define behavior for ZC_PCRITM2 //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head { with draft; }
+}

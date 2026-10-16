@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Sales Order Report'
+define service ZSD_SOREPORT {
+  expose ZC_SOREPORT;
+}

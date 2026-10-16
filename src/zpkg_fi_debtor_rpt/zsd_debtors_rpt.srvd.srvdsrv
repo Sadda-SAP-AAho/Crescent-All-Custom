@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Debtors Report'
+define service ZSD_DEBTORS_RPT {
+  expose ZC_FI_DEBTOR_RPT;
+}

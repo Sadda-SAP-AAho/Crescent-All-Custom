@@ -1,0 +1,75 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'User Wise Business Role',
+                typeNamePlural:'User Wise Business Role',
+                title: { type: #STANDARD, label: 'User Wise Business Role', value: 'User_Id' }
+
+              }
+     }
+annotate entity ZC_USERBUSINESSROLE with
+{
+  @UI.facet:
+  [{id: 'GeneralData', isSummary: true, label: 'Item Details', type: #COLLECTION, position: 5},
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: '', id: 'GeneralData1' }]
+
+  @UI: { lineItem: [{ position: 5 }],
+         identification: [{ position: 5 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+
+  User_Id;
+
+  @UI: { lineItem: [{ position: 10 }],
+       identification: [{ position: 10 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 10}]
+  Full_Name;
+
+  @UI: { lineItem: [{ position: 15 }],
+   identification: [{ position: 15 }],
+   fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 15}]
+  User_Price_Catg;
+
+  @UI: { lineItem: [{ position: 20 }],
+   identification: [{ position: 20 }],
+   fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 20}]
+  User_Locked;
+
+  @UI: { lineItem: [{ position: 25 }],
+       identification: [{ position: 25 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 25}]
+  Last_Logon_Date;
+
+  @UI: { lineItem: [{ position: 30 }],
+       identification: [{ position: 30 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 30}]
+  Last_Logon_Time;
+
+  @UI: { lineItem: [{ position: 35 }],
+       identification: [{ position: 35 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 35}]
+  Business_Role_Id;
+
+  @UI: { lineItem: [{ position: 40 }],
+       identification: [{ position: 40 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 40}]
+  Business_Role;
+
+  @UI: { lineItem: [{ position: 45 }],
+       identification: [{ position: 45 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 45}]
+  Business_Role_Price_Catg;
+
+  @UI: { lineItem: [{ position: 50 }],
+       identification: [{ position: 50 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Email_ID;
+
+}

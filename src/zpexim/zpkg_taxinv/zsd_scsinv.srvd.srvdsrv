@@ -1,0 +1,9 @@
+@EndUserText.label: 'Service Defination for SampleCustoms Inv'
+define service ZSD_SCSINV {
+
+
+  expose ZCDS_CUSTSAMPLE_ITM;
+  expose ZCDS_CUSTSAMPLE_ITM2;
+  expose ZCDS_CUSTSAMPLE_ITM3;
+  expose ZCUS_CUSTSALES_INV;
+}

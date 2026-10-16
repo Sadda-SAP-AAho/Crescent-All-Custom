@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Labour Booking Register",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Labour Booking Register"
+  },
+  "ui5AppDetails": {
+    "appId": "zlabbkngrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_B91FEF26DEF17FBF24362DB6A0FE9159FEF67471_TM",
+    "semanticObject": "zlabbkngrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_B91FEF26DEF17FBF24362DB6A0FE9159FEF67471_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Labour Booking Register",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for BOE Form App'
+define service ZSERV_BOEFORM {
+  expose ZC_BOEFORM;
+}

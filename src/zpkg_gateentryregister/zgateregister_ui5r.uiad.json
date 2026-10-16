@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Gate Entry",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Gate Entry"
+  },
+  "ui5AppDetails": {
+    "appId": "zgatereport"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_53803C30E2D3A3CA9F43AF0523EAACB20EA64CA8_TM",
+    "semanticObject": "zgateregister",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_53803C30E2D3A3CA9F43AF0523EAACB20EA64CA8_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Gate Entry",
+        "subtitle": "Register"
+      }
+    }
+  ]
+}

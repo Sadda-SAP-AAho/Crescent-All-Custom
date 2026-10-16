@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Vendor Ledger"
+  },
+  "ui5AppDetails": {
+    "appId": "zvenled"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_CBB9B4E4A95E958D0402ABF96921AA69FBFAB73A_TM",
+    "semanticObject": "zvenled",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_CBB9B4E4A95E958D0402ABF96921AA69FBFAB73A_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Vendor Ledger",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Order DMS"
+  },
+  "ui5AppDetails": {
+    "appId": "zsodms"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_52F30D2A75458C3D474695B0541EB0C1714CF69A_TM",
+    "semanticObject": "zsalesorderdms",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_52F30D2A75458C3D474695B0541EB0C1714CF69A_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Order DMS",
+        "subtitle": "ZSODMS"
+      }
+    }
+  ]
+}

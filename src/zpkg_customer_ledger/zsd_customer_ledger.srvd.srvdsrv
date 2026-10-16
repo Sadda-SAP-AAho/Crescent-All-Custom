@@ -1,0 +1,4 @@
+@EndUserText.label: 'Customer Ledger'
+define service ZSD_CUSTOMER_LEDGER {
+  expose ZI_CUSTOMER_LEDGER;
+}

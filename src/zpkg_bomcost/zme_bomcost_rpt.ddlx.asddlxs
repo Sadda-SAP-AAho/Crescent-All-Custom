@@ -1,0 +1,104 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'BOM COST Report',
+                typeNamePlural:'BOM COST Report',
+                title: { type: #STANDARD, label: 'BOM COST Report', value: 'Hedmaterial' }
+              }
+     }
+annotate entity ZC_BOMCOST_RPT with
+{
+
+  @UI.facet:
+  [{ id : 'GeneralData', isSummary: true, label: 'BOM COST Report', position: 5, type: #COLLECTION },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Report Details', id: 'GeneralData1' }
+  ]
+
+  @UI: { lineItem: [ { position: 5} ], identification: [{position: 5 }],selectionField: [{ position: 5 }] }
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Plant;
+  @UI: { lineItem: [ { position: 10} ], identification: [{position: 5 }],selectionField: [{ position: 10 }] }
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Hedmaterial;
+  @UI: { lineItem: [ { position: 12} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 12,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  HeaderGrpCode;
+  @UI: { lineItem: [ { position: 15} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  HeaderGrpName;
+  @UI: { lineItem: [ { position: 18} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 18,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  HeadQty;
+  @UI: { lineItem: [ { position: 20} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Bomlevel;
+  @UI: { lineItem: [ { position: 25} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Parent;
+  @UI: { lineItem: [ { position: 26} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 26,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ParentGrosswt;
+  @UI.hidden: true
+  ParentGrossWtUnit;
+  @UI: { lineItem: [ { position: 28} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 28,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ParentNetwt;
+  @UI.hidden: true
+  ParentNetWtUnit;
+  @UI.hidden: true
+  seq;
+  @UI: { lineItem: [ { position: 30} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Costitemcat;
+  @UI.hidden: true
+  sequence;
+  @UI: { lineItem: [ { position: 35} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Component;
+  @UI: { lineItem: [ { position: 40} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ChildDesc;
+  @UI: { lineItem: [ { position: 42} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 42,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ChildGrpCode;
+  @UI: { lineItem: [ { position: 44} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 44,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ChildGrpName;
+  @UI: { lineItem: [ { position: 45} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ChildStorageLoc;
+  @UI: { lineItem: [ { position: 48} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 48,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Childqty;
+  @UI: { lineItem: [ { position: 50} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Bomitemqtyunit;
+  @UI: { lineItem: [ { position: 55} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ChildNetwt;
+  @UI: { lineItem: [ { position: 60} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ChildWtUnit;
+  @UI: { lineItem: [ { position: 65} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 65,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ChildPlant;
+  @UI.hidden: true
+  MaterialBaseUnit;
+  @UI: { lineItem: [ { position: 75} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 75,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ChildMatlStock;
+  @UI: { lineItem: [ { position: 80} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 80,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  PriceControl;
+  @UI.hidden: true
+  Currency;
+  @UI: { lineItem: [ { position: 85} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 85,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Rate;
+  @UI: { lineItem: [ { position: 90} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 90,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  RateQty;
+  @UI: { lineItem: [ { position: 95} ], identification: [{position: 5 }] }
+  @UI.fieldGroup: [ { position: 95,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Amount;
+
+}

@@ -1,0 +1,140 @@
+managed implementation in class zbp_r_boetp unique;
+strict ( 1 );
+with draft;
+
+define behavior for ZR_BOETP //alias <alias_name>
+persistent table zim_boe_hdr
+draft table zim_boe_hdr_dr
+etag master LocalLastChangedAt
+lock master total etag Locallastchangedat
+authorization master ( global )
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly, numbering : managed ) InternalBoe;
+  field ( mandatory : create, readonly : update ) Boenumber, Boedate, Exchangerate;
+  field ( readonly ) Supplier, suppliername;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  validation save_details on save { create; update; }
+  determination change_details on modify { create; update; }
+
+  association _BOELIC { create; with draft; }
+  association _BOEItem { create; with draft; }
+  mapping for zim_boe_hdr
+    {
+      Bldate             = bldate;
+      Blnumber           = blnumber;
+      Boedate            = boedate;
+      Boenumber          = boenumber;
+      Exchangerate       = exchangerate;
+      Incoterms          = incoterms;
+      InternalBoe        = internalboe;
+      Loadingport        = loadingport;
+      Locallastchangedat = locallastchangedat;
+      Shipmentmode       = shipmentmode;
+      Supplier           = supplier;
+      Unloadingport      = unloadingport;
+      assessableamount   = assessableamount;
+      suppliername       = suppliername;
+      usageamount        = usageamount;
+    }
+
+}
+
+define behavior for ZR_BOELICTP //alias <alias_name>
+persistent table zdt_boe_lic
+draft table zim_boe_lic_dr
+etag master LocalLastChangedAt
+lock dependent by _BOE
+authorization dependent by _BOE
+//etag master <field_name>
+{
+  update;
+  delete;
+
+  field ( readonly ) InternalBoe, Pendingamount, Locallastchangedat, Licencenumber, assignamount;
+
+  field ( readonly, numbering : managed ) InternalItemBoe;
+
+  determination update_utilization on modify { field Licencint; }
+  determination change_details on modify { field Usageamount; }
+
+  side effects
+  {
+//    field Licencenumber affects field Pendingamount, field assignamount;
+    field Licencint affects field Licencenumber, field Pendingamount, field assignamount;
+    field Usageamount affects field _BOE.usageamount,field Pendingamount, field assignamount;
+  }
+
+  association _BOE { with draft; }
+  mapping for zdt_boe_lic
+    {
+      InternalBoe        = internalboe;
+      InternalItemBoe    = internalitemboe;
+      Licencenumber      = licencenumber;
+      Licencint          = licenceint;
+      Usageamount        = usageamount;
+      Pendingamount      = pendingamount;
+      assignamount       = assignamount;
+      FobFc              = fob_fc;
+      Locallastchangedat = locallastchangedat;
+    }
+
+}
+
+define behavior for ZR_BOEITEMTP //alias <alias_name>
+persistent table zim_boe_item
+draft table zim_boe_item_dr
+etag master LocalLastChangedAt
+lock dependent by _BOE
+authorization dependent by _BOE
+//etag master <field_name>
+{
+  update;
+  delete;
+
+  field ( readonly ) InternalBoe, locallastchangedat, Material, Makxt, Povalue, Poqty, Assessablevalue;
+  //    field ( features : instance  ) Assessablevalue;
+
+  field ( readonly, numbering : managed ) InternalItemBoe;
+
+  side effects
+  {
+    field Po affects field Assessablevalue, field _BOE.Supplier, field _BOE.suppliername, field _BOE.assessableamount,
+        field Currency, field DutyCurrency, field Unit;
+    field Assessablevaluefc affects field Assessablevalue;
+  }
+
+  determination change_details on modify { field Po; }
+  determination change_assessbleamt on modify { field Assessablevaluefc; }
+
+  association _BOE { with draft; }
+  mapping for zim_boe_item
+    {
+      Arrivedqty         = arrivedqty;
+      Assessablevalue    = assessablevalue;
+      Assessablevaluefc  = assessablevaluefc;
+      Currency           = currency;
+      InternalBoe        = internalboe;
+      InternalItemBoe    = internalitemboe;
+      Makxt              = makxt;
+      Material           = material;
+      Po                 = po;
+      Poitem             = poitem;
+      Poqty              = poqty;
+      Povalue            = povalue;
+      Totaldutysaved     = totaldutysaved;
+      Unit               = unit;
+      locallastchangedat = locallastchangedat;
+      DutyCurrency       = dutycurrency;
+    }
+
+}

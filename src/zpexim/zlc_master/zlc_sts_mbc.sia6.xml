@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SIA6" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SIA6>
+    <MAIN_OBJECT>
+     <NAME>ZLC_STS_MBC</NAME>
+     <TYPE>SIA6</TYPE>
+     <DESCRIPTION>IAM For ZLC_MASTER</DESCRIPTION>
+     <RESPONSIBLE>CB9980000000</RESPONSIBLE>
+     <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
+     <MASTER_SYSTEM>NRT</MASTER_SYSTEM>
+     <PACKAGE_REF>
+      <PACKAGE_NAME>ZLC_MASTER</PACKAGE_NAME>
+     </PACKAGE_REF>
+     <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
+    </MAIN_OBJECT>
+    <APP_ID>ZLC_STS_MBC</APP_ID>
+    <APP_TYPE>MBC</APP_TYPE>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+    <SERVICE>
+     <item>
+      <REL_NAME>ZUI_TABLEFORBANKTYPE_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZLC_STS_MBC</APP_ID>
+      <SRVC_NAME>9AB6275F2F8B3CB304B4A9975C5FDD</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain Table for Bank Type</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_TABLEFORFDTYPE_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZLC_STS_MBC</APP_ID>
+      <SRVC_NAME>0D08FE459998AD7BBB6425259E532D</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain Table for FD Type</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_TABLEFORFINALASSESM_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZLC_STS_MBC</APP_ID>
+      <SRVC_NAME>A07B6947109322B6D181BFF921B5A4</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain Table for Final Assesment</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_TABLEFORLCBASE_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZLC_STS_MBC</APP_ID>
+      <SRVC_NAME>859EB4419B6D2CBA0ABA3E771E0A9F</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain Table for LC Base</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_TABLEFORLCCHARGES_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZLC_STS_MBC</APP_ID>
+      <SRVC_NAME>2DB12DB0760037F5CDACD02A790E84</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain Table for LC Charges</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_TABLEFORLCSTATUS_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZLC_STS_MBC</APP_ID>
+      <SRVC_NAME>A8E6E1BBF4AD6F70B95AF067829D21</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain Table for LC Status</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_TABLEFORLCTYPE_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZLC_STS_MBC</APP_ID>
+      <SRVC_NAME>23D4AF6CDDAC3ABCF588C47AE46FC6</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain Table for LC Type</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_TABLEFORPSAINDICATO_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZLC_STS_MBC</APP_ID>
+      <SRVC_NAME>8CD4C7E399D35A08DACB1B8635BD39</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain Table for PSA Indicator</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_TABLEFORSHIPMENTMOD_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZLC_STS_MBC</APP_ID>
+      <SRVC_NAME>DA979604B123516BB6241E06885BC1</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain Table for Shipment Mode</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+    </SERVICE>
+    <AUTH>
+     <item>
+      <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+      <STATUS>U</STATUS>
+      <TEXT>Table Access by Generic Standard Tools</TEXT>
+      <AUTH_ITEM>
+       <item>
+        <UUID>C/Y0zUqiHt+rqwS4FUKsCA==</UUID>
+        <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0001</AUTH_OBJECT_INSTANCE>
+        <TEXT>Table Access by Generic Standard Tools</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display,Change,Display change documents</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FULsCA==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FULMCA==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUMMCA==</UUID>
+            <LOW_VALUE>08</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>TABLE</FIELD>
+          <VALUE>ZI_TABLEFORLCSTATUS</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUMsCA==</UUID>
+            <LOW_VALUE>ZI_TABLEFORLCSTATUS</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Table Name</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+       <item>
+        <UUID>C/Y0zUqiHt+rqwS4FUNMCA==</UUID>
+        <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0002</AUTH_OBJECT_INSTANCE>
+        <TEXT>Table Access by Generic Standard Tools</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display,Change,Display change documents</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUOsCA==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUNsCA==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUOMCA==</UUID>
+            <LOW_VALUE>08</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>TABLE</FIELD>
+          <VALUE>ZI_TABLEFORLCTYPE</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUPMCA==</UUID>
+            <LOW_VALUE>ZI_TABLEFORLCTYPE</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Table Name</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+       <item>
+        <UUID>C/Y0zUqiHt+rqwS4FUPsCA==</UUID>
+        <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0003</AUTH_OBJECT_INSTANCE>
+        <TEXT>Table Access by Generic Standard Tools</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display,Change,Display change documents</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUQsCA==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUQMCA==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FURMCA==</UUID>
+            <LOW_VALUE>08</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>TABLE</FIELD>
+          <VALUE>ZI_TABLEFORLCBASE</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FURsCA==</UUID>
+            <LOW_VALUE>ZI_TABLEFORLCBASE</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Table Name</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+       <item>
+        <UUID>C/Y0zUqiHt+rqwS4FUSMCA==</UUID>
+        <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0004</AUTH_OBJECT_INSTANCE>
+        <TEXT>Table Access by Generic Standard Tools</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display,Change,Display change documents</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUTMCA==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUSsCA==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUTsCA==</UUID>
+            <LOW_VALUE>08</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>TABLE</FIELD>
+          <VALUE>ZI_TABLEFORFINALASSESM</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUUMCA==</UUID>
+            <LOW_VALUE>ZI_TABLEFORFINALASSESM</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Table Name</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+       <item>
+        <UUID>C/Y0zUqiHt+rqwS4FUUsCA==</UUID>
+        <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0005</AUTH_OBJECT_INSTANCE>
+        <TEXT>Table Access by Generic Standard Tools</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display,Change,Display change documents</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUVsCA==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUVMCA==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUWMCA==</UUID>
+            <LOW_VALUE>08</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>TABLE</FIELD>
+          <VALUE>ZI_TABLEFORLCCHARGES</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUWsCA==</UUID>
+            <LOW_VALUE>ZI_TABLEFORLCCHARGES</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Table Name</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+       <item>
+        <UUID>C/Y0zUqiHt+rqwS4FUXMCA==</UUID>
+        <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0006</AUTH_OBJECT_INSTANCE>
+        <TEXT>Table Access by Generic Standard Tools</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display,Change,Display change documents</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUYMCA==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUXsCA==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUYsCA==</UUID>
+            <LOW_VALUE>08</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>TABLE</FIELD>
+          <VALUE>ZI_TABLEFORBANKTYPE</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUZMCA==</UUID>
+            <LOW_VALUE>ZI_TABLEFORBANKTYPE</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Table Name</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+       <item>
+        <UUID>C/Y0zUqiHt+rqwS4FUZsCA==</UUID>
+        <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0007</AUTH_OBJECT_INSTANCE>
+        <TEXT>Table Access by Generic Standard Tools</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display,Change,Display change documents</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUasCA==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUaMCA==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUbMCA==</UUID>
+            <LOW_VALUE>08</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>TABLE</FIELD>
+          <VALUE>ZI_TABLEFORPSAINDICATO</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUbsCA==</UUID>
+            <LOW_VALUE>ZI_TABLEFORPSAINDICATO</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Table Name</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+       <item>
+        <UUID>C/Y0zUqiHt+rqwS4FUcMCA==</UUID>
+        <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0008</AUTH_OBJECT_INSTANCE>
+        <TEXT>Table Access by Generic Standard Tools</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display,Change,Display change documents</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUdsCA==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUcsCA==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUdMCA==</UUID>
+            <LOW_VALUE>08</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>TABLE</FIELD>
+          <VALUE>ZI_TABLEFORSHIPMENTMOD</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUeMCA==</UUID>
+            <LOW_VALUE>ZI_TABLEFORSHIPMENTMOD</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Table Name</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+       <item>
+        <UUID>C/Y0zUqiHt+rqwS4FUesCA==</UUID>
+        <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0009</AUTH_OBJECT_INSTANCE>
+        <TEXT>Table Access by Generic Standard Tools</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display,Change,Display change documents</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUfsCA==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUfMCA==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUgMCA==</UUID>
+            <LOW_VALUE>08</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>TABLE</FIELD>
+          <VALUE>ZI_TABLEFORFDTYPE</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+rqwS4FUgsCA==</UUID>
+            <LOW_VALUE>ZI_TABLEFORFDTYPE</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Table Name</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+      </AUTH_ITEM>
+     </item>
+    </AUTH>
+    <PUBLISH_STATUS>p</PUBLISH_STATUS>
+   </SIA6>
+  </asx:values>
+ </asx:abap>
+</abapGit>

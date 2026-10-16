@@ -1,0 +1,404 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'Delivery', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Delivery Dashboard' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Delivery Dashboard', value: 'Delivery' } } }
+annotate entity ZC_DELDASH_HDR with
+{
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'Delivery Header', type: #COLLECTION },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Header Details', id: 'GeneralData1' },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15, label: '', id: 'GeneralData2' },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 20, label: '', id: 'GeneralData3' },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData4', parentId: 'GeneralData', position: 25, label: 'Go Comet Details', id: 'GeneralData4' },
+
+   { id: 'DelitemI', label: 'Delivery Item', type: #LINEITEM_REFERENCE, position : 25, targetElement: '_Item' }]
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'DeliveryDocument', name: 'I_DeliveryDocument' },
+                                                distinctValues: true,
+                                                useForValidation: true } ]
+  Delivery;
+  @UI.lineItem: [ { position: 6 } ]
+  @UI.identification: [ { position: 6 } ]
+  @UI.fieldGroup: [ { position: 6,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Revision;
+
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Supplier', name:'I_Supplier' },
+                                                distinctValues: true,
+                                                useForValidation: true
+                                    }]
+  Chaname;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  @UI.hidden: true
+  Pacmark;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'value_low', name:'ZI_YES_NO_F4' },
+                                                distinctValues: true,
+                                                useForValidation: true } ]
+  Packrelfac;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Scomdec;
+  @UI.lineItem: [ { position: 65 } ]
+  @UI.identification: [ { position: 65 } ]
+  @UI.fieldGroup: [ { position: 65,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Femadec;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Lcno;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 75 } ]
+  @UI.identification: [ { position: 75 } ]
+  @UI.fieldGroup: [ { position: 75,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Lcdt;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 250 } ]
+  @UI.identification: [ { position: 250 } ]
+  @UI.fieldGroup: [ { position: 250,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Issbnkname;
+
+  @UI.hidden: true
+  Consize;
+  @UI.lineItem: [ { position: 252 } ]
+  @UI.identification: [ { position: 252 } ]
+  @UI.fieldGroup: [ { position: 252,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity: {name: 'ZI_CONSIZE_F4' , element: 'value_low' },
+                                                distinctValues: true,
+                                                useForValidation: true  }]
+  Consizen;
+  @UI.lineItem: [ { position: 255 } ]
+  @UI.identification: [ { position: 255 } ]
+  @UI.fieldGroup: [ { position: 255,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Docrelchadt;
+  @UI.lineItem: [ { position: 260 } ]
+  @UI.identification: [ { position: 260 } ]
+  @UI.fieldGroup: [ { position: 260,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Conliftdt;
+  @UI.lineItem: [ { position: 265 } ]
+  @UI.identification: [ { position: 265 } ]
+  @UI.fieldGroup: [ { position: 265,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Confacindt;
+  @UI.lineItem: [ { position: 270 } ]
+  @UI.identification: [ { position: 270 } ]
+  @UI.fieldGroup: [ { position: 270,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Conpckvaldt;
+  @UI.lineItem: [ { position: 275 } ]
+  @UI.identification: [ { position: 275 } ]
+  @UI.fieldGroup: [ { position: 275,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  Conpckletdt;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 280 } ]
+  @UI.identification: [ { position: 280 } ]
+  @UI.fieldGroup: [ { position: 280,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  Shipbillno;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 285 } ]
+  @UI.identification: [ { position: 285 } ]
+  @UI.fieldGroup: [ { position: 285,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Shpbilldt;
+  @UI.lineItem: [ { position: 290 } ]
+  @UI.identification: [ { position: 290 } ]
+  @UI.fieldGroup: [ { position: 290,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Cartordrecdt;
+  
+  @UI.hidden: true
+  Vesselno;
+  @UI.lineItem: [ { position: 85 } ]
+  @UI.identification: [ { position: 85 } ]
+  @UI.fieldGroup: [ { position: 85,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Contno;
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 90,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Stuffdt;
+  @UI.lineItem: [ { position: 95 } ]
+  @UI.identification: [ { position: 95 } ]
+  @UI.fieldGroup: [ { position: 95,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Bookingno;
+  @UI.lineItem: [ { position: 295 } ]
+  @UI.identification: [ { position: 295 } ]
+  @UI.fieldGroup: [ { position: 295,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'text', name:'ZI_POL_F4' },
+                                               distinctValues: true,
+                                               useForValidation: true
+                                   }]
+  Porttrans;
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 100,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Lorryno;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 300 } ]
+  @UI.identification: [ { position: 300 } ]
+  @UI.fieldGroup: [ { position: 300,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Scriptdt;
+  @UI.lineItem: [ { position: 105 } ]
+  @UI.identification: [ { position: 105 } ]
+  @UI.fieldGroup: [ { position: 105,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Rfidsealno;
+  @UI.lineItem: [ { position: 110 } ]
+  @UI.identification: [ { position: 110 } ]
+  @UI.fieldGroup: [ { position: 110,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Delmode;
+  @UI.lineItem: [ { position: 305 } ]
+  @UI.identification: [ { position: 305 } ]
+  @UI.fieldGroup: [ { position: 305,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Latordrecrem;
+  @UI.lineItem: [ { position: 310 } ]
+  @UI.identification: [ { position: 310 } ]
+  @UI.fieldGroup: [ { position: 310,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Latcondocrem;
+  @UI.lineItem: [ { position: 115 } ]
+  @UI.identification: [ { position: 115 } ]
+  @UI.fieldGroup: [ { position: 115,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Precarby;
+  @UI.lineItem: [ { position: 120 } ]
+  @UI.identification: [ { position: 120 } ]
+  @UI.fieldGroup: [ { position: 120,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Por;
+  @UI.lineItem: [ { position: 122 } ]
+  @UI.identification: [ { position: 122 } ]
+  @UI.fieldGroup: [ { position: 122,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Placedel;
+  @UI.lineItem: [ { position: 315 } ]
+  @UI.identification: [ { position: 315 } ]
+  @UI.fieldGroup: [ { position: 315,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Carsealno;
+  @UI.lineItem: [ { position: 320 } ]
+  @UI.identification: [ { position: 320 } ]
+  @UI.fieldGroup: [ { position: 320,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'sline', name:'ZI_SHIPLINE_F4' },
+//                                               distinctValues: true,
+                                               useForValidation: true
+                                   }]
+  Shipline;
+  @UI.lineItem: [ { position: 125 } ]
+  @UI.identification: [ { position: 125 } ]
+  @UI.fieldGroup: [ { position: 125,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Conname;
+  @UI.lineItem: [ { position: 130 } ]
+  @UI.identification: [ { position: 130 } ]
+  @UI.fieldGroup: [ { position: 130,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Carordappdt;
+
+  @UI.lineItem: [ { position: 135 } ]
+  @UI.identification: [ { position: 135 } ]
+  @UI.fieldGroup: [ { position: 135,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Concutoffdt;
+  @UI.lineItem: [ { position: 330 } ]
+  @UI.identification: [ { position: 330 } ]
+  @UI.fieldGroup: [ { position: 330,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Etddt;
+  @UI.lineItem: [ { position: 140 } ]
+  @UI.identification: [ { position: 140 } ]
+  @UI.fieldGroup: [ { position: 105,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Finalseal;
+  @UI.lineItem: [ { position: 335 } ]
+  @UI.identification: [ { position: 335 } ]
+  @UI.fieldGroup: [ { position: 335,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Detrecchadt;
+  @UI.lineItem: [ { position: 340 } ]
+  @UI.identification: [ { position: 340 } ]
+  @UI.fieldGroup: [ { position: 340,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Sisentdt;
+  @UI.lineItem: [ { position: 145 } ]
+  @UI.identification: [ { position: 145 } ]
+  @UI.fieldGroup: [ { position: 145,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Condockindt;
+  @UI.lineItem: [ { position: 150 } ]
+  @UI.identification: [ { position: 150 } ]
+  @UI.fieldGroup: [ { position: 150,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Shiptype;
+  @UI.lineItem: [ { position: 155 } ]
+  @UI.identification: [ { position: 155 } ]
+  @UI.fieldGroup: [ { position: 155,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  leodate;
+
+  @UI.lineItem: [ { position: 350 } ]
+  @UI.identification: [ { position: 350 } ]
+  @UI.fieldGroup: [ { position: 350,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'SupplierName', name:'I_Supplier' },
+                                                distinctValues: true
+                                           //     useForValidation: true
+                                    }]
+  Thrdprtyfor;
+  @UI.lineItem: [ { position: 360 } ]
+  @UI.identification: [ { position: 360 } ]
+  @UI.fieldGroup: [ { position: 360,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Supplier', name:'ZI_FORWARDER_F4' },
+                                                distinctValues: true,
+                                                useForValidation: true,
+                                     additionalBinding: [{ localElement: 'forwardernam',element: 'SupplierFullName',usage: #FILTER_AND_RESULT }]
+                                    }]
+  forwarder;
+  @UI.lineItem: [ { position: 370 } ]
+  @UI.identification: [ { position: 370 } ]
+  @UI.fieldGroup: [ { position: 370,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  forwardernam;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Shpprtycode;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Shpprtyname;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Shpprtyadd1;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Shpprtyadd2;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:
+  {name: 'ZI_LUT_IGST_F4' , element: 'value_low' },
+  distinctValues: true,
+  useForValidation: true  }]
+  Lutigst;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity: {name: 'ZI_POL_F4' , element: 'text' },
+                                          distinctValues: true,
+                                          useForValidation: true  }]
+  Pol;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:
+                                              {name: 'ZI_POD_F4' , element: 'text' },
+                                              distinctValues: true,
+                                              useForValidation: true  }]
+  Pod;
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:
+  {name: 'ZI_FD_F4' , element: 'text' },
+  distinctValues: true,
+  useForValidation: true  }]
+  Findes;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:
+                                              {name: 'ZI_COO_F4' , element: 'text' },
+                                              distinctValues: true,
+                                              useForValidation: true  }]
+  Coo;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:
+                                              {name: 'ZI_COD_F4' , element: 'text' },
+                                              distinctValues: true,
+                                              useForValidation: true  }]
+  Cod;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Cusmar;
+  @UI.lineItem: [ { position: 65 } ]
+  @UI.identification: [ { position: 65 } ]
+  @UI.fieldGroup: [ { position: 65,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Descgoods; 
+  @UI.lineItem: [ { position: 66 } ]
+  @UI.identification: [ { position: 66 } ]
+  @UI.fieldGroup: [ { position: 66,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Descgoods1;
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Imono;
+
+  @UI.lineItem: [ { position: 410 } ]
+  @UI.identification: [ { position: 410 } ]
+  @UI.fieldGroup: [ { position: 410,  qualifier: 'GeneralData4', importance: #HIGH } ]
+  Vessaildt;
+  @UI.lineItem: [ { position: 415 } ]
+  @UI.identification: [ { position: 415 } ]
+  @UI.fieldGroup: [ { position: 415,  qualifier: 'GeneralData4', importance: #HIGH } ]
+  Ordepdt;
+  @UI.lineItem: [ { position: 420 } ]
+  @UI.identification: [ { position: 420 } ]
+  @UI.fieldGroup: [ { position: 420,  qualifier: 'GeneralData4', importance: #HIGH } ]
+  Etadt;
+  @UI.lineItem: [ { position: 425 } ]
+  @UI.identification: [ { position: 425 } ]
+  @UI.fieldGroup: [ { position: 425,  qualifier: 'GeneralData4', importance: #HIGH } ]
+  Atadt;
+  @UI.lineItem: [ { position: 430 } ]
+  @UI.identification: [ { position: 430 } ]
+  @UI.fieldGroup: [ { position: 430,  qualifier: 'GeneralData4', importance: #HIGH } ]
+  Empretdt;
+  @UI.lineItem: [ { position: 431 } ]
+  @UI.identification: [ { position: 431 } ]
+  @UI.fieldGroup: [ { position: 431,  qualifier: 'GeneralData4', importance: #HIGH } ]
+  Textfield1;
+  @UI.lineItem: [ { position: 432 } ]
+  @UI.identification: [ { position: 432 } ]
+  @UI.fieldGroup: [ { position: 432,  qualifier: 'GeneralData4', importance: #HIGH } ]
+  Textfield2;
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Salesnoteref;
+  @UI.lineItem: [ { position: 7 } ]
+  @UI.identification: [ { position: 7 } ]
+  @UI.fieldGroup: [ { position: 7,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Status;
+  @UI.lineItem: [ { position: 433 } ]
+  @UI.identification: [ { position: 433 } ]
+  @UI.fieldGroup: [ { position: 433,  qualifier: 'GeneralData4', importance: #HIGH } ]
+  Freightremarks;
+  @UI.lineItem: [ { position: 435 } ]
+  @UI.identification: [ { position: 435 } ]
+  @UI.fieldGroup: [ { position: 435,  qualifier: 'GeneralData4', importance: #HIGH } ]
+  Contdisfact;
+  @UI.lineItem: [ { position: 438 } ]
+  @UI.identification: [ { position: 438 } ]
+  @UI.fieldGroup: [ { position: 438,  qualifier: 'GeneralData4', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'text', name:'ZI_CONTPICK_F4' },
+                                               distinctValues: true,
+                                               useForValidation: true
+                                   }]
+  Contpickfrm;
+  @UI.hidden: true
+  @UI: {
+  identification: [
+    { type: #FOR_ACTION, dataAction: 'PRINT',  label: 'Print Proforma Invoice', position: 138 },
+    { type: #FOR_ACTION, dataAction: 'Cancel', label: 'Set Cancel',
+      iconUrl: 'sap-icon://close-command-field', position: 139 }
+  ]
+}
+  Invprint;
+  @UI.hidden: true
+  Cancel;
+  @UI.hidden: true
+  Canind;
+  @UI.hidden: true
+  Cancelby;
+  @UI.hidden: true
+  Cancelon;
+}

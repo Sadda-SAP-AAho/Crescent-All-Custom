@@ -1,0 +1,241 @@
+managed implementation in class zbp_i_confpost_hdr unique;
+strict;
+with draft;
+
+define behavior for ZI_CONFPOST_HDR //alias <alias_name>
+persistent table zdt_confpost_hdr
+draft table zdr_confpost_hdr
+lock master
+total etag Shpflrno
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly : update, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update ) Shpflrno;
+  field ( readonly ) Dept, Opr, Cont, Deptname, Oprname, Contname, Keyid, Creby, Creon, Plant, Plantid, Shpflrdt, Refid;
+  field ( readonly ) Skilab, Sskilab, Uskilab, Status, Progress, Criticality, Total, Stat, Arpacharg, Rhinocharg, Handmochrg,
+                     Excwtadj, Lostfmchrg, Uniqueid;
+  field ( features : instance ) Docudt;
+
+  determination getdet on modify { field Shpflrno; }
+  determination updata on save { create; }
+  validation checkdet on save { create; }
+
+
+  action ( features : instance ) Getord result [1] $self;
+  action ( features : instance ) Post result [1] $self;
+  action ( features : instance ) Gr result [1] $self;
+  action ( features : instance ) Gi result [1] $self;
+  action ( features : instance ) Scrap result [1] $self;
+
+  side effects
+  {
+    action Getord affects entity _Ord, entity _Item;
+    action Post affects entity _Ord, entity _Item;
+    action Gr affects entity _Ord, entity _Item;
+    action Gi affects entity _Ord, entity _Item;
+    action Scrap affects entity _Ord, entity _Item;
+  }
+
+  association _Item { create ( features : instance ); with draft; }
+  association _Ord { create ( features : instance ); with draft; }
+  association _Log { create ( features : instance ); with draft; }
+  mapping for zi_confpost_hdr
+    {
+      Refid       = Refid;
+      Shpflrno    = Shpflrno;
+      Keyid       = Keyid;
+      Dept        = Dept;
+      Deptname    = DeptName;
+      Opr         = Opr;
+      Oprname     = Oprname;
+      Cont        = Cont;
+      Contname    = Contname;
+      Creby       = Creby;
+      Creon       = Creon;
+      Skilab      = Skilab;
+      Sskilab     = Sskilab;
+      Uskilab     = Uskilab;
+      Plant       = Plant;
+      Plantid     = Plantid;
+      Shpflrdt    = Shpflrdt;
+      Getord      = Getord;
+      Post        = Post;
+      Gr          = Gr;
+      Gi          = Gi;
+      Status      = Status;
+      Progress    = Progress;
+      Criticality = Criticality;
+      Total       = Total;
+      Stat        = Stat;
+      Arpacharg   = Arpacharg;
+      Rhinocharg  = Rhinocharg;
+      Handmochrg  = Handmochrg;
+      Lostfmchrg  = Lostfmchrg;
+      Excwtadj    = Excwtadj;
+      Docudt      = Docudt;
+      Uniqueid    = Uniqueid;
+    }
+}
+
+define behavior for ZI_CONFPOST_ITM //alias <alias_name>
+persistent table zdt_confpost_itm
+draft table zdr_confpost_itm
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id, Shpflrno, Maktx, Meins, Wtunit, Totcast, Stdwt, Prodord, Pendprqty, Matnr, Refid, Refitem,
+  Totmou, Totmouqty, Goodcast, Rejqty1, Rejrea1, Rejqty2, Rejrea2, Rejqty3, Rejrea3, Rejqty4, Rejrea4, Rejqty5, Rejrea5, Rejqty6,
+  Rejrea6, Rejqty7, Rejrea7, Rejqty8, Rejrea8, Rejqty9, Rejrea9, Noofhead, Pattern, So, Soitm, Sofg, Metalcrqty, Qtyperbox,
+  Actwt, Ordersta, Docsta;
+  association _Head { with draft; }
+  mapping for zi_confpost_itm
+    {
+      Shpflrno   = Shpflrno;
+      Matnr      = Matnr;
+      Maktx      = Maktx;
+      Totmou     = Totmou;
+      Totmouqty  = Totmouqty;
+      Goodcast   = Goodcast;
+      Rejqty1    = Rejqty1;
+      Rejrea1    = Rejrea1;
+      Rejqty2    = Rejqty2;
+      Rejrea2    = Rejrea2;
+      Rejqty3    = Rejqty3;
+      Rejrea3    = Rejrea3;
+      Rejqty4    = Rejqty4;
+      Rejrea4    = Rejrea4;
+      Rejqty5    = Rejqty5;
+      Rejrea5    = Rejrea5;
+      Rejqty6    = Rejqty6;
+      Rejrea6    = Rejrea6;
+      Rejqty7    = Rejqty7;
+      Rejrea7    = Rejrea7;
+      Rejqty8    = Rejqty8;
+      Rejrea8    = Rejrea8;
+      Rejqty9    = Rejqty9;
+      Rejrea9    = Rejrea9;
+      Totcast    = Totcast;
+      Meins      = Meins;
+      Noofhead   = Noofhead;
+      Prodord    = Prodord;
+      Pendprqty  = Pendprqty;
+      Stdwt      = Stdwt;
+      Actwt      = Actwt;
+      Wtunit     = Wtunit;
+      Ordersta   = Ordersta;
+      Docsta     = Docsta;
+      Refid      = Refid;
+      Refitem    = Refitem;
+      Pattern    = Pattern;
+      Machloss   = Machloss;
+      Qtyperbox  = Qtyperbox;
+      So         = So;
+      Soitm      = Soitm;
+      Sofg       = Sofg;
+      Metalcrqty = Metalcrqty;
+    }
+}
+define behavior for ZI_CONFPOST_ORD //alias <alias_name>
+persistent table zdt_confpost_ord
+//with unmanaged save
+draft table zdr_confpost_ord
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly : update, numbering : managed ) Ord, Item;
+  field ( readonly ) Id, Shpflrno, Matnr, Meins, Prodord, Pendprqty, Docsta, Rej, Plant, Ordersta,
+  Refid, RefItem, Reford, Serial, Heatno, Status, Progress, criticality, Total, Balqty, Alpostqty, Uniqueid;
+  field ( features : instance ) Postqty;
+
+  determination calqty on modify { field Postqty; }
+  validation    checkord on save { create; update; }
+
+  side effects {
+
+  field Postqty affects field Balqty;
+
+  }
+
+
+  association _Head { with draft; }
+  mapping for zi_confpost_ord
+    {
+      Refid       = Refid;
+      Refitem     = Refitem;
+      Reford      = Reford;
+      Shpflrno    = Shpflrno;
+      Matnr       = Matnr;
+      Plant       = Plant;
+      Meins       = Meins;
+      Prodord     = Prodord;
+      Postqty     = Postqty;
+      Balqty      = Balqty;
+      Pendprqty   = Pendprqty;
+      Alpostqty   = Alpostqty;
+      Rej         = Rej;
+      Ordersta    = Ordersta;
+      Docsta      = Docsta;
+      Serial      = Serial;
+      Heatno      = Heatno;
+      Status      = Status;
+      Progress    = Progress;
+      Criticality = Criticality;
+      Total       = Total;
+      Uniqueid    = Uniqueid;
+    }
+}
+define behavior for ZI_CONFPOST_LOG //alias <alias_name>
+persistent table zdt_confpost_log
+//with unmanaged save
+draft table zdr_confpost_log
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly : update, numbering : managed ) log;
+  field ( readonly ) Id, Refitem, Reford, Shpflrno, Matnr, Plant, Prodord, Qty, Meins, Postedby, Postedon, Postedat,
+                     Uniqueid, Movtype;
+  // field ( features : instance ) ;
+
+
+  association _Head { with draft; }
+  mapping for zi_confpost_log
+    {
+      Refitem     = Refitem;
+      Reford      = Reford;
+      Shpflrno    = Shpflrno;
+      Matnr       = Matnr;
+      Plant       = Plant;
+      Meins       = Meins;
+      Prodord     = Prodord;
+      Qty         = Qty;
+      Postedby    = Postedby;
+      Postedon    = Postedon;
+      Postedat    = Postedat;
+      Uniqueid    = Uniqueid;
+      Movtype     = Movtype;
+    }
+}

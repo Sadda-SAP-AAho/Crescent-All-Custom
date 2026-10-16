@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Monthly Budget'
+define service ZSD_MONTHBUDGET {
+  expose ZC_MONTHBUD_HED;
+  expose ZC_MONTHBUD_ITM;
+}

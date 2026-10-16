@@ -1,0 +1,5 @@
+@MappingRole: true
+define role ZI_TaxcodeInputRegiste {
+  grant select on ZI_TaxcodeInputRegiste
+  where ( ) = ASPECT pfcg_auth ( 'S_TABU_NAM', ACTVT = '03', TABLE = 'ZI_TAXCODEINPUTREGISTE' );
+}

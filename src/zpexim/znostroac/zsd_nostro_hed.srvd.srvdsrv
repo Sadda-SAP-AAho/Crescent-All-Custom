@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Definition Nostro Account'
+define service ZSD_NOSTRO_HED {
+  expose ZC_NOSTRO_hed;
+  expose ZC_NOSTRO_Itm;
+  expose ZC_NOSTRO_ITM2;
+}

@@ -1,0 +1,34 @@
+managed implementation in class zbp_i_ocform_header unique;
+strict(1);
+
+define behavior for ZI_OCFORM_Header //alias <alias_name>
+//persistent table <???>
+lock master
+authorization master ( instance )
+//etag master <field_name>
+with unmanaged save
+{
+  //create;
+  update;
+  // delete;
+  field ( readonly ) OrdNo;
+
+  action ( features : instance ) PRINT result [1] $self;
+
+  mapping for zi_ocform_header
+    {
+      Dt               = Dt;
+      BillNm           = BillNm;
+      ShpNm            = ShpNm;
+      BillAdd          = BillAdd;
+      ShpAdd           = ShpAdd;
+      OrdCurrency      = OrdCurrency;
+      POD              = POD;
+      ShippTyp         = ShippTyp;
+      FnlDst           = FnlDst;
+      PaymentTerms     = PaymentTerms;
+      PlndMnthShipment = PlndMnthShipment;
+      printflag = printflag;
+      Flag       = Flag;
+    }
+}

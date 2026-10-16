@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for RFQ NO F4'
+define service ZRFQ_F4_Printout_SRV {
+  expose ZI_RFQ_F4;
+  expose ZC_ESTIMATED_VACCUM_PRINTOUT;
+}

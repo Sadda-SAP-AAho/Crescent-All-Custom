@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SIA6" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SIA6>
+    <MAIN_OBJECT>
+     <NAME>ZIAM_BGCREATEF4_MBC</NAME>
+     <TYPE>SIA6</TYPE>
+     <DESCRIPTION>BG Create F4</DESCRIPTION>
+     <RESPONSIBLE>CB9980000013</RESPONSIBLE>
+     <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
+     <MASTER_SYSTEM>NRT</MASTER_SYSTEM>
+     <PACKAGE_REF>
+      <PACKAGE_NAME>ZBG_MASTER</PACKAGE_NAME>
+     </PACKAGE_REF>
+     <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
+    </MAIN_OBJECT>
+    <APP_ID>ZIAM_BGCREATEF4_MBC</APP_ID>
+    <APP_TYPE>MBC</APP_TYPE>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+    <SERVICE>
+     <item>
+      <REL_NAME>ZUI_BGADDRESS_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_BGCREATEF4_MBC</APP_ID>
+      <SRVC_NAME>B9AAA31E3D00B1AD96A30012477066</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain BG Address</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_BGCATEGORY_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_BGCREATEF4_MBC</APP_ID>
+      <SRVC_NAME>1FD328B6917594CBC901B38DE7272A</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain bg category</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_BGCHARACTER_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_BGCREATEF4_MBC</APP_ID>
+      <SRVC_NAME>E0DE2C049931E812DA00E67FA5F590</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain bg character</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_BGINFOCATEGORY_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_BGCREATEF4_MBC</APP_ID>
+      <SRVC_NAME>D77CAD4B7FEA7F0EB628980813B4D9</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain BG INFOCATEGORY</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_BGSTATUS_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_BGCREATEF4_MBC</APP_ID>
+      <SRVC_NAME>9B7A0F63A41E7568AFE8FC9496C979</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain bg status</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_BGTYPE_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_BGCREATEF4_MBC</APP_ID>
+      <SRVC_NAME>15AFE9CF00B4D784A5C9760E848532</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain BG TYPE</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_PURPOSENEW_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_BGCREATEF4_MBC</APP_ID>
+      <SRVC_NAME>9DC9C0838D18E5670FB4848512F42E</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain purpose new</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+    </SERVICE>
+    <AUTH>
+     <item>
+      <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+      <STATUS>U</STATUS>
+      <TEXT>Table Access by Generic Standard Tools</TEXT>
+      <AUTH_ITEM>
+       <item>
+        <UUID>C/Y0zUqiHt+q4E1ZWHnMBg==</UUID>
+        <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0001</AUTH_OBJECT_INSTANCE>
+        <TEXT>Table Access by Generic Standard Tools</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display,Change</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+q4E1ZWHoMBg==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+q4E1ZWHnsBg==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>TABLE</FIELD>
+          <VALUE>ZI_BGCATEGORY,ZI_BGCHARACTER,ZI_BGINFOCATEGORY,ZI_BGSTATUS,...</VALUE>
+          <VALUES>
+           <item>
+            <UUID>C/Y0zUqiHt+q4E1ZWHosBg==</UUID>
+            <LOW_VALUE>ZI_BGCATEGORY</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+q4E1ZWHpMBg==</UUID>
+            <LOW_VALUE>ZI_BGCHARACTER</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+q4E1ZWHpsBg==</UUID>
+            <LOW_VALUE>ZI_BGINFOCATEGORY</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+q4E1ZWHqMBg==</UUID>
+            <LOW_VALUE>ZI_BGSTATUS</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+q4E1ZWHqsBg==</UUID>
+            <LOW_VALUE>ZI_BGTYPE</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+q4E1ZWHrMBg==</UUID>
+            <LOW_VALUE>ZI_PURPOSENEW</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>C/Y0zUqiHt+q4E1ZWHrsBg==</UUID>
+            <LOW_VALUE>ZI_BGADDRESS</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Table Name</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+      </AUTH_ITEM>
+     </item>
+    </AUTH>
+    <PUBLISH_STATUS>p</PUBLISH_STATUS>
+   </SIA6>
+  </asx:values>
+ </asx:abap>
+</abapGit>

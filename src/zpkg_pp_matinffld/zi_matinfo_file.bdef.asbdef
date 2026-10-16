@@ -1,0 +1,65 @@
+managed implementation in class zbp_i_matinfo_file unique;
+strict;
+with draft;
+
+define behavior for ZI_MATINFO_FILE //alias <alias_name>
+persistent table zmm_matinfo_file
+draft table zdr_matinfo_file
+lock master
+total etag id
+authorization master ( instance )
+with additional save
+//etag master <field_name>
+{
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+  field ( numbering : managed, readonly ) id;
+  field ( readonly ) status, FileStatus, internalno, post, local_created_at, local_created_by;
+  field ( features : instance ) Comments, Attachment;
+
+  action ( features : instance ) uploadExcelData result [1] $self;
+  action ( features : instance ) valid result [1] $self;
+  action ( features : instance ) upd result [1] $self;
+
+  validation validate_fields on save { create; update; }
+  determination change_status on save { create; update; }
+  determination fields on modify { field Filename; }
+
+  side effects
+  {
+    action valid affects entity _item;
+    action upd affects entity _item;
+  }
+
+  association _item { create ( features : instance ); with draft; }
+}
+
+define behavior for ZI_MATITEM_FILE //alias <alias_name>
+persistent table zdt_matitem_file
+draft table zdr_matitem_file
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly ) Id, Product, qtyperbox, subcode, pcspack, potpat, matcrawt,
+                     machloss, qtypalpcdbox, typeofmouldc, typeofmould, prodcapcday,
+                     qtyboltunitcons, calibdate, rejpercntg, itempnt, cft, pltpcdboxsize,
+                     boltsize, consbase, constdi, constci, constbag1, constbag2, constbaroda,
+                     constvackul, micr, loadclass, noofptn, ptnirs, ptnapp, pilotprdapp,
+                     sqmtr1, sqmtr2, sqmtr3, chillwt, jigf1, jigf2, castcode1, castcode2,
+                     castcode3, sqmtr, moc, cuscode, partno, drawno, artno, mldlinspd,
+                     matlngtxt, cusmat, paintinfo, coreinfo, steel_unit_wt, packinstr;
+
+  association _head;
+}

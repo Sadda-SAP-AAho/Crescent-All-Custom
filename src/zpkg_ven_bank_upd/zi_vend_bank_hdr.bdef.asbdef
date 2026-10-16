@@ -1,0 +1,55 @@
+managed implementation in class zbp_i_vend_bank_hdr unique;
+strict;
+with draft;
+
+define behavior for ZI_VEND_BANK_HDR //alias <alias_name>
+persistent table zdt_ven_bank_hdr
+draft table zdr_ven_bank_hdr
+lock master
+total etag id
+authorization master ( instance )
+//etag master <field_name>
+{
+
+  draft action( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  create;
+  update( features : instance );
+  delete( features : instance );
+
+  field ( numbering : managed, readonly ) id;
+  field ( readonly ) status, FileStatus, internalno, post, local_created_at, local_created_by ;
+  field ( features : instance ) Comments, Attachment;
+
+  action ( features : instance ) uploadExcelData result [1] $self;
+  action ( features : instance ) upd result [1] $self;
+
+  validation validate_fields on save { create; update; }
+  determination change_status on save { create; update; }
+  determination fields on modify { field Filename; }
+
+  side effects {
+  action upd affects entity _item;
+  }
+
+
+  association _item { create ( features : instance ); with draft; }
+}
+
+define behavior for ZI_VEND_BANK_ITM //alias <alias_name>
+persistent table zdt_ven_bank_itm
+draft table zdr_ven_bank_itm
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Id, Supp, Bankacc, Bankcou, Bankkey, Bankname, Crcriticalitystatus, Status, Suppname, Updstatus;
+
+  association _head;
+}

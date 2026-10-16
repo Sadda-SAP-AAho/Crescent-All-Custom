@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_GateWeighbridgeTabl_S_01'
+define service ZUI_GATEWEIGHBRIDGETABL_01 {
+  expose ZI_GATEWEIGHBRIDGETABL_S_01 as GateWeighbridgeTAll;
+  expose ZI_GATEWEIGHBRIDGETABL_01 as GateWeighbridgeTabl;
+}

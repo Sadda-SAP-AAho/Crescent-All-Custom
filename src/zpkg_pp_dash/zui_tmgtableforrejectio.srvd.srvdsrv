@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForRejectio_S'
+define service ZUI_TMGTABLEFORREJECTIO {
+  expose ZI_TMGTABLEFORREJECTIO_S as TmgTableForRejecAll;
+  expose ZI_TMGTABLEFORREJECTIO as TmgTableForRejectio;
+}

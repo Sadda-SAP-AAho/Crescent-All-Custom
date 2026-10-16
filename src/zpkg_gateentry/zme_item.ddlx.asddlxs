@@ -1,0 +1,350 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Gate Entry', value: 'Gatepass' } } }
+annotate view ZC_GITEM with
+{
+  @UI.facet: [{ id: 'GeneralI', isSummary: true, label: 'GatePass Item', type: #COLLECTION, purpose: #STANDARD },
+              { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralI', label: 'Section 1', id: 'GeneralData1', position: 10 },
+              { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralI', label: 'Section 2', id: 'GeneralData2', position: 20 },
+              { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralI', label: 'Section 3', id: 'GeneralData3', position: 30 }]
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Item;
+  @UI.hidden: true
+  Gatepass;
+  @UI: { hidden: true,
+       lineItem: [{ position: 10 }],
+       identification: [{ position: 10 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+ @Consumption.valueHelpDefinition: [{
+  entity: { name: 'ZPOF4_FINAL_N', element: 'PO' },
+//  distinctValues: true,
+  useForValidation: true
+
+  //  additionalBinding: [ { localElement: '_Head.Vendorcode', element: 'Vendorcode', usage: #FILTER },
+  //                      // { localElement: '_Head.Plant', element: 'Plantgateno', usage: #FILTER },
+  //                       { localElement: 'plant', element: 'Plant', usage: #RESULT },
+  //                     { localElement: 'Ebeln', element: 'PurchaseOrder', usage: #RESULT },
+  //                     { localElement: 'Ebelp', element: 'PurchaseOrderItem', usage: #RESULT },
+  //                     { localElement: 'Vbeln', element: 'deliverydocument', usage: #RESULT },
+  //                  //  { localElement:  'Vbelp', element: 'deliverydocumentItem', usage: #RESULT },
+  //                     { localElement:  'Matnr', element: 'Material', usage: #RESULT },
+  //                     { localElement:  'Maktx', element: 'PurchaseOrderItemText', usage: #RESULT },
+  //                    { localElement:  'Meins', element: 'PurchaseOrderQuantityUnit', usage: #RESULT },
+  //                     { localElement:  'Balanceqty', element: 'bal_qty', usage: #RESULT },
+  //                     { localElement:  'Deliverqty', element: 'ActualDeliveryQuantity', usage: #RESULT },
+  //                    // { localElement:  'mpno', element: 'DeliveryDocumentBySupplier', usage: #RESULT },
+  //                    // { localElement:  'tpno', element: 'BillOfLading', usage: #RESULT },
+  //                     { localElement: 'Orderqty', element: 'OrderQuantity', usage: #RESULT }]
+  }]
+  pounique;
+  @UI: { hidden: #(ShowSALES),
+       lineItem: [{ position: 10 }],
+       identification: [{ position: 10 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{
+  entity: { name: 'ZPOF4_FINAL_N_STO', element: 'PO' },
+  distinctValues: true,
+  useForValidation: true ,
+
+  additionalBinding: [ { localElement: 'Vendor', element: 'Vendorcode', usage: #FILTER },
+                       { localElement: 'plant', element: 'Plant', usage: #FILTER },
+                       { localElement: 'vehno', element: 'Vehicleno', usage: #FILTER },
+                       { localElement: 'Ebeln', element: 'PurchaseOrder', usage: #RESULT },
+                       { localElement: 'Ebelp', element: 'PurchaseOrderItem', usage: #RESULT },
+                       { localElement: 'Vbeln', element: 'deliverydocument', usage: #RESULT },
+                     //  { localElement:  'Vbelp', element: 'deliverydocumentItem', usage: #RESULT },
+                       { localElement:  'Matnr', element: 'Material', usage: #RESULT },
+                       { localElement:  'Maktx', element: 'PurchaseOrderItemText', usage: #RESULT },
+                       { localElement:  'Meins', element: 'PurchaseOrderQuantityUnit', usage: #RESULT },
+                       { localElement:  'Balanceqty', element: 'bal_qty', usage: #RESULT },
+                       { localElement:  'Deliverqty', element: 'ActualDeliveryQuantity', usage: #RESULT },
+                    // { localElement:  'mpno', element: 'DeliveryDocumentBySupplier', usage: #RESULT },
+                     //{ localElement:  'tpno', element: 'BillOfLading', usage: #RESULT },
+                       { localElement: 'Orderqty', element: 'OrderQuantity', usage: #RESULT }]
+                       }]
+  pouniquesto;
+  @UI: { hidden: #(ShowSALES),
+         lineItem: [{ position: 10 }],
+         identification: [{ position: 10 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{
+  entity: { name: 'ZPOF4_FINAL_N', element: 'PurchaseOrder' },
+  distinctValues: true,
+  useForValidation: true,
+
+   additionalBinding: [ { localElement: '_Head.Vendorcode', element: 'Vendorcode', usage: #FILTER },
+                        { localElement: '_Head.Plantgateno', element: 'Plant', usage: #FILTER },
+                        //{ localElement: 'Ebeln', element: 'PurchaseOrder', usage: #RESULT },
+                        { localElement: 'Ebelp', element: 'PurchaseOrderItem', usage: #RESULT },
+                       { localElement: 'Vbeln', element: 'deliverydocument', usage: #RESULT },
+                       //{ localElement: 'Vbelp', element: 'deliverydocumentItem', usage: #RESULT },
+                       { localElement: 'Matnr', element: 'Material', usage: #RESULT },
+                       { localElement: 'Maktx', element: 'PurchaseOrderItemText', usage: #RESULT },
+                       { localElement: 'Meins', element: 'PurchaseOrderQuantityUnit', usage: #RESULT },
+                       { localElement: 'Balanceqty', element: 'bal_qty', usage: #RESULT },
+                       { localElement: 'Deliverqty', element: 'ActualDeliveryQuantity', usage: #RESULT },
+           // { localElement:  'mpno', element: 'DeliveryDocumentBySupplier', usage: #RESULT },
+            //{ localElement:  'tpno', element: 'BillOfLading', usage: #RESULT },
+                       { localElement: 'Orderqty', element: 'OrderQuantity', usage: #RESULT }]
+                     } ]
+  //  @Consumption.valueHelpDefinition: [{
+  //  entity: { name: 'ZPOF4_FINAL_N', element: 'PurchaseOrder' },
+  //  distinctValues: true,
+  //  useForValidation: true ,
+  //
+  //  additionalBinding: [ { localElement: 'Vendor', element: 'Vendorcode', usage: #FILTER },
+  //                       { localElement: 'plant', element: 'Plant', usage: #FILTER },
+  //
+  //                     { localElement: 'Ebelp', element: 'PurchaseOrderItem', usage: #RESULT },
+  //                     { localElement: 'Vbeln', element: 'deliverydocument', usage: #RESULT },
+  //                  //  { localElement:  'Vbelp', element: 'deliverydocumentItem', usage: #RESULT },
+  //                     { localElement:  'Matnr', element: 'Material', usage: #RESULT },
+  //                     { localElement:  'Maktx', element: 'PurchaseOrderItemText', usage: #RESULT },
+  //                    { localElement:  'Meins', element: 'PurchaseOrderQuantityUnit', usage: #RESULT },
+  //                     { localElement:  'Balanceqty', element: 'bal_qty', usage: #RESULT },
+  //                     { localElement:  'Deliverqty', element: 'ActualDeliveryQuantity', usage: #RESULT },
+  //                     { localElement: 'Orderqty', element: 'OrderQuantity', usage: #RESULT }] }]
+  Ebeln;
+  @UI: { hidden: #(ShowSALES),
+       lineItem: [{ position: 20 }],
+        identification: [{ position: 20 }],
+        fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+
+  Ebelp;
+
+  @UI: { hidden: true,
+         lineItem: [{ position: 23 }],
+          identification: [{ position: 23 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 23, importance: #HIGH }] }
+
+  mpno;
+
+  @UI: { hidden: true,
+         lineItem: [{ position: 24 }],
+          identification: [{ position: 24 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 24, importance: #HIGH }] }
+  tpno;
+
+  @UI: {
+  lineItem: [{ position: 30 }],
+           identification: [{ position: 30 }],
+           fieldGroup: [{ qualifier: 'GeneralData2', position: 30, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_SALESF4', element: 'DeliveryDocument' },
+                                                distinctValues: true,
+                                                useForValidation: true,
+   additionalBinding: [ { localElement: 'Vbelp', element: 'DeliveryDocumentItem', usage: #RESULT },
+                        { localElement: 'plant', element: 'Plant', usage: #FILTER },
+                        { localElement: 'creationdate', element: 'creationdate', usage: #RESULT },
+                        { localElement: 'Custcode', element: 'SoldToParty', usage: #RESULT },
+                        { localElement: 'Custdesc', element: 'CustomerName', usage: #RESULT },
+                        { localElement: 'Matnr', element: 'Product', usage: #RESULT },
+  //     { localElement: 'Maktx', element: 'DeliveryDocumentItemText', usage: #RESULT },
+                        { localElement: 'Meins', element: 'DeliveryQuantityUnit', usage: #RESULT },
+                        { localElement: 'Orderqty', element: 'ActualDeliveryQuantity', usage: #RESULT },
+                        { localElement: '_Head.Transportercode', element: 'Transportercode', usage: #RESULT },
+                        { localElement: '_Head.Transportername', element: 'Transportername', usage: #RESULT }] 
+                     }]
+  Vbeln;
+
+  //  @UI: { hidden: #(ShowPO),
+  //        lineItem: [{ position: 40 }],
+  //          identification: [{ position: 40 }],
+  //          fieldGroup: [{ qualifier: 'GeneralData1', position: 40, importance: #HIGH }] }
+  @UI: { //hidden: #(ShowPO),
+   lineItem: [{ position: 40 }],
+           identification: [{ position: 40 }],
+           fieldGroup: [{ qualifier: 'GeneralData2', position: 32, importance: #HIGH }] }
+  Vbelp;
+  @UI: { //hidden: #(ShowPO),
+  lineItem: [{ position: 40 }],
+          identification: [{ position: 40 }],
+          fieldGroup: [{ qualifier: 'GeneralData2', position: 44, importance: #HIGH }] }
+  creationdate;
+  //@UI: {
+  //         lineItem: [{ position: 45 }],
+  //         identification: [{ position: 45 }],
+  //         fieldGroup: [{ qualifier: 'GeneralData1', position: 45, importance: #HIGH }] }
+  //
+  //  @Consumption.valueHelpDefinition: [{
+  //        entity:{ element: 'Mblnr', name:'ZI_NONPO_RGP_F4' },
+  //
+  //        distinctValues: true,
+  //        useForValidation: true,
+  //
+  //        additionalBinding: [{ localElement: 'Type', element: 'type', usage: #FILTER },
+  //                            { localElement: 'Matnr', element: 'Product', usage: #RESULT },
+  //                            { localElement: 'Maktx', element: 'ProductDescription', usage: #RESULT },
+  //                            { localElement: 'Meins', element: 'BaseUnit', usage: #RESULT }] }]
+  //Mblnr;
+  @UI: {
+        lineItem: [{ position: 50 }],
+           identification: [{ position: 50 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 50, importance: #HIGH }] }
+
+  @Consumption.valueHelpDefinition: [{
+          entity:{  name:'ZI_NONPOF4' , element: 'Product'},
+          distinctValues: true,
+          useForValidation: true,
+
+          additionalBinding: [{ localElement: 'Maktx', element: 'ProductDescription', usage: #RESULT },
+                             { localElement: 'Meins', element: 'BaseUnit', usage: #RESULT }] }]
+
+  Matnr;
+
+  @UI: { lineItem: [{ position: 60 }],
+         identification: [{ position: 60 }],
+         fieldGroup: [{ qualifier: 'GeneralData2', position: 10, importance: #HIGH }] }
+  Maktx;
+  
+  @UI: { lineItem: [{ position: 61 }],
+         identification: [{ position: 61 }],
+         fieldGroup: [{ qualifier: 'GeneralData2', position: 10, importance: #HIGH }] }
+  Potext;
+  @UI: { lineItem: [{ position: 60 }],
+         identification: [{ position: 60 }],
+         fieldGroup: [{ qualifier: 'GeneralData2', position: 10, importance: #HIGH }] }
+
+  //      @Consumption.valueHelpDefinition: [{
+  //          entity:{  name:'ZR_MBLNR_F4' , element: 'MaterialDocument'},
+  //          distinctValues: true,
+  //          useForValidation: true,
+  //
+  //          additionalBinding: [{ localElement: 'Mjahr', element: 'MaterialDocumentYear', usage: #RESULT },
+  //                             { localElement: 'Zeile', element: 'MaterialDocumentItem', usage: #RESULT }] }]
+  @Consumption.valueHelpDefinition: [{
+   entity:{  name:'ZR_MBLNR_F4' , element: 'MaterialDocument' },
+
+   distinctValues: true,
+   useForValidation: true,
+             additionalBinding: [{ localElement: 'Mjahr', element: 'MaterialDocumentYear', usage: #RESULT },
+                                 { localElement: 'Zeile', element: 'MaterialDocumentItem', usage: #RESULT },
+                                 { localElement: 'Matnr', element: 'Material', usage: #RESULT },
+                                 { localElement: 'Maktx', element: 'ProductName', usage: #RESULT },
+                                 { localElement: 'Meins', element: 'EntryUnit', usage: #RESULT },
+                                 { localElement: 'Orderqty', element: 'QuantityInEntryUnit', usage: #RESULT }] }]
+
+  //          additionalBinding: [{ localElement: 'Type', element: 'type', usage: #FILTER },
+  //                              { localElement: 'Matnr', element: 'Product', usage: #RESULT },
+  //                              { localElement: 'Maktx', element: 'ProductDescription', usage: #RESULT },
+  //                              { localElement: 'Meins', element: 'BaseUnit', usage: #RESULT }]
+
+
+
+  Mblnr;
+  @UI: { lineItem: [{ position: 60 }],
+  identification: [{ position: 60 }],
+  fieldGroup: [{ qualifier: 'GeneralData2', position: 10, importance: #HIGH }] }
+  Mjahr;
+  @UI: { lineItem: [{ position: 60 }],
+  identification: [{ position: 60 }],
+  fieldGroup: [{ qualifier: 'GeneralData2', position: 10, importance: #HIGH }] }
+  Zeile;
+  @UI: { lineItem: [{ position: 70 }],
+           identification: [{ position: 70 }],
+           fieldGroup: [{ qualifier: 'GeneralData2', position: 30, importance: #HIGH }] }
+  Meins;
+  @UI: { //hidden: #(ShowSALES),
+   lineItem: [{ position: 80 }],
+           identification: [{ position: 80 }],
+           fieldGroup: [{ qualifier: 'GeneralData2', position: 40, importance: #HIGH }] }
+  Challanqty;
+  @UI: { //hidden: #(ShowSALES),
+        lineItem: [{ position: 81 }],
+         identification: [{ position: 81 }],
+         fieldGroup: [{ qualifier: 'GeneralData2', position: 41, importance: #HIGH }] }
+  Plantqty;
+  @UI: { //hidden: #(ShowSALES),
+          lineItem: [{ position: 82 }],
+           identification: [{ position: 82 }],
+           fieldGroup: [{ qualifier: 'GeneralData2', position: 42, importance: #HIGH }] }
+  @UI.hidden: true
+  Itemval;
+  @UI: { //hidden: #(ShowSALES),
+          lineItem: [{ position: 83 }],
+           identification: [{ position: 83 }],
+           fieldGroup: [{ qualifier: 'GeneralData2', position: 43, importance: #HIGH }] }
+  @UI.hidden: true
+  @Consumption.valueHelpDefinition: [{
+          entity:{  name:'I_Currency' , element: 'Currency' },
+          distinctValues: true,
+          useForValidation: true }]
+  Currency;
+  @UI: {   //hidden: #(ShowSALES),
+        lineItem: [{ position: 82 }],
+         identification: [{ position: 82 }],
+         fieldGroup: [{ qualifier: 'GeneralData2', position: 42, importance: #HIGH }] }
+  Itemval1;
+
+  @UI: { hidden: #(ShowSALES),
+          lineItem: [{ position: 90 }],
+           identification: [{ position: 90 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 10, importance: #HIGH }] }
+  Orderqty;
+  @UI.hidden: true
+  @UI: {
+           lineItem: [{ position: 100 }],
+           identification: [{ position: 100 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 20, importance: #HIGH }] }
+  Totalqty;
+  @UI: {   hidden: #(ShowSALES),
+           lineItem: [{ position: 110 }],
+           identification: [{ position: 110 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 30, importance: #HIGH }] }
+  Balanceqty;
+  @UI: {   //hidden: #(ShowSALES),
+           lineItem: [{ position: 120 }],
+           identification: [{ position: 120 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 40, importance: #HIGH }] }
+  Deliverqty;
+  @UI: { hidden: #(ShowSALES), lineItem: [{ position: 130 }],
+         identification: [{ position: 130 }],
+         fieldGroup: [{ qualifier: 'GeneralData3', position: 50, importance: #HIGH }] }
+  Vendor;
+  @UI: {
+           lineItem: [{ position: 140 }],
+           identification: [{ position: 140 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 60, importance: #HIGH }] }
+  netwt;
+  @UI: {
+           lineItem: [{ position: 140 }],
+           identification: [{ position: 140 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 70, importance: #HIGH }] }
+  tarwt;
+  @UI: {
+           lineItem: [{ position: 140 }],
+           identification: [{ position: 140 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 80, importance: #HIGH }] }
+  grswt;
+  @UI.hidden: true
+  Wtunit;
+  @UI: { hidden: #(ShowPO), lineItem: [{ position: 140 }],
+        identification: [{ position: 140 }],
+        fieldGroup: [{ qualifier: 'GeneralData3', position: 140, importance: #HIGH }] }
+  Custcode;
+  @UI: { hidden: #(ShowPO), lineItem: [{ position: 150 }],
+     identification: [{ position: 150 }],
+     fieldGroup: [{ qualifier: 'GeneralData3', position: 150, importance: #HIGH }] }
+  Custdesc;
+  @UI: { hidden: #(ShowPO),  lineItem: [{ position: 160 }],
+     identification: [{ position: 160 }],
+     fieldGroup: [{ qualifier: 'GeneralData3', position: 160, importance: #HIGH }] }
+  Invoice;
+  @UI: { lineItem: [{ position: 70 }],
+         identification: [{ position: 70 }],
+         fieldGroup: [{ qualifier: 'GeneralData2', position: 70, importance: #HIGH }] }
+  plant;
+  @UI: { lineItem: [{ position: 71 }],
+         identification: [{ position: 71 }],
+         fieldGroup: [{ qualifier: 'GeneralData2', position: 71, importance: #HIGH }] }
+  tamount;
+  @UI: { lineItem: [{ position: 72 }],
+        identification: [{ position: 72 }],
+        fieldGroup: [{ qualifier: 'GeneralData2', position: 72, importance: #HIGH }] }
+  vehno;
+//  @UI: { lineItem: [{ position: 90 },
+//                          { type: #FOR_ACTION, dataAction: 'Copy', label: 'Copy', iconUrl: 'sap-icon://close-command-field' , invocationGrouping: #CHANGE_SET }],
+//         fieldGroup: [{ qualifier: 'GeneralData1', position: 90, importance: #HIGH }] }
+//  Copy;
+
+}

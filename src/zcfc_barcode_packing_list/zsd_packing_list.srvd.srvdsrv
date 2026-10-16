@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition of Packing List'
+define service ZSD_PACKING_LIST {
+  expose ZC_PACKING_LIST_HDR;
+  expose ZC_PACKING_LIST_ITM;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition - Management Dashboard OTIF'
+define service ZSD_MGMTDASH_OTIF {
+  expose ZC_MGMTDASH_OTIF;
+}

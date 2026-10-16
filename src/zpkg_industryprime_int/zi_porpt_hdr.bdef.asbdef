@@ -1,0 +1,27 @@
+managed implementation in class zbp_i_porpt_hdr unique;
+strict ( 2 );
+
+define behavior for ZI_PORPT_HDR //alias <alias_name>
+persistent table zdt_po_head
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  //create;
+  update;
+  delete;
+  field ( readonly ) Uuid;
+  association _item { create; }
+}
+
+define behavior for ZI_PORPT_ITM //alias <alias_name>
+persistent table zdt_po_item
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Itemuuid;
+  association _head;
+}

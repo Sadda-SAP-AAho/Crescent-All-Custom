@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Expense Condition Record Maintenance",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Expense Condition Record Maintenance"
+  },
+  "ui5AppDetails": {
+    "appId": "zexpensecond"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_96A73749B9FBF01802779CA6345112D3A5633982_TM",
+    "semanticObject": "z_expensecond",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_96A73749B9FBF01802779CA6345112D3A5633982_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Expense Condition Record Maintenance"
+      }
+    }
+  ]
+}

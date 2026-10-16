@@ -1,0 +1,74 @@
+@Metadata.layer: #CUSTOMER
+annotate view ZC_ATTACHPO with
+{
+  @UI.facet: [
+      {
+      id: 'Item3',
+      isSummary: true,
+      label: 'Attach Po',
+      type: #COLLECTION,
+      purpose: #STANDARD
+      },
+
+      {type: #FIELDGROUP_REFERENCE,targetQualifier: 'GeneralData1',parentId: 'Item3',label: 'Section1', id: 'GeneralData1' },
+      {type: #FIELDGROUP_REFERENCE,targetQualifier: 'GeneralData2',parentId: 'Item3',label: 'Section2', id: 'GeneralData2'}]
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Item3;
+  @UI.hidden: true
+  Zeximbgrefno;
+  @UI.hidden: true
+  Version;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{
+  entity: { name: 'C_PurOrdWorkflowApprovalEmail', element: 'PurchaseOrder' },
+   distinctValues: true,
+  useForValidation: true ,
+  additionalBinding: [{ localElement: 'Netwr' , element: 'PurchaseOrderNetAmount', usage: #RESULT } 
+ // { localElement: 'Waers' , element: 'DocumentCurrency', usage: #RESULT }
+  ]
+  }]
+  Ebeln;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  Waers;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  Netwr;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  Availamount;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'Generaldata1', importance: #HIGH } ]
+  Applamtlc;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Applamtothlc;
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Amountlevel;
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 80,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Cancel;
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 90,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Meins;
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 100,  qualifier: 'Generaldata2', importance: #HIGH } ]
+  Applqty;
+  @UI.hidden: true
+  Locallastchangedat;
+
+}

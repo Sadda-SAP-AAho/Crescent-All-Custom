@@ -1,0 +1,4 @@
+@EndUserText.label: 'Print Queue'
+define service ZSERV_D_PRINTQ {
+  expose ZC_PRINTQUEUE;
+}

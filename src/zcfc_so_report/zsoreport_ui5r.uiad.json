@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Sales Order",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Order"
+  },
+  "ui5AppDetails": {
+    "appId": "zsoreport"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_A9242479B1067A307CB932578E177C838193A23A_TM",
+    "semanticObject": "zsoreport",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_A9242479B1067A307CB932578E177C838193A23A_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Order",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

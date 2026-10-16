@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Customer Discount Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Customer Discount Report"
+  },
+  "ui5AppDetails": {
+    "appId": "com.infocus.cust.disc.customerdiscount"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_BA6C63AB613E33EBED782E2E7E4CE8F7735DDEDA_TM",
+    "semanticObject": "ZCUSTOMERDISCOUNT",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_BA6C63AB613E33EBED782E2E7E4CE8F7735DDEDA_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Customer Discount Report"
+      }
+    }
+  ]
+}

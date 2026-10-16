@@ -1,0 +1,108 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Customer Ledger',
+                typeNamePlural:'Customer Ledger',
+                title: { type: #STANDARD, label: 'Customer Ledger', value: 'AccountingDocument' }
+              }
+     }
+     
+@UI.presentationVariant: [ { sortOrder: [ { by: 'sort', direction: #ASC } ],
+                             visualizations: [ { type: #AS_LINEITEM } ],
+                             text: 'Customer Ledger' } ]
+annotate entity ZI_CUSTOMER_LEDGER with
+{
+
+  @UI.facet: [{ id : 'GeneralData', isSummary: true, label: 'Customer Ledger', position: 5, type: #COLLECTION },
+            { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Report Details', id: 'GeneralData1' }]
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  PostingDate;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  NetDueDate;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  AccountingDocument;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  AccountingDocumentType;
+   @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  AccountingDocumentTypeName;
+  
+   @UI.lineItem: [ { position: 46 } ]
+  @UI.identification: [ { position: 46 } ]
+  @UI.fieldGroup: [ { position: 46,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  arinv;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  billingdocument;
+   @UI.lineItem: [ { position: 51 } ]
+  @UI.identification: [ { position: 51 } ]
+  @UI.fieldGroup: [ { position: 51,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  billingdocumentref;
+  @UI.hidden: true
+  CompanyCode;
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  paymentterms;
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 80,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  orderno;
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 90,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  DocumentReferenceID;
+  @UI.lineItem: [ { position: 91 } ]
+  @UI.identification: [ { position: 91 } ]
+  @UI.fieldGroup: [ { position: 91,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  DocumentReferenceID1;
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 100,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  payref;
+  @UI.lineItem: [ { position: 110 } ]
+  @UI.identification: [ { position: 110 } ]
+  @UI.fieldGroup: [ { position: 110,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  AmountInCompanyCodeCurrency;
+  @UI.lineItem: [ { position: 120 } ]
+  @UI.identification: [ { position: 120 } ]
+  @UI.fieldGroup: [ { position: 120,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  amtincocurr;
+  @UI.lineItem: [ { position: 130 } ]
+  @UI.identification: [ { position: 130 } ]
+  @UI.fieldGroup: [ { position: 130,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  AmountInFunctionalCurrency;
+  @UI.lineItem: [ { position: 140 } ]
+  @UI.identification: [ { position: 140 } ]
+  @UI.fieldGroup: [ { position: 140,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  amtinfuct;
+  @UI.lineItem: [ { position: 150 } ]
+  @UI.identification: [ { position: 150 } ]
+  @UI.fieldGroup: [ { position: 150,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  balnacedue;
+  @UI.hidden: true
+  CompanyCodeCurrency;
+  @UI.hidden: true
+  FunctionalCurrency;
+  @UI.hidden: true
+  comcurr;
+  @UI.hidden: true
+  funccurr;
+  @UI.hidden: true
+  FiscalYear;
+  @UI.hidden: true
+  AccountingDocumentItem;
+  @UI.hidden: true
+  sort;
+
+
+}

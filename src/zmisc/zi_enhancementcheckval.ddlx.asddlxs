@@ -1,0 +1,45 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'EnhancementCheckVal', 
+    typeNamePlural: 'EnhancementCheckVals', 
+    title: {
+      type: #STANDARD, 
+      label: 'Enhancement Check Validation', 
+      value: 'Enhid'
+    }
+  }
+}
+annotate view ZI_EnhancementCheckVal with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_EnhancementCheckVal', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Enhancement Check Validation', 
+    position: 1 
+  } ]
+  Enhid;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Enhtext;
+  
+  @UI.identification: [ {
+    position: 3 
+  } ]
+  @UI.lineItem: [ {
+    position: 3 
+  } ]
+  Deactive;
+}

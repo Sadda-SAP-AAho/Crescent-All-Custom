@@ -1,0 +1,54 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'ExpenseTypeMaintain', 
+    typeNamePlural: 'ExpenseTypeMaintains', 
+    title: {
+      type: #STANDARD, 
+      label: 'Expense Type Maintain', 
+      value: 'Expansetype'
+    }
+  }
+}
+annotate view ZI_ExpenseTypeMaintain1 with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_ExpenseTypeMaintain1', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Expense Type Maintain', 
+    position: 1 
+  } ]
+  @EndUserText.label: 'Expense Type'
+  
+  Expansetype;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  @EndUserText.label: 'Expense Type Description'
+  
+  Expansetypedesc;
+  
+  @UI.identification: [ {
+    position: 3 
+  } ]
+  @UI.lineItem: [ {
+    position: 3 
+  } ]
+  @EndUserText.label: 'Per Container/Shipment'
+   @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_PERSHIPCONT_F4', element: 'value_low'},
+                                       distinctValues: true,
+                                       useForValidation: true
+                                    } ]   
+  Percontship;
+}

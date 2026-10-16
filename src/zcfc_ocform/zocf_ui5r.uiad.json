@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Order Confirmation Print",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Order Confirmation Print"
+  },
+  "ui5AppDetails": {
+    "appId": "zocf.zocf"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_9B978E69BAF3362929BE9A2C7BD7A1571714C2AF_TM",
+    "semanticObject": "zocf",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_9B978E69BAF3362929BE9A2C7BD7A1571714C2AF_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Order Confirmation Print",
+        "subtitle": "App"
+      }
+    }
+  ]
+}

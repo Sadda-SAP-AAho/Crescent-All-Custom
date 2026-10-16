@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Material wise Inspection Plan",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Material wise Inspection Plan"
+  },
+  "ui5AppDetails": {
+    "appId": "zmatinspplan"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_DE6D859B8AF2BF66EAAFB22BAAA4B19AA1F1FD03_TM",
+    "semanticObject": "zmatinspplan",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_DE6D859B8AF2BF66EAAFB22BAAA4B19AA1F1FD03_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Material wise Inspection Plan"
+      }
+    }
+  ]
+}

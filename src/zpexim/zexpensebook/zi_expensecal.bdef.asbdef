@@ -1,0 +1,117 @@
+managed implementation in class zbp_i_expensecal unique;
+strict;
+with draft;
+
+define behavior for ZI_EXPENSECAL //alias <alias_name>
+persistent table zdt_expensecal
+draft table zdr_expensecal
+lock master
+total etag Commid
+with additional save
+authorization master ( instance )
+//etag master <field_name>
+{
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  action ( features : instance ) ServicePo result [1] $self;
+  action ( features : instance ) Poupd result [1] $self;
+  action ( features : instance ) exptype result [1] $self;
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( features : instance ) Commid, Commdate, Taxcode,Profitcenter;
+
+  determination upd_taxcode on modify { field Commid; }
+  determination upd_profitcenter on modify { field Commid; }
+
+
+  side effects
+  {
+    field Commid affects field Taxcode, field Profitcenter;
+    action Poupd affects entity _item;
+    action exptype affects messages, entity _item;
+    //    action ServiceEntry affects field Serentrysheet, field serviceentrybt;
+
+  }
+
+  //  field ( readonly ) Id;
+  association _item { create ( features : instance ); with draft; }
+
+  mapping for zi_expensecal
+    {
+      Commid   = Commid;
+      Commdate = Commdate;
+    }
+}
+//---------------------------------------------------------------------//
+//== ITEM Details ===//
+//---------------------------------------------------------------------//
+define behavior for ZI_EXPENSECAL_I //alias <alias_name>
+persistent table zdt_expensecal_i
+draft table zdr_expensecal_i
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+
+  update ( features : instance );
+  delete ( features : instance );
+
+
+  field ( readonly : update, numbering : managed ) Item;
+  field ( mandatory : create, readonly : update ) expansetype;
+  field ( readonly : update ) percontship;
+
+  field ( readonly ) Id, countcontship, forwarder, Servicepo, Servicepoline, Serentrysheet;
+  //  field ( features : instance ) Servicepo;
+
+  field ( features : instance ) amount, Exchangerate, amountinr;
+
+  //  action ( features : instance ) ServicePo result [1] $self;
+  action ( features : instance ) ServiceEntry result [1] $self;
+//  action ( features : instance ) Copy result [1] $self;
+
+  determination getitemupdate on modify { field expansetype; field percontship; create; }
+  determination updateamount on modify { field exchangerate; field amount; }
+
+  side effects
+  {
+
+    field Commid affects field countcontship, field amount, field currency, field exchangerate, field amountinr, field forwarder;
+    field expansetype affects field countcontship, field amount, field currency, field exchangerate, field amountinr, field forwarder;
+    field percontship affects field countcontship, field amount, field currency, field exchangerate, field amountinr, field forwarder;
+    field exchangerate affects $self, field amount, field currency, field amountinr;
+    field amount affects $self, field exchangerate, field currency, field amountinr;
+    field Servicepo affects $self, field Servicepoline;
+    action ServiceEntry affects field Serentrysheet, field serviceentrybt;
+ //   action Copy affects entity _Head;
+  }
+
+  association _head { with draft; }
+  mapping for zi_expensecal_i
+    {
+      Commid         = Commid;
+      expansetype    = expansetype;
+      percontship    = percontship;
+      forwarder      = forwarder;
+      countcontship  = countcontship;
+      amount         = amount;
+      currency       = currency;
+      exchangerate   = exchangerate;
+      amountinr      = amountinr;
+      servicepo      = servicepo;
+      Servicepoline  = Servicepoline;
+      serentrysheet  = serentrysheet;
+      Servicepobt    = Servicepobt;
+      serviceentrybt = serviceentrybt;
+      copy           = copy;
+    }
+}

@@ -1,0 +1,80 @@
+@Metadata.layer: #CORE
+annotate entity zc_advanceuploaditm with
+{
+  @UI.facet:
+  [
+  {
+  id: 'GeneralI',
+  isSummary: true,
+  label: 'Serial Number Item',
+  type: #COLLECTION,
+  purpose: #STANDARD
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'SER',
+  parentId: 'GeneralI',
+  label: 'Serial No.',
+  id: 'SER'
+  }
+  ]
+
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Item;
+
+  @UI.lineItem: [{ position: 10 , label: 'Company Code' }]
+  @UI.fieldGroup: [{ position: 10 , label: 'Company Code', qualifier: 'SER' }]
+  Companycode;
+
+  @UI.lineItem: [{ position: 20 , label: 'Document Date' }]
+  @UI.fieldGroup: [{ position: 20 , label: 'Document Date', qualifier: 'SER' }]
+  Documentdate;
+
+  @UI.lineItem: [{ position: 30 , label: 'Posting Date' }]
+  @UI.fieldGroup: [{ position: 30 , label: 'Posting Date', qualifier: 'SER' }]
+  Postingdate;
+
+  @UI.lineItem: [{ position: 40 , label: 'Text' }]
+  @UI.fieldGroup: [{ position: 40 , label: 'Text', qualifier: 'SER' }]
+  Text;
+
+  @UI.lineItem: [{ position: 10 , label: 'Reference' }]
+  @UI.fieldGroup: [{ position: 10 , label: 'Reference', qualifier: 'SER' }]
+  Reference;
+
+  @UI.lineItem: [{ position: 10 , label: 'Currency' }]
+  @UI.fieldGroup: [{ position: 10 , label: 'Currency', qualifier: 'SER' }]
+  Currency;
+  @UI.lineItem: [{ position: 10 , label: 'Exchange Rate' }]
+  @UI.fieldGroup: [{ position: 10 , label: 'Exchange Rate', qualifier: 'SER' }]
+  Exchangerate;
+  @UI.lineItem: [{ position: 10 , label: 'Vendor Code' }]
+  @UI.fieldGroup: [{ position: 10 , label: 'Vendor Code', qualifier: 'SER' }]
+  Vendorcode;
+  @UI.lineItem: [{ position: 10 , label: 'Special Indicator' }]
+  @UI.fieldGroup: [{ position: 10 , label: 'Special Indicator', qualifier: 'SER' }]
+  Splindicator;
+  @UI.lineItem: [{ position: 10 , label: 'Amount' }]
+  @UI.fieldGroup: [{ position: 10 , label: 'Amount', qualifier: 'SER' }]
+  Amount;
+  @UI.lineItem: [{ position: 10 , label: 'G/L Account' }]
+  @UI.fieldGroup: [{ position: 10 , label: 'G/L Account', qualifier: 'SER' }]
+  Glaccount;
+  @UI.lineItem: [{ position: 10 , label: 'Value Date' }]
+  @UI.fieldGroup: [{ position: 10 , label: 'Value Date', qualifier: 'SER' }]
+  Valuedate;
+  @UI.lineItem: [{ position: 10 , label: 'Profit Center' }]
+  @UI.fieldGroup: [{ position: 10 , label: 'Profit Center', qualifier: 'SER' }]
+  Profitcenter;
+  @UI.lineItem: [{ position: 10 , label: 'Business Place' }]
+  @UI.fieldGroup: [{ position: 10 , label: 'Business Place', qualifier: 'SER' }]
+  Businessplace;
+  @UI.lineItem: [{ position: 10 , label: 'Section Code' }]
+  @UI.fieldGroup: [{ position: 10 , label: 'Section Code', qualifier: 'SER' }]
+  Sectioncode;
+
+
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Production Plan Reg'
+define service ZSD_PRDPLANREG {
+  expose ZC_PRDPLANREGHD;
+  expose ZC_PRDPLANREGIT;
+}

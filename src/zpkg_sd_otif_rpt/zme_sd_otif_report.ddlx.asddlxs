@@ -1,0 +1,129 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by:  'ConfirmedDeliveryDate', direction:  #ASC },
+                                           { by:  'SalesOrder', direction:  #ASC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'OTIF Report' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'OTIF Report', value: 'SalesOrder' } } }     
+annotate entity ZC_SD_OTIF_REPORT_FIN with 
+{
+    @UI.facet: [{ id : 'GeneralData', isSummary: true, label: 'OTIF Report', position: 5, type: #COLLECTION },
+           { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Report Details', id: 'GeneralData1' }]
+    
+    @UI.lineItem: [ { position: 5 } ]
+    @UI.identification: [ { position: 5 } ]
+    @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    SalesOrder;
+    @UI.lineItem: [ { position: 15 } ]
+    @UI.identification: [ { position: 15 } ]
+    @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    SalesOrderItem;
+    //@UI.hidden: true
+    //ScheduleLine;
+    @UI.hidden: true
+    DeliveryDocument;
+    @UI.hidden: true
+    DeliveryDocumentItem;
+    @UI.lineItem: [ { position: 25 } ]
+    @UI.identification: [ { position: 25 } ]
+    @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    @UI.selectionField: [{ position: 25 }]
+    CreationDate;
+    @UI.lineItem: [ { position: 35 } ]
+    @UI.identification: [ { position: 35 } ]
+    @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    DocStatus;
+    @UI.lineItem: [ { position: 45 } ]
+    @UI.identification: [ { position: 45 } ]
+    @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    SoldToParty;
+    @UI.lineItem: [ { position: 55 } ]
+    @UI.identification: [ { position: 55 } ]
+    @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    Product;
+    @UI.lineItem: [ { position: 65 } ]
+    @UI.identification: [ { position: 65 } ]
+    @UI.fieldGroup: [ { position: 65,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    SalesOrderItemText;
+    @UI.lineItem: [ { position: 75 } ]
+    @UI.identification: [ { position: 75 } ]
+    @UI.fieldGroup: [ { position: 75,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    ProfitCenterName;
+    @UI.lineItem: [ { position: 85 } ]
+    @UI.identification: [ { position: 85 } ]
+    @UI.fieldGroup: [ { position: 85,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    ScheduleLineOrderQuantity;
+    @UI.lineItem: [ { position: 95 } ]
+    @UI.identification: [ { position: 95 } ]
+    @UI.fieldGroup: [ { position: 95,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    DeliveredQtyInOrderQtyUnit;
+    @UI.lineItem: [ { position: 105 } ]
+    @UI.identification: [ { position: 105 } ]
+    @UI.fieldGroup: [ { position: 105,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    OpenConfdDelivQtyInOrdQtyUnit;
+    @UI.lineItem: [ { position: 115 } ]
+    @UI.identification: [ { position: 115 } ]
+    @UI.fieldGroup: [ { position: 115,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    orderwt;
+    @UI.lineItem: [ { position: 125 } ]
+    @UI.identification: [ { position: 125 } ]
+    @UI.fieldGroup: [ { position: 125,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    openwt;
+    @UI.lineItem: [ { position: 135 } ]
+    @UI.identification: [ { position: 135 } ]
+    @UI.fieldGroup: [ { position: 135,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    PurchaseOrderByCustomer;
+    @UI.lineItem: [ { position: 145 } ]
+    @UI.identification: [ { position: 145 } ]
+    @UI.fieldGroup: [ { position: 145,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    CustomerPurchaseOrderDate;
+    @UI.lineItem: [ { position: 155 } ]
+    @UI.identification: [ { position: 155 } ]
+    @UI.fieldGroup: [ { position: 155,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    salesperson;
+    @UI.lineItem: [ { position: 165 } ]
+    @UI.identification: [ { position: 165 } ]
+    @UI.fieldGroup: [ { position: 165,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    YY1_CustomerRequiredDe_SDI;
+    @UI.lineItem: [ { position: 175 } ]
+    @UI.identification: [ { position: 175 } ]
+    @UI.fieldGroup: [ { position: 175,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    @UI.selectionField: [{ position: 175 }]
+    ConfirmedDeliveryDate;
+    @UI.lineItem: [ { position: 185 } ]
+    @UI.identification: [ { position: 185 } ]
+    @UI.fieldGroup: [ { position: 185,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    actdays;
+    @UI.lineItem: [ { position: 195 } ]
+    @UI.identification: [ { position: 195 } ]
+    @UI.fieldGroup: [ { position: 195,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    otifamt;
+    @UI.lineItem: [ { position: 205 } ]
+    @UI.identification: [ { position: 205 } ]
+    @UI.fieldGroup: [ { position: 205,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    YY1_ItemPaintInformati_SDI;
+    @UI.lineItem: [ { position: 215 } ]
+    @UI.identification: [ { position: 215 } ]
+    @UI.fieldGroup: [ { position: 215,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    Packinglist;
+    @UI.lineItem: [ { position: 225 } ]
+    @UI.identification: [ { position: 225 } ]
+    @UI.fieldGroup: [ { position: 225,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    Createdon;
+    @UI.lineItem: [ { position: 235 } ]
+    @UI.identification: [ { position: 235 } ]
+    @UI.fieldGroup: [ { position: 235,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    Salesnoteref;
+    @UI.lineItem: [ { position: 245 } ]
+    @UI.identification: [ { position: 245 } ]
+    @UI.fieldGroup: [ { position: 255,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    MatlWrhsStkQtyInMatlBaseUnit;
+    @UI.lineItem: [ { position: 255 } ]
+    @UI.identification: [ { position: 255 } ]
+    @UI.fieldGroup: [ { position: 255,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    soholdstatus;
+    @UI.lineItem: [ { position: 285 } ]
+    @UI.identification: [ { position: 285 } ]
+    @UI.fieldGroup: [ { position: 285,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    finotifamt;
+    
+}

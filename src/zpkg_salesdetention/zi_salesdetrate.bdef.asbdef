@@ -1,0 +1,25 @@
+managed implementation in class zbp_i_salesdetrate unique;
+with draft;
+
+
+define behavior for ZI_SalesDetRate //alias <alias_name>
+persistent table zdt_salesdetrate
+lock master
+total etag begda
+draft table zdr_salesdetrate
+authorization master ( instance )
+etag master begda
+
+{
+  create;
+  update;
+  delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  field ( readonly, numbering : managed ) id;
+}

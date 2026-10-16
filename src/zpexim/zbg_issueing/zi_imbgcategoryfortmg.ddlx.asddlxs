@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'ImbgCategoryForTmg', 
+    typeNamePlural: 'ImbgCategoryForTmgs', 
+    title: {
+      type: #STANDARD, 
+      label: 'IMBG Category for TMG', 
+      value: 'Bgcatag'
+    }
+  }
+}
+annotate view ZI_ImbgCategoryForTmg with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_ImbgCategoryForTmg', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'IMBG Category for TMG', 
+    position: 1 
+  } ]
+  Bgcatag;
+}

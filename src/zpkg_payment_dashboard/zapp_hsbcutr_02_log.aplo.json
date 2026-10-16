@@ -1,0 +1,14 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "HSBCPAYUTR Log of appl job 02",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "subobjects": [
+    {
+      "name": "ZAPP_HSBCUTR_02_SUB",
+      "description": "UTR Application Log 02"
+    }
+  ]
+}

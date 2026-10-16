@@ -1,0 +1,519 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'PO', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'LC Dashboad' }] }
+annotate view zc_lchead with
+{
+  @UI.facet:
+   [{ id: 'GeneralData', isSummary: true, label: 'Import LC', type: #COLLECTION },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'LC details', id: 'GeneralData1' },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15, label: 'Header Details', id: 'GeneralData2' },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 20, label: 'Amount', id: 'GeneralData3' },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData4', parentId: 'GeneralData', position: 25, label: 'Tolerance', id: 'GeneralData4' },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData5', parentId: 'GeneralData', position: 30, label: 'Interest', id: 'GeneralData5' },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData6', parentId: 'GeneralData', position: 35, label: 'Bank Details', id: 'GeneralData6' },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData7', parentId: 'GeneralData', position: 40, label: 'Shipment Details', id: 'GeneralData7' },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData8', parentId: 'GeneralData', position: 45, label: 'Insurance Details', id: 'GeneralData8' },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData9', parentId: 'GeneralData', position: 50, label: 'LC Bank Limits', id: 'GeneralData9' },
+
+    { id: 'Lcbankdlts', label: 'Bank Details', type: #LINEITEM_REFERENCE, position : 55, targetElement: '_item1' },
+    { id: 'Lcimpoi', label: 'Attach Purchase Order',  type: #LINEITEM_REFERENCE, position : 60, targetElement: '_item2' },
+    { id: 'Lcbankref', label: 'Bank Reference', type: #LINEITEM_REFERENCE, position : 65, targetElement: '_item3' } ]
+
+  @UI.hidden: true
+  Id;
+  @UI: { lineItem: [{ position: 5 }],
+       identification: [{ position: 5 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  Lc_Refnr;
+  @UI: { lineItem: [{ position: 10 }],
+       identification: [{ position: 10 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Version;
+  @UI: {
+    lineItem: [ { position: 12, criticality: 'Criticality'} ],
+    identification: [{position: 12 }],
+    fieldGroup: [{qualifier: 'GeneralData1',position: 12,importance: #HIGH }]
+    }
+  Status;
+  @UI.hidden: true
+  Criticality;
+
+  @UI: { lineItem: [{ position: 15 }],
+       identification: [{ position: 15 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 15, importance: #HIGH }] }
+  Ekorg;
+  @UI: { lineItem: [{ position: 20 }],
+       identification: [{ position: 20 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  Pur_Org_Name;
+  @UI: { lineItem: [{ position: 25 }],
+     identification: [{ position: 25 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 25, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_lifnrF4' } }]
+  Lifnr;
+  @UI: { lineItem: [{ position: 30 }],
+     identification: [{ position: 30 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+
+  Vendor_Name;
+  @UI: { lineItem: [{ position: 35 }],
+     identification: [{ position: 35 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 35, importance: #HIGH }] }
+  Lc_Appl;
+  @UI: { lineItem: [{ position: 40 }],
+     identification: [{ position: 40 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 40, importance: #HIGH }] }
+  Lc_Number;
+  @UI: {  selectionField: [{ position: 45 }],
+     lineItem: [{ position: 45 }],
+     identification: [{ position: 45 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 45, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{
+      entity:{
+      element: 'PurchaseOrder',
+      name:'ZI_PO_VIEW_F4'
+      },
+
+         distinctValues: true,
+      useForValidation: true,
+      enabled: ''
+      }
+    ]
+  Po;
+  @UI: { lineItem: [{ position: 50 }],
+     identification: [{ position: 50 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 50, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_TableForLcStatus01' } }]
+  Lc_Status;
+  @UI: { lineItem: [{ position: 55 }],
+     identification: [{ position: 55 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 55, importance: #HIGH }] }
+  Lcstatus_Name;
+  @UI: { lineItem: [{ position: 60 }],
+     identification: [{ position: 60 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 60, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_tableforlctype' } }]
+  Lc_Type;
+  @UI: { lineItem: [{ position: 65 }],
+     identification: [{ position: 65 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 65, importance: #HIGH }] }
+  Lctyp_Name;
+  @UI: { lineItem: [{ position: 70 }],
+     identification: [{ position: 70 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 70, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_TableForLcBase' } }]
+  Lc_Base;
+  @UI: { lineItem: [{ position: 75 }],
+     identification: [{ position: 75 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 75, importance: #HIGH }] }
+  Div;
+  @UI: { lineItem: [{ position: 80 }],
+     identification: [{ position: 80 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 80, importance: #HIGH }] }
+  Bank_Xblnr;
+  @UI: { lineItem: [{ position: 85 }],
+     identification: [{ position: 85 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 85, importance: #HIGH }] }
+  Amend_Date;
+  @UI: { lineItem: [{ position: 90 }],
+     identification: [{ position: 90 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 90, importance: #HIGH }] }
+  Amend_Txt;
+  @UI: { lineItem: [{ position: 95 }],
+     identification: [{ position: 95 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 95, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_TableForFinalAssesm' } }]
+  Finala;
+  @UI: { lineItem: [{ position: 100 }],
+     identification: [{ position: 100 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 100, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_TableForLcCharges' } }]
+  Charges;
+  @UI: { lineItem: [{ position: 110 }],
+     identification: [{ position: 110 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 110, importance: #HIGH }] }
+  Belnr;
+  @UI: { lineItem: [{ position: 120 }],
+     identification: [{ position: 120 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 120, importance: #HIGH }] }
+  Zorder;
+  @UI: { lineItem: [{ position: 130 }],
+     identification: [{ position: 130 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 130, importance: #HIGH }] }
+  Lc_Prof_Num;
+  @UI: { lineItem: [{ position: 140 }],
+     identification: [{ position: 140 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 140, importance: #HIGH }] }
+  Lc_Req_Date;
+  @UI: { lineItem: [{ position: 150 }],
+     identification: [{ position: 150 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 150, importance: #HIGH }] }
+  Lc_Open_Dt;
+  @UI: { lineItem: [{ position: 160 }],
+     identification: [{ position: 160 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 160, importance: #HIGH }] }
+  Lc_Exp_Date;
+  @UI: { lineItem: [{ position: 170 }],
+     identification: [{ position: 170 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 170, importance: #HIGH }] }
+  Lc_Appl_Name;
+  @UI: { lineItem: [{ position: 180 }],
+     identification: [{ position: 180 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 180, importance: #HIGH }] }
+  Lc_Benf_Name;
+  @UI: { lineItem: [{ position: 190 }],
+     identification: [{ position: 190 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 190, importance: #HIGH }] }
+  Lc_Prod_Date;
+  @UI: { lineItem: [{ position: 200 }],
+     identification: [{ position: 200 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 200, importance: #HIGH }] }
+  Lc_Purpose;
+  @UI: { lineItem: [{ position: 210 }],
+     identification: [{ position: 210 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 210, importance: #HIGH }] }
+  Lc_Creator;
+  @UI: { lineItem: [{ position: 220 }],
+     identification: [{ position: 220 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 220, importance: #HIGH }] }
+  Lc_Serv_Cont_No;
+  @UI: { lineItem: [{ position: 230 }],
+     identification: [{ position: 230 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 230, importance: #HIGH }] }
+  Lc_Iec_Code;
+  @UI: { lineItem: [{ position: 240 }],
+     identification: [{ position: 240 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 240, importance: #HIGH }] }
+  Usance;
+  @UI: { lineItem: [{ position: 250 }],
+     identification: [{ position: 250 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 250, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'zi_payt_termsf4' } }]
+  Zterm;
+  @UI: { lineItem: [{ position: 260 }],
+     identification: [{ position: 260 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 260, importance: #HIGH }] }
+  Payterm_Description;
+  @UI: { lineItem: [{ position: 270 }],
+     identification: [{ position: 270 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 270, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_lifnrF4' } }]
+  Ra_Vendor;
+  @UI: { lineItem: [{ position: 280 }],
+     identification: [{ position: 280 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 280, importance: #HIGH }] }
+  Tenure;
+  @UI: { lineItem: [{ position: 290 }],
+     identification: [{ position: 290 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 290, importance: #HIGH }] }
+  Grace;
+  @UI: { lineItem: [{ position: 300 }],
+     identification: [{ position: 300 }],
+     fieldGroup: [{ qualifier: 'GeneralData3', position: 300, importance: #HIGH }] }
+  Wkurs;
+  @UI: { lineItem: [{ position: 310 }],
+     identification: [{ position: 310 }],
+     fieldGroup: [{ qualifier: 'GeneralData3', position: 310, importance: #HIGH }] }
+  Waers;
+  @UI: { lineItem: [{ position: 320 }],
+     identification: [{ position: 320 }],
+     fieldGroup: [{ qualifier: 'GeneralData3', position: 320, importance: #HIGH }] }
+  Lc_Tot_Amt_Fc;
+  @UI: { lineItem: [{ position: 330 }],
+     identification: [{ position: 330 }],
+     fieldGroup: [{ qualifier: 'GeneralData3', position: 330, importance: #HIGH }] }
+  Lc_Tot_Amt_Lc;
+  @UI: { lineItem: [{ position: 340 }],
+     identification: [{ position: 340 }],
+     fieldGroup: [{ qualifier: 'GeneralData3', position: 340, importance: #HIGH }] }
+  Lc_Add;
+  @UI: { lineItem: [{ position: 350 }],
+     identification: [{ position: 350 }],
+     fieldGroup: [{ qualifier: 'GeneralData4', position: 350, importance: #HIGH }] }
+  Lc_Tolerance;
+  @UI: { lineItem: [{ position: 360 }],
+     identification: [{ position: 360 }],
+     fieldGroup: [{ qualifier: 'GeneralData4', position: 360, importance: #HIGH }] }
+  Lc_Tol_Amt;
+  @UI: { lineItem: [{ position: 370 }],
+     identification: [{ position: 370 }],
+     fieldGroup: [{ qualifier: 'GeneralData4', position: 370, importance: #HIGH }] }
+  Lc_Tot_Amt_Fc_Tol;
+  @UI: { lineItem: [{ position: 380 }],
+     identification: [{ position: 380 }],
+     fieldGroup: [{ qualifier: 'GeneralData4', position: 380, importance: #HIGH }] }
+  Lc_Tot_Amt_Lc_Tol;
+  @UI: { lineItem: [{ position: 390 }],
+     identification: [{ position: 390 }],
+     fieldGroup: [{ qualifier: 'GeneralData5', position: 390, importance: #HIGH }] }
+  Interest;
+  @UI: { lineItem: [{ position: 400 }],
+     identification: [{ position: 400 }],
+     fieldGroup: [{ qualifier: 'GeneralData5', position: 400, importance: #HIGH }] }
+  Lc_Buyers_Credit;
+  @UI: { lineItem: [{ position: 410 }],
+     identification: [{ position: 410 }],
+     fieldGroup: [{ qualifier: 'GeneralData5', position: 410, importance: #HIGH }] }
+  Interest_Value;
+  @UI: { lineItem: [{ position: 420 }],
+     identification: [{ position: 420 }],
+     fieldGroup: [{ qualifier: 'GeneralData5', position: 420, importance: #HIGH }] }
+  Interest_Lc;
+  @UI: { lineItem: [{ position: 430 }],
+     identification: [{ position: 430 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 430, importance: #HIGH }] }
+  Lc_Opening;
+  @UI: { lineItem: [{ position: 440 }],
+     identification: [{ position: 440 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 440, importance: #HIGH }] }
+  Swift_Charge;
+  @UI: { lineItem: [{ position: 450 }],
+     identification: [{ position: 450 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 450, importance: #HIGH }] }
+  Other_Charges;
+  @UI: { lineItem: [{ position: 460 }],
+     identification: [{ position: 460 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 460, importance: #HIGH }] }
+  Lc_Adj_Chrg;
+  @UI: { lineItem: [{ position: 470 }],
+     identification: [{ position: 470 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 470, importance: #HIGH }] }
+  Lc_Non_Tax_Chrg;
+  @UI: { lineItem: [{ position: 480 }],
+     identification: [{ position: 480 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 480, importance: #HIGH }] }
+  Ammend_Charge;
+  @UI: { lineItem: [{ position: 490 }],
+     identification: [{ position: 490 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 490, importance: #HIGH }] }
+  Bank_Remarks;
+  @UI: { lineItem: [{ position: 500 }],
+     identification: [{ position: 500 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 500, importance: #HIGH }] }
+  Bank_Rate;
+  @UI: { lineItem: [{ position: 510 }],
+     identification: [{ position: 510 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 510, importance: #HIGH }] }
+  Cgst;
+  @UI: { lineItem: [{ position: 520 }],
+     identification: [{ position: 520 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 520, importance: #HIGH }] }
+  Sgst;
+  @UI: { lineItem: [{ position: 530 }],
+     identification: [{ position: 530 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 530, importance: #HIGH }] }
+  Igst;
+  @UI: { lineItem: [{ position: 540 }],
+     identification: [{ position: 540 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 540, importance: #HIGH }] }
+  Lc_Shift_Char;
+  @UI: { lineItem: [{ position: 550 }],
+     identification: [{ position: 550 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position:550, importance: #HIGH }] }
+  Commitment_Prio;
+  @UI: { lineItem: [{ position: 560 }],
+     identification: [{ position: 560 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 560, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_banklifnrF4' } }]
+  Bank_Lifnr;
+  @UI: { lineItem: [{ position: 570 }],
+     identification: [{ position: 570 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 570, importance: #HIGH }] }
+  Bank_Vendor_Name;
+  @UI: { lineItem: [{ position: 580 }],
+     identification: [{ position: 580 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 580, importance: #HIGH }] }
+  // @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_buplaF4' } }]
+  Bupla;
+  @UI: { lineItem: [{ position: 590 }],
+     identification: [{ position: 590 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 590, importance: #HIGH }] }
+  // @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_seccoF4' } }]
+  Secco;
+  @UI: { lineItem: [{ position: 600 }],
+     identification: [{ position: 600 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 600, importance: #HIGH }] }
+  //  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_mwskzF4' } }]
+  Mwskz;
+  @UI: { lineItem: [{ position: 610 }],
+     identification: [{ position: 610 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 610, importance: #HIGH }] }
+  Lc_Amend_Charge;
+  @UI: { lineItem: [{ position: 620 }],
+     identification: [{ position: 620 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 620, importance: #HIGH }] }
+  Lc_Amend_Date;
+  @UI: { lineItem: [{ position: 630 }],
+     identification: [{ position: 630 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 630, importance: #HIGH }] }
+  Lc_Amend_Reason;
+  @UI: { lineItem: [{ position: 640 }],
+     identification: [{ position: 640 }],
+     fieldGroup: [{ qualifier: 'GeneralData7', position: 640, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_TableForPsaIndicato' } }]
+  Partial_Shipment;
+  @UI: { lineItem: [{ position: 650 }],
+     identification: [{ position: 650 }],
+     fieldGroup: [{ qualifier: 'GeneralData7', position: 650, importance: #HIGH }] }
+  Prt_Ld_Cod;
+  @UI: { lineItem: [{ position: 660 }],
+     identification: [{ position: 660 }],
+     fieldGroup: [{ qualifier: 'GeneralData7', position: 660, importance: #HIGH }] }
+  Prt_Ds_Cod;
+  @UI: { lineItem: [{ position: 670 }],
+     identification: [{ position: 670 }],
+     fieldGroup: [{ qualifier: 'GeneralData7', position: 670, importance: #HIGH }] }
+  Latest_Ship_Date;
+  @UI: { lineItem: [{ position: 680 }],
+     identification: [{ position: 680 }],
+     fieldGroup: [{ qualifier: 'GeneralData7', position: 680, importance: #HIGH }] }
+  Item_Detail;
+  @UI: { lineItem: [{ position: 690 }],
+     identification: [{ position: 690 }],
+     fieldGroup: [{ qualifier: 'GeneralData7', position: 690, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_Cntry_Orgf4' } }]
+  Cntry_Org;
+  @UI: { lineItem: [{ position: 700 }],
+     identification: [{ position: 700 }],
+     fieldGroup: [{ qualifier: 'GeneralData7', position: 700, importance: #HIGH }] }
+  Country_Name;
+  @UI: { lineItem: [{ position: 710 }],
+     identification: [{ position: 710 }],
+     fieldGroup: [{ qualifier: 'GeneralData7', position: 710, importance: #HIGH }] }
+  Inco1;
+  @UI: { lineItem: [{ position: 720 }],
+     identification: [{ position: 720 }],
+     fieldGroup: [{ qualifier: 'GeneralData7', position: 720, importance: #HIGH }] }
+  Inco2;
+  @UI: { lineItem: [{ position: 730 }],
+     identification: [{ position: 730 }],
+     fieldGroup: [{ qualifier: 'GeneralData7', position: 730, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_TableForShipmentMod' } }]
+  Shipment_Mode;
+  @UI: { lineItem: [{ position: 740 }],
+     identification: [{ position: 740 }],
+     fieldGroup: [{ qualifier: 'GeneralData7', position: 740, importance: #HIGH }] }
+  Port_Discharge;
+  @UI: { lineItem: [{ position: 750 }],
+     identification: [{ position: 750 }],
+     fieldGroup: [{ qualifier: 'GeneralData7', position: 750, importance: #HIGH }] }
+  Port_Load;
+  @UI: { lineItem: [{ position: 760 }],
+     identification: [{ position: 760 }],
+     fieldGroup: [{ qualifier: 'GeneralData7', position: 760, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'text', name: 'ZI_TableForPsaIndicato' } }]
+  Transship;
+  @UI: { lineItem: [{ position: 770 }],
+     identification: [{ position: 770 }],
+     fieldGroup: [{ qualifier: 'GeneralData8', position: 770, importance: #HIGH }] }
+  Insurance_Number;
+  @UI: { lineItem: [{ position: 780 }],
+     identification: [{ position: 780 }],
+     fieldGroup: [{ qualifier: 'GeneralData8', position: 780, importance: #HIGH }] }
+  Ins_Start_Date;
+  @UI: { lineItem: [{ position: 790 }],
+     identification: [{ position: 790 }],
+     fieldGroup: [{ qualifier: 'GeneralData8', position: 790, importance: #HIGH }] }
+  Ins_Expiry_Date;
+  @UI: { lineItem: [{ position: 800 }],
+     identification: [{ position: 800 }],
+     fieldGroup: [{ qualifier: 'GeneralData8', position: 800, importance: #HIGH }] }
+  Risk_Cover_Type;
+  @UI: { lineItem: [{ position: 810 }],
+     identification: [{ position: 810 }],
+     fieldGroup: [{ qualifier: 'GeneralData8', position: 810, importance: #HIGH }] }
+  Insurace_Agent;
+  @UI: { lineItem: [{ position: 820 }],
+     identification: [{ position: 820 }],
+     fieldGroup: [{ qualifier: 'GeneralData8', position: 820, importance: #HIGH }] }
+  Agent_Name;
+  @UI: { lineItem: [{ position: 830 }],
+     identification: [{ position: 830 }],
+     fieldGroup: [{ qualifier: 'GeneralData9', position: 830, importance: #HIGH }] }
+  Net_Lc_Amt;
+  @UI: { lineItem: [{ position: 840 }],
+     identification: [{ position: 840 }],
+     fieldGroup: [{ qualifier: 'GeneralData9', position: 840, importance: #HIGH }] }
+  Net_Lc_Paid_Amt;
+  @UI: { lineItem: [{ position: 850 }],
+     identification: [{ position: 850 }],
+     fieldGroup: [{ qualifier: 'GeneralData9', position: 850, importance: #HIGH }] }
+  Lc_Clean_Limit;
+  @UI: { lineItem: [{ position: 860 }],
+     identification: [{ position: 860 }],
+     fieldGroup: [{ qualifier: 'GeneralData9', position: 860, importance: #HIGH }] }
+  Bg_Clean_Limit;
+  @UI: { lineItem: [{ position: 870 }],
+     identification: [{ position: 870 }],
+     fieldGroup: [{ qualifier: 'GeneralData9', position: 870, importance: #HIGH }] }
+  Fd_Customer;
+  @UI: { lineItem: [{ position: 890 }],
+     identification: [{ position: 890 }],
+     fieldGroup: [{ qualifier: 'GeneralData9', position: 890, importance: #HIGH }] }
+  Lc_Clean_Assign;
+  @UI: { lineItem: [{ position: 900 }],
+     identification: [{ position: 900 }],
+     fieldGroup: [{ qualifier: 'GeneralData9', position: 900, importance: #HIGH }] }
+  Bg_Clean_Assign;
+  @UI: { lineItem: [{ position: 910 }],
+     identification: [{ position: 910 }],
+     fieldGroup: [{ qualifier: 'GeneralData9', position: 910, importance: #HIGH }] }
+  Fd_Cust_Amt;
+  @UI: { lineItem: [{ position: 920 }],
+     identification: [{ position: 920 }],
+     fieldGroup: [{ qualifier: 'GeneralData9', position: 920, importance: #HIGH }] }
+  Bg_Lc_Intchng;
+  @UI: { lineItem: [{ position: 930 }],
+     identification: [{ position: 930 }],
+     fieldGroup: [{ qualifier: 'GeneralData9', position: 930, importance: #HIGH }] }
+  Pay;
+  @UI: { lineItem: [{ position: 940 }],
+     identification: [{ position: 940 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 940, importance: #HIGH }] }
+  Create_Openlc;
+  @UI: { lineItem: [{ position: 950 }],
+     identification: [{ position: 950 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 950, importance: #HIGH }] }
+  Change_Lc;
+  @UI: { lineItem: [{ position: 960 }],
+     identification: [{ position: 960 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 960, importance: #HIGH }] }
+  Create_Acamnd;
+  @UI: { lineItem: [{ position: 970 }],
+     identification: [{ position: 970 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 970, importance: #HIGH }] }
+  Display_Lc;
+  @UI: { lineItem: [{ position: 980 }],
+     identification: [{ position: 980 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 980, importance: #HIGH }] }
+  Release_Lc;
+  @UI: { lineItem: [{ position: 990 }],
+     identification: [{ position: 990 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 990, importance: #HIGH }] }
+  Release_Revsl;
+  @UI: { lineItem: [{ position: 1000 }],
+     identification: [{ position: 1000 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 1000, importance: #HIGH }] }
+  Close_Lc;
+  @UI: { lineItem: [{ position: 1010 }],
+     identification: [{ position: 1010 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 1010, importance: #HIGH }] }
+  Lc_Ut_Rpt;
+  @UI: { lineItem: [ { position: 1020 } ],
+  identification: [ { position: 1020 } ],
+  fieldGroup: [ { qualifier: 'Generaldata1', position: 1020, importance: #HIGH } ] }
+  Locallastchangedat;
+  @UI.hidden: true
+  @UI: { lineItem: [{ position: 1030 },
+                            { type: #FOR_ACTION, dataAction: 'Amendment', label: 'Amendment', iconUrl: 'sap-icon://close-command-field' }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 1030, importance: #HIGH }] }
+
+  Amendment;
+  @UI.hidden: true
+  @UI: { identification: [{ position: 1040 },
+                            { type: #FOR_ACTION, dataAction: 'Setout', label: 'Set Out', iconUrl: 'sap-icon://close-command-field' }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 1040, importance: #HIGH }] }
+  Setout;
+}

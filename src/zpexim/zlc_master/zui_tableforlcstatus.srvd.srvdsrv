@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TableForLcStatus_S'
+define service ZUI_TABLEFORLCSTATUS {
+  expose ZI_TABLEFORLCSTATUS_S as TableForLcStatusAll;
+  expose ZI_TABLEFORLCSTATUS as TableForLcStatus;
+}

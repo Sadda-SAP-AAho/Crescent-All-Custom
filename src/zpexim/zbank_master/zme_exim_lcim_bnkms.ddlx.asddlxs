@@ -1,0 +1,233 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Details',
+    typeNamePlural: 'Details'
+ /*   title: {
+      type: #STANDARD,
+      label: 'EXIM LC Import Bank Master',
+      value: ''
+   }*/
+  }
+}
+@UI: {
+presentationVariant: [{ text: 'EXIM' }]
+                               }
+annotate entity ZC_EXIM_LCIM_BNKMS with
+{
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'EXIM Bank Maintenance', type: #COLLECTION },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Bank Master', id: 'GeneralData1' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 20, label: '', id: 'GeneralData2' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 30, label: 'Maintain Bank Master Interests', id: 'GeneralData3' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData4', parentId: 'GeneralData', position: 40, label: 'Maintain Fungible Limit in INR', id: 'GeneralData4' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData5', parentId: 'GeneralData', position: 50, label: 'Maintain Non Fund Based Limit in INR', id: 'GeneralData5' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData6', parentId: 'GeneralData', position: 60, label: 'Maintain Fund Based Limit in INR', id: 'GeneralData6' }
+  //{ type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 30, label: 'Section 3', id: 'GeneralData3' },
+  //{ type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData4', parentId: 'GeneralData', position: 40, label: 'Section 4', id: 'GeneralData4' }
+  ]
+  @UI.hidden: true
+  Internaid;
+  @UI: { lineItem: [{ position: 5 }],
+          identification: [{ position: 5 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{
+       entity: { element: 'CompanyCode', name: 'I_CompanyCode' } }]
+  Bukrs;
+  @UI: { lineItem: [{ position: 25 }],
+     identification: [{ position: 25 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 25, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{
+  entity: { element: 'HouseBank', name: 'I_HouseBankAccountLinkage' } ,
+   additionalBinding: [{ localElement: 'Hktid' , element: 'HouseBankAccount', usage: #RESULT } ,
+   { localElement: 'Zaccno' , element: 'BankAccount', usage: #RESULT } ,
+   { localElement: 'Zswift' , element: 'SWIFTCode', usage: #RESULT }
+  //   { localElement: 'City' , element: 'CityName', usage: #RESULT } ,
+  //   { localElement: 'Street' , element: 'Street', usage: #RESULT } ,
+  //   { localElement: 'State' , element: 'State', usage: #RESULT } ,
+  //   { localElement: 'Postcode' , element: 'Postcode', usage: #RESULT }
+
+    ]}]
+  Hbkid;
+  @UI: { lineItem: [{ position: 30 }],
+     identification: [{ position: 30 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 30, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{
+       entity: { element: 'HouseBankAccount', name: 'I_HouseBankAccountLinkage' }
+       }]
+  Hktid;
+  @UI: { lineItem: [{ position: 30 }],
+     identification: [{ position: 30 }, { type: #FOR_ACTION, dataAction: 'Refresh', label: 'Refresh', iconUrl: 'sap-icon://close-command-field' }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 30, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{
+  entity: { element: 'FiscalYear', name: 'ZI_FISCALYEAR' } }]
+  Gjahr;
+  /* @UI.hidden: true
+   @UI: { lineItem: [{ position: 10 }],
+            identification: [{ position: 10 }],
+            fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+   Zifsccode;*/
+  @UI: { lineItem: [{ position: 15 }],
+         identification: [{ position: 15 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 15 , importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{
+       entity: { element: 'BankAccount', name: 'I_HouseBankAccountLinkage' } }]
+  Zaccno;
+  @UI: { lineItem: [{ position: 20 }],
+      identification: [{ position: 20 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{
+  entity: { element: 'BankInternalID', name: 'I_Housebank' } }]
+  Bankl;
+  @UI: { lineItem: [{ position: 10 }],
+           identification: [{ position: 10 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{
+       entity: { element: 'SWIFTCode', name: 'I_HouseBankAccountLinkage' } }]
+  Zswift;
+  @UI: { lineItem: [{ position: 30 }],
+     identification: [{ position: 30 }],
+     fieldGroup: [{ qualifier: 'GeneralData3', position: 30, importance: #HIGH }] }
+  Commissionint;
+  @UI: { lineItem: [{ position: 30 }],
+     identification: [{ position: 30 }],
+     fieldGroup: [{ qualifier: 'GeneralData3', position: 30, importance: #HIGH }] }
+  Discountinginterest;
+  /* @UI: { lineItem: [{ position: 30 }],
+      identification: [{ position: 30 }],
+      fieldGroup: [{ qualifier: 'GeneralData3', position: 30, importance: #HIGH }] }
+   Waers;*/
+  @UI: { lineItem: [{ position: 33 }],
+  identification: [{ position: 33 }],
+  fieldGroup: [{ qualifier: 'GeneralData4', position: 33, importance: #HIGH }]
+  //fieldGroup: [{ qualifier: 'GeneralData5', position: 30, importance: #HIGH }]
+   }
+  Totallimit;
+  @UI: { lineItem: [{ position: 34 }],
+     identification: [{ position: 34 }],
+     fieldGroup: [{ qualifier: 'GeneralData4', position: 34, importance: #HIGH }]
+     //fieldGroup: [{ qualifier: 'GeneralData5', position: 30, importance: #HIGH }]
+      }
+  TotalnonfundBased;
+  @UI: { lineItem: [{ position: 35 }],
+     identification: [{ position: 35 }],
+    // fieldGroup: [{ qualifier: 'GeneralData5', position: 30, importance: #HIGH }]
+    fieldGroup: [{ qualifier: 'GeneralData4', position: 35, importance: #HIGH }] }
+  Fundbasedlimit;
+  @UI: { lineItem: [{ position: 30 }],
+     identification: [{ position: 30 }],
+     fieldGroup: [{ qualifier: 'GeneralData4', position: 35, importance: #HIGH }]
+     //fieldGroup: [{ qualifier: 'GeneralData5', position: 30, importance: #HIGH }]
+      }
+  @UI.hidden: true
+  Pledgelimit;
+
+  @UI: { lineItem: [{ position: 40 }],
+   identification: [{ position: 40 }],
+   //fieldGroup: [{ qualifier: 'GeneralData4', position: 30, importance: #HIGH }]
+   fieldGroup: [{ qualifier: 'GeneralData5', position: 40, importance: #HIGH }]
+   }
+  Lclimit;
+
+
+  @UI: { lineItem: [{ position: 45 }],
+     identification: [{ position: 45 }],
+     //fieldGroup: [{ qualifier: 'GeneralData4', position: 30, importance: #HIGH }]
+     fieldGroup: [{ qualifier: 'GeneralData5', position: 45, importance: #HIGH }] }
+  Lcutilised;
+
+  @UI: { lineItem: [{ position: 50 }],
+   identification: [{ position: 50 }],
+   //fieldGroup: [{ qualifier: 'GeneralData4', position: 30, importance: #HIGH }]
+   fieldGroup: [{ qualifier: 'GeneralData5', position: 50, importance: #HIGH }] }
+  lcavailable;
+  @UI: { lineItem: [{ position: 55 }],
+     identification: [{ position: 55 }],
+     //fieldGroup: [{ qualifier: 'GeneralData4', position: 30, importance: #HIGH }]
+     fieldGroup: [{ qualifier: 'GeneralData5', position: 55, importance: #HIGH }] }
+  Bglimit;
+  @UI: { lineItem: [{ position: 60 }],
+     identification: [{ position: 60 }],
+     //fieldGroup: [{ qualifier: 'GeneralData4', position: 30, importance: #HIGH }]
+     fieldGroup: [{ qualifier: 'GeneralData5', position: 60 , importance: #HIGH }] }
+  Bgutilised;
+  @UI: { lineItem: [{ position: 65 }],
+     identification: [{ position: 65  }],
+     //fieldGroup: [{ qualifier: 'GeneralData4', position: 30, importance: #HIGH }]
+     fieldGroup: [{ qualifier: 'GeneralData5', position: 65 , importance: #HIGH }] }
+  Bgavailable;
+  @UI: { lineItem: [{ position: 70 }],
+   identification: [{ position: 70 }],
+   //fieldGroup: [{ qualifier: 'GeneralData4', position: 30, importance: #HIGH }]
+   fieldGroup: [{ qualifier: 'GeneralData5', position: 70, importance: #HIGH }] }
+  Bclimit;
+  @UI.hidden: true
+  @UI: { lineItem: [{ position: 30 }],
+     identification: [{ position: 30 }],
+     //fieldGroup: [{ qualifier: 'GeneralData4', position: 30, importance: #HIGH }]
+     fieldGroup: [{ qualifier: 'GeneralData5', position: 30, importance: #HIGH }] }
+  Bccleanutilised;
+  @UI.hidden: true
+  @UI: { lineItem: [{ position: 30 }],
+     identification: [{ position: 30 }],
+     //fieldGroup: [{ qualifier: 'GeneralData4', position: 30, importance: #HIGH }]
+     fieldGroup: [{ qualifier: 'GeneralData5', position: 30, importance: #HIGH }] }
+  Bccleanavailable;
+  @UI: { lineItem: [{ position: 75 }],
+   identification: [{ position: 75 }],
+   //fieldGroup: [{ qualifier: 'GeneralData4', position: 30, importance: #HIGH }]
+   fieldGroup: [{ qualifier: 'GeneralData5', position: 75, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{
+  entity: { element: 'text', name: 'ZI_INTERF' } }]
+  interchangeability;
+  @UI: { lineItem: [{ position: 75 }],
+     identification: [{ position: 75 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 75, importance: #HIGH }] }
+  Cashc;
+  @UI: { lineItem: [{ position: 75 }],
+     identification: [{ position: 75 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 75, importance: #HIGH }] }
+  cashcutilised;
+  @UI: { lineItem: [{ position: 75 }],
+     identification: [{ position: 75 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 75, importance: #HIGH }] }
+  Fcnr;
+  @UI: { lineItem: [{ position: 75 }],
+     identification: [{ position: 75 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 75, importance: #HIGH }] }
+  fcnrutilised;
+  @UI: { lineItem: [{ position: 75 }],
+     identification: [{ position: 75 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 75, importance: #HIGH }] }
+  Wcdc;
+  @UI: { lineItem: [{ position: 75 }],
+     identification: [{ position: 75 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 75, importance: #HIGH }] }
+  wcdcutilised;
+  @UI: { lineItem: [{ position: 75 }],
+     identification: [{ position: 75 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 75, importance: #HIGH }] }
+  Packcredit;
+  @UI: { lineItem: [{ position: 75 }],
+     identification: [{ position: 75 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 75, importance: #HIGH }] }
+  packcreditutilised;
+  @UI: { lineItem: [{ position: 75 }],
+     identification: [{ position: 75 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 75, importance: #HIGH }] }
+  @UI.hidden: true
+  Lifnr;
+  @UI: { lineItem: [{ position: 75 }],
+     identification: [{ position: 75 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 75, importance: #HIGH }] }
+  @UI.hidden: true
+  Icgl;
+  @UI: { lineItem: [{ position: 75 }],
+     identification: [{ position: 75 }],
+     fieldGroup: [{ qualifier: 'GeneralData6', position: 75, importance: #HIGH }] }
+  @UI.hidden: true
+  Oggl;
+  @UI.hidden: true
+  ref;
+
+}

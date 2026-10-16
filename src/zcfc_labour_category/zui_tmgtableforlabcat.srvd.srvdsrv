@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForLabCat_S'
+define service ZUI_TMGTABLEFORLABCAT {
+  expose ZI_TmgTableForLabCat_S as TmgTableForLabCatAll;
+  expose ZI_TmgTableForLabCat   as TmgTableForLabCat;
+}

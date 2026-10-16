@@ -1,0 +1,4 @@
+@EndUserText.label: 'Servoce Definition For Routing Report'
+define service ZSD_ROUTINGRPT {
+  expose ZC_ROUTINGRPT;
+}

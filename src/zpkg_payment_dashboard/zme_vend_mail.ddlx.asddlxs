@@ -1,0 +1,47 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'Lifnr', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Vendor Wise Mail Maintain' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Vendor Wise Mail Maintain', value: 'Lifnr' } } }
+annotate entity ZC_VEND_MAIL with
+{
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'Vendor Wise Mail Maintain', type: #COLLECTION },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: '', id: 'GeneralData1' }]
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Supplier', name:'ZI_VEND_F4' },
+                                                distinctValues: true,
+                                                useForValidation: true } ]
+  Lifnr;
+  @UI.hidden: true
+  Reflifnr;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Mail1;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Mail2;
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Mail3;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Mail4;
+  @UI.lineItem: [ { position: 65 } ]
+  @UI.identification: [ { position: 65 } ]
+  @UI.fieldGroup: [ { position: 65,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Mail5;
+  @UI.hidden: true
+  @UI: { identification: [{ position: 400 },
+                         { type: #FOR_ACTION, dataAction: 'Copy', label: 'Copy', iconUrl: 'sap-icon://close-command-field' }],
+          fieldGroup: [{ qualifier: 'GeneralData3', position: 400, importance: #HIGH }] }
+  Copy;
+}

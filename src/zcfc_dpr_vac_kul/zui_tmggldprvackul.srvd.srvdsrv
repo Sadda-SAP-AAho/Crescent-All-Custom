@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgGlDprVacKul_S'
+define service ZUI_TMGGLDPRVACKUL {
+  expose ZI_TMGGLDPRVACKUL_S as TmgGlDprVacKulAll;
+  expose ZI_TMGGLDPRVACKUL as TmgGlDprVacKul;
+}

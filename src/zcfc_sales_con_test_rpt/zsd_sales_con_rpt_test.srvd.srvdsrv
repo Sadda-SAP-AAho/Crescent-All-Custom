@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Sales Contract Report Test'
+define service ZSD_SALES_CON_RPT_TEST {
+  expose ZC_SALES_CON_RPT_TEST;
+}

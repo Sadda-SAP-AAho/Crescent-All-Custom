@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Fixed Cost Report'
+define service ZSD_FIXEDCOST {
+  expose ZC_FIXEDCOST;
+}

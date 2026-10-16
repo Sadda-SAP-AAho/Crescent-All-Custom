@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Debit Note Form 2"
+  },
+  "ui5AppDetails": {
+    "appId": "com.crescent.app.debitnoteform2"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_A8D1531384778A8811AD6A023DEC7B0BE4E2A1DD_TM",
+    "semanticObject": "ZDEBITNOTEFORM2",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_A8D1531384778A8811AD6A023DEC7B0BE4E2A1DD_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Debit Note Form 2"
+      }
+    }
+  ]
+}

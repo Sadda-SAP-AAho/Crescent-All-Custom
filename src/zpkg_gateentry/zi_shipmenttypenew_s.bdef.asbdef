@@ -1,0 +1,71 @@
+managed with additional save implementation in class ZBP_I_SHIPMENTTYPENEW_S unique;
+strict;
+with draft;
+define behavior for ZI_ShipmentTypeNew_S alias ShipmentTypeNewAll
+draft table ZDT_SHIPMEN_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _ShipmentTypeNew { create ( features : instance ); with draft; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_ShipmentTypeNew alias ShipmentTypeNew ##UNMAPPED_FIELD
+persistent table ZDT_SHIPMENTTYP
+draft table ZDT_SHIPMENTT_D
+lock dependent by _ShipmentTypeNewAll
+authorization dependent by _ShipmentTypeNewAll
+
+{
+  field ( mandatory : create )
+   Shipmenttype;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Shipmenttype;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_SHIPMENTTYP
+  {
+    Shipmenttype = SHIPMENTTYPE;
+  }
+
+  association _ShipmentTypeNewAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

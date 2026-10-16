@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Feasibilty Vaccum Register'
+define service ZSD_FESVACREG {
+  expose ZC_FESVACREG;
+}

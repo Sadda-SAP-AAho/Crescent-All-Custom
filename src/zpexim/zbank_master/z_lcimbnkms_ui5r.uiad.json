@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Exim LC Bank Limit Maintain",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Exim LC Bank Limit Maintain"
+  },
+  "ui5AppDetails": {
+    "appId": "zlcimbnkms"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_0235A152A7546AC03F5A9A132862AED596BE08B9_TM",
+    "semanticObject": "z_lcimbnkms",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_0235A152A7546AC03F5A9A132862AED596BE08B9_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Exim LC Bank Limit Maintain"
+      }
+    }
+  ]
+}

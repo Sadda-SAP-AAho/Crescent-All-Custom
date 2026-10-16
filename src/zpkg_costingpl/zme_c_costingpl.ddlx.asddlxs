@@ -1,0 +1,227 @@
+@Metadata.layer: #CUSTOMER
+
+@UI.headerInfo: { typeName: 'Costing P&L Report',
+                  title: { type: #STANDARD, label: 'Costing P&L Report', value: 'CommercialInvoiceNumber' } }
+annotate entity ZC_COSTINGPL with
+{
+
+  @UI.facet: [
+  {
+  id: 'Header',
+  isSummary: true,
+  label: 'Stock Ageing',
+  type: #IDENTIFICATION_REFERENCE,
+  purpose: #STANDARD,
+  position: 10
+  } ]
+
+  @UI: { lineItem: [ { position: 10} ], selectionField: [{position: 10 }], identification: [{position: 10 }] }
+  CommercialInvoiceNumber;
+
+  @UI: { lineItem: [ { position: 20} ], identification: [{position: 20 }] }
+  CommercialInvoiceItemNumber;
+
+  @UI: { lineItem: [ { position: 22} ], identification: [{position: 20 }] }
+  AccountingDocNo;
+
+  @UI: { lineItem: [ { position: 24} ], identification: [{position: 20 }] }
+  CompanyCode;
+
+  @UI: { lineItem: [ { position: 26} ], identification: [{position: 20 }] }
+  FiscalYear;
+
+  @UI: { lineItem: [ { position: 27} ], identification: [{position: 20 }] }
+  AssignmentReference;
+
+  @UI: { lineItem: [ { position: 30} ], identification: [{position: 20 }] }
+  InvoiceType;
+
+  @UI: { lineItem: [ { position: 40} ], identification: [{position: 20 }] }
+  BillingDocumentDate;
+
+  @UI: { lineItem: [ { position: 50} ], identification: [{position: 20 }] }
+  Plant;
+
+  @UI: { lineItem: [ { position: 52} ], identification: [{position: 20 }] }
+  PatternInd;
+
+  @UI: { lineItem: [ { position: 60} ], identification: [{position: 20 }] }
+  ShipmentLocation;
+
+  @UI: { lineItem: [ { position: 70} ], identification: [{position: 20 }] }
+  Customer;
+
+  @UI: { lineItem: [ { position: 80} ], identification: [{position: 20 }] }
+  ShippingType;
+
+  @UI: { lineItem: [ { position: 90} ], identification: [{position: 20 }] }
+  ResponsibleEmployee;
+
+  @UI: { lineItem: [ { position: 100} ], identification: [{position: 20 }] }
+  CustomerReferenceNumber;
+
+  @UI: { lineItem: [ { position: 110} ], identification: [{position: 20 }] }
+  DeliveryDocument;
+
+  @UI: { lineItem: [ { position: 120} ], identification: [{position: 20 }] }
+  DeliveryDocumentItem;
+
+  @UI: { lineItem: [ { position: 130} ], identification: [{position: 20 }] }
+  DeliveryDate;
+
+  @UI: { lineItem: [ { position: 140} ], identification: [{position: 20 }] }
+  PackingListNo;
+
+  @UI: { lineItem: [ { position: 150} ], identification: [{position: 20 }] }
+  SalesOrder;
+
+  @UI: { lineItem: [ { position: 160} ], identification: [{position: 20 }] }
+  SalesOrderItem;
+
+  @UI: { lineItem: [ { position: 170} ], identification: [{position: 20 }] }
+  SalesOrderDate;
+
+  @UI: { lineItem: [ { position: 180} ], identification: [{position: 20 }] }
+  ExchangeRateSalesOrder;
+
+  @UI: { lineItem: [ { position: 190} ], identification: [{position: 20 }] }
+  Product;
+
+  @UI: { lineItem: [ { position: 200} ], identification: [{position: 20 }] }
+  ProductDescription;
+
+  @UI: { lineItem: [ { position: 210} ], identification: [{position: 20 }] }
+  ProfitCenter;
+
+  @UI: { lineItem: [ { position: 211} ], identification: [{position: 20 }] }
+  ProfitCenterLongName;
+
+  @UI: { lineItem: [ { position: 212} ], identification: [{position: 20 }] }
+  NetDueDate;
+
+  @UI: { lineItem: [ { position: 214} ], identification: [{position: 20 }] }
+  CreditDays;
+
+  @UI: { lineItem: [ { position: 215} ], identification: [{position: 20 }] }
+  GLAccount;
+
+  @UI: { lineItem: [ { position: 216} ], identification: [{position: 20 }] }
+  GLAccountName;
+  
+  @UI: { lineItem: [ { position: 217} ], identification: [{position: 20 }] }
+  RefOrder;
+
+  @UI: { lineItem: [ { position: 220} ], identification: [{position: 20 }] }
+  BillingQuantity;
+
+  @UI: { lineItem: [ { position: 230} ], identification: [{position: 20 }] }
+  BillingQuantityUnit;
+
+  @UI: { lineItem: [ { position: 240} ], identification: [{position: 20 }] }
+  TransactionCurrency;
+
+  @UI: { lineItem: [ { position: 250} ], identification: [{position: 20 }] }
+  AccountingExchangeRate;
+
+  @UI: { lineItem: [ { position: 260} ], identification: [{position: 20 }] }
+  ValueinDC;
+
+  @UI: { lineItem: [ { position: 270} ], identification: [{position: 20 }] }
+  Discount;
+
+  @UI: { lineItem: [ { position: 272} ], identification: [{position: 20 }] }
+  ValueinCC;
+
+  @UI: { lineItem: [ { position: 274} ], identification: [{position: 20 }] }
+  DiscountinCC;
+
+  @UI: { lineItem: [ { position: 274} ], identification: [{position: 20 }] }
+  MaterialNetWeight;
+
+  @UI: { lineItem: [ { position: 280} ], identification: [{position: 20 }] }
+  ItemNetWeight;
+
+  @UI: { lineItem: [ { position: 290} ], identification: [{position: 20 }] }
+  TotalNetWeight;
+
+  @UI.hidden: true
+  Currency;
+
+  @UI: { lineItem: [ { position: 291} ], identification: [{position: 20 }] }
+  StandardPrice;
+
+  @UI: { lineItem: [ { position: 291} ], identification: [{position: 20 }] }
+  MetalCostBM;
+
+  @UI: { lineItem: [ { position: 300} ], identification: [{position: 20 }] }
+  FumigationCharges;
+
+  @UI: { lineItem: [ { position: 310} ], identification: [{position: 20 }] }
+  ContainerFreight;
+
+  @UI: { lineItem: [ { position: 320} ], identification: [{position: 20 }] }
+  ExcelloDocumentPortCharges;
+
+  @UI: { lineItem: [ { position: 330} ], identification: [{position: 20 }] }
+  THCCharges;
+
+  @UI: { lineItem: [ { position: 340} ], identification: [{position: 20 }] }
+  RadiationChecking;
+
+  @UI: { lineItem: [ { position: 350} ], identification: [{position: 20 }] }
+  InspectionCharges;
+
+  @UI: { lineItem: [ { position: 360} ], identification: [{position: 20 }] }
+  FreightUSD;
+
+  @UI: { lineItem: [ { position: 370} ], identification: [{position: 20 }] }
+  ECGCPREMIUMRATE;
+
+  @UI: { lineItem: [ { position: 380} ], identification: [{position: 20 }] }
+  ShortRelisationCharges;
+
+  @UI: { lineItem: [ { position: 390} ], identification: [{position: 20 }] }
+  CreditPeriodCharges;
+
+  @UI: { lineItem: [ { position: 400} ], identification: [{position: 20 }] }
+  BankAdvCharges;
+
+  @UI: { lineItem: [ { position: 410} ], identification: [{position: 20 }] }
+  CommissionCharges;
+
+  @UI: { lineItem: [ { position: 420} ], identification: [{position: 20 }] }
+  ClaimagainstDamagedMaterials;
+
+  @UI: { lineItem: [ { position: 430} ], identification: [{position: 20 }] }
+  VariancePerKg;
+
+  @UI: { lineItem: [ { position: 440} ], identification: [{position: 20 }] }
+  FreightreceivedAmount;
+
+  @UI: { lineItem: [ { position: 450} ], identification: [{position: 20 }] }
+  @UI.hidden: true
+  PatternSale;
+
+  @UI: { lineItem: [ { position: 450} ], identification: [{position: 20 }] }
+  TotalCost;
+
+  @UI: { lineItem: [ { position: 450} ], identification: [{position: 20 }] }
+  TotalSellingExp;
+
+  @UI: { lineItem: [ { position: 450} ], identification: [{position: 20 }] }
+  SellingExpperKg;
+
+  @UI: { lineItem: [ { position: 450} ], identification: [{position: 20 }] }
+  ActualCostperkg;
+
+  @UI: { lineItem: [ { position: 450} ], identification: [{position: 20 }] }
+  ordervalueasperorder;
+
+  @UI: { lineItem: [ { position: 450} ], identification: [{position: 20 }] }
+  SalesOrderValueKg;
+
+  @UI: { lineItem: [ { position: 450} ], identification: [{position: 20 }] }
+  RealisationKg;
+
+
+}

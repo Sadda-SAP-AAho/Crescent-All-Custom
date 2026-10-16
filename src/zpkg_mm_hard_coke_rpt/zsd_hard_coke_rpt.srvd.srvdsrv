@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Binding for Hard Coke Report'
+define service ZSD_HARD_COKE_RPT {
+  expose ZC_HARD_COKE_RPT;
+}

@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Script Generation Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Script Generation Application"
+  },
+  "ui5AppDetails": {
+    "appId": "zscriptapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_02541C56991F44F55F3A72EF0A8A33894BD07647_TM",
+    "semanticObject": "z_scriptapp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_02541C56991F44F55F3A72EF0A8A33894BD07647_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Script Generation Application"
+      }
+    }
+  ]
+}

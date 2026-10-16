@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgTableForOperatio', 
+    typeNamePlural: 'TmgTableForOperatios', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG table for Operation', 
+      value: 'Zopn'
+    }
+  }
+}
+annotate view ZI_TmgTableForOperatio with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgTableForOperatio', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG table for Operation', 
+    position: 1 
+  } ]
+  Zopn;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Zopd;
+}

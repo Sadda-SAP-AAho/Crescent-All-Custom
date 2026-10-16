@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Material Manage Test'
+define service ZSD_MATMSTRPTTST {
+  expose ZC_MATMSTRPTTST;
+}

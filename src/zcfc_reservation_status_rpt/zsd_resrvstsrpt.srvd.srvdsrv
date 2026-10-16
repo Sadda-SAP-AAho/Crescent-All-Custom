@@ -1,0 +1,4 @@
+@EndUserText.label: 'Reservation Status Report'
+define service ZSD_RESRVSTSRPT {
+  expose ZC_RESRVSTSRPT;
+}

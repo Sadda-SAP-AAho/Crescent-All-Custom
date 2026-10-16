@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Daily Production Casting Report-Inspection Parameter",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Daily Production Casting Report-Inspection Parameter"
+  },
+  "ui5AppDetails": {
+    "appId": "zppcastrptinsp"
+  },
+  "navigation": {
+    "targetMappingId": "ZPPCASTRPTINSP_UI5R_TM",
+    "semanticObject": "zppcastrptinsp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "ZPPCASTRPTINSP_UI5R_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Daily Production Casting Report-Inspection Parameter"
+      }
+    }
+  ]
+}

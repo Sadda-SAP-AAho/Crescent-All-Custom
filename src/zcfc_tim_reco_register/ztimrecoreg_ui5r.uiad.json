@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "TIM Reconciliation Register",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "TIM Reconciliation"
+  },
+  "ui5AppDetails": {
+    "appId": "ztimrecoreg"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_3E75D28FD52A17B4D5ABFE6B2F62CC7E90902F55_TM",
+    "semanticObject": "ztimrecoreg",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_3E75D28FD52A17B4D5ABFE6B2F62CC7E90902F55_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "TIM Reconciliation",
+        "subtitle": "Register"
+      }
+    }
+  ]
+}

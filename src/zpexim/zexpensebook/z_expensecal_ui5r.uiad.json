@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Expense Booking Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Expense Booking Application"
+  },
+  "ui5AppDetails": {
+    "appId": "zexpensecal"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_8BD2E0BD9CA4F2AD41D4FCDFBCF821D54A1945AD_TM",
+    "semanticObject": "z_expensecal",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_8BD2E0BD9CA4F2AD41D4FCDFBCF821D54A1945AD_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Expense Booking Application"
+      }
+    }
+  ]
+}

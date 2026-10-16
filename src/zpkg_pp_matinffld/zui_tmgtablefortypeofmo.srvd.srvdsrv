@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForTypeOfMo_S'
+define service ZUI_TMGTABLEFORTYPEOFMO {
+  expose ZI_TMGTABLEFORTYPEOFMO_S as TmgTableForTypeOAll;
+  expose ZI_TMGTABLEFORTYPEOFMO as TmgTableForTypeOfMo;
+}

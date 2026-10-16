@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "DPR VACUUM(BAG) - Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "DPR VACUUM(BAG)"
+  },
+  "ui5AppDetails": {
+    "appId": "zdprvacbag"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_F6D3AEF9869B71BC76EA1FEC563FFB61B0761BA1_TM",
+    "semanticObject": "zdprvacbag",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_F6D3AEF9869B71BC76EA1FEC563FFB61B0761BA1_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "DPR VACUUM(BAG)",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

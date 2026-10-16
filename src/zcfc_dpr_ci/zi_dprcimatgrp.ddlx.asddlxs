@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'DprCiMatGrp', 
+    typeNamePlural: 'DprCiMatGrps', 
+    title: {
+      type: #STANDARD, 
+      label: 'DPR CI MAT GRP', 
+      value: 'Costtype'
+    }
+  }
+}
+annotate view ZI_DprCiMatGrp with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_DprCiMatGrp', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'DPR CI MAT GRP', 
+    position: 1 
+  } ]
+  Costtype;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Matkl;
+}

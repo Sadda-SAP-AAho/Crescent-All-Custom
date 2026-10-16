@@ -1,0 +1,38 @@
+projection;
+strict ( 1 );
+use draft;
+
+define behavior for ZC_BGHEADER //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Amendment;
+  use action SetOut;
+
+  use action Edit;
+  use action Activate;
+  use action Resume;
+  use action Discard;
+  use action Prepare;
+
+  use association _bgattachpo { create; }
+  use association _bgfdassign { create; }
+}
+
+define behavior for ZC_ATTACHPO //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}
+
+define behavior for ZC_FDASSIGN //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}

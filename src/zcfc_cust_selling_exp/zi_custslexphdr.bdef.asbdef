@@ -1,0 +1,69 @@
+managed implementation in class zbp_i_custslexphdr unique;
+strict(1);
+with draft;
+
+define behavior for ZI_CUSTSLEXPHDR //alias <alias_name>
+persistent table zdt_custslexphdr
+draft table zdr_custslexphdr
+lock master
+total etag custcode
+authorization master ( instance )
+//etag master <field_name>
+
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed  ) Id;
+  field ( readonly ) Custname,Expname;
+
+  create;
+  update;
+  delete;
+  determination updateheader on modify { field Custcode, Expcode; }
+   determination savecreate on save { create; }
+  side effects { field Custcode affects field Custname;
+                 field Expcode affects field Expname; }
+  association _Item { create; }
+
+  validation checkcomb on save { create; update; }
+
+  mapping for zi_custslexphdr
+    {
+      Custcode = Custcode;
+      Custname = Custname;
+      Expcode  = Expcode;
+      Expname  = Expname;
+    }
+}
+
+define behavior for ZI_CUSTSLEXPITM //alias <alias_name>
+persistent table zdt_custslexpitm
+draft table zdr_custslexpitm
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  field ( readonly : update, numbering : managed) Item;
+  field (readonly) Id;
+  update;
+  delete;
+  //determination updateitem on modify {field Datefrom;}
+
+  association _Head{with draft;}
+  determination itemdetails on save {create;}
+  validation checkdaterange on save { create; }
+
+  mapping for zi_custslexpitm
+    {
+      Datefrom = Datefrom;
+      Dateto   = Dateto;
+      Currency = Currency;
+      Rate     = Rate;
+    }
+}

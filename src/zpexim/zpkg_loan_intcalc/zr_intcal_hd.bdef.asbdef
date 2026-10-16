@@ -1,0 +1,64 @@
+managed implementation in class zbp_r_intcal_hd unique;
+strict;
+with draft;
+
+define behavior for ZR_INTCAL_HD alias head
+persistent table zdt_intcal_hd
+draft table zdt_intcal_hd_dr
+lock master
+total etag local_last_changed_at
+authorization master ( instance )
+{
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly ) accdocno, accdocyr, statusdesc, local_created_at, local_created_by, nameid;
+
+  field ( mandatory : create, readonly : update ) documentdate, postingdate, headertext,
+  ineterestref, bankname, startdate, enddate, loanacno, fullcalc;
+
+
+  field ( mandatory : create ) exchangerate, currency, housebankid, accountid;
+
+  field ( features : instance ) post, bankgl, interestgl, costcenter, exchangerate, penalty, penaltyfc,
+  housebankid, accountid;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  determination determine_items on save { create; update; }
+  determination post on save { field post; }
+  validation uniqueid on save { field nameid; }
+
+  field ( readonly, numbering : managed ) id;
+
+  association _item { create ( features : instance ); with draft; }
+}
+
+define behavior for ZR_INTCAL_IT alias item
+persistent table zdt_intcal_it
+draft table zdt_intcal_it_dr
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly ) id, Loanacno, Loantype, Bookingdt, Bankname, Duedt, Bookamt, Balanceamt, newduedt, zdays,
+  Amount, Intratesp, Benchintrate, Benchmarktype, sofr, Effectiveintrate, Calcinterest, Currency, fullcalc,
+  invno, invdt;
+
+  field ( readonly, numbering : managed ) item;
+
+  determination determine_item on modify { field postableinterestinr; }
+
+  side effects { field postableinterestinr affects field Postableinterest; }
+
+  association _head;
+}

@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_BgStatus_S'
+define service ZUI_BGSTATUS {
+  expose ZI_BGSTATUS_S as BgStatusAll;
+  expose ZI_BGSTATUS as BgStatus;
+}

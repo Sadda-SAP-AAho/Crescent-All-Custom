@@ -1,0 +1,4 @@
+@EndUserText.label: 'Management Dashboard Actual Dispatch'
+define service ZSD_MGMTDASH_ACTDESP {
+  expose ZC_MGMTDASH_ACTDESP;
+}

@@ -1,0 +1,5 @@
+@MappingRole: true
+define role ZI_ExpenseTypeMaintain1 {
+  grant select on ZI_ExpenseTypeMaintain1
+  where ( ) = ASPECT pfcg_auth ( 'S_TABU_NAM', ACTVT = '03', TABLE = 'ZI_EXPENSETYPEMAINTAIN1' );
+}

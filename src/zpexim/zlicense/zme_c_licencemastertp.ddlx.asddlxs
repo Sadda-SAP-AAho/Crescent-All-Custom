@@ -1,0 +1,105 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: { typeName: 'Licence Master', typeNamePlural: 'Licence Masters' } }
+@UI.presentationVariant: [{ sortOrder: [{ by: 'InternalLicencenumber', direction: #ASC }],
+                            visualizations: [{ type: #AS_LINEITEM }] }]
+annotate view ZC_LicenceMasterTP with
+{
+  @UI.facet: [
+  { id: 'idCollection', type: #COLLECTION, purpose: #STANDARD, label: 'Licence Master' },
+  { id: 'idHeader', targetQualifier: 'idHeader', parentId: 'idCollection', type: #FIELDGROUP_REFERENCE, purpose: #STANDARD, label: 'Header', position: 10 },
+  { id: 'idImport', targetQualifier: 'idImport', parentId: 'idCollection', type: #FIELDGROUP_REFERENCE, purpose: #STANDARD, label: 'Import', position: 20 },
+  { id: 'idExport', targetQualifier: 'idExport', parentId: 'idCollection', type: #FIELDGROUP_REFERENCE, purpose: #STANDARD, label: 'Export', position: 30 },
+  { id: 'idSystem', targetQualifier: 'idSystem', parentId: 'idCollection', type: #FIELDGROUP_REFERENCE, purpose: #STANDARD, label: 'System', position: 40 } ]
+
+  @UI.hidden: true
+  InternalLicencenumber;
+
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.selectionField: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'idHeader', importance: #HIGH } ]
+  Licencenumber;
+
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.selectionField: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'idHeader', importance: #HIGH } ]
+  Licencetype;
+
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.selectionField: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'idHeader', importance: #HIGH } ]
+  Licencedate;
+
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'idImport', importance: #HIGH } ]
+  Importvalidfrom;
+
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'idImport', importance: #HIGH } ]
+  Importvalidto;
+
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'idImport', importance: #HIGH } ]
+  Importexchangerate;
+
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'idImport', importance: #HIGH } ]
+  ImportvalueinrV;
+
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'idImport', importance: #HIGH } ]
+  ImportvalueusdV;
+
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'idImport', importance: #HIGH } ]
+  BOEUsage;
+
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'idExport', importance: #HIGH } ]
+  Exportvalidfrom;
+
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'idExport', importance: #HIGH } ]
+  Exportvalidto;
+
+  @UI.identification: [ { position: 110 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'idExport', importance: #HIGH } ]
+  Exportexchangerate;
+
+  @UI.identification: [ { position: 120 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'idExport', importance: #HIGH } ]
+  ExportvalueusdV;
+
+  @UI.identification: [ { position: 130 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'idExport', importance: #HIGH } ]
+  ExportvalueinrV;
+
+  @UI.identification: [ { position: 130 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'idExport', importance: #HIGH } ]
+  ShipUsage;
+
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'idSystem', importance: #HIGH } ]
+  @UI.hidden: true
+  CreatedAt;
+
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'idSystem', importance: #HIGH } ]
+  @UI.hidden: true
+  CreatedBy;
+
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'idSystem', importance: #HIGH } ]
+  @UI.hidden: true
+  LastChangedBy;
+
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'idSystem', importance: #HIGH } ]
+  @UI.hidden: true
+  LastChangedAt;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+}

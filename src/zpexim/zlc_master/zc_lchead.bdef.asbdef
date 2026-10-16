@@ -1,0 +1,46 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for zc_lchead //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Resume;
+  use action Discard;
+  use action Prepare;
+  use action Amendment;
+  use action SetOut;
+
+  use association _item1 { create; }
+  use association _item2 { create; }
+  use association _item3 { create; }
+}
+
+define behavior for ZC_LCBANK_DLTS //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}
+
+define behavior for ZC_lcimpoi //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}
+
+define behavior for ZC_lcbank_ref //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}

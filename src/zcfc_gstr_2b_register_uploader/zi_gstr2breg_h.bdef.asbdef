@@ -1,0 +1,84 @@
+managed implementation in class zbp_i_gstr2breg_h unique;
+strict;
+with draft;
+
+define behavior for ZI_GSTR2BREG_H
+persistent table zdt_gstr2breg_h
+draft table zdr_gstr2breg_h
+lock master
+total etag id
+authorization master ( instance )
+with additional save
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( numbering : managed, readonly ) id;
+
+  field ( readonly )
+  internalno,
+  local_created_at,
+  local_created_by,
+  docnum,
+  fmonth;
+
+  field ( features : instance )
+  comments,
+  attachment;
+
+  field ( mandatory : create, readonly : update )
+  location,
+  fyear,
+  fmonthcd;
+
+  action ( features : instance ) uploadExcelData result [1] $self;
+
+  validation checkcomb1 on save { create; update; }
+
+  determination determinedocnum on save { create; }
+  determination updateheader on modify { field fmonthcd; }
+  determination change_status on save { create; update; }
+  determination fields on modify { field Filename; }
+
+  side effects
+  {
+    field fmonthcd affects field fmonth;
+  }
+
+  association _Item { create ( features : instance ); with draft; }
+
+  mapping for zi_gstr2breg_h
+    {
+      Fisyear  = Fisyear;
+      Docnum   = Docnum;
+      Keyid    = Keyid;
+      Location = Location;
+      Fyear    = Fyear;
+      Fmonthcd = Fmonthcd;
+      Fmonth   = Fmonth;
+    }
+}
+
+define behavior for ZI_GSTR2BREG_I
+persistent table zdt_gstr2breg_i
+draft table zdr_gstr2breg_i
+lock dependent by _Head
+authorization dependent by _Head
+{
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly )
+  id,
+  item;
+
+  association _Head { with draft; }
+
+}

@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Shipping Instruction Dashboard",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Shipping Instruction Dashboard"
+  },
+  "ui5AppDetails": {
+    "appId": "zshipinstruct"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_6ABDA044CEC26B89C36BFD06C480931F4B207A12_TM",
+    "semanticObject": "z_shipinstructapp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_6ABDA044CEC26B89C36BFD06C480931F4B207A12_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Shipping Instruction Dashboard"
+      }
+    }
+  ]
+}

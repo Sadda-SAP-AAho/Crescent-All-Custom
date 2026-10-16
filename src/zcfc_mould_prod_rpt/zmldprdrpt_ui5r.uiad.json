@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Mould Production Register"
+  },
+  "ui5AppDetails": {
+    "appId": "zmldprdrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_D467D807A01CE21EE1E1E603C7D215B2B4FC5914_TM",
+    "semanticObject": "zmldprdrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_D467D807A01CE21EE1E1E603C7D215B2B4FC5914_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Mould Production Register",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

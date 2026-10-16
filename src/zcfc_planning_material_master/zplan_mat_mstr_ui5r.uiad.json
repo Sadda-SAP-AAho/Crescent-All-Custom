@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Planning Material Master",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Planning Material Master"
+  },
+  "ui5AppDetails": {
+    "appId": "com.infocus.pln.mat.mstr.planningmaterialmaster"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_A780EC429481A2AE54C4FD02576A52D282E3A4B6_TM",
+    "semanticObject": "ZPLN_MAT_MSTR",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_A780EC429481A2AE54C4FD02576A52D282E3A4B6_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Planning Material Master"
+      }
+    }
+  ]
+}

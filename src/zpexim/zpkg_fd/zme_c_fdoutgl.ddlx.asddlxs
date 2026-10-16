@@ -1,0 +1,79 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: {
+  presentationVariant: [{ sortOrder: [{ by: 'glaccount', direction:  #DESC }],
+                          visualizations: [{type: #AS_LINEITEM}],
+                          text: 'Outgoing Bank GL' }]
+     }
+
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Outgoing GL', value: 'glaccount' } } }
+
+annotate entity ZC_FDOUTGL with
+{
+
+  @UI.facet: [
+  {
+  id: 'GeneralI',
+  isSummary: true,
+  label: 'GL Entry',
+  type: #COLLECTION,
+  purpose: #STANDARD
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData1',
+  parentId: 'GeneralI',
+  label: 'GL',
+  id: 'GeneralData1'
+  }
+  ]
+
+  @UI.hidden : true
+  id;
+  @UI.hidden : true
+  item;
+
+  @UI: {
+       lineItem: [ { position: 10} ],
+       identification: [{position: 10 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'GLAccount', name:'ZI_BANKGL' },
+                                     distinctValues: true,
+                                     useForValidation: true
+                                }]
+  glaccount;
+
+  @UI: {
+     lineItem: [ { position: 10} ],
+     identification: [{position: 10 }],
+     fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'HouseBank', name:'I_HouseBankAccountLinkage' },
+                                   distinctValues: true,
+                                   useForValidation: true
+                              }]
+  housebankid;
+
+  @UI: {
+     lineItem: [ { position: 10} ],
+     identification: [{position: 10 }],
+     fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'HouseBankAccount', name:'I_HouseBankAccountLinkage' },
+                                 distinctValues: true,
+                                 useForValidation: true,
+                                 additionalBinding: [{ localElement: 'housebankid',element: 'HouseBank',usage:#FILTER }]
+                            }]
+  accountid;
+
+  @UI: {
+     lineItem: [ { position: 10} ],
+     identification: [{position: 10 }],
+     fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
+  }
+  bankreference;
+
+
+}

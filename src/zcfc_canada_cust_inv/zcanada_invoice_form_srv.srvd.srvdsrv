@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Canada Invoice'
+define service ZCanada_Invoice_Form_SRV {
+  expose ZCFC_Canada_Cust_Invoice      as headSet;
+  expose ZCFC_Canada_Cust_Invoice_Item as itemSet;
+  expose ZCFC_Canada_BILLING_DOC_F4    as billDoc;
+}

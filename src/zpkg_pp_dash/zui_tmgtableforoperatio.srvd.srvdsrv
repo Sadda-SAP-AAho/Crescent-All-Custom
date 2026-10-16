@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForOperatio_S'
+define service ZUI_TMGTABLEFOROPERATIO {
+  expose ZI_TMGTABLEFOROPERATIO_S as TmgTableForOperaAll;
+  expose ZI_TMGTABLEFOROPERATIO as TmgTableForOperatio;
+}

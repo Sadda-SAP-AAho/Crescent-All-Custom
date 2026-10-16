@@ -1,0 +1,84 @@
+managed implementation in class zbp_i_reworkreghed unique;
+strict;
+with draft;
+
+define behavior for ZI_REWORKREGHED //alias <alias_name>
+persistent table zdt_reworkreghed
+draft table zdr_reworkreghed
+lock master
+total etag ID
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly ) plntnm, oprname;
+  field ( mandatory : create, readonly : update ) plntcd, oprcode, reportyear, reportmonth;
+
+
+  create;
+  update;
+  delete;
+  determination updateheader on modify { field plntcd; field oprcode; }
+  side effects
+  { field plntcd affects field plntnm;
+    field oprcode affects field oprname;
+  }
+
+  validation checkvalidation1 on save { create; update; }
+  validation checkmandt on save { create; update; }
+
+  association _Item { create; }
+
+  mapping for zi_reworkreghed
+    {
+      plntcd      = plntcd;
+      plntnm      = plntnm;
+      oprcode     = oprcode;
+      oprname     = oprname;
+      reportyear  = reportyear;
+      reportmonth = reportmonth;
+    }
+}
+
+define behavior for ZI_REWORKREGITM //alias <alias_name>
+persistent table zdt_reworkregitm
+draft table zdr_reworkregitm
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id;
+  field ( readonly ) matnm;
+  update;
+  delete;
+
+  determination updateitem on modify { field matcd; }
+  side effects
+  { field matcd affects field matnm; }
+
+  validation checkcomb1 on save { create; update; }
+  validation checkdate on save { create; update; }
+
+  association _Head { with draft; }
+
+  mapping for zi_reworkregitm
+    {
+      rptdate       = rptdate;
+      matcd         = matcd;
+      matnm         = matnm;
+      quantity      = quantity;
+      resource_name = resource_name;
+      workdetls     = workdetls;
+      workmin       = workmin;
+      totalcost     = totalcost;
+    }
+}

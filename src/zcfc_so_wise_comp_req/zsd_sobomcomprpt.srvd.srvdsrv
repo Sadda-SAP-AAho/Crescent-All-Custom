@@ -1,0 +1,4 @@
+@EndUserText.label: 'Sales Order-wise Component Requirement Report'
+define service ZSD_SOBOMCOMPRPT {
+  expose ZC_SOBOMCOMPRPT;
+}

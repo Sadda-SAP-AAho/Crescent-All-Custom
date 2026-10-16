@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "DPR BARODA",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "DPR BARODA"
+  },
+  "ui5AppDetails": {
+    "appId": "zdprbaroda"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_30E789D0995402CF66FC8EA6A60505DDFAF017A5_TM",
+    "semanticObject": "zdprbaroda",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_30E789D0995402CF66FC8EA6A60505DDFAF017A5_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "DPR BARODA",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

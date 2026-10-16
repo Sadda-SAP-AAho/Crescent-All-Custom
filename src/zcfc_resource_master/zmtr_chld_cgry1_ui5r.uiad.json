@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Mother/Child Catagory 1",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Mother Child Catagory 1"
+  },
+  "ui5AppDetails": {
+    "appId": "com.infocus.mother.child.motherchildcatagory1"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_674F5D031673C171CF44736A5450C1A8DCEB8279_TM",
+    "semanticObject": "ZMOTHER_CHILD",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_674F5D031673C171CF44736A5450C1A8DCEB8279_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Mother Child Catagory 1"
+      }
+    }
+  ]
+}

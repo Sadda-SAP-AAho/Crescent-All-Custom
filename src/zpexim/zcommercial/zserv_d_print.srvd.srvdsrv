@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Custom Print Purpose'
+define service ZSERV_D_PRINT {
+  expose ZVSHIPNOT;
+}

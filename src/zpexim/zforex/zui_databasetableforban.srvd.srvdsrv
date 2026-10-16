@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_DatabaseTableForBan_S'
+define service ZUI_DATABASETABLEFORBAN {
+  expose ZI_DATABASETABLEFORBAN_S as DatabaseTableForAll;
+  expose ZI_DATABASETABLEFORBAN as DatabaseTableForBan;
+}

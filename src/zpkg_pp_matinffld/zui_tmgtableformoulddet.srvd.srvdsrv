@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForMouldDet_S'
+define service ZUI_TMGTABLEFORMOULDDET {
+  expose ZI_TMGTABLEFORMOULDDET_S as TmgTableForMouldAll;
+  expose ZI_TMGTABLEFORMOULDDET as TmgTableForMouldDet;
+}

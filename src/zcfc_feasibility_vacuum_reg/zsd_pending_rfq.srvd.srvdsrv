@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Pending RFQs for Estimate Vac Reg'
+define service ZSD_PENDING_RFQ {
+  expose ZC_RFQ_STATUS;
+}

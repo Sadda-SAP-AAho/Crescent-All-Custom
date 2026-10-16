@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Defination Report Print'
+define service ZSD_REPPRINT {
+  expose ZCUS_REPPRINT;
+  expose ZCDS_REPPRNT_ITM;
+}

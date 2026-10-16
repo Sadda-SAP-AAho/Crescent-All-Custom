@@ -1,0 +1,71 @@
+@Metadata.layer:  #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by:  'Commid', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Expense Calculation' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Expense Calculation', value: 'Commid' } } }
+annotate entity ZC_AUGGIT_EXPENSECAL with
+{
+
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 5 } ]
+  Commid;
+  @UI.lineItem: [ { position: 10 } ]
+  Commdate;
+//  @UI.hidden: true
+//    @UI: { identification: [{ position: 205 },
+//                           { type: #FOR_ACTION, dataAction: 'ServicePo', label: 'Service PO', iconUrl: 'sap-icon://close-command-field' }],
+//            fieldGroup: [{ qualifier: 'GeneralData2', position: 100, importance: #HIGH }] }
+//  @UI.hidden: true
+//  @UI: { identification: [{ position: 205 },
+//                         { type: #FOR_ACTION, dataAction: 'ServiceEntry', label: 'Service Entry Sheet', iconUrl: 'sap-icon://close-command-field' }],
+//          fieldGroup: [{ qualifier: 'GeneralData2', position: 100, importance: #HIGH }] }
+@UI.hidden: true
+@UI: {
+  identification: [
+    { position: 205 },
+    {
+      //position: 205,
+      type: #FOR_ACTION,
+      dataAction: 'ServicePo',
+      label: 'Service PO',
+      iconUrl: 'sap-icon://close-command-field'
+    },
+    {
+      //position: 205,
+      type: #FOR_ACTION,
+      dataAction: 'ServiceEntry',
+      label: 'Service Entry Sheet',
+      iconUrl: 'sap-icon://close-command-field'
+    }
+//    {
+//      //position: 205,
+//      type: #FOR_ACTION,
+//      dataAction: 'Poupd',
+//      label: 'Update',
+//      iconUrl: 'sap-icon://close-command-field'
+//    }
+  ],
+  fieldGroup: [
+    {
+      qualifier: 'GeneralData2',
+      position: 100,
+      importance: #HIGH
+    }
+  ]
+}
+  servicepobt;
+  @UI.hidden: true
+  @UI: { identification: [{ position: 210 },
+                         { type: #FOR_ACTION, dataAction: 'Poupd', label: 'Update', iconUrl: 'sap-icon://close-command-field' }],
+          fieldGroup: [{ qualifier: 'GeneralData2', position: 105, importance: #HIGH }] }
+  poupd;
+  @UI.lineItem: [ { position: 25 } ]
+  Taxcode;
+  @UI.lineItem: [ { position: 30 } ]
+  Profitcenter;
+
+  /* Associations */
+
+
+}

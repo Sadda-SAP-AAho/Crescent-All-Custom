@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_DprVACKMatGrp_S'
+define service ZUI_DPRVACKMATGRP {
+  expose ZI_DPRVACKMATGRP_S as DprVACKMatGrpAll;
+  expose ZI_DPRVACKMATGRP as DprVACKMatGrp;
+}

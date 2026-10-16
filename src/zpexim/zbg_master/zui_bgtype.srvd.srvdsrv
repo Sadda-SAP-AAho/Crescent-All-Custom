@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_BgType_S'
+define service ZUI_BGTYPE {
+  expose ZI_BGTYPE_S as BgTypeAll;
+  expose ZI_BGTYPE as BgType;
+}

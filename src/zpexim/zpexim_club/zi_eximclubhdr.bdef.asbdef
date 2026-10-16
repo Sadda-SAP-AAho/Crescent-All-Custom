@@ -1,0 +1,91 @@
+managed implementation in class zbp_i_eximclubhdr unique;
+strict;
+with draft;
+
+define behavior for ZI_EXIMCLUBHDR alias head
+persistent table zexim_club_hdr
+draft table zeximclubhdrdr
+lock master
+total etag local_last_changed_at
+authorization master ( instance )
+{
+  create;
+  update ( features : instance );
+  delete;
+  association _item { create ( features : instance ); with draft; }
+
+  field ( numbering : managed ) id;
+  field ( readonly ) id, clubnointernal,
+  cdate,
+  cuser,
+  ctime,
+  fobcurrency,
+  deleted,
+  released,
+  documenttypedesc,
+  fobamount;
+  field ( mandatory : create, readonly : update ) clubnoexternal, documenttype;
+  field ( features : instance ) clubcomment;
+
+  determination updatefields on modify { field clubnoexternal; }
+  validation validate on save { create; }
+
+  side effects
+  {
+    field clubnoexternal affects field clubnointernal, field cdate, field cuser, field documenttypedesc;
+  }
+
+  //Actions
+  action ( features : instance ) Cancel result [1] $self;
+  action ( features : instance ) Release result [1] $self;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+}
+
+define behavior for ZI_EXIMCLUBITM alias item
+
+persistent table zexim_club_itm
+draft table zeximclubitmdr
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( numbering : managed ) item;
+  field ( readonly : update ) item;
+  field ( readonly ) id,
+  invoice,
+  posnr,
+  availableqty,
+  clubnointernal,
+  currency,
+  grossweight,
+  hsnsac,
+  uom,
+  plant,
+  netweight,
+  netvalue,
+  netprice,
+  matnr,
+  maktx;
+  field ( mandatory : create, readonly : update ) choose;
+
+  side effects
+  {
+    field choose affects
+        field invoice, field posnr, field availableqty, field clubnointernal, field currency, field grossweight,
+        field hsnsac, field Plant, field uom, field netweight, field netvalue, field netprice, field matnr, field maktx,
+        field _head.fobamount, field _head.fobcurrency;
+  }
+
+  determination invoicedata on modify { field choose; }
+
+  association _head;
+}

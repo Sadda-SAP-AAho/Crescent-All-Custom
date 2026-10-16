@@ -1,0 +1,46 @@
+projection;
+strict;
+use draft;
+use side effects;
+
+define behavior for ZC_NOSTRO_hed //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+//  //=== Custom action Button ====//
+//  use action Accupdate;
+
+
+  use association _Item { create; with draft; }
+  use association _Item2 { create; with draft; }
+}
+
+define behavior for ZC_NOSTRO_Itm //alias <alias_name>
+{
+  use update;
+  use delete;
+
+//  //=== Custom action Button ====//
+//  use action Accupdateitm;
+
+  use association _Head { with draft; }
+}
+
+define behavior for ZC_NOSTRO_ITM2 //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  //=== Custom action Button ====//
+  use action Accupdateitm;
+
+  use association _Head { with draft; }
+}

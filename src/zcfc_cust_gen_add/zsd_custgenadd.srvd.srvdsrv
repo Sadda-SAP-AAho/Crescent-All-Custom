@@ -1,0 +1,4 @@
+@EndUserText.label: 'Customer General Address'
+define service ZSD_CUSTGENADD {
+  expose ZC_CUSTGENADD;
+}

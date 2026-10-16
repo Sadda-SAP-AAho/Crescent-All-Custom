@@ -1,0 +1,33 @@
+projection;
+strict;
+use draft;
+
+define behavior for ZC_COMM_HED //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Cancel;
+  use action Print;
+  use action Commprint;
+  use action UPDATE;
+  use action COMMSPLITVAL;
+  use action FINALINVOICEFOB;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use association _item { create; with draft; }
+}
+
+define behavior for ZC_COMPRINTFLD //alias <alias_name>
+{
+  use update;
+//  use delete;
+
+  use association _head { with draft; }
+}

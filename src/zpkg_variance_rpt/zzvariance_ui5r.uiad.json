@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Variance Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Variance"
+  },
+  "ui5AppDetails": {
+    "appId": "zzvariance.zzvariance"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_A429C3DC4A9D8EE41A539213269CC603E14EC45D_TM",
+    "semanticObject": "zzvariance",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_A429C3DC4A9D8EE41A539213269CC603E14EC45D_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Variance",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

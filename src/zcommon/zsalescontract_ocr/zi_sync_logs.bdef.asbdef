@@ -1,0 +1,30 @@
+managed implementation in class zbp_i_sync_logs unique;
+strict ( 2 );
+
+define behavior for ZI_SYNC_LOGS alias ZrSyncLogs
+persistent table zsync_logs
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly, numbering:managed ) Uuid ;
+
+
+
+  mapping for zsync_logs corresponding
+  {
+    Uuid = uuid;
+    Errorlog = errorlog;
+    RefObjectKey = ref_object_key;
+    RefObjectType = ref_object_type;
+    SyncTimestamp = sync_timestamp;
+    CreatedAt = created_at;
+    CreatedBy = created_by;
+    LastChangedAt = last_changed_at;
+    LastChangedBy = last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}

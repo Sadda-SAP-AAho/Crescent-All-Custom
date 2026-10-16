@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgCostCenterVsDepa_S'
+define service ZUI_TMGCOSTCENTERVSDEPA {
+  expose ZI_TMGCOSTCENTERVSDEPA_S as TmgCostCenterVsDAll;
+  expose ZI_TMGCOSTCENTERVSDEPA as TmgCostCenterVsDepa;
+}

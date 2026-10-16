@@ -1,0 +1,83 @@
+managed with additional save implementation in class ZBP_I_POWERHEADMASTER_S unique;
+strict;
+with draft;
+define behavior for ZI_PowerHeadMaster_S alias PowerHeadMasterAll
+draft table ZDT_POWERHE_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _PowerHeadMaster { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_PowerHeadMaster alias PowerHeadMaster ##UNMAPPED_FIELD
+persistent table ZDT_POWERHEAD
+draft table ZDT_POWERHEAD_D
+lock dependent by _PowerHeadMasterAll
+authorization dependent by _PowerHeadMasterAll
+
+{
+  field ( mandatory : create )
+   Subheadcd;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Subheadcd;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_POWERHEAD
+  {
+    Subheadcd = SUBHEADCD;
+    Subheadnm = SUBHEADNM;
+    Headcd = HEADCD;
+    Headnm = HEADNM;
+    Metertyp = METERTYP;
+    Ciprcnt = CIPRCNT;
+    Diprcnt = DIPRCNT;
+    Msprcnt = MSPRCNT;
+    Vacprcnt = VACPRCNT;
+    Othrprcnt = OTHRPRCNT;
+    Meterread = METERREAD;
+  }
+
+  association _PowerHeadMasterAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

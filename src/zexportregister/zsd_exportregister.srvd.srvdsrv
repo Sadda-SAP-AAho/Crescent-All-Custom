@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def'
+define service ZSD_EXPORTREGISTER {
+  expose zc_exportregister;
+}

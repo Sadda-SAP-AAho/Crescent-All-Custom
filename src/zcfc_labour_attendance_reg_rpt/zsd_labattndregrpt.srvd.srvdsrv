@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Labour Attendance Register Report'
+define service ZSD_LABATTNDREGRPT {
+  expose ZC_LABATTNDREGRPT;
+}

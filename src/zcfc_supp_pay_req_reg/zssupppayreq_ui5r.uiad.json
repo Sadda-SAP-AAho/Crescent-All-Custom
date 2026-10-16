@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Supplier Payment Request",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Supplier Payment Request"
+  },
+  "ui5AppDetails": {
+    "appId": "zssupppayreq"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_8ED226B617954C8035166CD1072BE5DD9DEEBF17_TM",
+    "semanticObject": "zssupppayreq",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_8ED226B617954C8035166CD1072BE5DD9DEEBF17_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Supplier Payment Request",
+        "subtitle": "Register"
+      }
+    }
+  ]
+}

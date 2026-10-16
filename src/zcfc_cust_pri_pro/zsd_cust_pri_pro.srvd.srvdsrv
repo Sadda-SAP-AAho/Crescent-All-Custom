@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition of Customer Data with Pricing Procedure'
+define service ZSD_CUST_PRI_PRO {
+  expose ZC_CUST_PRI_PRO;
+}

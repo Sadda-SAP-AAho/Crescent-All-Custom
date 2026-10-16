@@ -1,0 +1,4 @@
+@EndUserText.label: 'SERVICE DEFINATION gateentryregister'
+define service Zsd_gateentryregister {
+  expose zc_gateentry;
+}

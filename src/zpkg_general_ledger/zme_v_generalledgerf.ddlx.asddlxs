@@ -1,0 +1,179 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'General Ledger',
+                typeNamePlural:'General Ledger',
+                title: { type: #STANDARD, label: 'General Ledger', value: 'AccountingDocument' }
+              }
+     }
+
+@UI.presentationVariant: [ { sortOrder: [ { by: 'SortCode', direction: #ASC } ],
+                             visualizations: [ { type: #AS_LINEITEM } ],
+                             text: 'Customer Ledger' } ]
+annotate entity ZV_GENRALLEDGERF with
+{
+
+  @UI.facet: [{ id : 'GeneralData', isSummary: true, label: 'Customer Ledger', position: 5, type: #COLLECTION },
+             { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Report Details', id: 'GeneralData1' }]
+
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  AccountingDocument;
+
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  CompanyCode;
+
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  FiscalYear;
+
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  AccountingDocumentItem;
+
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  PostingDate;
+
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  BaseLineDate;
+
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  GLAccount;
+
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  GLAccountName;
+
+  @UI.lineItem: [ { position: 81 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Supplier;
+
+  @UI.lineItem: [ { position: 82 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Customer;
+
+  @UI.lineItem: [ { position: 83 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  IsReversal;
+
+  @UI.lineItem: [ { position: 84 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  IsReversed;
+
+  @UI.lineItem: [ { position: 85 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ReversalReferenceDocument;
+
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  AccountingDocumentType;
+
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  AccountingDocumentTypeName;
+
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ProfitCenter;
+
+  @UI.lineItem: [ { position: 110 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  SpecialGLCode;
+
+  @UI.lineItem: [ { position: 120 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ClearingAccountingDocument;
+
+  @UI.lineItem: [ { position: 130 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ClearingDate;
+
+  @UI.lineItem: [ { position: 140 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ClearingStatus;
+
+  @UI.lineItem: [ { position: 150 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Reference;
+
+  @UI.lineItem: [ { position: 160 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  AssignmentReference;
+
+  @UI.lineItem: [ { position: 170 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  DocumentItemText;
+
+  @UI.hidden: true
+  PurchasingDocument;
+
+  @UI.lineItem: [ { position: 180 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  POReference;
+
+  @UI.lineItem: [ { position: 190 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  OffsettingAccount;
+
+  @UI.lineItem: [ { position: 200 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  ReferenceDocument;
+
+  @UI.hidden: true
+  DebitCreditCode;
+
+  @UI.lineItem: [ { position: 210 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  TaxCode;
+
+  @UI.lineItem: [ { position: 220 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  CreationDate;
+
+  @UI.lineItem: [ { position: 230 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  AccountingDocCreatedByUser;
+
+  @UI.hidden: true
+  CompanyCodeCurrency;
+
+  @UI.hidden: true
+  AmountInCompanyCodeCurrency;
+
+  @UI.hidden: true
+  TransactionCurrency;
+
+  @UI.hidden: true
+  AmountInTransactionCurrency;
+
+  @UI.lineItem: [ { position: 240 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  DebitAmountInCoCodeCrcy;
+
+  @UI.lineItem: [ { position: 250 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  CreditAmountInCoCodeCrcy;
+
+  @UI.lineItem: [ { position: 260 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  BalanceDueCoCodeCrcy;
+
+  @UI.lineItem: [ { position: 270 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  DebitAmountInTransCrcy;
+
+  @UI.lineItem: [ { position: 280 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  CreditAmountInTransCrcy;
+
+  @UI.lineItem: [ { position: 290 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  BalanceDueTransCrcy;
+
+  @UI.hidden: true
+  SortCode;
+
+}

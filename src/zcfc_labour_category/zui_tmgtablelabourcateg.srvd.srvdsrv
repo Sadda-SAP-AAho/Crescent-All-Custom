@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableLabourCateg_S'
+define service ZUI_TMGTABLELABOURCATEG {
+  expose ZI_TMGTABLELABOURCATEG_S as TmgTableLabourCaAll;
+  expose ZI_TMGTABLELABOURCATEG as TmgTableLabourCateg;
+}

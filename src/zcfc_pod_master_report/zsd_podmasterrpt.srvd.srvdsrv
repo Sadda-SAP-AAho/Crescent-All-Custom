@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for pod master report'
+define service ZSD_PODMASTERRPT {
+  expose ZC_PODMASTERRPT;
+}

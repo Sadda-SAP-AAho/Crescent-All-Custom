@@ -1,0 +1,96 @@
+managed implementation in class zbp_i_estvacreg unique;
+strict;
+with draft;
+
+define behavior for ZI_ESTVACREG //alias <alias_name>
+persistent table zdt_estvacreg_n
+draft table zdr_estvacreg_n
+lock master
+total etag ID
+authorization master ( instance )
+//etag master <field_name>
+
+{
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Resume;
+  draft action Discard;
+  draft determine action Prepare;
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly : update ) rfqno;
+  field ( readonly ) matcd, fxdcst_cal, line, boxsize1, boxsize2, annualqty, mouldspd,
+  reqweight, noofcav, yield, drillperfacing, srfcarea,
+  meltingcst, chrgingcst, elccst, labmldperbx, mldcst, mntcstperpc,
+  fetcstperpc;
+
+  create;
+  update;
+  delete;
+
+  determination updatemeltcost on modify { field rfqno; }
+  determination updatechrgcost on modify { field rfqno; }
+  determination updatemetlcost on modify { field rfqno; }
+  determination updateeleccost on modify { field rfqno; }
+  determination updatelabmcost on modify { field rfqno; }
+  determination updatemaintcost on modify { field rfqno; }
+  determination updatefetlcost on modify { field rfqno; }
+  determination updatepaintcost on modify { field rfqno; }
+  determination updateselexpcost on modify { field rfqno; }
+  determination updateaccavcost on modify { field rfqno; }
+  determination updateheader on modify { field rfqno; }
+  side effects
+  { field rfqno affects field rfqdate, field matcd, field fxdcst_cal, field line, field boxsize1,
+        field boxsize2, field annualqty, field mouldspd, field reqweight, field noofcav,
+        field yield, field addacccost, field drillperfacing, field srfcarea, field corecstcav;
+  }
+
+  validation checkdata on save { create; update; }
+
+  validation checkvalue on save { create; update; }
+
+  mapping for zi_estvacreg
+    {
+      rfqdate        = rfqdate;
+      matcd          = matcd;
+      rejection      = rejection;
+      tolerance      = tolerance;
+      margin         = margin;
+      cntwgt         = cntwgt;
+      fxdcst_cal     = fxdcst_cal;
+      fxdcst_ue      = fxdcst_ue;
+      line           = line;
+      boxsize1       = boxsize1;
+      boxsize2       = boxsize2;
+      annualqty      = annualqty;
+      mouldspd       = mouldspd;
+      reqweight      = reqweight;
+      noofcav        = noofcav;
+      yield          = yield;
+      addacccost     = addacccost;
+      drillperfacing = drillperfacing;
+      srfcarea       = srfcarea;
+      meltingcst     = meltingcst;
+      chrgingcst     = chrgingcst;
+      metalcst       = metalcst;
+      elccst         = elccst;
+      labmldperbx    = labmldperbx;
+      mldcst         = mldcst;
+      mntcstperpc    = mntcstperpc;
+      fetcstperpc    = fetcstperpc;
+      packngcst      = packngcst;
+      paintprcst     = paintprcst;
+      sellexpn       = sellexpn;
+      acccavity      = acccavity;
+      packrateperkg  = packrateperkg;
+      exchngrt       = exchngrt;
+      curr           = curr;
+      corecstcav     = corecstcav;
+      agreedincoterm = agreedincoterm;
+      freightchrg    = freightchrg;
+      freightrmrks   = freightrmrks;
+      fclwgt         = fclwgt;
+    }
+
+}

@@ -1,0 +1,129 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  presentationVariant: [{ sortOrder: [{ by: 'scriptdate', direction:  #DESC }],
+                          visualizations: [{type: #AS_LINEITEM}],
+                          text: 'FD Header' }]
+     }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Scrip Header', value: 'scriptno' } } }
+annotate entity zc_scriptgn_HDR with
+{
+  @UI.facet:
+  [
+   { id : 'GeneralData', isSummary: true, label: 'Script Generation', position: 5, type: #COLLECTION },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, id: 'GeneralData1', label: 'Script Details'  },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 25, id: 'GeneralData2', label: 'Creation Details'},
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 30, id: 'GeneralData3', label: 'Changed Details' },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData4', parentId: 'GeneralData', position: 20, id: 'GeneralData4', label: 'Account Post Details' },
+
+     { id: 'ScriptGen', label: 'Script Item Details',type: #LINEITEM_REFERENCE, position : 15, targetElement: '_Item' }
+
+  ]
+  @UI.hidden: true
+  id;
+
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.selectionField: [{ position: 10 }]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  scriptno;
+
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.selectionField: [{ position: 15 }]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  scriptdate;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.selectionField: [{ position: 20 }]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'scrollno', name:'zf4_scroll_number' },
+                                              distinctValues: true,
+                                              useForValidation: true }]
+  scrollno;
+  @UI.hidden: true
+  shippingbill;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  status;
+  @UI.hidden: true
+  currency;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  sum_rodtep_dd_v;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  sum_realizationamt;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  sum_difference;
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  local_created_by;
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 80,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  local_created_at;
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 90,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  local_created_on;
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 100,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  local_last_changed_by;
+  @UI.lineItem: [ { position: 110 } ]
+  @UI.identification: [ { position: 110 } ]
+  @UI.fieldGroup: [ { position: 110,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  local_last_changed_at;
+  @UI.lineItem: [ { position: 120 } ]
+  @UI.identification: [ { position: 120 } ]
+  @UI.fieldGroup: [ { position: 120,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  local_last_changed_on;
+  @UI.lineItem: [ { position: 130 } ]
+  @UI.identification: [ { position: 130 } ]
+  @UI.fieldGroup: [ { position: 130,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  @UI.hidden: true
+
+  last_changed_at;
+  @UI.lineItem: [ { position: 133 } ]
+  @UI.identification: [ { position: 133 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData4', importance: #HIGH } ]
+
+  post;
+  @UI.lineItem: [ { position: 135 } ]
+  @UI.identification: [ { position: 135 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData4', importance: #HIGH } ]
+
+  accountdocno;
+  @UI.lineItem: [ { position: 140 } ]
+  @UI.identification: [ { position: 140 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData4', importance: #HIGH } ]
+
+  accountdocyr;
+  @UI.hidden: true
+  accpostref;
+  
+ 
+
+
+  //  @UI: { identification: [{ position: 200 },
+  //                        { type: #FOR_ACTION, dataAction: 'Post', label: 'Post Doc', iconUrl: 'sap-icon://close-command-field' }]}
+  ////         fieldGroup: [{ qualifier: 'GeneralData3', position: 200, importance: #HIGH }] }
+  //  post;
+}

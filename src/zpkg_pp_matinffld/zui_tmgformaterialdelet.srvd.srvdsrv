@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgForMaterialDelet_S'
+define service ZUI_TMGFORMATERIALDELET {
+  expose ZI_TMGFORMATERIALDELET_S as TmgForMaterialDeAll;
+  expose ZI_TMGFORMATERIALDELET as TmgForMaterialDelet;
+}

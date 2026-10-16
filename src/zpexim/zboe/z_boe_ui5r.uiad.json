@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Bill of Entry Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Bill of Entry Application"
+  },
+  "ui5AppDetails": {
+    "appId": "zboe"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_E4BAE9CA7E3ABAD060EC33208689DD410E5279A4_TM",
+    "semanticObject": "zboe",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_E4BAE9CA7E3ABAD060EC33208689DD410E5279A4_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Bill of Entry Application"
+      }
+    }
+  ]
+}

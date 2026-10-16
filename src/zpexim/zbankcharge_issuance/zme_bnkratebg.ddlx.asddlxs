@@ -1,0 +1,32 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'BG', value: 'Rate2' } } }
+annotate view ZC_BNKRATEBG with
+{
+
+  @UI.facet:
+    [{ id: 'GeneralDataI2', isSummary: true, label: 'BG', type: #COLLECTION, purpose: #STANDARD },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralDataI2', position: 10, id: 'GeneralData1' },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralDataI2', position: 15, id: 'GeneralData2' }]
+
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Item;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+   @Consumption.valueHelpDefinition: [{
+  entity: { name: 'zr_chargesbg', element: 'Bnkchargename' },
+   distinctValues: true,
+  useForValidation: true
+  }]
+  Chargehead2;
+  @UI.hidden: true
+  Waers;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Rate2;
+
+
+}

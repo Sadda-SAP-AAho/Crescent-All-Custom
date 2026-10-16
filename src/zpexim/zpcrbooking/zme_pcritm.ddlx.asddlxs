@@ -1,0 +1,114 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Adjustment Details', value: 'Adjustdoctype' } } }
+annotate view ZC_PCRITM with
+{
+
+  @UI.facet:
+    [{ id: 'GeneralDataI', isSummary: true, label: 'Adjustment Details', type: #COLLECTION, purpose: #STANDARD },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralDataI', position: 10, label: 'Section 1', id: 'GeneralData1' },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralDataI', position: 15, label: 'Section 2', id: 'GeneralData2' }]
+
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Item;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'value_low', name:'ZCDS_ADJDOC_F4' },
+                                  distinctValues: true,
+                                  useForValidation: true
+                                                      }]
+  Adjustdoctype;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Fiscalyear;
+  @UI.lineItem: [ { position: 11 } ]
+  @UI.identification: [ { position: 11 } ]
+  @UI.fieldGroup: [ { position: 11,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'CompanyCode', name:'I_CompanyCode' },
+                                                distinctValues: true,
+                                                useForValidation: true
+                   }]
+  Cocode;
+  @UI.lineItem: [ { position: 12 } ]
+  @UI.identification: [ { position: 12 } ]
+  @UI.fieldGroup: [ { position: 12,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'OriginalReferenceDocument', name:'ZCDS_ARINV_F4' },
+                                                distinctValues: true,
+                                                useForValidation: true,
+                                       additionalBinding: [
+                                                           { localElement: 'Invdt',element: 'DocumentDate', usage: #RESULT },
+                                                           { localElement: 'Invopenamt',element: 'Amount', usage: #RESULT },
+                                                           { localElement: 'Adjamt',element: 'Amount', usage: #RESULT }
+                                                          ]
+                   }]
+  Invno;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Invdt;
+
+  @UI.lineItem: [ { position: 17 } ]
+  @UI.identification: [ { position: 17 } ]
+  @UI.fieldGroup: [ { position: 17,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Lc_Appl', name:'ZCDS_LC_F4' },
+                                 distinctValues: true,
+                                 useForValidation: true
+                                                     }]
+  Lcnumber;
+  @UI.lineItem: [ { position: 19 } ]
+  @UI.identification: [ { position: 19 } ]
+  @UI.fieldGroup: [ { position: 19,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Lcdate;
+  //  @UI.lineItem: [ { position: 22 } ]
+  //  @UI.identification: [ { position: 22 } ]
+  //  @UI.fieldGroup: [ { position: 22,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  //  Fiscalyear;
+  //  @UI.lineItem: [ { position: 23 } ]
+  //  @UI.identification: [ { position: 23 } ]
+  //  @UI.fieldGroup: [ { position: 23,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  //  Cocode;
+  @UI.lineItem: [ { position: 24 } ]
+  @UI.identification: [ { position: 24 } ]
+  @UI.fieldGroup: [ { position: 24,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Lcamt;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Instructdt;
+  //  @UI.lineItem: [ { position: 25 } ]
+  //  @UI.identification: [ { position: 25 } ]
+  //  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  //  Waers;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Invopenamt;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Remarks;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Adjamt;
+  @UI.lineItem: [ { position: 42 } ]
+  @UI.identification: [ { position: 42 } ]
+  @UI.fieldGroup: [ { position: 42,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Otheramt;
+  @UI.lineItem: [ { position: 43 } ]
+  @UI.identification: [ { position: 43 } ]
+  @UI.fieldGroup: [ { position: 43,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Othertext;
+  @UI.hidden: true
+  Othercurr;
+
+
+
+
+
+
+}

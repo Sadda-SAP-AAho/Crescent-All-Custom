@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "FD Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "FD Application"
+  },
+  "ui5AppDetails": {
+    "appId": "zfdapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_9CE0132705ECE9C264F2D5D6B01A5FCFF86512AC_TM",
+    "semanticObject": "z_fdapp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_9CE0132705ECE9C264F2D5D6B01A5FCFF86512AC_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "FD Application"
+      }
+    }
+  ]
+}

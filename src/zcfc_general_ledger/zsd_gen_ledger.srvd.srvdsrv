@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for General Ledger'
+define service ZSD_GEN_LEDGER {
+  expose ZC_GEN_LEDGER;
+}

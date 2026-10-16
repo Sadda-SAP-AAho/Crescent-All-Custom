@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Purch. History Report'
+define service ZSD_POHISTORYRPT {
+  expose ZC_POHISTORYRPT;
+}

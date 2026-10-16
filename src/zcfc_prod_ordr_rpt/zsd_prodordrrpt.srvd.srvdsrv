@@ -1,0 +1,4 @@
+@EndUserText.label: 'Production Order Material Reco-Report'
+define service ZSD_PRODORDRRPT {
+  expose ZC_PRODORDRRPT;
+}

@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Customer Complaint",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Customer Complaint"
+  },
+  "ui5AppDetails": {
+    "appId": "zcustcomprpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_94AC9DFCD72E4488E15277DAD08B2F50A0BCC3D1_TM",
+    "semanticObject": "zcustcomprpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_94AC9DFCD72E4488E15277DAD08B2F50A0BCC3D1_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Customer Complaint",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

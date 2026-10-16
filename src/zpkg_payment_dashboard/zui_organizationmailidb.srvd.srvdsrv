@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_OrganizationMailIdB_S'
+define service ZUI_ORGANIZATIONMAILIDB {
+  expose ZI_ORGANIZATIONMAILIDB_S as OrganizationMailAll;
+  expose ZI_ORGANIZATIONMAILIDB as OrganizationMailIdB;
+}

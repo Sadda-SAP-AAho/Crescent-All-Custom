@@ -1,0 +1,4 @@
+@EndUserText.label: 'Licence Defination'
+define service ZSERV_D_LIC_HDR {
+  expose ZC_LICENCE_HDR;
+}

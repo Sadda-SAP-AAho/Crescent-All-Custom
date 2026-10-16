@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Binding for Shop Floor Vs Production Report'
+define service ZSD_SHPFLR_PRD {
+  expose ZC_PP_SHPFLR_VS_PROD_FIN;
+}

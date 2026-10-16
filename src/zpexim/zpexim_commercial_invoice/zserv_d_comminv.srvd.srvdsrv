@@ -1,0 +1,11 @@
+@EndUserText.label: 'Commercial Invoice'
+define service ZSERV_D_COMMINV {
+  expose ZC_EXIMCOMMHDR;
+  expose ZC_EXIMCOMMADD;
+  expose ZC_EXIMCOMMCNH;
+  expose ZC_EXIMCOMMCNI;
+  expose ZC_EXIMCOMMCUS;
+  expose ZC_EXIMCOMMITM;
+  expose ZC_EXIMCOMMPAY;
+  expose ZC_EXIMCOMMSHP;
+}

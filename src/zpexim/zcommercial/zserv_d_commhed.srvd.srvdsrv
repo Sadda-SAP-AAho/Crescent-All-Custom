@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Commercial'
+define service ZSERV_D_COMMHED {
+  expose ZC_COMM_HED;
+  expose ZC_COMPRINTFLD;
+}

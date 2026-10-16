@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_DetailsForCompanyCo_S'
+define service ZUI_DETAILSFORCOMPANYCO {
+  expose ZI_DETAILSFORCOMPANYCO_S as DetailsForCompanAll;
+  expose ZI_DETAILSFORCOMPANYCO as DetailsForCompanyCo;
+}

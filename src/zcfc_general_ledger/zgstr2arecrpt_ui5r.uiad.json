@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "GSTR 2A RECO-REPORT",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "GSTR 2A RECO"
+  },
+  "ui5AppDetails": {
+    "appId": "zgstr2arecrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_6456596AAA3B49F8B8794F462F8FDA937C8A7AAF_TM",
+    "semanticObject": "zgstr2arecrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_6456596AAA3B49F8B8794F462F8FDA937C8A7AAF_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "GSTR 2A RECO",
+        "subtitle": "REPORT"
+      }
+    }
+  ]
+}

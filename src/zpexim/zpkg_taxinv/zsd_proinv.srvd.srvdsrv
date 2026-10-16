@@ -1,0 +1,8 @@
+@EndUserText.label: 'Service Defination for Proforma Invoice'
+define service ZSD_PROINV {
+  expose ZCDS_PROINV_T2;
+  expose ZCDS_PROINV_T3;
+  expose ZCDS_PROINV_T4;
+  expose ZCDS_PROINVITM;
+  expose ZCUS_PROINV;
+}

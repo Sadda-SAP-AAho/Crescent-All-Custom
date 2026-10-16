@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Spl Price for Misc Work'
+define service ZSD_SPPRMSWRK {
+  expose ZC_SPPRMSWRKHDR;
+  expose ZC_SPPRMSWRKITM;
+}

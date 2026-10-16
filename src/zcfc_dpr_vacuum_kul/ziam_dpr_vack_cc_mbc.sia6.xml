@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SIA6" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SIA6>
+    <MAIN_OBJECT>
+     <NAME>ZIAM_DPR_VACK_CC_MBC</NAME>
+     <TYPE>SIA6</TYPE>
+     <DESCRIPTION>ZIAM_DPR_VACK_CC</DESCRIPTION>
+     <RESPONSIBLE>CB9980000000</RESPONSIBLE>
+     <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
+     <MASTER_SYSTEM>NRT</MASTER_SYSTEM>
+     <PACKAGE_REF>
+      <PACKAGE_NAME>ZCFC_DPR_VACUUM_KUL</PACKAGE_NAME>
+     </PACKAGE_REF>
+     <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
+    </MAIN_OBJECT>
+    <APP_ID>ZIAM_DPR_VACK_CC_MBC</APP_ID>
+    <APP_TYPE>MBC</APP_TYPE>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+    <SERVICE>
+     <item>
+      <REL_NAME>ZUI_DPRVACKMATGRP_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_DPR_VACK_CC_MBC</APP_ID>
+      <SRVC_NAME>5AF52844F5E642AE5FCF82F94E97F6</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain DPR VAC KUL MAT GRP</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_TMGDPRVACKCOSTCEN_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_DPR_VACK_CC_MBC</APP_ID>
+      <SRVC_NAME>BFFEDAF46466DB7BCF9C7A240E0863</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain TMG DPR VAC KUL COST CENTER</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_TMGGLDPRVACK_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_DPR_VACK_CC_MBC</APP_ID>
+      <SRVC_NAME>36B2C43AD517AC8A0845D302D0E0D0</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain TMG GL DPR VAC KUL</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+    </SERVICE>
+    <AUTH>
+     <item>
+      <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+      <STATUS>U</STATUS>
+      <TEXT>Table Access by Generic Standard Tools</TEXT>
+      <AUTH_ITEM>
+       <item>
+        <UUID>QgEKC4EVH9Cj87kSPjvs0g==</UUID>
+        <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0001</AUTH_OBJECT_INSTANCE>
+        <TEXT>Table Access by Generic Standard Tools</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display,Change</VALUE>
+          <VALUES>
+           <item>
+            <UUID>QgEKC4EVH9Cj87kSPjws0g==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>QgEKC4EVH9Cj87kSPjwM0g==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>TABLE</FIELD>
+          <VALUE>ZI_TMGDPRVACKCOSTCEN,ZI_TMGGLDPRVACK,ZI_DPRVACKMATGRP,...</VALUE>
+          <VALUES>
+           <item>
+            <UUID>QgEKC4EVH9Cj87kSPjxM0g==</UUID>
+            <LOW_VALUE>ZI_TMGDPRVACKCOSTCEN</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>QgEKC4EVH9Cj87kSPjxs0g==</UUID>
+            <LOW_VALUE>ZI_TMGGLDPRVACK</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>QgEKC4EVH9Cj87kSPjyM0g==</UUID>
+            <LOW_VALUE>ZI_DPRVACKMATGRP</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Table Name</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+      </AUTH_ITEM>
+     </item>
+    </AUTH>
+    <PUBLISH_STATUS>p</PUBLISH_STATUS>
+   </SIA6>
+  </asx:values>
+ </asx:abap>
+</abapGit>

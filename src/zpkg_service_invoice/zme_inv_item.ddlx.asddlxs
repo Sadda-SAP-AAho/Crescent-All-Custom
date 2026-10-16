@@ -1,0 +1,63 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  presentationVariant: [{ sortOrder: [{ by: 'InvoiceNo'}, { by: 'InvoiceNo', direction: #ASC } ],
+                          visualizations: [{type: #AS_LINEITEM}],
+                          text: 'Error' }]
+                          }
+annotate entity ZC_SERVICE_INV_ITEM with
+{
+  @UI.facet:
+  [
+
+  {
+  id: 'Generalitem',
+  isSummary: true,
+  label: 'Service Invoice Item',
+  type: #COLLECTION,
+  purpose: #STANDARD
+  },
+
+  { type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData1',
+  parentId: 'Generalitem',
+  position: 1,
+  label: 'Section 1',
+  id: 'GeneralData1' } ]
+  @UI.hidden: true
+  InvoiceNo;
+  @UI: { lineItem: [{ position: 10 }],
+  identification: [{ position: 10 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Item;
+  @UI: { lineItem: [{ position: 20 }],
+  identification: [{ position: 20 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  FiscalYear;
+  @UI: { lineItem: [{ position: 30 }],
+  identification: [{ position: 30 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+  Description;
+  @UI: { lineItem: [{ position: 40 }],
+  identification: [{ position: 40 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 40, importance: #HIGH }] }
+  HSNCode;
+  @UI: { lineItem: [{ position: 40 }],
+  identification: [{ position: 40 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 40, importance: #HIGH }] }
+  UOM;
+  @UI: { lineItem: [{ position: 50 }],
+  identification: [{ position: 50 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 50, importance: #HIGH }] }
+  Amount;
+  @UI: { lineItem: [{ position: 60 }],
+  identification: [{ position: 60 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 60, importance: #HIGH }] }
+  IGSTAmount;
+  @UI: { lineItem: [{ position: 70 }],
+  identification: [{ position: 70 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 70, importance: #HIGH }] }
+  Total;
+
+
+}

@@ -1,0 +1,90 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  presentationVariant: [{ sortOrder: [{ by: 'shipping_bill_date', direction:  #DESC }],
+                          visualizations: [{type: #AS_LINEITEM}],
+                          text: 'Script Generation' }]
+     }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Scrip Item', value: 'shipping_bill' } } }
+annotate entity zc_scriptgn_itm with
+{
+  @UI.facet: [
+  { id: 'GeneralData', isSummary: true, label: 'Script Generation Item Details', type: #COLLECTION, purpose: #STANDARD },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Shipping Details', id: 'GeneralData1' },
+  //  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15, label: 'Script Details', id: 'GeneralData2' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 20, label: 'Scroll Details', id: 'GeneralData3' }
+  ]
+  @UI.hidden: true
+  id;
+  @UI.hidden: true
+  item;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'scrollno', name:'zf4_scroll_number' },
+                                              distinctValues: true,
+                                              useForValidation: true }]
+  scrollno;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'shipping_bill', name:'zf4_scroll_number' },
+                                               distinctValues: true,
+                                               useForValidation: true }]
+  shipping_bill;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  shipping_bill_date;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 17 } ]
+  @UI.identification: [ { position: 17 } ]
+  @UI.fieldGroup: [ { position: 17,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  scriptno;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  scriptdate;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  port_code;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  port_codename;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  currency;
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  fob_lc_v;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  rodtep_dd_v;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  realizationamt;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData3', importance: #HIGH } ]
+
+  difference;
+
+
+}

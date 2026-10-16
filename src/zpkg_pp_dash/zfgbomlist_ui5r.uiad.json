@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "FG BOM LIST"
+  },
+  "ui5AppDetails": {
+    "appId": "zfgbomlist"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_15B712EB8C3DE16746C5581F9527D0816FFC3756_TM",
+    "semanticObject": "zfgbomlist",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_15B712EB8C3DE16746C5581F9527D0816FFC3756_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "FG BOM LIST",
+        "subtitle": "FGBOM"
+      }
+    }
+  ]
+}

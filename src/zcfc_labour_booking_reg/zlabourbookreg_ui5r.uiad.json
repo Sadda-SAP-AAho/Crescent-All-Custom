@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Special Price for Miscellaneous Work",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Special Price for Miscellaneous Work"
+  },
+  "ui5AppDetails": {
+    "appId": "com.crescent.workapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_67F0DB0E6529EA40B67F7C0806897E70F8560A47_TM",
+    "semanticObject": "zlabourBookApp1",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_67F0DB0E6529EA40B67F7C0806897E70F8560A47_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Special Price for Miscellaneous Work",
+        "subtitle": "Special Price for Miscellaneous Work"
+      }
+    }
+  ]
+}

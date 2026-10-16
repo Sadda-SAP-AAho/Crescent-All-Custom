@@ -1,0 +1,4 @@
+@EndUserText.label: 'F4 help service for credit note'
+define service ZFI_CRDNT_SRV {
+  expose ZFI_CRDNT_F4 as docHelpSet;
+}

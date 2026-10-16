@@ -1,0 +1,102 @@
+managed implementation in class zbp_i_pln_mat_mstr_hd unique;
+strict ( 2 );
+
+
+
+with draft;
+define behavior for Z_I_PLN_MAT_MSTR_HD alias _hdr
+persistent table zpln_mat_mstr_hd
+draft table zplnmat_hd_drft
+lock master
+total etag Last_changed_at
+authorization master ( instance )
+etag master Last_local_changed_at
+{
+  create;
+  update;
+  delete;
+  field ( numbering : managed, readonly ) Requestuuid;
+field ( readonly ) Created_at,Created_by,Last_changed_at,Last_changed_by,Material_desc;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+determination getMatDesc on save { field Material_code; }
+
+
+  association _item { create; with draft; }
+
+  validation checkcombination on save { create; update; }
+
+  mapping for zpln_mat_mstr_hd
+    {
+      Requestuuid           = requestuuid;
+      Material_code         = material_code;
+      Material_desc         = material_desc;
+      Mother_item           = mother_item;
+      Child_item            = child_item;
+      Mother_child_catagory = mother_child_catagory;
+      Created_at            = created_at;
+      Created_by            = created_by;
+      Last_changed_at       = last_changed_at;
+      Last_local_changed_at = last_local_changed_at;
+      Last_changed_by       = last_changed_by;
+    }
+
+
+
+}
+
+define behavior for Z_I_PLN_MAT_MSTR_ITM alias _item
+persistent table zpln_mat_mst_itm
+draft table zplnmat_itm_dft
+lock dependent by _hdr
+authorization dependent by _hdr
+etag master Last_local_changed_at
+{
+  update;
+  delete;
+  field ( readonly ) Requestuuid;
+
+  field ( numbering : managed, readonly ) Line_no;
+
+field ( readonly ) Resource_no1_desc,Resource_no2_desc,Resource_no3_desc,Alternate_resource_no1_desc;
+  association _hdr { with draft; }
+
+validation getPlant on  save { field Plant; create; update;}
+validation getRsrc on save { field Resource_no1,Resource_no2,Resource_no3,Alternate_resource_no1; create; update;}
+  determination get_rsrc1 on save { field Resource_no1; }
+  determination get_rsrc2 on save { field Resource_no2;}
+  determination get_rsrc3 on save { field Resource_no3; }
+  determination altr_rsrc1 on save { field Alternate_resource_no1; }
+  mapping for zpln_mat_mst_itm
+    {
+      Requestuuid                 = requestuuid;
+      Line_no                     = line_no;
+      Plant                       = plant;
+      Resource_no1                = resource_no1;
+      Resource_no1_desc           = resource_no1_desc;
+      Cycle_time_r1               = cycle_time_r1;
+      Lead_time_r1                = lead_time_r1;
+      Batch_qty_r1                = batch_qty_r1;
+      Resource_no2                = resource_no2;
+      Resource_no2_desc           = resource_no2_desc;
+      Cycle_time_r2               = cycle_time_r2;
+      Lead_time_r2                = lead_time_r2;
+      Batch_qty_r2                = batch_qty_r2;
+      Resource_no3                = resource_no3;
+      Resource_no3_desc           = resource_no3_desc;
+      Cycle_time_r3               = cycle_time_r3;
+      Lead_time_r3                = lead_time_r3;
+      Batch_qty_r3                = batch_qty_r3;
+      Alternate_resource_no1      = alternate_resource_no1;
+      Alternate_resource_no1_desc = alternate_resource_no1_desc;
+      Cycle_time_ar1              = cycle_time_ar1;
+      Lead_time_ar1               = lead_time_ar1;
+      batch_qty_ar1               = batch_qty_ar1;
+    }
+
+}

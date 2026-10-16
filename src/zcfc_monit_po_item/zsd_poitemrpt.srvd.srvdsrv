@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for PO Item Report'
+define service ZSD_POITEMRPT {
+  expose ZC_POITEMRPT;
+}

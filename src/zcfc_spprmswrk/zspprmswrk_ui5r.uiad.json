@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Special Price for Misc. Work",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Special Price for Misc. Work"
+  },
+  "ui5AppDetails": {
+    "appId": "zspprmswrk"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_3C4D281A75358CDDFAFEB95B01EDE90CE494D11D_TM",
+    "semanticObject": "zspprmswrk",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_3C4D281A75358CDDFAFEB95B01EDE90CE494D11D_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Special Price for Misc. Work"
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for SC/SO Received Report'
+define service ZSD_SCSO_RECD_RPT {
+  expose ZC_SCSO_RECD_RPT;
+}

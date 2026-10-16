@@ -1,0 +1,38 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Maintain GATE ENTRY ITEMTMG",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_GATEENTRYITEMTMG_O41",
+    "serviceName": "ZUI_GATEENTRYITEMTMG_O41",
+    "serviceVersion": "0001",
+    "rootEntitySet": "GateEntryItemtmgAll",
+    "name": "GATE ENTRY ITEMTMG",
+    "transportObject": "",
+    "configurationGroup": "",
+    "skipRootEntity": true
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "GateEntryItemtmgAll",
+        "variantManagement": "control",
+        "showTransportSelectionStrip": true
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "GateEntryItemtmg",
+        "selectionMode": "auto",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 2,
+        "threshold": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Material Warehouse Stock Report'
+define service ZSD_MATWHSTOCK {
+  expose ZC_MATWHSTOCK;
+}

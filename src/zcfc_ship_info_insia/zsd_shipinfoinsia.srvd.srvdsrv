@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Shipment Information-Insia'
+define service ZSD_SHIPINFOINSIA {
+  expose ZC_SHIPINFOINSIA;
+}

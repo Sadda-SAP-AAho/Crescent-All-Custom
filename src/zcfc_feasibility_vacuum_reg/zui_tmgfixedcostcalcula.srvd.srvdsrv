@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgFixedCostCalcula_S'
+define service ZUI_TMGFIXEDCOSTCALCULA {
+  expose ZI_TMGFIXEDCOSTCALCULA_S as TmgFixedCostCalcAll;
+  expose ZI_TMGFIXEDCOSTCALCULA as TmgFixedCostCalcula;
+}

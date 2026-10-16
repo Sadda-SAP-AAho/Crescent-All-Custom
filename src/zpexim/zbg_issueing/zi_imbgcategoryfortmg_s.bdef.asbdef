@@ -1,0 +1,73 @@
+managed with additional save implementation in class ZBP_I_IMBGCATEGORYFORTMG_S unique;
+strict;
+with draft;
+define behavior for ZI_ImbgCategoryForTmg_S alias ImbgCategoryForTAll
+draft table ZDT_IMBGCAT_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _ImbgCategoryForTmg { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_ImbgCategoryForTmg alias ImbgCategoryForTmg ##UNMAPPED_FIELD
+persistent table ZDT_IMBGCATEGORY
+draft table ZDT_IMBGCATEG_D
+lock dependent by _ImbgCategoryForTAll
+authorization dependent by _ImbgCategoryForTAll
+
+{
+  field ( mandatory : create )
+   Bgcatag;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Bgcatag;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_IMBGCATEGORY
+  {
+    Bgcatag = BGCATAG;
+  }
+
+  association _ImbgCategoryForTAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

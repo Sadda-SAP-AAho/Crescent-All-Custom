@@ -1,0 +1,4 @@
+@EndUserText.label: 'Special Price of Misc. Work Report'
+define service ZSD_SPPRMSWRKRATE {
+  expose ZC_SPPRMSWRKRATE;
+}

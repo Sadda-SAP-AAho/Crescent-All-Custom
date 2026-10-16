@@ -1,0 +1,4 @@
+@EndUserText.label: 'Sub Contracting-Report'
+define service ZSD_SUBCONTRRPT {
+  expose ZC_SUBCONTRRPT;
+}

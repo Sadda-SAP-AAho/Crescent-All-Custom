@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgPriceValExcUser', 
+    typeNamePlural: 'TmgPriceValExcUsers', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG Price Val Exc User', 
+      value: 'Userid'
+    }
+  }
+}
+annotate view ZI_TmgPriceValExcUser with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgPriceValExcUser', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG Price Val Exc User', 
+    position: 1 
+  } ]
+  Userid;
+}

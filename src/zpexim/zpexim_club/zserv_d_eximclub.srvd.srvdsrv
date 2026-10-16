@@ -1,0 +1,5 @@
+@EndUserText.label: 'EXIM Clubbing'
+define service ZSERV_D_EXIMCLUB {
+  expose ZC_EXIMCLUBHDR;
+  expose ZC_EXIMCLUBITM;
+}

@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Export LC",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Export LC"
+  },
+  "ui5AppDetails": {
+    "appId": "zlcexport"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_54E3C46464C38236CBF23045CA1F0BC9DECC96D5_TM",
+    "semanticObject": "z_lcexpapp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_54E3C46464C38236CBF23045CA1F0BC9DECC96D5_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Export LC"
+      }
+    }
+  ]
+}

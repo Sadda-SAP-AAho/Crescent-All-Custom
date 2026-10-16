@@ -1,0 +1,17 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "HSBC PAY UTR Application Jobs 02",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "className": "ZCL_HSBC_PAYMENT_STATUS_UTR"
+  },
+  "groups": [
+    {
+      "name": "GRP_DEF",
+      "title": "Default"
+    }
+  ]
+}

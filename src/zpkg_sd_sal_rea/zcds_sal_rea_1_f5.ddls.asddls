@@ -1,0 +1,66 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Sales Order Realization Report'
+@Metadata.ignorePropagatedAnnotations: true
+@ObjectModel.usageType:{
+    serviceQuality: #X,
+    sizeCategory: #S,
+    dataClass: #MIXED
+}
+define view entity ZCDS_SAL_REA_1_F5 
+as select from ZCDS_SAL_REA_1_F4 
+{
+    key SalesOrder,
+    key SalesOrderItem,
+    Status,
+    CreationDate,
+    CommittedDeliveryDate,
+    SoldToParty,
+    salesperson,
+    PurchaseOrderByCustomer,
+    Material,
+    SalesOrderItemText,
+    ProfitCenterName,
+    moc,
+    SDDocumentReasonText,
+    soholdstat,
+    OrderQuantity,
+    Sodelqty,
+    shortcloseqty,
+    Balanceqty,
+    FinalOrderQty,
+    TransactionCurrency,
+    PriceDetnExchangeRate,
+    rate,
+    OrderAmount,
+    Unitwt,
+    SWeight,
+    FumCha,
+    ConFrt,
+    ExcExp,
+    PortCha,
+    ThcCha,
+    DocCha,
+    RadCha,
+    Inspcha,
+    YY1_FreightUSD_SDH,
+    Epcgprerat,
+    ShoReaCha,
+    CashDiscount1Days,
+    totstdcost,
+    TotSelExp,
+    selExpKg,
+    Totstdcostkg,
+    Ordvalkg,
+    StdReakg,
+    frtrecamt,
+    fixedcost,
+    metalprice,
+    ( ( coalesce( StdReakg, 0 ) + coalesce( frtrecamt, 0 ) ) - coalesce( fixedcost, 0 ) ) as Netrea,
+    salamtlc,
+    varcostlc,
+    selexplc,
+    IncotermsClassification,
+    unitprice,
+    Bomstatus
+}

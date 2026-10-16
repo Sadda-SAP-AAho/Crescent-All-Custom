@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "DMS Config"
+  },
+  "ui5AppDetails": {
+    "appId": "zdmsconf"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_065C0D88726B000A9163A95B6F8ADE4B35D4561D_TM",
+    "semanticObject": "zdmsconfig",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_065C0D88726B000A9163A95B6F8ADE4B35D4561D_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "DMS Config",
+        "subtitle": "ZDMSCONF"
+      }
+    }
+  ]
+}

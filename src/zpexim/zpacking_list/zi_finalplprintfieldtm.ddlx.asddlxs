@@ -1,0 +1,59 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'FinalPlPrintFieldTm', 
+    typeNamePlural: 'FinalPlPrintFieldTms', 
+    title: {
+      type: #STANDARD, 
+      label: 'Final PL Print field TMG', 
+      value: 'Field'
+    }
+  }
+}
+annotate view ZI_FinalPlPrintFieldTm with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_FinalPlPrintFieldTm', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Final PL Print field TMG', 
+    position: 1 
+  } ]
+  Field;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Fieldname'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Fieldname'
+  } ]
+  Fieldname;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Printallow'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Printallow'
+  } ]
+  Printallow;
+  
+  @UI.identification: [ {
+    position: 4 , 
+    label: 'Printseq'
+  } ]
+  @UI.lineItem: [ {
+    position: 4 , 
+    label: 'Printseq'
+  } ]
+  Printseq;
+}

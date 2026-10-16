@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_PolMasterTable_S'
+define service ZUI_POLMASTERTABLE {
+  expose ZI_POLMASTERTABLE_S as PolMasterTableAll;
+  expose ZI_POLMASTERTABLE as PolMasterTable;
+}

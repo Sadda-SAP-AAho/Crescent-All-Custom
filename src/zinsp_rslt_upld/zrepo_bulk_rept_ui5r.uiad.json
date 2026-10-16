@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Bulk Reporting of Inspection Results"
+  },
+  "ui5AppDetails": {
+    "appId": "bulkreportinspection"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_06254601CFED20929C99067CB46C6829ECDFEE48_TM",
+    "semanticObject": "ZSO_BULK_REPT",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_06254601CFED20929C99067CB46C6829ECDFEE48_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Bulk Reporting of Inspection Results"
+      }
+    }
+  ]
+}

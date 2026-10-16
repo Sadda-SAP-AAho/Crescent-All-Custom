@@ -1,0 +1,91 @@
+managed implementation in class zbp_i_gstr2breg_hd unique;
+strict;
+with draft;
+
+define behavior for ZI_GSTR2BREG_HD //alias <alias_name>
+persistent table zdt_gstr2breg_hd
+draft table zdr_gstr2breg_hd
+lock master
+total etag ID
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly ) Docnum, Creon, Creby, Fmonth;
+  field ( mandatory : create, readonly : update ) Location, Fyear, Fmonthcd;
+
+  create;
+  update;
+  delete;
+
+  determination determinedocnum on save { create; }
+
+  determination updateheader on modify { field Fmonthcd; }
+  side effects
+  { field Fmonthcd affects field Fmonth; }
+
+  validation checkcomb1 on save { create; update; }
+
+  association _Item { create; }
+
+  mapping for zi_gstr2breg_hd
+    {
+      Fisyear  = Fisyear;
+      Docnum   = Docnum;
+      Keyid    = Keyid;
+      Creon    = Creon;
+      Creby    = Creby;
+      Location = Location;
+      Fyear    = Fyear;
+      Fmonthcd = Fmonthcd;
+      Fmonth   = Fmonth;
+    }
+}
+
+define behavior for ZI_GSTR2BREG_IT //alias <alias_name>
+persistent table zdt_gstr2breg_it
+draft table zdr_gstr2breg_it
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+
+{
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id;
+
+  update;
+  delete;
+
+  association _Head { with draft; }
+
+  mapping for zi_gstr2breg_it
+    {
+      suppgstn    = suppgstn;
+      lglname     = lglname;
+      invno       = invno;
+      invtyp      = invtyp;
+      invdate     = invdate;
+      invval      = invval;
+      placesupply = placesupply;
+      revcharge   = revcharge;
+      rateperc    = rateperc;
+      taxval      = taxval;
+      intgrtax    = intgrtax;
+      centraltax  = centraltax;
+      stateuttax  = stateuttax;
+      cess        = cess;
+      gstrperiod  = gstrperiod;
+      gstrfildate = gstrfildate;
+      itcavail    = itcavail;
+      reason      = reason;
+      apptaxrate  = apptaxrate;
+    }
+}

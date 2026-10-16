@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "SO wise BOM Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "SO wise BOM Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zsobomrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_659542554F2412DF61EF5A50189FE5C2DE930F4C_TM",
+    "semanticObject": "zsobomrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_659542554F2412DF61EF5A50189FE5C2DE930F4C_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "SO wise BOM Report"
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Binding for GO-COMET Report'
+define service ZSD_GOCOMET_RPT {
+  expose ZC_GOCOMET_RPT;
+}

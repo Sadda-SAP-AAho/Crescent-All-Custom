@@ -1,0 +1,62 @@
+managed implementation in class zbp_i_contract_hdr unique;
+strict ( 1 );
+with draft;
+define behavior for ZI_CONTRACT_HDR
+with unmanaged  save
+draft table zdr_contract_hdr
+lock master
+total etag Shpflrdt
+authorization master ( instance )
+//etag master <field_name>
+{
+  //  create;
+  update;
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Resume;
+  draft action Discard;
+  draft determine action Prepare;
+  //  delete;
+  field ( mandatory )Shpflrdt;
+  field ( readonly ) Opr,Plant, Dept, Cont,Deptname,contname,Oprname;
+  field ( features : instance )laboritemno1, laboritemno2, laboritemno3, laboritemno4;
+  action ( features : instance ) PrintR result [1] $self;
+  action ( features : instance ) UpdatePrint result [1] $self;
+  side effects
+  {
+     action UpdatePrint affects entity _item;
+   }
+  validation checkdet on save { create; update;}
+  association _item { create; }
+  mapping for zi_contract_hdr
+    {
+      Cont         = Cont;
+      Contname     = Contname;
+      Dept         = Dept;
+      Deptname     = Deptname;
+      Oprname      = Oprname;
+      Plant        = Plant;
+      laboritemno1 = laboritemno1;
+      laboritemno2 = laboritemno2;
+      laboritemno3 = laboritemno3;
+      laboritemno4 = laboritemno4;
+      Printrep        = Printrep;
+    }
+}
+
+define behavior for ZI_CONTRACT_ITM //alias <alias_name>
+with unmanaged save
+//persistent table <???>
+lock dependent by _head
+draft table zdr_contract_itm
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field(readonly : update)cont,dept,plant,opr;
+  field ( readonly ) matnr,Day1qty,Day2qty,Day3qty,Day4qty,Day5qty,Day6qty,Day7qty,NetWeight,itemname,
+                     Qtyinkg,TotalPerDayQty,activity1,activity1amt,activity2,activity2amt,activity3,activity3amt,
+                     activity4,activity4amt,totalamt ;
+  association _head;
+}

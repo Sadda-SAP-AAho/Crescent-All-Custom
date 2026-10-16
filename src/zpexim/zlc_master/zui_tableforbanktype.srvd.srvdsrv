@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TableForBankType_S'
+define service ZUI_TABLEFORBANKTYPE {
+  expose ZI_TABLEFORBANKTYPE_S as TableForBankTypeAll;
+  expose ZI_TABLEFORBANKTYPE as TableForBankType;
+}

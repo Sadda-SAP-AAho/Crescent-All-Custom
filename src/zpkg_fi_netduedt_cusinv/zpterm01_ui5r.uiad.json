@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Maintain Payment Terms for Due dates",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Maintain Payment Terms for Due dates"
+  },
+  "ui5AppDetails": {
+    "appId": "zpterm"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_ADEAFAC74A1E6FA5E1D282A7A5C8E04DBD8D27CA_TM",
+    "semanticObject": "zpterm01",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_ADEAFAC74A1E6FA5E1D282A7A5C8E04DBD8D27CA_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Maintain Payment Terms for Due dates"
+      }
+    }
+  ]
+}

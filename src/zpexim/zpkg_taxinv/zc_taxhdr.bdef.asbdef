@@ -1,0 +1,23 @@
+projection;
+strict ( 1 );
+use draft;
+use side effects;
+define behavior for ZC_TAXHDR //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Printdom;
+  use action Printigst;
+  use action Printlut;
+  use action PrintPro;
+  use action PrintPat;
+  use action PrintSam;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+}

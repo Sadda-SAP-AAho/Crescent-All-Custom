@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Power Reading Master",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Power Reading Master"
+  },
+  "ui5AppDetails": {
+    "appId": "zpwrrdnghead"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_AFCFD5E6EAB8D9054C35F9E140CD3A675D49440D_TM",
+    "semanticObject": "zpwrrdnghead",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_AFCFD5E6EAB8D9054C35F9E140CD3A675D49440D_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Power Reading Master"
+      }
+    }
+  ]
+}

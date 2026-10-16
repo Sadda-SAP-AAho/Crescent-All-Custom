@@ -1,0 +1,131 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Shop Floor vs Actual production Report',
+                typeNamePlural:'Shop Floor vs Actual production Report',
+                title: { type: #STANDARD, label: 'Shop Floor vs Actual production Report', value: 'Id' }
+              }
+     }
+annotate entity ZC_PP_SHPFLR_VS_PROD_FIN with
+{
+  @UI.facet: [{ id : 'GeneralData', isSummary: true, label: 'Shop Floor vs Actual production Report', position: 5, type: #COLLECTION },
+              { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Report Details', id: 'GeneralData1' }]
+  @UI.hidden: true
+  id;
+  @UI.hidden: true
+  item;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  dept;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  deptname;
+  @UI.lineItem: [ { position: 18 } ]
+  @UI.identification: [ { position: 18 } ]
+  @UI.selectionField: [{ position: 18 }]
+  @UI.fieldGroup: [ { position: 18,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Zopn', name:'ZI_OPR_F4' },
+                                                distinctValues: true,
+                                                useForValidation: true } ]
+  opr;
+  @UI.lineItem: [ { position: 22 } ]
+  @UI.identification: [ { position: 22 } ]
+  @UI.fieldGroup: [ { position: 22,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  oprname;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  plant;
+  @UI.lineItem: [ { position: 28 } ]
+  @UI.identification: [ { position: 28 } ]
+  @UI.fieldGroup: [ { position: 28,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  PlantName;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  matnr;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  maktx;
+  @UI.hidden: true
+  meins;
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  qtyperbox;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  goodcast;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  simqty;
+  @UI.lineItem: [ { position: 65 } ]
+  @UI.identification: [ { position: 65 } ]
+  @UI.fieldGroup: [ { position: 65,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  shpflrno;
+  @UI.lineItem: [ { position: 75 } ]
+  @UI.identification: [ { position: 75 } ]
+  @UI.fieldGroup: [ { position: 75,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  rejqty;
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 80,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  simrejqty;
+  @UI.lineItem: [ { position: 85 } ]
+  @UI.identification: [ { position: 85 } ]
+  @UI.fieldGroup: [ { position: 85,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  shpflrdt;
+  @UI.lineItem: [ { position: 95 } ]
+  @UI.identification: [ { position: 95 } ]
+  @UI.fieldGroup: [ { position: 95,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  contname;
+  @UI.lineItem: [ { position: 105 } ]
+  @UI.identification: [ { position: 105 } ]
+  @UI.fieldGroup: [ { position: 105,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  recqty;
+  @UI.lineItem: [ { position: 115 } ]
+  @UI.identification: [ { position: 115 } ]
+  @UI.fieldGroup: [ { position: 115,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  rejrecqty;
+  @UI.lineItem: [ { position: 125 } ]
+  @UI.identification: [ { position: 125 } ]
+  @UI.fieldGroup: [ { position: 125,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  castdif;
+  @UI.lineItem: [ { position: 135 } ]
+  @UI.identification: [ { position: 135 } ]
+  @UI.fieldGroup: [ { position: 135,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  rejdif;
+  @UI.lineItem: [ { position: 138 } ]
+  @UI.identification: [ { position: 138 } ]
+  @UI.fieldGroup: [ { position: 138,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  simdif;
+  @UI.lineItem: [ { position: 142 } ]
+  @UI.identification: [ { position: 142 } ]
+  @UI.fieldGroup: [ { position: 142,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  simrejdif;
+  @UI.lineItem: [ { position: 145 } ]
+  @UI.identification: [ { position: 145 } ]
+  @UI.fieldGroup: [ { position: 145,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  netwt;
+  @UI.lineItem: [ { position: 150 } ]
+  @UI.identification: [ { position: 150 } ]
+  @UI.fieldGroup: [ { position: 150,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  grossWt;
+  @UI.lineItem: [ { position: 155 } ]
+  @UI.identification: [ { position: 155 } ]
+  @UI.fieldGroup: [ { position: 155,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  pendwt;
+  @UI.lineItem: [ { position: 165 } ]
+  @UI.identification: [ { position: 165 } ]
+  @UI.fieldGroup: [ { position: 165,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  weight;
+  @UI.lineItem: [ { position: 170 } ]
+  @UI.identification: [ { position: 170 } ]
+  @UI.fieldGroup: [ { position: 170,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Open_Prod_Qty;
+
+}

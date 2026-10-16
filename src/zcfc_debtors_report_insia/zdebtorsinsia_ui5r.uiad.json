@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Debtors Report - INSIA",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Debtors Report - INSIA"
+  },
+  "ui5AppDetails": {
+    "appId": "zdebtorsinsia"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_378BDC72024E9C9D8C3685929D1A452344D7C544_TM",
+    "semanticObject": "zdebtorsinsia",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_378BDC72024E9C9D8C3685929D1A452344D7C544_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Debtors Report - INSIA"
+      }
+    }
+  ]
+}

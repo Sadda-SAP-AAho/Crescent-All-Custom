@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for DPR VACUUM BAG'
+define service ZSD_DPR_VACB {
+  expose ZC_DPR_VACB_HEAD;
+  expose ZC_DPR_VACB_ITM;
+}

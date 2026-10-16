@@ -1,0 +1,38 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgTableForMouldDet', 
+    typeNamePlural: 'TmgTableForMouldDets', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG table for Mould Details', 
+      value: 'Mould'
+    }
+  }
+}
+annotate view ZI_TmgTableForMouldDet with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgTableForMouldDet', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG table for Mould Details', 
+    position: 1 
+  } ]
+  Mould;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Rate1;
+  
+}

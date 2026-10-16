@@ -1,0 +1,968 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'Docuuid'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'Docuuid'
+annotate view ZC_SCHDR with
+{
+@UI.facet: [
+  {
+    label: 'General Information', 
+    id: 'GeneralInfoCollection', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #COLLECTION
+  },
+  {
+    label: 'Header Details', 
+    id: 'HeaderInfo', 
+    parentId: 'GeneralInfoCollection',
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  },
+  { 
+    label: 'Items',
+    id: 'ItemsCollection',
+    purpose: #STANDARD,
+    position: 20,
+    type: #COLLECTION            
+  },
+  {
+    label: 'Item List',
+    id: 'idItems',
+    parentId: 'ItemsCollection',  
+    purpose: #STANDARD,
+    targetElement: '_Items',
+    position: 10,
+    type: #LINEITEM_REFERENCE
+  },
+  { 
+    label: 'Taxes',
+    id: 'TaxesCollection',
+    purpose: #STANDARD,
+    position: 30,
+    type: #COLLECTION            
+  },
+  {
+    label: 'Tax List',
+    id: 'idTaxes',
+    parentId: 'TaxesCollection', 
+    purpose: #STANDARD,
+    targetElement: '_Taxes',
+    position: 10,
+    type: #LINEITEM_REFERENCE
+  }
+]
+  @UI.identification: [ {
+    position: 10 
+  } ]
+  @UI.lineItem: [ {
+    position: 10 
+  },
+   {
+    position: 20 , 
+      label: 'Clear Error',
+      type: #FOR_ACTION,
+      dataAction: 'ClearError',
+      invocationGrouping: #CHANGE_SET,
+    importance: #HIGH
+  }]
+  Docuuid;
+  
+  @EndUserText.label: 'PoNumber'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'PoNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'PoNumber'
+  } ]
+  @UI.selectionField: [{ position: 10 }]
+  PoNumber;
+  
+  
+  @EndUserText.label: 'SoNumber'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'SoNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'SoNumber'
+  } ]
+  @UI.selectionField: [{ position: 20 }]
+  SoNumber;
+  
+  @EndUserText.label: 'IsPostedSap'
+  @UI.identification: [ {
+    position: 31 , 
+    label: 'IsPostedSap'
+  } ]
+  @UI.lineItem: [ {
+    position: 31 , 
+    label: 'IsPostedSap'
+  } ]
+  IsPostedSap;
+  
+  @EndUserText.label: 'SalesContract'
+  @UI.identification: [ {
+    position: 32 , 
+    label: 'SalesContract'
+  } ]
+  @UI.lineItem: [ {
+    position: 32 , 
+    label: 'SalesContract'
+  } ]
+  SalesContract;
+  
+   @EndUserText.label: 'Is Contract Sync'
+  @UI.identification: [ {
+    position: 33 
+  } ]
+  @UI.lineItem: [ {
+    position: 33 
+  } ]
+  IsContractSent;
+  
+  @EndUserText.label: 'AirfaasOrderID'
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'AirfaasOrderID'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 , 
+    label: 'AirfaasOrderID'
+  } ]
+  AirfaasOrderID;
+  
+  @EndUserText.label: 'AccountReference'
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'AccountReference'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 , 
+    label: 'AccountReference'
+  } ]
+  AccountReference;
+  
+  @EndUserText.label: 'OrderDate'
+  @UI.identification: [ {
+    position: 60 , 
+    label: 'OrderDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 60 , 
+    label: 'OrderDate'
+  } ]
+  OrderDate;
+  
+  @EndUserText.label: 'Currency'
+  @UI.identification: [ {
+    position: 61 , 
+    label: 'Currency'
+  } ]
+  @UI.lineItem: [ {
+    position: 61 , 
+    label: 'Currency'
+  } ]
+  Currency;
+  
+  @EndUserText.label: 'DueDate'
+  @UI.identification: [ {
+    position: 70 , 
+    label: 'DueDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 70 , 
+    label: 'DueDate'
+  } ]
+  DueDate;
+  
+  @EndUserText.label: 'RevisionDate'
+  @UI.identification: [ {
+    position: 80 , 
+    label: 'RevisionDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 80 , 
+    label: 'RevisionDate'
+  } ]
+  RevisionDate;
+  
+  @EndUserText.label: 'IsChangeOrder'
+  @UI.identification: [ {
+    position: 90 , 
+    label: 'IsChangeOrder'
+  } ]
+  @UI.lineItem: [ {
+    position: 90 , 
+    label: 'IsChangeOrder'
+  } ]
+  IsChangeOrder;
+  
+  @EndUserText.label: 'SalesOrganization'
+  @UI.identification: [ {
+    position: 92 , 
+    label: 'SalesOrganization'
+  } ]
+  @UI.lineItem: [ {
+    position: 92 , 
+    label: 'SalesOrganization'
+  } ]
+  SalesOrganization;
+  
+  @EndUserText.label: 'DistributionChannel'
+  @UI.identification: [ {
+    position: 94 , 
+    label: 'DistributionChannel'
+  } ]
+  @UI.lineItem: [ {
+    position: 94 , 
+    label: 'DistributionChannel'
+  } ]
+  DistributionChannel;
+  
+  @EndUserText.label: 'Division'
+  @UI.identification: [ {
+    position: 96 , 
+    label: 'Division'
+  } ]
+  @UI.lineItem: [ {
+    position: 96 , 
+    label: 'Division'
+  } ]
+  Division; 
+  
+  @EndUserText.label: 'CustomerName'
+  @UI.identification: [ {
+    position: 100 , 
+    label: 'CustomerName'
+  } ]
+  @UI.lineItem: [ {
+    position: 100 , 
+    label: 'CustomerName'
+  } ]
+  CustomerName;
+  
+  @EndUserText.label: 'CustomerAddrLine1'
+  @UI.identification: [ {
+    position: 110 , 
+    label: 'CustomerAddrLine1'
+  } ]
+  @UI.lineItem: [ {
+    position: 110 , 
+    label: 'CustomerAddrLine1'
+  } ]
+  CustomerAddrLine1;
+  
+  @EndUserText.label: 'CustomerAddrLine2'
+  @UI.identification: [ {
+    position: 120 , 
+    label: 'CustomerAddrLine2'
+  } ]
+  @UI.lineItem: [ {
+    position: 120 , 
+    label: 'CustomerAddrLine2'
+  } ]
+  CustomerAddrLine2;
+  
+  @EndUserText.label: 'CustomerCity'
+  @UI.identification: [ {
+    position: 130 , 
+    label: 'CustomerCity'
+  } ]
+  @UI.lineItem: [ {
+    position: 130 , 
+    label: 'CustomerCity'
+  } ]
+  CustomerCity;
+  
+  @EndUserText.label: 'CustomerState'
+  @UI.identification: [ {
+    position: 140 , 
+    label: 'CustomerState'
+  } ]
+  @UI.lineItem: [ {
+    position: 140 , 
+    label: 'CustomerState'
+  } ]
+  CustomerState;
+  
+  @EndUserText.label: 'CustomerPostal'
+  @UI.identification: [ {
+    position: 150 , 
+    label: 'CustomerPostal'
+  } ]
+  @UI.lineItem: [ {
+    position: 150 , 
+    label: 'CustomerPostal'
+  } ]
+  CustomerPostal;
+  
+  @EndUserText.label: 'CustomerCountry'
+  @UI.identification: [ {
+    position: 160 , 
+    label: 'CustomerCountry'
+  } ]
+  @UI.lineItem: [ {
+    position: 160 , 
+    label: 'CustomerCountry'
+  } ]
+  CustomerCountry;
+  
+  @EndUserText.label: 'CustomerPhone'
+  @UI.identification: [ {
+    position: 170 , 
+    label: 'CustomerPhone'
+  } ]
+  @UI.lineItem: [ {
+    position: 170 , 
+    label: 'CustomerPhone'
+  } ]
+  CustomerPhone;
+  
+  @EndUserText.label: 'CustomerFax'
+  @UI.identification: [ {
+    position: 180 , 
+    label: 'CustomerFax'
+  } ]
+  @UI.lineItem: [ {
+    position: 180 , 
+    label: 'CustomerFax'
+  } ]
+  CustomerFax;
+  
+  @EndUserText.label: 'CustomerEmail'
+  @UI.identification: [ {
+    position: 190 , 
+    label: 'CustomerEmail'
+  } ]
+  @UI.lineItem: [ {
+    position: 190 , 
+    label: 'CustomerEmail'
+  } ]
+  CustomerEmail;
+  
+  @EndUserText.label: 'CustomerVatID'
+  @UI.identification: [ {
+    position: 200 , 
+    label: 'CustomerVatID'
+  } ]
+  @UI.lineItem: [ {
+    position: 200 , 
+    label: 'CustomerVatID'
+  } ]
+  CustomerVatID;
+  
+  @EndUserText.label: 'CustomerEoriNo'
+  @UI.identification: [ {
+    position: 210 , 
+    label: 'CustomerEoriNo'
+  } ]
+  @UI.lineItem: [ {
+    position: 210 , 
+    label: 'CustomerEoriNo'
+  } ]
+  CustomerEoriNo;
+  
+  @EndUserText.label: 'CustomerCompanyNo'
+  @UI.identification: [ {
+    position: 220 , 
+    label: 'CustomerCompanyNo'
+  } ]
+  @UI.lineItem: [ {
+    position: 220 , 
+    label: 'CustomerCompanyNo'
+  } ]
+  CustomerCompanyNo;
+  
+  @EndUserText.label: 'VendorName'
+  @UI.identification: [ {
+    position: 230 , 
+    label: 'VendorName'
+  } ]
+  @UI.lineItem: [ {
+    position: 230 , 
+    label: 'VendorName'
+  } ]
+  VendorName;
+  
+  @EndUserText.label: 'VendorAddrLine1'
+  @UI.identification: [ {
+    position: 240 , 
+    label: 'VendorAddrLine1'
+  } ]
+  @UI.lineItem: [ {
+    position: 240 , 
+    label: 'VendorAddrLine1'
+  } ]
+  VendorAddrLine1;
+  
+  @EndUserText.label: 'VendorAddrLine2'
+  @UI.identification: [ {
+    position: 250 , 
+    label: 'VendorAddrLine2'
+  } ]
+  @UI.lineItem: [ {
+    position: 250 , 
+    label: 'VendorAddrLine2'
+  } ]
+  VendorAddrLine2;
+  
+  @EndUserText.label: 'VendorCity'
+  @UI.identification: [ {
+    position: 260 , 
+    label: 'VendorCity'
+  } ]
+  @UI.lineItem: [ {
+    position: 260 , 
+    label: 'VendorCity'
+  } ]
+  VendorCity;
+  
+  @EndUserText.label: 'VendorState'
+  @UI.identification: [ {
+    position: 270 , 
+    label: 'VendorState'
+  } ]
+  @UI.lineItem: [ {
+    position: 270 , 
+    label: 'VendorState'
+  } ]
+  VendorState;
+  
+  @EndUserText.label: 'VendorPostal'
+  @UI.identification: [ {
+    position: 280 , 
+    label: 'VendorPostal'
+  } ]
+  @UI.lineItem: [ {
+    position: 280 , 
+    label: 'VendorPostal'
+  } ]
+  VendorPostal;
+  
+  @EndUserText.label: 'VendorCountry'
+  @UI.identification: [ {
+    position: 290 , 
+    label: 'VendorCountry'
+  } ]
+  @UI.lineItem: [ {
+    position: 290 , 
+    label: 'VendorCountry'
+  } ]
+  VendorCountry;
+  
+  @EndUserText.label: 'VendorPhone'
+  @UI.identification: [ {
+    position: 300 , 
+    label: 'VendorPhone'
+  } ]
+  @UI.lineItem: [ {
+    position: 300 , 
+    label: 'VendorPhone'
+  } ]
+  VendorPhone;
+  
+  @EndUserText.label: 'VendorFax'
+  @UI.identification: [ {
+    position: 310 , 
+    label: 'VendorFax'
+  } ]
+  @UI.lineItem: [ {
+    position: 310 , 
+    label: 'VendorFax'
+  } ]
+  VendorFax;
+  
+  @EndUserText.label: 'VendorVatID'
+  @UI.identification: [ {
+    position: 320 , 
+    label: 'VendorVatID'
+  } ]
+  @UI.lineItem: [ {
+    position: 320 , 
+    label: 'VendorVatID'
+  } ]
+  VendorVatID;
+  
+  @EndUserText.label: 'ShipToName'
+  @UI.identification: [ {
+    position: 330 , 
+    label: 'ShipToName'
+  } ]
+  @UI.lineItem: [ {
+    position: 330 , 
+    label: 'ShipToName'
+  } ]
+  ShipToName;
+  
+  @EndUserText.label: 'ShipToAddrLine1'
+  @UI.identification: [ {
+    position: 340 , 
+    label: 'ShipToAddrLine1'
+  } ]
+  @UI.lineItem: [ {
+    position: 340 , 
+    label: 'ShipToAddrLine1'
+  } ]
+  ShipToAddrLine1;
+  
+  @EndUserText.label: 'ShipToAddrLine2'
+  @UI.identification: [ {
+    position: 350 , 
+    label: 'ShipToAddrLine2'
+  } ]
+  @UI.lineItem: [ {
+    position: 350 , 
+    label: 'ShipToAddrLine2'
+  } ]
+  ShipToAddrLine2;
+  
+  @EndUserText.label: 'ShipToCity'
+  @UI.identification: [ {
+    position: 360 , 
+    label: 'ShipToCity'
+  } ]
+  @UI.lineItem: [ {
+    position: 360 , 
+    label: 'ShipToCity'
+  } ]
+  ShipToCity;
+  
+  @EndUserText.label: 'ShipToState'
+  @UI.identification: [ {
+    position: 370 , 
+    label: 'ShipToState'
+  } ]
+  @UI.lineItem: [ {
+    position: 370 , 
+    label: 'ShipToState'
+  } ]
+  ShipToState;
+  
+  @EndUserText.label: 'ShipToPostal'
+  @UI.identification: [ {
+    position: 380 , 
+    label: 'ShipToPostal'
+  } ]
+  @UI.lineItem: [ {
+    position: 380 , 
+    label: 'ShipToPostal'
+  } ]
+  ShipToPostal;
+  
+  @EndUserText.label: 'ShipToCountry'
+  @UI.identification: [ {
+    position: 390 , 
+    label: 'ShipToCountry'
+  } ]
+  @UI.lineItem: [ {
+    position: 390 , 
+    label: 'ShipToCountry'
+  } ]
+  ShipToCountry;
+  
+  @EndUserText.label: 'ShipFromName'
+  @UI.identification: [ {
+    position: 400 , 
+    label: 'ShipFromName'
+  } ]
+  @UI.lineItem: [ {
+    position: 400 , 
+    label: 'ShipFromName'
+  } ]
+  ShipFromName;
+  
+  @EndUserText.label: 'ShipFromAddrLine1'
+  @UI.identification: [ {
+    position: 410 , 
+    label: 'ShipFromAddrLine1'
+  } ]
+  @UI.lineItem: [ {
+    position: 410 , 
+    label: 'ShipFromAddrLine1'
+  } ]
+  ShipFromAddrLine1;
+  
+  @EndUserText.label: 'ShipFromAddrLine2'
+  @UI.identification: [ {
+    position: 420 , 
+    label: 'ShipFromAddrLine2'
+  } ]
+  @UI.lineItem: [ {
+    position: 420 , 
+    label: 'ShipFromAddrLine2'
+  } ]
+  ShipFromAddrLine2;
+  
+  @EndUserText.label: 'ShipFromCity'
+  @UI.identification: [ {
+    position: 430 , 
+    label: 'ShipFromCity'
+  } ]
+  @UI.lineItem: [ {
+    position: 430 , 
+    label: 'ShipFromCity'
+  } ]
+  ShipFromCity;
+  
+  @EndUserText.label: 'ShipFromPostal'
+  @UI.identification: [ {
+    position: 440 , 
+    label: 'ShipFromPostal'
+  } ]
+  @UI.lineItem: [ {
+    position: 440 , 
+    label: 'ShipFromPostal'
+  } ]
+  ShipFromPostal;
+  
+  @EndUserText.label: 'ShipFromCountry'
+  @UI.identification: [ {
+    position: 450 , 
+    label: 'ShipFromCountry'
+  } ]
+  @UI.lineItem: [ {
+    position: 450 , 
+    label: 'ShipFromCountry'
+  } ]
+  ShipFromCountry;
+  
+  @EndUserText.label: 'ShipVia'
+  @UI.identification: [ {
+    position: 460 , 
+    label: 'ShipVia'
+  } ]
+  @UI.lineItem: [ {
+    position: 460 , 
+    label: 'ShipVia'
+  } ]
+  ShipVia;
+  
+  @EndUserText.label: 'Incoterms'
+  @UI.identification: [ {
+    position: 470 , 
+    label: 'Incoterms'
+  } ]
+  @UI.lineItem: [ {
+    position: 470 , 
+    label: 'Incoterms'
+  } ]
+  Incoterms;
+  
+  @EndUserText.label: 'IncotermsYear'
+  @UI.identification: [ {
+    position: 480 , 
+    label: 'IncotermsYear'
+  } ]
+  @UI.lineItem: [ {
+    position: 480 , 
+    label: 'IncotermsYear'
+  } ]
+  IncotermsYear;
+  
+  @EndUserText.label: 'Pol'
+  @UI.identification: [ {
+    position: 490 , 
+    label: 'Pol'
+  } ]
+  @UI.lineItem: [ {
+    position: 490 , 
+    label: 'Pol'
+  } ]
+  Pol;
+  
+  @EndUserText.label: 'Pod'
+  @UI.identification: [ {
+    position: 500 , 
+    label: 'Pod'
+  } ]
+  @UI.lineItem: [ {
+    position: 500 , 
+    label: 'Pod'
+  } ]
+  Pod;
+  
+  @EndUserText.label: 'PrepaidFreight'
+  @UI.identification: [ {
+    position: 510 , 
+    label: 'PrepaidFreight'
+  } ]
+  @UI.lineItem: [ {
+    position: 510 , 
+    label: 'PrepaidFreight'
+  } ]
+  PrepaidFreight;
+  
+  @EndUserText.label: 'PaymentTerms'
+  @UI.identification: [ {
+    position: 520 , 
+    label: 'PaymentTerms'
+  } ]
+  @UI.lineItem: [ {
+    position: 520 , 
+    label: 'PaymentTerms'
+  } ]
+  PaymentTerms;
+  
+  @EndUserText.label: 'DeliveryTerms'
+  @UI.identification: [ {
+    position: 530 , 
+    label: 'DeliveryTerms'
+  } ]
+  @UI.lineItem: [ {
+    position: 530 , 
+    label: 'DeliveryTerms'
+  } ]
+  DeliveryTerms;
+  
+  @EndUserText.label: 'BuyerName'
+  @UI.identification: [ {
+    position: 540 , 
+    label: 'BuyerName'
+  } ]
+  @UI.lineItem: [ {
+    position: 540 , 
+    label: 'BuyerName'
+  } ]
+  BuyerName;
+  
+  @EndUserText.label: 'BuyerDepartment'
+  @UI.identification: [ {
+    position: 550 , 
+    label: 'BuyerDepartment'
+  } ]
+  @UI.lineItem: [ {
+    position: 550 , 
+    label: 'BuyerDepartment'
+  } ]
+  BuyerDepartment;
+  
+  @EndUserText.label: 'BuyerEmail'
+  @UI.identification: [ {
+    position: 560 , 
+    label: 'BuyerEmail'
+  } ]
+  @UI.lineItem: [ {
+    position: 560 , 
+    label: 'BuyerEmail'
+  } ]
+  BuyerEmail;
+  
+  @EndUserText.label: 'InvoiceEmail'
+  @UI.identification: [ {
+    position: 570 , 
+    label: 'InvoiceEmail'
+  } ]
+  @UI.lineItem: [ {
+    position: 570 , 
+    label: 'InvoiceEmail'
+  } ]
+  InvoiceEmail;
+  
+  @EndUserText.label: 'LinesSubtotal'
+  @UI.identification: [ {
+    position: 580 , 
+    label: 'LinesSubtotal'
+  } ]
+  @UI.lineItem: [ {
+    position: 580 , 
+    label: 'LinesSubtotal'
+  } ]
+  LinesSubtotal;
+  
+  @EndUserText.label: 'MiscCharge'
+  @UI.identification: [ {
+    position: 590 , 
+    label: 'MiscCharge'
+  } ]
+  @UI.lineItem: [ {
+    position: 590 , 
+    label: 'MiscCharge'
+  } ]
+  MiscCharge;
+  
+  @EndUserText.label: 'TaxSubtotal'
+  @UI.identification: [ {
+    position: 600 , 
+    label: 'TaxSubtotal'
+  } ]
+  @UI.lineItem: [ {
+    position: 600 , 
+    label: 'TaxSubtotal'
+  } ]
+  TaxSubtotal;
+  
+  @EndUserText.label: 'Total'
+  @UI.identification: [ {
+    position: 610 , 
+    label: 'Total'
+  } ]
+  @UI.lineItem: [ {
+    position: 610 , 
+    label: 'Total'
+  } ]
+  Total;
+  
+  @EndUserText.label: 'PoComment'
+  @UI.identification: [ {
+    position: 620 , 
+    label: 'PoComment'
+  } ]
+  @UI.lineItem: [ {
+    position: 620 , 
+    label: 'PoComment'
+  } ]
+  PoComment;
+  
+  @EndUserText.label: 'SoComment'
+  @UI.identification: [ {
+    position: 630 , 
+    label: 'SoComment'
+  } ]
+  @UI.lineItem: [ {
+    position: 630 , 
+    label: 'SoComment'
+  } ]
+  SoComment;
+  
+  @EndUserText.label: 'Notes'
+  @UI.identification: [ {
+    position: 640 , 
+    label: 'Notes'
+  } ]
+  @UI.lineItem: [ {
+    position: 640 , 
+    label: 'Notes'
+  } ]
+  Notes;
+  
+  @EndUserText.label: 'AuthorizedBy'
+  @UI.identification: [ {
+    position: 650 , 
+    label: 'AuthorizedBy'
+  } ]
+  @UI.lineItem: [ {
+    position: 650 , 
+    label: 'AuthorizedBy'
+  } ]
+  AuthorizedBy;
+  
+  @EndUserText.label: 'TermsUrl'
+  @UI.identification: [ {
+    position: 660 , 
+    label: 'TermsUrl'
+  } ]
+  @UI.lineItem: [ {
+    position: 660 , 
+    label: 'TermsUrl'
+  } ]
+  TermsUrl;
+  
+  @EndUserText.label: 'FileName'
+  @UI.identification: [ {
+    position: 670 , 
+    label: 'FileName'
+  } ]
+  @UI.lineItem: [ {
+    position: 670 , 
+    label: 'FileName'
+  } ]
+  FileName;
+  
+  @EndUserText.label: 'Provider'
+  @UI.hidden: true
+  Provider;
+  
+  @EndUserText.label: 'PostedBy'
+  @UI.identification: [ {
+    position: 690 , 
+    label: 'PostedBy'
+  } ]
+  @UI.lineItem: [ {
+    position: 690 , 
+    label: 'PostedBy'
+  } ]
+  PostedBy;
+  
+  @EndUserText.label: 'PostedAt'
+  @UI.identification: [ {
+    position: 700 , 
+    label: 'PostedAt'
+  } ]
+  @UI.lineItem: [ {
+    position: 700 , 
+    label: 'PostedAt'
+  } ]
+  PostedAt;
+  
+  @EndUserText.label: 'Status'
+  @UI.identification: [ {
+    position: 710 , 
+    label: 'Status'
+  } ]
+  @UI.lineItem: [ {
+    position: 710 , 
+    label: 'Status'
+  } ]
+  Status;
+  
+ 
+  
+
+  
+  @UI.identification: [ {
+    position: 740 
+  } ]
+  @UI.lineItem: [ {
+    position: 740 
+  } ]
+  CreatedBy;
+  
+  @UI.identification: [ {
+    position: 750 
+  } ]
+  @UI.lineItem: [ {
+    position: 750 
+  } ]
+  CreatedAt;
+  
+  @UI.identification: [ {
+    position: 760 
+  } ]
+  @UI.lineItem: [ {
+    position: 760 
+  } ]
+  ChangedBy;
+  
+  @UI.identification: [ {
+    position: 770 
+  } ]
+  @UI.lineItem: [ {
+    position: 770 
+  } ]
+  ChangedAt;
+  
+  @UI.identification: [ {
+    position: 780 
+  } ]
+  @UI.lineItem: [ {
+    position: 780 
+  } ]
+  LocalChangedAt;
+  
+  @EndUserText.label: '_BaseEntity'
+  @UI.identification: [ {
+    position: 790 , 
+    label: '_BaseEntity'
+  } ]
+  @UI.lineItem: [ {
+    position: 790 , 
+    label: '_BaseEntity'
+  } ]
+  _BaseEntity;
+}

@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Amount To Word",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Amount To Word"
+  },
+  "ui5AppDetails": {
+    "appId": "zamtwordapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_468F8B603840A3CFB02342B8A4487C85F5228E1F_TM",
+    "semanticObject": "z_amtwordapp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_468F8B603840A3CFB02342B8A4487C85F5228E1F_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Amount To Word"
+      }
+    }
+  ]
+}

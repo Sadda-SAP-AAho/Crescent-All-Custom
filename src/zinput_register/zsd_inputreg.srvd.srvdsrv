@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Input Registration'
+define service ZSD_INPUTREG {
+  expose ZC_INPUTREG;
+}

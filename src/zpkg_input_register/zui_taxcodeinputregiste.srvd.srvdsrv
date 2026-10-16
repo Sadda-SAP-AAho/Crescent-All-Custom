@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TaxcodeInputRegiste_S'
+define service ZUI_TAXCODEINPUTREGISTE {
+  expose ZI_TAXCODEINPUTREGISTE_S as TaxcodeInputRegiAll;
+  expose ZI_TAXCODEINPUTREGISTE as TaxcodeInputRegiste;
+}

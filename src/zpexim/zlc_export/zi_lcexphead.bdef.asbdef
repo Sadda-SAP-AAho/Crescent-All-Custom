@@ -1,0 +1,118 @@
+managed implementation in class zbp_i_lcexphead unique;
+strict;
+with draft;
+
+//--------- Export LC Header ----------------------//
+define behavior for ZI_LCEXPHEAD alias head
+persistent table zdt_lcexphdr
+draft table zdr_lcexphdr
+lock master
+total etag locallastchangedat
+authorization master ( instance )
+with additional save
+//etag master <field_name>
+{
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+
+  field ( mandatory : create, readonly : update ) Companycode;
+  field ( readonly, numbering : managed ) Id;
+  field ( readonly ) Vendor_Name, So, Lc_Refnr, Version, Lc_Tot_Amt_Lc, Avail_Amount, Companyname, ekorg, Lctyp_Name;
+
+  field ( features : instance ) Amend_Date, Amend_Txt, Lc_Status,Lc_Appl,Lc_Ut_Rpt,Zterm,Payterm_Description,Tenure,Grace;
+
+  field ( mandatory,features : instance ) Lc_Number, Lifnr, Lc_Type, Lc_Exp_Date, Lc_Req_Date, Lc_Open_Dt, Lc_Tot_Amt_Fc;
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  factory action ( features : instance ) Amendment [1];
+  action ( features : instance ) SetOut result [1] $self;
+
+  determination updateheader on save { create; }
+  determination get_dataupdate_f4 on modify { field Companycode, Lifnr, Lc_Type; }
+  determination headerdetails on modify { field Companycode; }
+  determination rate on modify { field Currfc; field Lc_Tot_Amt_Fc; }
+  determination tenure on modify { field Lc_Exp_Date; field Lc_Open_Dt; }
+
+
+  validation checkamt on save { create; update; }
+
+  internal action deldata;
+
+  side effects
+  {
+    field Lc_Exp_Date affects field Tenure;
+    field Lc_Open_Dt affects field Tenure;
+    field waers affects field wkurs, field Lc_Tot_Amt_Lc;
+    field Lc_Tot_Amt_Fc affects field Lc_Tot_Amt_Lc;
+    //    field Sales_Org_Name affects field Companyname;
+    field Lifnr affects field Vendor_Name;
+    action Amendment affects field lc_refnr, field version;
+  }
+
+
+  association _item1 { create ( features : instance ); with draft; }
+  association _item2 { create ( features : instance ); with draft; }
+
+}
+
+//--------- Bank Line----------------------//
+define behavior for ZI_LCBNK_DLTS //alias <alias_name>
+persistent table zdt_lcbnk_dtls
+draft table zdr_lcbnk_dtls
+lock dependent by _head
+authorization dependent by _head
+etag master locallastchangedat
+{
+
+  update;
+  delete;
+
+  field ( readonly ) Id;
+  field ( mandatory : create, readonly : update ) Banktype;
+  field ( readonly, numbering : managed ) Item1;
+  field ( features : instance ) Banka, Bankl, Bezei, Brnch, Hbkid, Hkont,
+  Hktid, Land1, Ort01, Swift;
+
+
+  association _head;
+}
+
+//--------- Item Delivery Line----------------------//
+define behavior for ZI_LCEXPITM //alias <alias_name>
+persistent table zdt_lcexpitm
+draft table zdr_lcexpitm
+lock dependent by _head
+authorization dependent by _head
+etag master locallastchangedat
+{
+
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly ) Id;
+  field ( readonly, numbering : managed ) Item2;
+  field ( readonly ) Netwr, Meins, Applcurr, Appl_Amt_Lc;
+  field ( features : instance ) Delivery;
+
+  determination lcamtdel on modify { delete; field Delivery; }
+
+  validation delivery on save { create; update; }
+
+  side effects
+  {
+    field Delivery affects field Appl_Amt_Lc, field Applcurr, field Waers, field Netwr, entity _head;
+  }
+
+
+  association _head;
+}

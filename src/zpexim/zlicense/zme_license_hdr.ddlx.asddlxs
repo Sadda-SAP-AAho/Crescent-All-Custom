@@ -1,0 +1,150 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by:  'Licenceint', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'License' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'License', value: 'Licenceint' } } }
+annotate entity ZC_LICENCE_HDR with
+{
+  @UI.facet:
+  [//{ id: 'GeneralData', isSummary: true, label: 'License', type: #COLLECTION },
+  { id: 'GeneralData', type: #COLLECTION, purpose: #STANDARD, label: 'Licence Master' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData',label: 'Header', position: 10, id: 'GeneralData1' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData',label: 'Import',position: 15, id: 'GeneralData2' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData',label: 'Export', position: 20, id: 'GeneralData3' }]
+
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+//  @Consumption.valueHelpDefinition: [{ entity:{ element: 'ecomno', name:'ZR_LIC_F4' },
+//                                 distinctValues: true,
+//                                 useForValidation: true  }]
+  Licenceint;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Licenceext;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Licencetype;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Liccurrency;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Licencedate;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'value_low', name:'zr_status_lic' },
+                                  distinctValues: true,
+                                  useForValidation: true  }]
+  Licencestatus;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Companycode;
+  @UI.hidden: true
+  Exportfc;
+  @UI.hidden: true
+  Importfc;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Licenceval;
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Plandutysaveinr;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Actualdutysaveinr;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Remaindutysave;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Importvalidfrom;
+  @UI.lineItem: [ { position: 65 } ]
+  @UI.identification: [ { position: 65 } ]
+  @UI.fieldGroup: [ { position: 65,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Importvalidto;
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  @UI.hidden: true
+  Importexchangerate;
+  @UI.lineItem: [ { position: 75 } ]
+  @UI.identification: [ { position: 75 } ]
+  @UI.fieldGroup: [ { position: 75,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Exportvalidfrom;
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 80,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Exportvalidto;
+  @UI.lineItem: [ { position: 85 } ]
+  @UI.identification: [ { position: 85 } ]
+  @UI.fieldGroup: [ { position: 85,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Exportvalid4yfrom;
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 90,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Exportvalid4yto;
+  @UI.lineItem: [ { position: 95 } ]
+  @UI.identification: [ { position: 95 } ]
+  @UI.fieldGroup: [ { position: 95,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Exportvalid2yfrom;
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 100,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Exportvalid2yto;
+  @UI.lineItem: [ { position: 105 } ]
+  @UI.identification: [ { position: 105 } ]
+  @UI.fieldGroup: [ { position: 105,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Expobigationinr;
+  @UI.lineItem: [ { position: 110 } ]
+  @UI.identification: [ { position: 110 } ]
+  @UI.fieldGroup: [ { position: 110,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  @UI.hidden:true 
+  Exportexchangerate;
+  @UI.hidden: true
+  Expobigationfc;
+  @UI.lineItem: [ { position: 115 } ]
+  @UI.identification: [ { position: 115 } ]
+  @UI.fieldGroup: [ { position: 115,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Explicutilisedinr;
+  @UI.hidden: true
+  Explicutilisedfc;
+  @UI.lineItem: [ { position: 120 } ]
+  @UI.identification: [ { position: 120 } ]
+  @UI.fieldGroup: [ { position: 120,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Explicremaininr;
+  @UI.hidden: true
+  Explicremainfc;
+  @UI.hidden: true
+  Createdat;
+  @UI.hidden: true
+  Createdby;
+  @UI.hidden: true
+  Lastchangedby;
+  @UI.hidden: true
+  Lastchangedat;
+  @UI.hidden: true
+  Locallastchangedat;
+  
+  /////////////////////////////////////////////////////////////////////////////////////
+   @UI.hidden: true
+   @UI: { identification: [{ position: 370 },
+                          { type: #FOR_ACTION, dataAction: 'Cal', label: 'Calculat', iconUrl: 'sap-icon://close-command-field' }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 130, importance: #HIGH }] }
+  cal;
+
+
+}

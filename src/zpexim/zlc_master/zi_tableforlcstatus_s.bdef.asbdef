@@ -1,0 +1,71 @@
+managed with additional save implementation in class ZBP_I_TABLEFORLCSTATUS_S unique;
+strict;
+with draft;
+define behavior for ZI_TableForLcStatus_S alias TableForLcStatus
+draft table ZDT_LCSTATU_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   HideTransport,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TableForLcStatus { create ( features : instance ); with draft; }
+}
+
+define behavior for ZI_TableForLcStatus alias TableForLcStatus01
+persistent table ZDT_LCSTATUSF4
+draft table ZDR_LCSTATUS01
+lock dependent by _TableForLcStatus
+authorization dependent by _TableForLcStatus
+
+{
+  field ( mandatory : create )
+   DocStatus;
+
+  field ( readonly )
+   SingletonID,
+   ConfigDeprecationCode;
+
+  field ( readonly : update )
+   DocStatus;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : instance );
+
+  action ( features : instance ) Deprecate result [1] $self;
+  action ( features : instance ) Invalidate result [1] $self;
+
+  mapping for ZDT_LCSTATUSF4
+  {
+    DocStatus = DOC_STATUS;
+    StatusText = STATUS_TEXT;
+    ConfigDeprecationCode = CONFIGDEPRECATIONCODE;
+  }
+
+  association _TableForLcStatus { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

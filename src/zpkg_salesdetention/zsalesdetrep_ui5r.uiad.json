@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Sales Detention",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Detention"
+  },
+  "ui5AppDetails": {
+    "appId": "zsalesdetrep"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_EF9BE7189C4A67EC7BE4F584CD3734D3643CFF46_TM",
+    "semanticObject": "zsalesdetrep",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_EF9BE7189C4A67EC7BE4F584CD3734D3643CFF46_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Detention",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

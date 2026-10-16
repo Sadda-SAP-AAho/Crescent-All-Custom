@@ -1,0 +1,74 @@
+managed with additional save implementation in class ZBP_I_TMGTABLEFORTYPEOFMO_S unique;
+strict;
+with draft;
+define behavior for ZI_TmgTableForTypeOfMo_S alias TmgTableForTypeOAll
+draft table ZDT_MOLDTYP_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TmgTableForTypeOfMo { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_TmgTableForTypeOfMo alias TmgTableForTypeOfMo ##UNMAPPED_FIELD
+persistent table ZDT_MOLDTYP_TMG
+draft table ZDT_MOLDTYP_T_D
+lock dependent by _TmgTableForTypeOAll
+authorization dependent by _TmgTableForTypeOAll
+
+{
+  field ( mandatory : create )
+   Mcode;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Mcode;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_MOLDTYP_TMG
+  {
+    Mcode = MCODE;
+    Mnane = MNANE;
+  }
+
+  association _TmgTableForTypeOAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

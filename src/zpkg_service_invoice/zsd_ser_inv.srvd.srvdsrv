@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Binding for Service invoice'
+define service ZSD_SER_INV {
+  expose ZC_SERVICE_INV_HEAD;
+  expose ZC_SERVICE_INV_ITEM;
+}

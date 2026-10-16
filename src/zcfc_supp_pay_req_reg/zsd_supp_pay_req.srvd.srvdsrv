@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition of Supplier Payment Request'
+define service ZSD_SUPP_PAY_REQ {
+  expose ZC_SUPP_PAY_REQ;
+}

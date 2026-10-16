@@ -1,0 +1,33 @@
+managed implementation in class zbp_i_gate_auth unique;
+strict;
+with draft;
+
+define behavior for Zi_gate_auth //alias <alias_name>
+draft table zdr_gate_auth
+persistent table zdt_gate_auth
+lock master
+total etag userid
+authorization master ( instance )
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( features : instance ) Type, Userid;
+
+  mapping for zi_gate_auth
+    {
+      Type    = Type;
+      Userid  = Userid;
+    }
+
+}

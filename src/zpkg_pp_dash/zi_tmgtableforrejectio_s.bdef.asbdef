@@ -1,0 +1,71 @@
+managed with additional save implementation in class ZBP_I_TMGTABLEFORREJECTIO_S unique;
+strict;
+with draft;
+define behavior for ZI_TmgTableForRejectio_S alias TmgTableForRejecAll
+draft table ZDT_REJREA__D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TmgTableForRejectio { create ( features : instance ); with draft; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_TmgTableForRejectio alias TmgTableForRejectio ##UNMAPPED_FIELD
+persistent table ZDT_REJREA_TMG
+draft table ZDT_REJREA_TM_D
+lock dependent by _TmgTableForRejecAll
+authorization dependent by _TmgTableForRejecAll
+
+{
+  field ( mandatory : create )
+   Zrej1;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Zrej1;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_REJREA_TMG
+  {
+    Zrej1 = ZREJ1;
+  }
+
+  association _TmgTableForRejecAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

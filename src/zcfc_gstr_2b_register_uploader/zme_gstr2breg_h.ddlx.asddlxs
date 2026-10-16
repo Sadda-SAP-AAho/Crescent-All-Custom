@@ -1,0 +1,147 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: {
+    typeName: 'GSTR 2B Register-Uploader',
+    typeNamePlural: 'GSTR 2B Register-Uploader',
+    title: { type: #STANDARD, value: 'internalno' },
+    imageUrl: 'attachment',
+    description: { type: #STANDARD, value: 'filename' }
+  },
+  presentationVariant: [{
+    sortOrder: [{ by: 'fyear', direction: #ASC },
+                { by: 'fmonthcd', direction: #ASC },
+                { by: 'location', direction: #DESC }],
+    visualizations: [{ type: #AS_LINEITEM }]
+  }]
+}
+annotate entity ZC_GSTR2BREG_H with
+{
+
+  @UI.facet:
+  [
+    {
+      id: 'GeneralData',
+      isSummary: true,
+      label: 'GSTR 2B Register-Header',
+      type: #COLLECTION,
+      position: 1
+    },
+
+    {
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'GeneralData1',
+      parentId: 'GeneralData',
+      label: 'Basic Data',
+      position: 10,
+      id: 'GeneralData1'
+    },
+
+    {
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'GeneralData2',
+      parentId: 'GeneralData',
+      label: 'Document Data',
+      position: 20,
+      id: 'GeneralData2'
+    },
+
+    {
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'GeneralData3',
+      parentId: 'GeneralData',
+      label: 'File Details',
+      position: 30,
+      id: 'GeneralData3'
+    },
+
+    {
+      id: 'Item1',
+      label: 'GSTR 2B Register-Items',
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_Item',
+      position: 2
+    }
+  ]
+
+  @UI.hidden: true
+  id;
+
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH , label: 'Internal No.' }  ] ,
+         identification: [ { position: 10 , label: 'Internal No.' } ],
+         fieldGroup: [{ qualifier: 'GeneralData1', label: 'Internal No.', position: 10, importance: #HIGH }] }
+  internalno;
+
+  @UI: { lineItem:       [ { position: 30, importance: #HIGH , label: 'Description'} ] ,
+         identification: [ { position: 30 , label: 'Description' } ] ,
+         fieldGroup: [{ qualifier: 'GeneralData1', label: 'Description', position: 30, importance: #HIGH }] }
+  comments;
+
+  @UI: { fieldGroup: [{ qualifier: 'GeneralData3', position: 10, label: 'Attachment', importance: #HIGH }] }
+  attachment;
+
+  @UI: { lineItem:       [ { position: 40, importance: #HIGH , label: 'File Name'} ] ,
+         identification: [ { position: 40 , label: 'File Name' } ]  }
+  filename;
+
+  @UI: { lineItem:       [ { position: 50, importance: #HIGH , label: 'Created At'} ] ,
+         identification: [ { position: 50 , label: 'Created At' } ],
+         fieldGroup: [{ qualifier: 'GeneralData1', label: 'Created At', position: 50, importance: #HIGH }]}
+  local_created_at;
+
+  @UI: { lineItem:       [ { position: 60, importance: #HIGH , label: 'Created By'} ] ,
+         identification: [ { position: 60 , label: 'Created By' } ],
+         fieldGroup: [{ qualifier: 'GeneralData1', label: 'Created By', position: 60, importance: #HIGH }]  }
+  local_created_by;
+
+  @UI.hidden: true
+  fisyear;
+
+  @UI: { lineItem:       [ { position: 70, importance: #HIGH , label: 'Document Number' }  ] ,
+         identification: [ { position: 70 , label: 'Document Number' } ],
+         fieldGroup: [{ qualifier: 'GeneralData2', label: 'Document Number', position: 70, importance: #HIGH }] }
+  docnum;
+
+  @UI.hidden: true
+  keyid;
+
+  @UI: { lineItem:       [ { position: 80, importance: #HIGH , label: 'Location' }  ] ,
+         identification: [ { position: 80 , label: 'Location' } ],
+         fieldGroup: [{ qualifier: 'GeneralData2', label: 'Location', position: 80, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{ entity:{  element : 'location', name: 'ZI_LOCATION_F4'}}]
+  location;
+
+  @UI: { lineItem:       [ { position: 90, importance: #HIGH , label: 'Financial Year' }  ] ,
+         identification: [ { position: 90 , label: 'Financial Year' } ],
+         fieldGroup: [{ qualifier: 'GeneralData2', label: 'Financial Year', position: 90, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{ entity:{  element : 'fyear', name: 'ZI_FYEAR_F4'}}]
+  fyear;
+
+  @UI: { lineItem:       [ { position: 100, importance: #HIGH , label: 'Month Code' }  ] ,
+         identification: [ { position: 100 , label: 'Month Code' } ],
+         fieldGroup: [{ qualifier: 'GeneralData2', label: 'Month Code', position: 100, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{ entity: { element : 'fmonth_code', name : 'ZI_FMONTH_F4' },
+      distinctValues : true,
+      useForValidation : true,
+      additionalBinding : [{ localElement : 'fmonth', element : 'fmonth', usage : #RESULT }]
+  }]
+  fmonthcd;
+
+  @UI: { lineItem:       [ { position: 110, importance: #HIGH , label: 'Month' }  ] ,
+         identification: [ { position: 110 , label: 'Month' } ],
+         fieldGroup: [{ qualifier: 'GeneralData2', label: 'Month', position: 110, importance: #HIGH }] }
+  fmonth;
+
+  @UI: { lineItem:       [ { position: 120, importance: #HIGH , label: 'Canceled' }  ] ,
+         identification: [ { position: 120 , label: 'Canceled' } ],
+         fieldGroup: [{ qualifier: 'GeneralData2', label: 'Canceled', position: 120, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{ entity:{  element : 'canceled', name: 'ZI_CANCELED_F4'}}]
+  canceled;
+
+  @UI.hidden: true
+  mimetype;
+
+  @UI.hidden: true
+  local_last_changed_at;
+
+}

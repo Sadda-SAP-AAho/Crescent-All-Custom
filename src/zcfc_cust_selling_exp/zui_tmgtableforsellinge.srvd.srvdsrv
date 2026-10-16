@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForSellingE_S'
+define service ZUI_TMGTABLEFORSELLINGE {
+  expose ZI_TMGTABLEFORSELLINGE_S as TmgTableForSelliAll;
+  expose ZI_TMGTABLEFORSELLINGE as TmgTableForSellingE;
+}

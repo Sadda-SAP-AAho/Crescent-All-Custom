@@ -1,0 +1,51 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZC_REWORKREGHED with
+{
+  @UI.facet :
+  [
+   { id : 'GeneralData' , isSummary: true, label : 'Rework Register Head' , type : #COLLECTION},
+   { type: #FIELDGROUP_REFERENCE , targetQualifier: 'GeneralData1', parentId: 'GeneralData', position : 10 , label: 'Header', id: 'GeneralData1' },
+
+   { id : 'Item1', label: 'Item' },
+   { type: #LINEITEM_REFERENCE, position: 25, targetElement: '_Item' }
+  ]
+
+  @UI.hidden: true
+  id;
+  @UI.lineItem: [{position: 5}]
+  @UI.identification: [{position: 5}]
+  @UI.fieldGroup: [{position: 5,qualifier: 'GeneralData1', importance: #HIGH}]
+  @Consumption.valueHelpDefinition: [{ entity:{  element : 'Plantcd', name: 'ZI_PLANT'},
+  distinctValues: true,
+  useForValidation: true,
+  additionalBinding: [{ localElement: 'plntnm', element: 'Plantnm',usage: #RESULT}]}]
+  plntcd;
+  @UI.lineItem: [{position: 10}]
+  @UI.identification: [{position: 10}]
+  @UI.fieldGroup: [{position: 10,qualifier: 'GeneralData1', importance: #HIGH}]
+  plntnm;
+  @UI.lineItem: [{position: 15}]
+  @UI.identification: [{position: 15}]
+  @UI.fieldGroup: [{position: 15,qualifier: 'GeneralData1', importance: #HIGH}]
+  @Consumption.valueHelpDefinition: [{ entity:{  element : 'Oprcode', name: 'ZCDS_OPERATION_F4'},
+  distinctValues: true,
+  useForValidation: true,
+  additionalBinding: [{ localElement: 'oprname', element: 'Oprname',usage: #RESULT}]}]
+  oprcode;
+  @UI.lineItem: [{position: 20}]
+  @UI.identification: [{position: 20}]
+  @UI.fieldGroup: [{position: 20,qualifier: 'GeneralData1', importance: #HIGH}]
+  oprname;
+  @UI.lineItem: [{position: 25}]
+  @UI.identification: [{position: 25}]
+  @UI.fieldGroup: [{position: 25,qualifier: 'GeneralData1', importance: #HIGH}]
+  @Consumption.valueHelpDefinition: [{ entity:{  element : 'reportyear', name: 'ZI_REPORTYEAR_F4'}}]  
+  reportyear;
+  @UI.lineItem: [{position: 30}]
+  @UI.identification: [{position: 30}]
+  @UI.fieldGroup: [{position: 30,qualifier: 'GeneralData1', importance: #HIGH}]
+  @Consumption.valueHelpDefinition: [{ entity:{  element : 'reportmonth', name: 'ZI_REPORTMONTH_F4'}}]  
+  reportmonth;
+
+
+}

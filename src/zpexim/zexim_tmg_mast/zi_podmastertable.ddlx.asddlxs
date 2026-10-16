@@ -1,0 +1,82 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'PodMasterTable', 
+    typeNamePlural: 'PodMasterTables', 
+    title: {
+      type: #STANDARD, 
+      label: 'POD Master Table', 
+      value: 'Podcode'
+    }
+  }
+}
+annotate view ZI_PodMasterTable with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_PodMasterTable', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'POD Master Table', 
+    position: 1 
+  } ]
+  Podcode;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Podcodename;
+//  Contsize;
+  
+  @UI.identification: [ {
+    position: 3 
+  } ]
+  @UI.lineItem: [ {
+    position: 3 
+  } ]
+  Gotrackcode;
+  
+  @UI.identification: [ {
+    position: 4 
+  } ]
+  @UI.lineItem: [ {
+    position: 4 
+  } ]
+//  Podcodename;
+  Contsize;
+  
+  @UI.identification: [ {
+    position: 5 
+  } ]
+  @UI.lineItem: [ {
+    position: 5 
+  } ]
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'Customer', name: 'I_Customer' },
+                                              distinctValues: true,
+                                              useForValidation: true }]
+  Transitdays;
+  
+  @UI.identification: [ {
+    position: 6 
+  } ]
+  @UI.lineItem: [ {
+    position: 6 
+  } ]
+  Grossweight;
+  
+  @UI.identification: [ {
+    position: 7 
+  } ]
+  @UI.lineItem: [ {
+    position: 7 
+  } ]
+  Netweight;
+}

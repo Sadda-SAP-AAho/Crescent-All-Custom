@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Rejection WH Stock Report'
+define service ZSD_REJWHSTCKRPT {
+  expose ZC_REJWHSTCKRPT;
+}

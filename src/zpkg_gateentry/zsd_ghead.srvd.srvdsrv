@@ -1,0 +1,5 @@
+@EndUserText.label: 'SERVICE DEFINATION for header'
+define service Zsd_ghead {
+  expose ZC_GHEAD;
+  expose ZC_GITEM;
+}

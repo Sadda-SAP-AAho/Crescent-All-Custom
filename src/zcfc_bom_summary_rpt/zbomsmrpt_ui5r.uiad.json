@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "BOM Summary Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "BOM Summary"
+  },
+  "ui5AppDetails": {
+    "appId": "zbomsmrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_EB7F4B6F7321CEF4E64324B7EFE942669312525B_TM",
+    "semanticObject": "zbomsmrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_EB7F4B6F7321CEF4E64324B7EFE942669312525B_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "BOM Summary",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

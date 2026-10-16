@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgDprVACKCostCen', 
+    typeNamePlural: 'TmgDprVACKCostCens', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG DPR VAC KUL COST CENTER', 
+      value: 'Costtype'
+    }
+  }
+}
+annotate view ZI_TmgDprVACKCostCen with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgDprVACKCostCen', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG DPR VAC KUL COST CENTER', 
+    position: 1 
+  } ]
+  Costtype;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Kostl;
+}

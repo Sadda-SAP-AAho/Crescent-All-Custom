@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Monitor Purchase Requisition Item'
+define service ZSD_MNTRPRITM {
+  expose ZC_MNTRPRITM;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'BOM Calculation Check Report'
+define service ZSD_BOMCALCHKRPT {
+  expose ZC_BOMCALCHKRPT;
+}

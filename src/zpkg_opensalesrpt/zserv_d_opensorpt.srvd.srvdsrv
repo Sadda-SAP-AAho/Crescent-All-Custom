@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Open SO Report'
+define service ZSERV_D_OPENSORPT {
+  expose ZC_OPENSORPT;
+}

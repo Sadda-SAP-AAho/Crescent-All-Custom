@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "FOREX Maturity Alert"
+  },
+  "ui5AppDetails": {
+    "appId": "zforexmatalrt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_3E22C0D39987845EB877FF8B1E65A8F2882D8157_TM",
+    "semanticObject": "zforexmatalrt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_3E22C0D39987845EB877FF8B1E65A8F2882D8157_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "FOREX Maturity Alert"
+      }
+    }
+  ]
+}

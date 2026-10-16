@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_DatabaseTableForDoc_S'
+define service ZUI_DATABASETABLEFORDOC {
+  expose ZI_DATABASETABLEFORDOC_S as DatabaseTableForAll;
+  expose ZI_DATABASETABLEFORDOC as DatabaseTableForDoc;
+}

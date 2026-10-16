@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_MaintainUseridForEd_S'
+define service ZUI_MAINTAINUSERIDFORED {
+  expose ZI_MAINTAINUSERIDFORED_S as MaintainUseridFoAll;
+  expose ZI_MAINTAINUSERIDFORED as MaintainUseridForEd;
+}

@@ -1,0 +1,94 @@
+managed implementation in class zbp_i_licence_hdr unique;
+strict;
+with draft;
+
+define behavior for ZI_LICENCE_HDR //alias <alias_name>
+persistent table zdt_licence_hdr
+draft table zdr_licence_hdr
+lock master
+total etag createdat
+authorization master ( instance )
+
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+  field ( readonly : update, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update ) Licenceint;
+  field ( readonly ) actualdutysaveinr, Companycode, Plandutysaveinr, Remaindutysave,
+  Licenceext, Licencedate, Licencetype, Licenceval, Importvalidto, Exportvalidto, Exportvalid2yfrom,
+  Exportvalid2yto, Exportvalid4yfrom, Exportvalid4yto, Explicremaininr, Explicutilisedinr, Expobigationinr;
+
+  field ( features : instance ) Liccurrency, Createdat, Createdby, Explicremainfc, Explicutilisedfc, Expobigationfc, Exportexchangerate,
+  Exportfc, Exportvalidfrom, Importexchangerate, Importfc, Importvalidfrom, Lastchangedat,
+  Lastchangedby, Licencestatus, Locallastchangedat;
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+    //=== Custom action Button ====//
+  action ( features : instance ) Cal result [1] $self;
+
+  determination getlicencedtls on modify { field Licenceint; }
+  determination getimptodate on modify { field Importvalidfrom; }
+  determination getexptodate on modify { field Exportvalidfrom; }
+  determination updateamount on save { create; update; }
+
+  side effects
+  {
+
+    field Importvalidfrom affects field Importvalidto;
+    field Exportvalidfrom affects field Exportvalidto, field Exportvalid2yfrom, field Exportvalid2yto,
+        field Exportvalid4yfrom, field Exportvalid4yto;
+
+
+  }
+
+  action ( features : instance ) Cancel result [1] $self;
+  //  action ( features : instance ) Print result [1] $self;
+
+  mapping for zi_licence_hdr
+    {
+      Actualdutysaveinr  = Actualdutysaveinr;
+      Companycode        = Companycode;
+      Createdat          = Createdat;
+      Createdby          = Createdby;
+      Explicremainfc     = Explicremainfc;
+      Explicremaininr    = Explicremaininr;
+      Explicutilisedfc   = Explicutilisedfc;
+      Explicutilisedinr  = Explicutilisedinr;
+      Expobigationfc     = Expobigationfc;
+      Expobigationinr    = Expobigationinr;
+      Exportexchangerate = Exportexchangerate;
+      Exportfc           = Exportfc;
+      Exportvalid2yfrom  = Exportvalid2yfrom;
+      Exportvalid2yto    = Exportvalid2yto;
+      Exportvalid4yfrom  = Exportvalid4yfrom;
+      Exportvalid4yto    = Exportvalid4yto;
+      Exportvalidfrom    = Exportvalidfrom;
+      Exportvalidto      = Exportvalidto;
+      Importexchangerate = Importexchangerate;
+      Importfc           = Importfc;
+      Importvalidfrom    = Importvalidfrom;
+      Importvalidto      = Importvalidto;
+      Lastchangedat      = Lastchangedat;
+      Lastchangedby      = Lastchangedby;
+      Liccurrency        = Liccurrency;
+      Licencedate        = Licencedate;
+      Licenceext         = Licenceext;
+      Licenceint         = Licenceint;
+      Licencestatus      = Licencestatus;
+      Licencetype        = Licencetype;
+      Licenceval         = Licenceval;
+      Locallastchangedat = Locallastchangedat;
+      Plandutysaveinr    = Plandutysaveinr;
+      Remaindutysave     = Remaindutysave;
+    }
+
+}

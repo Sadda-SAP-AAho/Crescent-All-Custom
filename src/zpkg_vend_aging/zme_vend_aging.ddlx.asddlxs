@@ -1,0 +1,129 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Vendor Aging Report',
+                typeNamePlural:'Vendor Aging Report',
+                title: { type: #STANDARD, label: 'Vendor Aging Report', value: 'Supplier' }
+              }
+     }    
+annotate entity ZC_VEND_AGING
+    with parameters
+    @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CUR_VA_F4', element: 'value_low' }, useForValidation: true }]
+    p_cur,
+    @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_CUR_AGDATE_F4', element: 'value_low' }, useForValidation: true }]
+    p_agdate
+{
+    @UI.facet: [{ id : 'GeneralData', isSummary: true, label: 'Vendor Aging Report', position: 5, type: #COLLECTION },
+           { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Report Details', id: 'GeneralData1' }]
+    @UI.lineItem: [ { position: 10 } ]
+    @UI.identification: [ { position: 10 } ]
+    @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    @UI.selectionField: [{ position: 10 }]
+    CompanyCode;
+    @UI.lineItem: [ { position: 20 } ]
+    @UI.identification: [ { position: 20 } ]
+    @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    @UI.selectionField: [{ position: 20 }]
+    Supplier;
+    @UI.lineItem: [ { position: 30 } ]
+    @UI.identification: [ { position: 30 } ]
+    @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    BusinessPartnerFullName;
+    @UI.lineItem: [ { position: 40 } ]
+    @UI.identification: [ { position: 40 } ]
+    @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    @UI.selectionField: [{ position: 40 }]
+    SupplierAccountGroup;
+    @UI.lineItem: [ { position: 50 } ]
+    @UI.identification: [ { position: 50 } ]
+    @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    PaymentTerms;
+    @UI.lineItem: [ { position: 60 } ]
+    @UI.identification: [ { position: 60 } ]
+    @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    AccountingDocumentType;
+    @UI.lineItem: [ { position: 70 } ]
+    @UI.identification: [ { position: 70 } ]
+    @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    AccountingDocument;
+    @UI.lineItem: [ { position: 80 } ]
+    @UI.identification: [ { position: 80 } ]
+    @UI.fieldGroup: [ { position: 80,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    AccountingDocumentItem;
+    @UI.lineItem: [ { position: 90 } ]
+    @UI.identification: [ { position: 90 } ]
+    @UI.fieldGroup: [ { position: 90,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    FiscalYear;
+    @UI.lineItem: [ { position: 100 } ]
+    @UI.identification: [ { position: 100 } ]
+    @UI.fieldGroup: [ { position: 100,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    @UI.selectionField: [{ position: 100 }]
+    MinorityGroup;
+    @UI.lineItem: [ { position: 110 } ]
+    @UI.identification: [ { position: 110 } ]
+    @UI.fieldGroup: [ { position: 110,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    SpecialGLCode;
+    @UI.lineItem: [ { position: 120 } ]
+    @UI.identification: [ { position: 120 } ]
+    @UI.fieldGroup: [ { position: 120,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    DocumentReferenceID;
+    @UI.lineItem: [ { position: 130 } ]
+    @UI.identification: [ { position: 130 } ]
+    @UI.fieldGroup: [ { position: 130,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    PostingDate;
+    @UI.lineItem: [ { position: 140 } ]
+    @UI.identification: [ { position: 140 } ]
+    @UI.fieldGroup: [ { position: 140,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    DocumentDate;
+    @UI.lineItem: [ { position: 150 } ]
+    @UI.identification: [ { position: 150 } ]
+    @UI.fieldGroup: [ { position: 150,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    NetDueDate;
+    @UI.lineItem: [ { position: 153 } ]
+    @UI.identification: [ { position: 153 } ]
+    @UI.fieldGroup: [ { position: 153,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    GLAccount;
+    @UI.lineItem: [ { position: 157 } ]
+    @UI.identification: [ { position: 157 } ]
+    @UI.fieldGroup: [ { position: 157,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    ProfitCenter;
+    @UI.lineItem: [ { position: 160 } ]
+    @UI.identification: [ { position: 160 } ]
+    @UI.fieldGroup: [ { position: 160,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    currency;
+    @UI.lineItem: [ { position: 170 } ]
+    @UI.identification: [ { position: 170 } ]
+    @UI.fieldGroup: [ { position: 170,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    days_c;
+    @UI.lineItem: [ { position: 180 } ]
+    @UI.identification: [ { position: 180 } ]
+    @UI.fieldGroup: [ { position: 180,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    balamt;
+    @UI.lineItem: [ { position: 190 } ]
+    @UI.identification: [ { position: 190 } ]
+    @UI.fieldGroup: [ { position: 190,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    dueamt;
+    @UI.lineItem: [ { position: 200 } ]
+    @UI.identification: [ { position: 200 } ]
+    @UI.fieldGroup: [ { position: 200,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    ageb1;
+    @UI.lineItem: [ { position: 210 } ]
+    @UI.identification: [ { position: 210 } ]
+    @UI.fieldGroup: [ { position: 210,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    ageb2;
+    @UI.lineItem: [ { position: 220 } ]
+    @UI.identification: [ { position: 220 } ]
+    @UI.fieldGroup: [ { position: 220,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    ageb3;
+    @UI.lineItem: [ { position: 230 } ]
+    @UI.identification: [ { position: 230 } ]
+    @UI.fieldGroup: [ { position: 230,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    ageb4;
+    @UI.lineItem: [ { position: 240 } ]
+    @UI.identification: [ { position: 240 } ]
+    @UI.fieldGroup: [ { position: 240,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    ageb5;
+    @UI.lineItem: [ { position: 250 } ]
+    @UI.identification: [ { position: 250 } ]
+    @UI.fieldGroup: [ { position: 250,  qualifier: 'GeneralData1', importance: #HIGH } ]
+    ageb6;  
+}

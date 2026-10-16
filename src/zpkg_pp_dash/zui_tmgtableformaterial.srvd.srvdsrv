@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForMaterial_S'
+define service ZUI_TMGTABLEFORMATERIAL {
+  expose ZI_TMGTABLEFORMATERIAL_S as TmgTableForMaterAll;
+  expose ZI_TMGTABLEFORMATERIAL as TmgTableForMaterial;
+}

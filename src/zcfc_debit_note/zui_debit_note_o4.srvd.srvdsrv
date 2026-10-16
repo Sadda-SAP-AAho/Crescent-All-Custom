@@ -1,0 +1,6 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_DEBIT_NOTE'
+}
+define service ZUI_DEBIT_NOTE_O4 {
+  expose ZC_DEBIT_NOTE as debitSet;
+}

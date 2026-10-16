@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Customer Complaint Report'
+define service ZSD_CUSTCOMPRPT {
+  expose ZC_CUSTCOMPRPT;
+}

@@ -1,0 +1,431 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'Gatepass', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'GatePass' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Gate Entry', value: 'Gatepass' } } }
+annotate view ZC_GHEAD with
+{
+
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'GatePass Header', type: #COLLECTION },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Section 1', id: 'GeneralData1' },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15, label: 'Section 2', id: 'GeneralData2' },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 20, label: 'Section 3', id: 'GeneralData3' },
+
+   { id: 'GatePassI', label: 'GatePass Item', type: #LINEITEM_REFERENCE, position : 25, targetElement: '_Item' }]
+  @UI.hidden: true
+  Id;
+  @UI: { lineItem: [{ position: 5 }],
+           identification: [{ position: 5 },
+                            { type: #FOR_ACTION, dataAction: 'Create', label: 'Confirm', iconUrl: 'sap-icon://close-command-field' }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  Gatepass;
+  @UI: { lineItem: [{ position: 10 }],
+           identification: [{ position: 10 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Gatepassdate;
+  @UI.hidden: true
+  Total;
+  @UI.lineItem: [{ position: 17, type: #AS_DATAPOINT }]
+  @UI.dataPoint: { visualization: #PROGRESS ,
+                   targetValueElement: 'Total',
+                   criticality: 'Criticality',
+                   criticalityRepresentation: #WITHOUT_ICON }
+  Progress;
+  @UI.lineItem: [ { position: 18 }, { criticality: 'Criticality' } ]
+  @UI.identification: [  { position: 18 } ]
+  @UI.fieldGroup: [ { position: 18,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Status;
+  @EndUserText.label: 'Criticality'
+  Criticality;
+  @UI: {
+          lineItem: [{ position: 15 }],
+           identification: [{ position: 15 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 15, importance: #HIGH }] }
+  Challannumber;
+  @UI: {
+         lineItem: [{ position: 20 }],
+           identification: [{ position: 20 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  Challandate;
+  @UI: {
+        lineItem: [{ position: 21 }],
+          identification: [{ position: 21 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 21, importance: #HIGH }]  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'gatepass', name:'ZNRGP_F4' },
+                        distinctValues: true,
+                        useForValidation: true,
+  additionalBinding: [ { localElement: 'Type', element: 'newtype', usage: #FILTER } ]
+
+  //     additionalBinding: [ { localElement: 'rgpdate', element: 'gatepassdate', usage: #RESULT },
+  //     { localElement: 'type' , element: 'type', usage: #FILTER } ]
+     }]
+
+  rgpgatepass;
+  @UI: {
+         lineItem: [{ position: 22 }],
+           identification: [{ position: 22 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 22, importance: #HIGH }] }
+  rgpdate;
+  //  @UI: { hidden: #(ShowWlpl),
+  //       lineItem: [{ position: 30 }],
+  //           identification: [{ position: 30 }],
+  //           fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+  //  Rrno;
+  //  @UI: {hidden: #(ShowWlpl),
+  //   lineItem: [{ position: 40 }],
+  //           identification: [{ position: 40 }],
+  //           fieldGroup: [{ qualifier: 'GeneralData1', position: 40, importance: #HIGH }] }
+  //  Rrdate;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 50 }],
+           identification: [{ position: 50 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 50, importance: #HIGH }] }
+  Lrblno;
+  @UI: {
+  hidden: #(ShowWlpl),lineItem: [{ position: 60 }],
+           identification: [{ position: 60 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 60, importance: #HIGH }] }
+  Lbbldate;
+  @UI: {
+  hidden: #(ShowWlpl),lineItem: [{ position: 60 }],
+           identification: [{ position: 60 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 60, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'DeliveryDocument', name:'ZI_SALESF4' },
+                     distinctValues: true,
+                     useForValidation: true ,
+  additionalBinding: [ { localElement: 'ContainerNumber', element: 'ContainerNumber', usage: #RESULT },
+  { localElement: 'Plantgateno', element: 'Plant', usage: #FILTER},
+  { localElement: 'Type', element: 'Type', usage: #FILTER},
+   { localElement: 'Transportercode', element: 'Transportercode', usage: #RESULT },
+   { localElement: 'Transportername', element: 'Transportername', usage: #RESULT }]
+  }]
+  deliverynumber;
+  @UI: { hidden: #(ShowWlpl),
+         lineItem: [{ position: 70 }],
+           identification: [{ position: 70 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 70, importance: #HIGH }] }
+  Billofentryno;
+  @UI: { hidden: #(ShowWlpl),
+         lineItem: [{ position: 80 }],
+           identification: [{ position: 80 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 80, importance: #HIGH }] }
+  Billofentrydate;
+  //  @UI: { hidden: #(ShowWlpl),
+  //         lineItem: [{ position: 90 }],
+  //           identification: [{ position: 90 }],
+  //           fieldGroup: [{ qualifier: 'GeneralData2', position: 10, importance: #HIGH }] }
+  @UI.hidden: true
+  Miningpermissionno;
+  @UI: { hidden: #(ShowWlpl),
+          lineItem: [{ position: 100 }],
+           identification: [{ position: 100 }],
+           fieldGroup: [{ qualifier: 'GeneralData2', position: 20, importance: #HIGH }] }
+  Waybillno;
+  //  @UI: { hidden: #(ShowWlpl),
+  //         lineItem: [{ position: 110 }],
+  //           identification: [{ position: 110 }],
+  //           fieldGroup: [{ qualifier: 'GeneralData2', position: 30, importance: #HIGH }] }
+  @UI.hidden: true
+  Miningchallantpno;
+  @UI: { lineItem: [{ position: 120 }],
+           identification: [{ position: 120 }],
+           fieldGroup: [{ qualifier: 'GeneralData2', position: 40, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Plant', name:'I_PLANT' },
+                                  distinctValues: true,
+                                  useForValidation: true  }]
+  Plantgateno;
+  @UI: { hidden: #(ShowWlpl),
+         lineItem: [{ position: 130 }],
+           identification: [{ position: 130 }],
+           fieldGroup: [{ qualifier: 'GeneralData2', position: 50, importance: #HIGH }] }
+  //  @Consumption.valueHelpDefinition: [{ entity:{ element: 'value_low', name:'ZR_F4_WEIGH' },
+  //                                distinctValues: true,
+  //                                useForValidation: true  }]
+  Plantweighbridgeno;
+  @UI: { lineItem: [{ position: 140 }],
+           identification: [{ position: 140 }],
+           fieldGroup: [{ qualifier: 'GeneralData2', position: 60, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{ entity:{  name:'ZR_F4_SHIPTYPE',element: 'Shipmenttype' },
+                                distinctValues: true,
+                                useForValidation: true }]
+  Shipmenttype;
+  @UI: { lineItem: [{ position: 150 }],
+           identification: [{ position: 150 }],
+           fieldGroup: [{ qualifier: 'GeneralData2', position: 70, importance: #HIGH }] }
+  //           @Consumption.valueHelpDefinition: [{ entity:{  name:'ZR_VEHICLENOF4_SALES',element: 'YY1_VehicleNumber_DLH' },
+  //                                         distinctValues: true,
+  //                                         useForValidation: true }]
+  Vehno;
+  @UI: { lineItem: [{ position: 160 }],
+           identification: [{ position: 160 }],
+           fieldGroup: [{ qualifier: 'GeneralData2', position: 80, importance: #HIGH }] }
+  ContainerNumber;
+  @UI: { lineItem: [{ position: 170 }],
+           identification: [{ position: 170 }],
+           fieldGroup: [{ qualifier: 'GeneralData2', position: 90, importance: #HIGH }] }
+  Vesselname;
+  //  @UI: { hidden: #(ShowWlpl),
+  //  lineItem: [{ position: 180 }],
+  //           identification: [{ position: 180 }],
+  //           fieldGroup: [{ qualifier: 'GeneralData2', position: 100, importance: #HIGH }] }
+  //  Rakeno;
+  //  @UI: { hidden: #(ShowWlpl),
+  //  lineItem: [{ position: 190 }],
+  //           identification: [{ position: 190 }],
+  //           fieldGroup: [{ qualifier: 'GeneralData2', position: 110, importance: #HIGH }] }
+  //  Raketripno;
+  @UI.hidden: true
+  Ernam;
+  @UI.hidden: true
+  Erdat;
+  @UI.hidden: true
+  Erzet;
+  @UI: {
+          lineItem: [{ position: 200 }],
+           identification: [{ position: 200 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 10, importance: #HIGH }] }
+  Gateentrydate;
+  @UI: { lineItem: [{ position: 210 }],
+           identification: [{ position: 210 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 20, importance: #HIGH }] }
+  Gateentrytime;
+
+  @UI: { hidden: #(ShowWlpl), lineItem: [{ position: 220 }],
+   selectionField: [{ position: 40 }],
+           identification: [{ position: 220 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 30, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Supplier', name:'I_Supplier' },
+                                distinctValues: true,
+                                useForValidation: true,
+
+
+     additionalBinding: [ { localElement: 'Vendorname', element: 'SupplierName', usage: #RESULT } ]
+
+      }]
+
+  Vendorcode;
+  @UI: { hidden: #(ShowWlpl), lineItem: [{ position: 221 }],
+          identification: [{ position: 221 }],
+          fieldGroup: [{ qualifier: 'GeneralData3', position: 31, importance: #HIGH }] }
+
+  Vendorname;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 230 }],
+           identification: [{ position: 230 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 40, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Customer', name:'I_Customer' },
+                                            distinctValues: true,
+                                            useForValidation: true,
+                                   additionalBinding: [{ localElement: 'Customername', element: 'BPCustomerFullName', usage: #FILTER_AND_RESULT }]
+                                 }]
+  Customercode;
+  @UI: { lineItem: [{ position: 231 }],
+         identification: [{ position: 231 }],
+         fieldGroup: [{ qualifier: 'GeneralData3', position: 41, importance: #HIGH }] }
+  Customername;
+  @UI: { lineItem: [{ position: 240 }],
+           identification: [{ position: 240 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 50, importance: #HIGH }] }
+  Drivername;
+  @UI: { lineItem: [{ position: 250 }],
+           identification: [{ position: 250 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 60, importance: #HIGH }] }
+  Drivercellno;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 260 }],
+           identification: [{ position: 260 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 70, importance: #HIGH }] }
+  Dlno;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 270 }],
+           identification: [{ position: 270 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 80, importance: #HIGH }] }
+  Vehiclecheck;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 280 }],
+           identification: [{ position: 280 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 90, importance: #HIGH }] }
+  Testcertificate;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 290 }],
+           identification: [{ position: 290 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 100, importance: #HIGH }] }
+  Taxinvoice;
+  @UI: {
+  lineItem: [{ position: 300 }],
+           identification: [{ position: 300 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 110, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Supplier', name:'I_Supplier' },
+                                          distinctValues: true,
+                                          useForValidation: true,
+                               additionalBinding: [{ localElement: 'Transportername', element: 'SupplierName', usage: #RESULT }] }]
+
+  Transportercode;
+  @UI: { lineItem: [{ position: 310 }],
+           identification: [{ position: 310 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 120, importance: #HIGH }] }
+  Transportername;
+  @UI: { lineItem: [{ position: 311 }],
+         identification: [{ position: 311 }],
+         fieldGroup: [{ qualifier: 'GeneralData3', position: 121, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'SupplierName', name:'ZI_SENDERNAME' },
+                                        distinctValues: true,
+                                        useForValidation: true }]
+  sendername;
+  @UI: { hidden: true,
+  lineItem: [{ position: 320 }],
+           identification: [{ position: 320 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 130, importance: #HIGH }] }
+  Invoice;
+  @UI: { hidden: true,
+  lineItem: [{ position: 330 }],
+           identification: [{ position: 330 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 140, importance: #HIGH }] }
+  Invoicedate;
+  @UI: {
+  lineItem: [{ position: 340 }],
+           identification: [{ position: 340 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 150, importance: #HIGH }] }
+  Remarks;
+  @UI: {hidden: #(ShowWlpl),
+   lineItem: [{ position: 350 }],
+           identification: [{ position: 350 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 160, importance: #HIGH }] }
+  Purchasingdocumentnumber;
+  @UI: {
+  lineItem: [{ position: 360 }],
+           identification: [{ position: 360 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 170, importance: #HIGH }] }
+  Vehicleoutdate;
+  @UI: { lineItem: [{ position: 370 }],
+           identification: [{ position: 370 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 180, importance: #HIGH }] }
+  Vehicleouttime;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 380 }],
+           identification: [{ position: 380 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 190, importance: #HIGH }] }
+  Unloaddate;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 390 }],
+           identification: [{ position: 390 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 200, importance: #HIGH }] }
+  Unloadtime;
+  @UI.hidden: true
+  @UI: { identification: [{ position: 400 },
+                            { type: #FOR_ACTION, dataAction: 'GatePassOut', label: 'Set GateOut', iconUrl: 'sap-icon://close-command-field' }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 210, importance: #HIGH }] }
+  Gateout;
+  @UI.hidden: true
+  @UI: { identification: [{ position: 410 },
+                            { type: #FOR_ACTION, dataAction: 'Deleted', label: 'Set Delete', iconUrl: 'sap-icon://close-command-field' }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 220, importance: #HIGH }] }
+  Deleted;
+  //  @UI.hidden: true
+  //  @UI: { identification: [{ position: 420 },
+  //                            { type: #FOR_ACTION, dataAction: 'Cancel', label: 'Set Cancel', iconUrl: 'sap-icon://close-command-field' }],
+  //           fieldGroup: [{ qualifier: 'GeneralData3', position: 230, importance: #HIGH }] }
+  //  Cancel;
+  @UI.hidden: true
+  @UI: { identification: [{ position: 428 },
+                            { type: #FOR_ACTION, dataAction: 'Tprint', label: 'Print', iconUrl: 'sap-icon://close-command-field' }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 235, importance: #HIGH }] }
+  TPrint;
+  @UI.hidden: true
+  Miscnumber;
+  @UI.hidden: true
+  Miscdate;
+  @UI.hidden: true
+  Currentyear;
+  @UI.hidden: true
+  Currentnumber;
+  @UI.hidden: true
+  Bukrs;
+  @UI.hidden: true
+  Plant;
+  @UI: { lineItem: [{ position: 430 }],
+           identification: [{ position: 430 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 240, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZR_SHIPMENTTYPE_F4_NEW', element: 'Gateentrytype' },
+                                distinctValues: true,
+                                useForValidation: true }]
+  Type;
+
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'UnitOfMeasure_E', name:'ZI_UOMF4' },
+                              distinctValues: true,
+                              useForValidation: true  }]
+  Meins;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 440 }],
+           identification: [{ position: 440 }],//,
+                          //  { type: #FOR_ACTION, dataAction: 'Print', label: 'Set Print', iconUrl: 'sap-icon://close-command-field' }
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 250, importance: #HIGH }] }
+  Netwt;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 450 }],
+           identification: [{ position: 450 }],
+                          //  { type: #FOR_ACTION, dataAction: 'Wlfpl', label: 'Set wlfpl Item', iconUrl: 'sap-icon://close-command-field' }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 260, importance: #HIGH }] }
+  Tarwt;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 460 }],
+           identification: [{ position: 460 }],
+                           // { type: #FOR_ACTION, dataAction: 'Item', label: 'Set Item', iconUrl: 'sap-icon://close-command-field' }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 270, importance: #HIGH }] }
+  Grswt;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 461 }],
+         identification: [{ position: 461 }],//,
+                        //  { type: #FOR_ACTION, dataAction: 'Print', label: 'Set Print', iconUrl: 'sap-icon://close-command-field' }
+         fieldGroup: [{ qualifier: 'GeneralData3', position: 250, importance: #HIGH }] }
+  Vendor_Netwt;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 462 }],
+           identification: [{ position: 462 }
+                          //  { type: #FOR_ACTION, dataAction: 'Wlfpl', label: 'Set wlfpl Item', iconUrl: 'sap-icon://close-command-field' }
+                          ],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 260, importance: #HIGH }] }
+  Vendor_Tarwt;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 463 }],
+           identification: [{ position: 463 }
+                            //{ type: #FOR_ACTION, dataAction: 'Item', label: 'Set Item', iconUrl: 'sap-icon://close-command-field' }
+                            ],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 270, importance: #HIGH }] }
+  Vendor_Grswt;
+    @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 464 }],
+           identification: [{ position: 464 }
+                            //{ type: #FOR_ACTION, dataAction: 'Item', label: 'Set Item', iconUrl: 'sap-icon://close-command-field' }
+                            ],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 270, importance: #HIGH }] }
+  Amountt;
+  @UI: { hidden: #(ShowWlpl),
+  lineItem: [{ position: 470 }],
+           identification: [{ position: 470 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 280, importance: #HIGH }] }
+  Deleteuser;
+  //  @UI: { hidden: #(ShowWlpl),
+  //  lineItem: [{ position: 480 }],
+  //           identification: [{ position: 480 }],
+  //           fieldGroup: [{ qualifier: 'GeneralData3', position: 290, importance: #HIGH }] }
+  @UI.hidden: true
+  Deletedate;
+  //  @UI: { hidden: #(ShowWlpl),
+  //                selectionField: [{ position: 30 }],
+  //              lineItem: [ { position: 25}, { criticality: 'Criticality' } ]
+  //      }
+
+  @UI.hidden: true
+  @UI: { identification: [{ position: 490 }],
+           fieldGroup: [{ qualifier: 'GeneralData3', position: 300, importance: #HIGH }] }
+  Printr;
+
+  //@UI.hidden: true
+  //Wlfpl;
+
+  @UI.hidden: true
+  Item;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'Shipping'
+define service ZSERV_D_Shipping {
+  expose ZC_ShippingBillTP;
+  expose ZC_ShippingBillLICTP;
+  expose ZC_ShippingBillItemTP;
+}

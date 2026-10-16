@@ -1,0 +1,64 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Production Qty after Calibration',
+                typeNamePlural:'Production Qty after Calibration',
+                title: { type: #STANDARD, label: 'Production Qty after Calibration', value: 'Material' }
+
+              }
+     }
+annotate entity ZC_PRODQTYCALBRTN with
+{
+  @UI.facet:
+  [{id: 'GeneralData', isSummary: true, label: 'Report Details', type: #COLLECTION, position: 5},
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 5, label: '', id: 'GeneralData1' }]
+
+  @UI: { lineItem: [{ position: 5 }],
+       identification: [{ position: 5 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+  Material;
+  @UI: { lineItem: [{ position: 10 }],
+     identification: [{ position: 10 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  Material_Desc;
+  @UI: { lineItem: [{ position: 15 }],
+     identification: [{ position: 15 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  @UI.selectionField: [{position: 15}]
+  Plant;
+  @UI: { lineItem: [{ position: 18 }],
+     identification: [{ position: 18 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  MOC;
+  @UI: { lineItem: [{ position: 20 }],
+     identification: [{ position: 20 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  @UI.selectionField: [{position: 20}]
+  Customer;
+  @UI: { lineItem: [{ position: 25 }],
+     identification: [{ position: 25 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  @UI.selectionField: [{position: 25}]
+  Calibration_Dt;
+  @UI: { lineItem: [{ position: 28 }],
+     identification: [{ position: 28 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  qtyperbox;
+  @UI.hidden: true
+  WeightUnit;
+  @UI: { lineItem: [{ position: 30 }],
+     identification: [{ position: 30 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  Unit_Wt;
+  @UI.hidden: true
+  EntryUnit;
+  @UI: { lineItem: [{ position: 35 }],
+     identification: [{ position: 35 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  Total_Qty;
+  @UI: { lineItem: [{ position: 40 }],
+     identification: [{ position: 40 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  Total_Wt;
+
+}

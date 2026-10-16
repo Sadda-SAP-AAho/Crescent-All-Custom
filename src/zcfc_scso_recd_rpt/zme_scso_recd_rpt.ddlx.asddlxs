@@ -1,0 +1,61 @@
+@Metadata.layer: #CORE
+annotate entity ZC_SCSO_RECD_RPT
+with
+  parameters
+    @EndUserText.label: 'From Date'
+    p_date_low,
+    @EndUserText.label: 'To Date'
+    p_date_high
+{
+   @UI.lineItem: [{ position: 20, label : 'Sales Document' }]
+   SalesDocument;
+   @UI.lineItem: [{ position: 10, label : 'Sales Document Type' }]
+   doc_type;
+   @UI.lineItem: [{ position: 30, label : 'Sales Document Item' }]
+   SalesDocumentItem;
+   @UI.lineItem: [{ position: 40, label : 'Document Date' }]
+   SalesDocumentDate;
+   @UI.lineItem: [{ position: 50, label : 'Customer Code' }]
+   SoldToParty;
+   @UI.lineItem: [{ position: 60, label : 'Currency' }]
+   TransactionCurrency;
+   @UI.lineItem: [{ position: 70, label : 'Bank' }]
+   BankIdentification;
+   @UI.lineItem: [{ position: 71, label : 'Plant' }]
+   Plant;
+   @UI.lineItem: [{ position: 72, label : 'Sales Person' }]
+   salesperson;
+   @UI.lineItem: [{ position: 80, label : 'Material Code' }]
+   Material;
+   @UI.lineItem: [{ position: 90, label : 'Material Name' }]
+   SalesDocumentItemText;
+   @UI.lineItem: [{ position: 100, label : 'Material Group' }]
+   MaterialGroup;
+   @UI.lineItem: [{ position: 110, label : 'Material Group Name' }]
+   ProductGroupName;
+   @UI.lineItem: [{ position: 120, label : 'SC/Direct SO Qty' }]
+   OrderQuantity;
+   @UI.hidden: true
+   BaseUnit;
+   @UI.hidden: true
+   ConditionType;
+   @UI.lineItem: [{ position: 130, label : 'Unit Price' }]
+   unit_price;
+   @UI.lineItem: [{ position: 140, label : 'Total Price' }]
+   total_price;
+   @UI.lineItem: [{ position: 150, label : 'Exchange Rate' }]
+   PriceDetnExchangeRate;
+   @UI.lineItem: [{ position: 160, label : 'Total Price-INR' }]
+   total_price_inr;
+   @UI.lineItem: [{ position: 170, label : 'Unit Wt (Kg)' }]
+   ItemGrossWeight;
+    @UI.lineItem: [{ position: 180, label : 'Total Wt (Kg)' }]
+   ItemNetWeight;
+   @UI.hidden: true
+   ItemWeightUnit;
+      @UI.lineItem: [{ position: 190, label : 'Profit Centre Code' }]
+      ProfitCenter;
+        @UI.lineItem: [{ position: 200, label : 'Profit Center Name' }]
+        ProfitCenterLongName;
+    
+}

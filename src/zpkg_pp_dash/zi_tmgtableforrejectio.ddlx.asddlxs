@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgTableForRejectio', 
+    typeNamePlural: 'TmgTableForRejectios', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG table for Rejection Reason', 
+      value: 'Zrej1'
+    }
+  }
+}
+annotate view ZI_TmgTableForRejectio with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgTableForRejectio', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG table for Rejection Reason', 
+    position: 1 
+  } ]
+  Zrej1;
+}

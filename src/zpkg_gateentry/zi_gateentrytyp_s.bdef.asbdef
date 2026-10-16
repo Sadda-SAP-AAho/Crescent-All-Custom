@@ -1,0 +1,70 @@
+managed with additional save implementation in class ZBP_I_GATEENTRYTYPE_S unique;
+strict;
+with draft;
+define behavior for ZI_GateentryTyp_S alias GateentryTypeAll
+draft table ZDT_GATEENT_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID,
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   HideTransport,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _GateentryTyp { create ( features : instance ); with draft; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_GateentryTyp alias GateentryTyp ##UNMAPPED_FIELD
+persistent table ZDT_GATEENTRYTYP
+draft table ZDT_GATEENTRY_D
+lock dependent by _GateentryTypeAll
+authorization dependent by _GateentryTypeAll
+
+{
+  field ( mandatory : create )
+   Gateentrytype;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Gateentrytype;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_GATEENTRYTYP
+  {
+    Gateentrytype = GATEENTRYTYPE;
+  }
+
+  association _GateentryTypeAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

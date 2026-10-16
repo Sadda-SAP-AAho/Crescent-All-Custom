@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service LC Maintain'
+define service ZSERV_D_LCIM_BNKMS {
+  expose ZC_EXIM_LCIM_BNKMS;
+}

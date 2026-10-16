@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for NonBOM Standard VS Actual Consumption'
+define service ZSD_NONBOM_ACT_VS_CON {
+  expose ZC_PP_STAN_VS_ACT_NONBOM_FIN;
+}

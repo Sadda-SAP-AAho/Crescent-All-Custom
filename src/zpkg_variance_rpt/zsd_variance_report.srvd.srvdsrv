@@ -1,0 +1,4 @@
+@EndUserText.label: 'Variance Report'
+define service ZSD_VARIANCE_REPORT {
+  expose ZI_VARiANCE_RPT;
+}

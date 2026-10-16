@@ -1,0 +1,4 @@
+@EndUserText.label: 'Gate Entry Reco Report'
+define service ZSD_GATEENTRYRECO {
+  expose ZC_GATEENTRYRECO;
+}

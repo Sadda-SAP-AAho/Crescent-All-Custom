@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgForIpMaterialGro_S'
+define service ZUI_TMGFORIPMATERIALGRO {
+  expose ZI_TMGFORIPMATERIALGRO_S as TmgForIpMaterialAll;
+  expose ZI_TMGFORIPMATERIALGRO as TmgForIpMaterialGro;
+}

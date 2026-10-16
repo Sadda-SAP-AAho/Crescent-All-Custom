@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_GlCodeMaintainenceT_S'
+define service ZUI_GLCODEMAINTAINENCET {
+  expose ZI_GLCODEMAINTAINENCET_S as GlCodeMaintainenAll;
+  expose ZI_GLCODEMAINTAINENCET as GlCodeMaintainenceT;
+}

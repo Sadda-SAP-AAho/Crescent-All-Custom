@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgDprVACKCostCen_S'
+define service ZUI_TMGDPRVACKCOSTCEN {
+  expose ZI_TMGDPRVACKCOSTCEN_S as TmgDprVACKCostAll;
+  expose ZI_TMGDPRVACKCOSTCEN as TmgDprVACKCostCen;
+}

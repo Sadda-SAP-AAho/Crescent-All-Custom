@@ -1,0 +1,82 @@
+managed with additional save implementation in class ZBP_I_TABLEFORPSAINDICATO_S unique;
+strict;
+with draft;
+define behavior for ZI_TableForPsaIndicato_S alias TableForPsaIndicAll
+draft table ZDT_PSA_IND_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   HideTransport,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare {
+    validation TableForPsaIndicato ~ ValidateDataConsistency;
+  }
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TableForPsaIndicato { create ( features : instance ); with draft; }
+}
+
+define behavior for ZI_TableForPsaIndicato alias TableForPsaIndicato
+persistent table ZDT_PSA_INDC
+draft table ZDT_PSA_INDC_D
+etag master LocalLastChangedAt
+lock dependent by _TableForPsaIndicAll
+authorization dependent by _TableForPsaIndicAll
+
+{
+  field ( mandatory : create )
+   PsaIndc;
+
+  field ( readonly )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt,
+   ConfigDeprecationCode;
+
+  field ( readonly : update )
+   PsaIndc;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+
+  update( features : global );
+  delete( features : instance );
+
+  action ( features : instance ) Deprecate result [1] $self;
+  action ( features : instance ) Invalidate result [1] $self;
+  factory action ( features : instance ) CopyTableForPsaIndicato parameter ZD_CopyTableForPsaIndicatoP [1];
+
+  mapping for ZDT_PSA_INDC
+  {
+    PsaIndc = PSA_INDC;
+    PsaDesc = PSA_DESC;
+    ConfigDeprecationCode = CONFIGDEPRECATIONCODE;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _TableForPsaIndicAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+  validation ValidateDataConsistency on save { create; update; }
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition of SO wise packing list Report'
+define service ZSD_SOPCKLSTRPT {
+  expose ZC_SOPCKLSTRPT;
+}

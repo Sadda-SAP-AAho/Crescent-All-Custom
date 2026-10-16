@@ -1,0 +1,175 @@
+@Metadata.layer: #CUSTOMER
+
+@UI.headerInfo.title: { type: #STANDARD, label: 'Variance Report', value: 'mmyyyy' }
+
+@UI.presentationVariant: [ { sortOrder: [ { by: 'mmyyyy', direction: #ASC } ],
+                             visualizations: [ { type: #AS_LINEITEM } ],
+                             text: 'Variance Report' } ]
+annotate entity ZI_VARiANCE_RPT with
+{
+
+
+  @UI.facet: [ { id: 'GeneralZata',
+                   isSummary: true,
+                   label: 'Variance Report',
+                   position: 5,
+                   type: #COLLECTION } ,
+                   { type: #FIELDGROUP_REFERENCE,
+                  targetQualifier: 'GeneralData1',
+                  parentId: 'GeneralZata',
+                  position: 10,
+                  label: 'Header',
+                  id: 'GeneralData1' } ]
+  @UI.hidden: true
+  mmyyyy;
+  @UI.fieldGroup: [ { position: 5, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.selectionField: [{position: 5 }]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZVPRCTR', element: 'Prctrclub' }, useForValidation: true }]
+  Prctrclub;
+  @UI.fieldGroup: [ { position: 10, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.lineItem: [ { position: 10 } ]
+  monyr;
+  @UI.hidden: true
+  CompanyCodeCurrency;
+  @UI.fieldGroup: [ { position: 15, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.lineItem: [ { position: 15 } ]
+  meltlossact;
+  @UI.fieldGroup: [ { position: 20, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.lineItem: [ { position: 20 } ]
+  meltlossstd;
+  @UI.fieldGroup: [ { position: 25, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.lineItem: [ { position: 25 } ]
+  meltdiff;
+  @UI.fieldGroup: [ { position: 30, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.lineItem: [ { position: 30 } ]
+  hardcokeact;
+  @UI.fieldGroup: [ { position: 35, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.lineItem: [ { position: 35 } ]
+  hardcokestd;
+  @UI.fieldGroup: [ { position: 40, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.lineItem: [ { position: 40 } ]
+  hardcokediff;
+  @UI.fieldGroup: [ { position: 45, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.lineItem: [ { position: 45 } ]
+  storecost;
+  @UI.fieldGroup: [ { position: 50, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.lineItem: [ { position: 50 } ]
+  storestd;
+  @UI.fieldGroup: [ { position: 55, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.lineItem: [ { position: 55 } ]
+  storediff;
+  @UI.fieldGroup: [ { position: 60, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.lineItem: [ { position: 60 } ]
+  electact;
+  @UI.fieldGroup: [ { position: 65, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 65 } ]
+  @UI.lineItem: [ { position: 65 } ]
+  electstd;
+  @UI.fieldGroup: [ { position: 70, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.lineItem: [ { position: 70 } ]
+  electdiff;
+  @UI.fieldGroup: [ { position: 75, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 75 } ]
+  @UI.lineItem: [ { position: 75 } ]
+  modelact;
+  @UI.fieldGroup: [ { position: 80, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.lineItem: [ { position: 80 } ]
+  modelstd;
+  @UI.fieldGroup: [ { position: 85, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 85 } ]
+  @UI.lineItem: [ { position: 85 } ]
+  modeldiff;
+  @UI.fieldGroup: [ { position: 90, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.lineItem: [ { position: 90 } ]
+  feltact;
+  @UI.fieldGroup: [ { position: 95, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 95 } ]
+  @UI.lineItem: [ { position: 95 } ]
+  feltstd;
+  @UI.fieldGroup: [ { position: 100, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.lineItem: [ { position: 100 } ]
+  feltdiff;
+  @UI.fieldGroup: [ { position: 105, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 105 } ]
+  @UI.lineItem: [ { position: 105 } ]
+  machineact;
+  @UI.fieldGroup: [ { position: 110, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 110 } ]
+  @UI.lineItem: [ { position: 110 } ]
+
+  machinestd;
+  @UI.fieldGroup: [ { position: 115, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 115 } ]
+  @UI.lineItem: [ { position: 115 } ]
+  machdiff;
+  @UI.fieldGroup: [ { position: 120, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 120 } ]
+  @UI.lineItem: [ { position: 120 } ]
+  paintact;
+  @UI.fieldGroup: [ { position: 125, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 125 } ]
+  @UI.lineItem: [ { position: 125 } ]
+  paintstd;
+  @UI.fieldGroup: [ { position: 130, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 130 } ]
+  @UI.lineItem: [ { position: 130 } ]
+  paintdiff;
+  @UI.fieldGroup: [ { position: 135, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 135 } ]
+  @UI.lineItem: [ { position: 135 } ]
+  coreact;
+  @UI.fieldGroup: [ { position: 140, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 140 } ]
+  @UI.lineItem: [ { position: 140 } ]
+  corestd;
+  @UI.fieldGroup: [ { position: 145, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 145 } ]
+  @UI.lineItem: [ { position: 145 } ]
+  corediff;
+  @UI.fieldGroup: [ { position: 150, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 150 } ]
+  @UI.lineItem: [ { position: 150 } ]
+  labouract;
+  @UI.fieldGroup: [ { position: 155, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 155 } ]
+  @UI.lineItem: [ { position: 155 } ]
+  labourstd;
+  @UI.fieldGroup: [ { position: 160, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 160 } ]
+  @UI.lineItem: [ { position: 160 } ]
+  labourdiff;
+  @UI.fieldGroup: [ { position: 165, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 165 } ]
+  @UI.lineItem: [ { position: 165 } ]
+  metlingact;
+  @UI.fieldGroup: [ { position: 170, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 170 } ]
+  @UI.lineItem: [ { position: 170 } ]
+  metlingstd;
+  @UI.fieldGroup: [ { position: 175, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 175 } ]
+  @UI.lineItem: [ { position: 175 } ]
+  metlingdiff;
+  @UI.fieldGroup: [ { position: 180, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.identification: [ { position: 180 } ]
+  @UI.lineItem: [ { position: 180 } ]
+  machinecost;
+
+}

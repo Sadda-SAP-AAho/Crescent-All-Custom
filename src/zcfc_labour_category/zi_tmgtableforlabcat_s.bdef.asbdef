@@ -1,0 +1,74 @@
+managed with additional save implementation in class zbp_i_tmgtableforlabcat_s unique;
+strict;
+with draft;
+define behavior for ZI_TmgTableForLabCat_S alias TmgTableForLabCatAll
+draft table ZDT_LABCATG_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TmgTableForLabCat { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_TmgTableForLabCat alias TmgTableForLabCat ##UNMAPPED_FIELD
+persistent table zdt_labrcatg
+draft table ZDT_LABRCATG_D
+lock dependent by _TmgTableForLabCatAll
+authorization dependent by _TmgTableForLabCatAll
+
+{
+  field ( mandatory : create )
+   Catcode;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Catcode;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_LABRCATG
+  {
+    Catcode = CATCODE;
+    Catname = CATNAME;
+  }
+
+  association _TmgTableForLabCatAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

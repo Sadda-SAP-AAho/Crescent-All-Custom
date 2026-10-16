@@ -1,0 +1,53 @@
+managed implementation in class zbp_i_contplnapp unique;
+strict;
+with draft;
+
+define behavior for ZI_CONTPLNAPP //alias <alias_name>
+persistent table zdt_contplnapp
+draft table zdr_contplnapp
+lock master
+total etag ID
+authorization master ( instance )
+//etag master <field_name>
+
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly ) Plantname, FDName;
+  field ( mandatory : create, readonly : update ) PlantCode, FDCode, PrtEntFrmDt, PrtEntToDt, VsslNmVyg;
+
+  create;
+  update;
+  delete;
+  determination updateheader on modify { field Plantcode; field FDCode; }
+
+  side effects
+  { field Plantcode affects field Plantname;
+    field FDCode affects field FDName;
+  }
+
+  validation checkvalidation on save { create; }
+
+  mapping for zi_contplnapp
+    {
+      PlantCode   = PlantCode;
+      PlantName   = PLantName;
+      FDCode      = FDCode;
+      FDName      = FDName;
+      PrtEntFrmDt = PrtEntFrmDt;
+      PrtEntToDt  = PrtEntToDt;
+      VsslNmVyg   = VsslNmVyg;
+      CustCode    = CustCode;
+      NoContPlnnd = NoContPlnnd;
+      RmrkFact    = RmrkFact;
+      RmrkLogst   = RmrkLogst;
+    }
+
+}

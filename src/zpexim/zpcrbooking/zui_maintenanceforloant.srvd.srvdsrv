@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_MaintenanceForLoanT_S'
+define service ZUI_MAINTENANCEFORLOANT {
+  expose ZI_MAINTENANCEFORLOANT_S as MaintenanceForLoAll;
+  expose ZI_MAINTENANCEFORLOANT as MaintenanceForLoanT;
+}

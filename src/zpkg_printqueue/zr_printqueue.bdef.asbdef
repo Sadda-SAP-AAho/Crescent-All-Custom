@@ -1,0 +1,24 @@
+managed implementation in class zbp_r_printqueue unique;
+strict;
+with draft;
+
+define behavior for ZR_PRINTQUEUE //alias <alias_name>
+persistent table zdt_print_queue
+draft table zdr_print_queue
+lock master
+total etag creationdate
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  field ( readonly, numbering : managed ) id;
+}

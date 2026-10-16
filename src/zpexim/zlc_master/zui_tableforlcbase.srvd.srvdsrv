@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TableForLcBase_S'
+define service ZUI_TABLEFORLCBASE {
+  expose ZI_TABLEFORLCBASE_S as TableForLcBaseAll;
+  expose ZI_TABLEFORLCBASE as TableForLcBase;
+}

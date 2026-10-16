@@ -1,0 +1,155 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Purchase Order History Report',
+                typeNamePlural:'Purchase Order History Report',
+                title: { type: #STANDARD, label: 'Purchase Order History Report', value: 'PurchaseOrder' }
+
+              }
+     }
+annotate entity ZC_POHISTORYRPT with
+{
+  @UI.facet:
+       [{id: 'GeneralData', isSummary: true, label: 'Item Details', type: #COLLECTION, position: 5},
+       { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Purchase Order History Report', id: 'GeneralData1' }]
+
+  @UI: { lineItem: [{ position: 5 }],
+         identification: [{ position: 5 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+  PurchaseOrder;
+
+  @UI: { lineItem: [{ position: 7}],
+         identification: [{ position: 7 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 7}]
+  POType;
+
+  @UI: { lineItem: [{ position: 10 }],
+         identification: [{ position: 10 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  PurchaseOrderItem;
+
+  @UI.hidden: true
+  AccountAssignmentNumber;
+
+  @UI.hidden: true
+  PurchasingHistoryDocumentYear;
+
+  @UI: { lineItem: [{ position: 15 }],
+           identification: [{ position: 15 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 11}]
+  PurchasingHistoryDocument;
+
+  @UI.hidden: true
+  PurchasingHistoryDocumentItem;
+
+  @UI.hidden: true
+  PurchasingHistoryDocumentType;
+
+  @UI: { lineItem: [{ position: 20 }],
+           identification: [{ position: 20 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 20}]
+  AccountingDocument;
+
+  @UI: { lineItem: [{ position: 25}],
+         identification: [{ position: 25}],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 25}]
+  OurRef;
+  
+  @UI: { lineItem: [{ position: 30}],
+         identification: [{ position: 30}],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  poitemtext;
+
+  @UI: { lineItem: [{ position: 35 }],
+           identification: [{ position: 35 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Plant;
+
+  @UI: { lineItem: [{ position: 40 }],
+         identification: [{ position: 40 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 40}]
+  ReferenceDocument;
+
+  @UI: { lineItem: [{ position: 45 }],
+         identification: [{ position: 45 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Material;
+
+  @UI: { lineItem: [{ position: 50 }],
+       identification: [{ position: 50 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  matgrp;
+
+  @UI.hidden: true
+  PurchaseOrderQuantityUnit;
+
+  @UI: { lineItem: [{ position: 55 }],
+           identification: [{ position: 55 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Quantity;
+
+  @UI: { lineItem: [{ position: 60 }],
+         identification: [{ position: 60 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 60}]
+  PurchasingHistoryCategory;
+
+  @UI: { lineItem: [{ position: 65 }],
+           identification: [{ position: 65 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  PostingDate;
+
+  @UI: { lineItem: [{ position: 70 }],
+           identification: [{ position: 70 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  DocumentDate;
+
+  @UI: { lineItem: [{ position: 75 }],
+           identification: [{ position: 75 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  AccountingDocumentCreationDate;
+
+  @UI: { lineItem: [{ position: 80 }],
+           identification: [{ position: 80 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  GoodsMovementType;
+
+  @UI.hidden: true
+  Currency;
+
+  @UI: { lineItem: [{ position: 85 }],
+           identification: [{ position: 85 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  PurchaseOrderAmount;
+
+  @UI.hidden: true
+  DocumentCurrency;
+
+  @UI.hidden: true
+  CompanyCodeCurrency;
+
+  @UI: { lineItem: [{ position: 90 }],
+           identification: [{ position: 90 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  PurOrdAmountInCompanyCodeCrcy;
+
+  @UI: { lineItem: [{ position: 95 }],
+           identification: [{ position: 95 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  DebitCreditCode;
+
+  @UI: { lineItem: [{ position: 100 }],
+           identification: [{ position: 100 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Invamtpocurr;
+
+  @UI: { lineItem: [{ position: 105 }],
+          identification: [{ position: 105 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Document_Type;
+}

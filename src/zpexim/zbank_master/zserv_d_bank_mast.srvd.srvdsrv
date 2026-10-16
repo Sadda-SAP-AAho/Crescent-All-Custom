@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Bank Master'
+define service ZSERV_D_BANK_MAST {
+  expose ZC_EXIM_BANK_MAST;
+}

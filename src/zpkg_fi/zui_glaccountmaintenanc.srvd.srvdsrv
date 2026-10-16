@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_GlAccountMaintenanc_S'
+define service ZUI_GLACCOUNTMAINTENANC {
+  expose ZI_GLACCOUNTMAINTENANC_S as GlAccountMaintenAll;
+  expose ZI_GLACCOUNTMAINTENANC as GlAccountMaintenanc;
+}

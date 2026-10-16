@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Delivery Header'
+define service ZSD_DELDASH_HDR {
+  expose ZC_DELDASH_HDR;
+  expose ZC_DELDASH_ITM;
+}

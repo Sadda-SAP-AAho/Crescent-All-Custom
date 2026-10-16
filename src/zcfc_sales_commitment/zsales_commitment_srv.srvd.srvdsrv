@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service for Sales Commitment Dashboard'
+define service ZSALES_COMMITMENT_SRV {
+  expose Z_C_Sales_Commitment as Sales;
+  expose Z_C_Sales_Cmmt_Item  as Item;
+  expose ZCDS_CUST_F4         as Cust;
+  expose ZCDS_Fiscal_F4       as year;
+}

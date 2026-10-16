@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Sales Commitment Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Commitment"
+  },
+  "ui5AppDetails": {
+    "appId": "zsalescommrptn"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_34FAF14E476C01552486C3F8B32CF379C49F0C87_TM",
+    "semanticObject": "zsalescommrptn",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_34FAF14E476C01552486C3F8B32CF379C49F0C87_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Commitment",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

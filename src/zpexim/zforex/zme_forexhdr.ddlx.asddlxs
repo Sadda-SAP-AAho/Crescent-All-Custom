@@ -1,0 +1,88 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by:  'Contnoext', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Forward Contract' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Forward Contract', value: 'Contnoext' } } }
+annotate view ZC_FOREXTP
+    with 
+{
+
+@UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'Forward Contract Header', type: #COLLECTION },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Section 1', id: 'GeneralData1' },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15, label: 'Section 2', id: 'GeneralData2' },
+   { id: 'ForConI', label: 'Forward Contract Item', type: #LINEITEM_REFERENCE, position : 25, targetElement: '_item' }]
+   
+ @UI.hidden: true
+ Id;
+ 
+ @UI.lineItem: [ { position: 5 } ]
+ @UI.identification: [ { position: 5 } ]
+ @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ] 
+ Contnoext;
+ 
+ @UI.lineItem: [ { position: 10 } ]
+ @UI.identification: [ { position: 10 } ]
+ @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ] 
+ 
+@Consumption.valueHelpDefinition:[{
+       entity: { element: 'BankName', name: 'ZCDS_BANKF4' },
+                            distinctValues: true,
+                            useForValidation: true }]
+ Bankname;
+ 
+ @UI.lineItem: [ { position: 15 } ]
+ @UI.identification: [ { position: 15 } ]
+ @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ] 
+ Waers;
+ 
+ @UI.lineItem: [ { position: 35 } ]
+ @UI.identification: [ { position: 35 } ]
+ @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+ Contractdate;
+ 
+ @UI.lineItem: [ { position: 20 } ]
+ @UI.identification: [ { position: 20 } ]
+ @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ] 
+ Exchangerate;
+ 
+ @UI.lineItem: [ { position: 25 } ]
+ @UI.identification: [ { position: 25 } ]
+ @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ] 
+ Contamt;
+ 
+ @UI.lineItem: [ { position: 30 } ]
+ @UI.identification: [ { position: 30 } ]
+ @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ] 
+ Balanceval;
+ 
+ @UI.lineItem: [ { position: 40 } ]
+ @UI.identification: [ { position: 40 } ]
+ @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+ Bookdate;
+ 
+ @UI.lineItem: [ { position: 45 } ]
+ @UI.identification: [ { position: 45 } ]
+ @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+ Maturitydate;
+ 
+ @UI.lineItem: [ { position: 50 } ]
+ @UI.identification: [ { position: 50 } ]
+ @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+ Opendate;
+ 
+ @UI.lineItem: [ { position: 55 } ]
+ @UI.identification: [ { position: 55 } ]
+ @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData2', importance: #HIGH } ] 
+ Allocdate;
+ 
+  @UI.hidden: true
+  @UI: { identification: [{ position: 400 },
+                         { type: #FOR_ACTION, dataAction: 'Upd', label: 'Update', iconUrl: 'sap-icon://close-command-field' }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 100, importance: #HIGH }] }
+ Upd;
+ 
+ 
+ 
+ }  
+ 

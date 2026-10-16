@@ -1,0 +1,4 @@
+@EndUserText.label: 'Paint BOM Master'
+define service ZSD_PAINTBOMMSTR {
+  expose ZC_PAINTBOMMSTR;
+}

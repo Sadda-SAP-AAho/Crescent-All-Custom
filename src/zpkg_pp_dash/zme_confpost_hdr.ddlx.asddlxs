@@ -1,0 +1,148 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'Shpflrdt', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Receipt From Production Dashboard' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Receipt From Production Dashboard', value: 'Shpflrno' } } }
+annotate entity ZC_CONFPOST_HDR with
+{
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'Receipt From Production Dashboard', type: #COLLECTION },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: '', id: 'GeneralData1' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15, label: '', id: 'GeneralData2' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 20, label: '', id: 'GeneralData3' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData4', parentId: 'GeneralData', position: 21, label: '', id: 'GeneralData4' },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData5', parentId: 'GeneralData', position: 22, label: '', id: 'GeneralData5' },
+  
+  { id: 'DelitemI', label: 'Receipt From Production Item Details', type: #LINEITEM_REFERENCE, position : 25, targetElement: '_Item' },
+  { id: 'DelitemO', label: 'Receipt From Production Order Details', type: #LINEITEM_REFERENCE, position : 30, targetElement: '_Ord' }
+  ]
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Refid;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'shpflrno', name:'ZI_SHPFLRNO_F4' },
+                                                distinctValues: true,
+                                                useForValidation: true } ]
+  Shpflrno;
+  @UI.hidden: true
+  Keyid;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Dept;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Deptname;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Opr;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Oprname;
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 100,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Cont;
+  @UI.lineItem: [ { position: 105 } ]
+  @UI.identification: [ { position: 105 } ]
+  @UI.fieldGroup: [ { position: 105,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Contname;
+  @UI.lineItem: [ { position: 155 } ]
+  @UI.identification: [ { position: 155 } ]
+  @UI.fieldGroup: [ { position: 155,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Skilab;
+  @UI.lineItem: [ { position: 165 } ]
+  @UI.identification: [ { position: 165 } ]
+  @UI.fieldGroup: [ { position: 165,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Sskilab;
+  @UI.lineItem: [ { position: 175 } ]
+  @UI.identification: [ { position: 175 } ]
+  @UI.fieldGroup: [ { position: 175,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Uskilab;
+  @UI.lineItem: [ { position: 6 } ]
+  @UI.identification: [ { position: 6 } ]
+  @UI.fieldGroup: [ { position: 6,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Plant;
+  @UI.hidden: true
+  Creon;
+  @UI.hidden: true
+  Creby;
+  @UI.hidden: true
+  Plantid;
+  @UI.lineItem: [ { position: 7 } ]
+  @UI.identification: [ { position: 7 } ]
+  @UI.fieldGroup: [ { position: 7,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Shpflrdt;
+  @UI.hidden: true
+  @UI: { identification: [{ position: 390 },
+                      { type: #FOR_ACTION, dataAction: 'Getord', label: 'Get Order', iconUrl: 'sap-icon://close-command-field' }],
+       fieldGroup: [{ qualifier: 'GeneralData3', position: 390, importance: #HIGH }] }
+  Getord;
+  @UI.hidden: true
+  @UI: { identification: [{ position: 400 },
+                         { type: #FOR_ACTION, dataAction: 'Post', label: 'Order Confirmation', iconUrl: 'sap-icon://close-command-field' }],
+          fieldGroup: [{ qualifier: 'GeneralData3', position: 400, importance: #HIGH }] }
+  Post;
+  @UI.hidden: true
+  @UI: { identification: [{ position: 370 },
+                         { type: #FOR_ACTION, dataAction: 'Gr', label: 'GR', iconUrl: 'sap-icon://close-command-field' }],
+          fieldGroup: [{ qualifier: 'GeneralData3', position: 370, importance: #HIGH }] }
+  Gr;
+  @UI.hidden: true
+  @UI: { identification: [{ position: 380 },
+                         { type: #FOR_ACTION, dataAction: 'Gi', label: 'GI', iconUrl: 'sap-icon://close-command-field' }],
+          fieldGroup: [{ qualifier: 'GeneralData3', position: 380, importance: #HIGH }] }
+  Gi;
+  @UI.hidden: true
+  @UI: { identification: [{ position: 380 },
+                         { type: #FOR_ACTION, dataAction: 'Scrap', label: 'Scrap Posting', iconUrl: 'sap-icon://close-command-field' }],
+          fieldGroup: [{ qualifier: 'GeneralData3', position: 380, importance: #HIGH }] }
+  Scrap;
+  @UI.lineItem: [ { position: 275 } ]
+  @UI.identification: [ { position: 275 } ]
+  @UI.fieldGroup: [ { position: 275,  qualifier: 'GeneralData4', importance: #HIGH } ]
+  Status;
+  @UI.lineItem: [ { position: 1, type: #AS_DATAPOINT  } ]
+  @UI.fieldGroup: [ { position: 1,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.dataPoint: { visualization: #PROGRESS ,
+                   targetValueElement: 'Total',
+                   criticality: 'Criticality',
+                   criticalityRepresentation: #WITHOUT_ICON }
+  Progress;
+  @UI.hidden: true
+  Stat;
+  @UI.lineItem: [ { position: 305 } ]
+  @UI.identification: [ { position: 305 } ]
+  @UI.fieldGroup: [ { position: 305,  qualifier: 'GeneralData5', importance: #HIGH } ]
+  Arpacharg;
+  @UI.lineItem: [ { position: 310 } ]
+  @UI.identification: [ { position: 310 } ]
+  @UI.fieldGroup: [ { position: 310,  qualifier: 'GeneralData5', importance: #HIGH } ]
+  Rhinocharg;
+  @UI.lineItem: [ { position: 315 } ]
+  @UI.identification: [ { position: 315 } ]
+  @UI.fieldGroup: [ { position: 315,  qualifier: 'GeneralData5', importance: #HIGH } ]
+  Handmochrg;
+  @UI.lineItem: [ { position: 320 } ]
+  @UI.identification: [ { position: 320 } ]
+  @UI.fieldGroup: [ { position: 320,  qualifier: 'GeneralData5', importance: #HIGH } ]
+  Lostfmchrg;
+  @UI.lineItem: [ { position: 325 } ]
+  @UI.identification: [ { position: 325 } ]
+  @UI.fieldGroup: [ { position: 325,  qualifier: 'GeneralData5', importance: #HIGH } ]
+  Excwtadj;
+  
+  @UI.lineItem: [ { position: 8 } ]
+  @UI.identification: [ { position: 8 } ]
+  @UI.fieldGroup: [ { position: 8,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Docudt;
+  @UI.hidden: true
+  uniqueid;
+
+}

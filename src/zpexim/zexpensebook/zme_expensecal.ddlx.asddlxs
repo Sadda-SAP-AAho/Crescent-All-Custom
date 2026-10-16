@@ -1,0 +1,60 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by:  'Commid', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Expense Calculation' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Expense Calculation', value: 'Commid' } } }
+annotate entity ZC_EXPENSECAL with
+{
+  @UI.facet:
+    [{ id: 'GeneralData', isSummary: true, label: 'Expense Header', type: #COLLECTION },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Section 1', id: 'GeneralData1' },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15, label: 'Section 2', id: 'GeneralData2' },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 20, label: 'Section 3', id: 'GeneralData3' },
+     { id: 'EXPENSEITM', label:'Expense Item', type: #LINEITEM_REFERENCE, position : 25, targetElement: '_item' }]
+
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 }, { type: #FOR_ACTION, dataAction: 'exptype', label: 'Fetch Expense Types', iconUrl: 'sap-icon://close-command-field' } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'commid', name:'ZI_COMMERCIALINVOICE_F4' },
+                                            distinctValues: true,
+                                            useForValidation: true,
+                                            additionalBinding: [{ localElement: 'Commdate', element: 'BillingDocumentDate',usage: #RESULT }]
+                                     }]
+  Commid;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Commdate;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'TaxCode', name:'ZR_TAXCODE_GST'},
+                                                  distinctValues: true,
+                                                  useForValidation: true
+                                     }]
+  Taxcode;
+
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Profitcenter', name:'ZI_EXP_PRCTR_F4'},
+                                                  distinctValues: true,
+                                                  useForValidation: true
+                                     }]
+  Profitcenter;
+  /////////////////////////////////////////////////////////////////////////////////////
+  @UI.hidden: true
+  @UI: { identification: [{ position: 205 },
+                         { type: #FOR_ACTION, dataAction: 'ServicePo', label: 'Service PO', iconUrl: 'sap-icon://close-command-field' }],
+          fieldGroup: [{ qualifier: 'GeneralData2', position: 100, importance: #HIGH }] }
+  servicepobt;
+
+  @UI.hidden: true
+  @UI: { identification: [{ position: 205 },
+                         { type: #FOR_ACTION, dataAction: 'Poupd', label: 'Update', iconUrl: 'sap-icon://close-command-field' }],
+          fieldGroup: [{ qualifier: 'GeneralData2', position: 105, importance: #HIGH }] }
+  poupd;
+
+}

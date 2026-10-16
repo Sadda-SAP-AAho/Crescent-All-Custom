@@ -1,0 +1,39 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'PlantDescriptionTab', 
+    typeNamePlural: 'PlantDescriptionTabs', 
+    title: {
+      type: #STANDARD, 
+      label: 'Plant Description Table', 
+      value: 'Plant'
+    }
+  }
+}
+annotate view ZI_PlantDescriptionTab with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_PlantDescriptionTab', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Plant Description Table', 
+    position: 1 
+  } ]
+  Plant;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Plantdes'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Plantdes'
+  } ]
+  Plantdes;
+}

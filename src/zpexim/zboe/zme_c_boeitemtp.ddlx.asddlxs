@@ -1,0 +1,135 @@
+@Metadata.layer: #CUSTOMER
+
+annotate view ZC_BOEITEMTP with
+{
+
+  @UI.facet: [
+  { id: 'GeneralI',isSummary: true,label: 'Item Details',type: #COLLECTION,purpose: #STANDARD},
+   {type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1',parentId: 'GeneralI',position:10, label: 'PO Basic',  id: 'GeneralData1'},
+   {type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2',parentId: 'GeneralI',position:20, label: 'PO Value',  id: 'GeneralData2'},
+   {type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3',parentId: 'GeneralI',position:30, label: 'Duty Value',id: 'GeneralData3'}
+  ]
+  //  {
+  //  type: #FIELDGROUP_REFERENCE,
+  //  targetQualifier: 'GeneralData2',
+  //  parentId: 'GeneralI',
+  //  label: 'Section 2',
+  //  id: 'GeneralData2'
+  //  },
+  //
+  //  {
+  //  type: #FIELDGROUP_REFERENCE,
+  //  targetQualifier: 'GeneralData3',
+  //  parentId: 'GeneralI',
+  //  label: 'Section 3',
+  //  id: 'GeneralData3'
+  //  }
+  //                ]
+
+  @UI.hidden: true
+  InternalBoe;
+
+  @UI.hidden: true
+  InternalItemBoe;
+
+  @UI: {
+          lineItem: [ { position: 10} ],
+          identification: [{position: 10 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
+  }
+
+  @Consumption.valueHelpDefinition: [{
+    entity:{ element: 'PurchaseOrder', name: 'ZI_PODet_3' },
+
+    distinctValues: true,
+    useForValidation: true,
+
+       additionalBinding: [
+                            { localElement: 'Poitem', element: 'PurchaseOrderItem', usage: #RESULT },
+                            { localElement: 'Material', element: 'Material', usage: #RESULT },
+                            { localElement: 'Makxt', element: 'PurchaseOrderItemText', usage: #RESULT },
+                            { localElement: 'Povalue', element: 'NetAmount', usage: #RESULT },
+                            { localElement: 'Poqty', element: 'OrderQuantity', usage: #RESULT }
+                            ]
+    }]
+  Po;
+
+  @UI: {
+          lineItem: [ { position: 20} ],
+          identification: [{position: 20 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }]
+  }
+  Poitem;
+
+  @UI: {
+          lineItem: [ { position: 30} ],
+          identification: [{position: 30 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 30,importance: #HIGH }]
+  }
+  Material;
+
+  @UI: {
+          lineItem: [ { position: 40} ],
+          identification: [{position: 40 }],
+          fieldGroup: [{qualifier: 'GeneralData1',position: 40,importance: #HIGH }]
+  }
+  Makxt;
+
+  @UI: {
+          lineItem: [ { position: 50} ],
+          identification: [{position: 50 }],
+          fieldGroup: [{qualifier: 'GeneralData2',position: 10,importance: #HIGH }]
+  }
+  Povalue;
+
+  @UI.hidden: true
+  @UI: {
+          lineItem: [ { position: 51} ],
+          identification: [{position: 51 }],
+          fieldGroup: [{qualifier: 'GeneralData3',position: 11,importance: #HIGH }]
+  }
+  Currency;
+
+  @UI: {
+          lineItem: [ { position: 60} ],
+          identification: [{position: 60 }],
+          fieldGroup: [{qualifier: 'GeneralData2',position: 20,importance: #HIGH }]
+  }
+  Poqty;
+
+  @UI: {
+          lineItem: [ { position: 50} ],
+          identification: [{position: 50 }],
+          fieldGroup: [{qualifier: 'GeneralData2',position: 30,importance: #HIGH }]
+  }
+  Arrivedqty;
+  @UI: {
+        lineItem: [ { position: 55} ],
+        identification: [{position: 55 }],
+        fieldGroup: [{qualifier: 'GeneralData3',position: 9,importance: #HIGH }]
+  }
+  Assessablevaluefc;
+
+  @UI: {
+          lineItem: [ { position: 60} ],
+          identification: [{position: 60 }],
+          fieldGroup: [{qualifier: 'GeneralData3',position: 10,importance: #HIGH }]
+  }
+  Assessablevalue;
+
+  @UI: {
+          lineItem: [ { position: 80} ],
+          identification: [{position: 80 }],
+          fieldGroup: [{qualifier: 'GeneralData3',position: 30,importance: #HIGH }]
+  }
+  Totaldutysaved;
+
+  @UI.hidden: true
+  @UI: {
+          lineItem: [ { position: 90} ],
+          identification: [{position: 90 }],
+          fieldGroup: [{qualifier: 'GeneralData3',position: 40,importance: #HIGH }]
+  }
+  DutyCurrency;
+
+}

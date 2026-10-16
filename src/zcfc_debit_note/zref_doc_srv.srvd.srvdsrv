@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service for Document Master'
+define service Zref_doc_srv {
+  expose ZDocument_Master_Url as docSet;
+}

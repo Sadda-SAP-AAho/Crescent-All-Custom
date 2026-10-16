@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition - Customer Delivery Monitoring Report'
+define service ZSD_CUSTDELMNTRRPT {
+  expose ZC_CUSTDELMNTRRPT;
+}

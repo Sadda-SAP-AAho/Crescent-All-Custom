@@ -1,0 +1,176 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: {
+  presentationVariant: [{ sortOrder: [{ by: 'scrolldate', direction:  #DESC }],
+                          visualizations: [{type: #AS_LINEITEM}],
+                          text: 'FD Header' }]
+     }
+
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Scroll Header', value: 'scrollno' },
+                     imageUrl: 'Attachment',
+                     description: { type: #STANDARD, value: 'filename' }
+                    }
+     }
+
+annotate entity ZC_SCROLLHD with
+{
+
+
+  @UI.facet:
+   [
+
+   {
+   id: 'GeneralData',
+   isSummary: true,
+   label: 'Scroll',
+   position: 5,
+   type: #COLLECTION
+   },
+
+   {
+   type: #FIELDGROUP_REFERENCE,
+   targetQualifier: 'GeneralData1',
+   parentId: 'GeneralData',
+   label: 'Scroll Information',
+   position: 10,
+   id: 'GeneralData1'
+   },
+
+   {
+   type: #FIELDGROUP_REFERENCE,
+   targetQualifier: 'GeneralData2',
+   parentId: 'GeneralData',
+   label: 'Status',
+   position: 20,
+   id: 'GeneralData2'
+   },
+
+   {
+   type: #FIELDGROUP_REFERENCE,
+   targetQualifier: 'GeneralData3',
+   parentId: 'GeneralData',
+   label: 'Amount Calculation',
+   position: 30,
+   id: 'GeneralData3'
+   },
+
+   {
+   type: #FIELDGROUP_REFERENCE,
+   targetQualifier: 'GeneralData4',
+   parentId: 'GeneralData',
+   label: 'Shippping Bill',
+   position: 40,
+   id: 'GeneralData4'
+   },
+
+   {
+   type: #FIELDGROUP_REFERENCE,
+   targetQualifier: 'GeneralData5',
+   parentId: 'GeneralData',
+   label: 'Mass Excel Upload ',
+   position: 50,
+   id: 'GeneralData5'
+   },
+   {
+   id: 'OutGL',
+   label: 'Scroll Items',
+   type: #LINEITEM_REFERENCE,
+   position: 10,
+   targetElement: '_item'
+   }
+
+   ]
+
+  @UI.hidden: true
+  id;
+
+  @UI: {
+   lineItem: [ { position: 10} ],
+   identification: [{position: 10 }],
+  //   selectionField: [{ position: 10 }],
+   fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
+  }
+  scrollno;
+
+  @UI: {
+  lineItem: [ { position: 20} ],
+  identification: [{position: 20 }],
+  //  selectionField: [{ position: 20 }],
+  fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }]
+  }
+  scrolldate;
+
+  @UI: {
+  lineItem: [ { position: 30} ],
+  identification: [{position: 30 }],
+  //  selectionField: [{ position: 30 }],
+  fieldGroup: [{qualifier: 'GeneralData1',position: 30,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'ScrollType', name:'ZI_SCROLLTYPE_F4' },
+                                       distinctValues: true,
+                                       useForValidation: true
+                                  }]
+  scrolltype;
+
+  @UI: {
+  lineItem: [ { position: 40} ],
+  identification: [{position: 40 }],
+  fieldGroup: [{qualifier: 'GeneralData2',position: 40,importance: #HIGH }]
+  }
+  post;
+
+  @UI.hidden: true
+  accountingdocdet;
+
+  @UI.hidden: true
+  statuscode;
+
+  @UI: {
+  lineItem: [ { position: 51} ],
+  identification: [{position: 51 }],
+  fieldGroup: [{qualifier: 'GeneralData2',position: 51,importance: #HIGH }]
+  }
+  statusdesc;
+  @UI: {
+  lineItem: [ { position: 55} ],
+  identification: [{position: 55 }],
+  fieldGroup: [{qualifier: 'GeneralData3',position: 55,importance: #HIGH }]
+  }
+
+  rodtepttl;
+  @UI: {
+  lineItem: [ { position: 60} ],
+  identification: [{position: 60 }],
+  fieldGroup: [{qualifier: 'GeneralData3',position: 60,importance: #HIGH }]
+  }
+
+  appliedamountttl;
+
+  @UI: {
+  fieldGroup: [{qualifier: 'GeneralData4',position: 80,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'ShippingBill', name:'ZI_SHIPPINGBILL_F4' },
+                                       distinctValues: true,
+                                       useForValidation: true
+                                  }]
+  shippingbill;
+
+  @UI: { fieldGroup: [{ qualifier: 'GeneralData5', position: 10, label: 'Attachment', importance: #HIGH }] }
+  attachment;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH , label: 'File Name'} ] ,
+         identification: [ { position: 20 , label: 'File Name' } ]  }
+  filename;
+  @UI.hidden: true
+  mimetype;
+  @UI.hidden: true
+  local_created_by;
+  @UI.hidden: true
+  local_created_at;
+  @UI.hidden: true
+  local_last_changed_by;
+  @UI.hidden: true
+  local_last_changed_at;
+  @UI.hidden: true
+  last_changed_at;
+
+}

@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "GST New Vendor Reference No-Register",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "GST New Vendor Reference No"
+  },
+  "ui5AppDetails": {
+    "appId": "zgstnewvenref"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_D79A9D756BD85812011CC5133AFFCD8A2F07C05A_TM",
+    "semanticObject": "zgstnewvenref",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_D79A9D756BD85812011CC5133AFFCD8A2F07C05A_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "GST New Vendor Reference No",
+        "subtitle": "Register"
+      }
+    }
+  ]
+}

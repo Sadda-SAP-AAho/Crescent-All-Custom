@@ -1,0 +1,43 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Mother',
+    typeNamePlural: 'Mother Child Catagory',
+    typeImageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgdkZGiw9frLmFH3f3k0GrhK0pi-GpDpM2bw&s'
+
+} 
+annotate entity Z_C_MOTHER_CHILD
+    with 
+{
+
+ @UI.facet: [{ id: 'head', type: #IDENTIFICATION_REFERENCE, position: 10, purpose: #STANDARD, label: 'Mother/Child Catagory 1'  }]
+
+@UI.hidden: true
+    Requestuuid;
+
+@UI.lineItem: [{ position: 10  }]
+@UI.identification: [{position: 10}]    
+@EndUserText.label: 'Mother/Child Catagory 1'
+    Mother_child_catagory;
+
+@UI.lineItem: [{ position: 20  }]
+@UI.identification: [{position: 20}]    
+@EndUserText.label: 'Created At'
+ Created_at;
+
+@UI.lineItem: [{ position: 30  }]
+@UI.identification: [{position: 30}]    
+@EndUserText.label: 'Created By' 
+ Created_by;
+
+@UI.lineItem: [{ position: 40  }]
+@UI.identification: [{position: 40}]    
+@EndUserText.label: 'Last Changed At' 
+ Last_changed_at;
+
+@UI.lineItem: [{ position: 50  }]
+@UI.identification: [{position: 50}]    
+@EndUserText.label: 'Last Changed By'
+ Last_changed_by;
+
+    
+}

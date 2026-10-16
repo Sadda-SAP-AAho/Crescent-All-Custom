@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgForSalesGrpPerso_S'
+define service ZUI_TMGFORSALESGRPPERSO {
+  expose ZI_TMGFORSALESGRPPERSO_S as TmgForSalesGrpPeAll;
+  expose ZI_TMGFORSALESGRPPERSO as TmgForSalesGrpPerso;
+}

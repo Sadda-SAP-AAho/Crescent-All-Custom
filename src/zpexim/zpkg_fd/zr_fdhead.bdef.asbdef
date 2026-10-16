@@ -1,0 +1,96 @@
+managed implementation in class zbp_r_fdhead unique;
+strict;
+with draft;
+
+define behavior for ZR_FDHEAD alias head
+persistent table zdt_fd_head
+draft table zdt_fd_head_dr
+lock master
+total etag local_last_changed_at
+authorization master ( instance )
+{
+  create;
+  update ( features : instance );
+  delete;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  field ( readonly, numbering : managed ) id;
+  field ( readonly ) statusdesc, transactionno, transactiondate, fdclosetrxndate, fdclosetrxnno, interestcum;
+  field ( mandatory : create, readonly : update ) fdcertificateno, fdstartdate, fdmaturedate, documentdate, currency,
+  profitcenter, exchangerate, postingdate, amount;
+  field ( features : instance ) bankkey, rateofinterest, revfdmaturedate, revrateofinterest, renewal, postfd,
+  postclose, postfdint, remarkclose, remarkopen, bankname, bg, closedocumentdate, closepostingdate;
+
+  side effects { field bankkey affects field bankname, field statuscode, field statusdesc; }
+
+  determination fdheaddetails on modify { field bankkey; }
+  determination fdpost on save { field postfd; }
+  determination fdclose on save { field postclose; }
+  determination fdchange on modify { field fdcertificateno; }
+
+  validation fdheadcheck on save { create; update; }
+
+  association _incgl { create ( features : instance ); with draft; }
+  association _interest { create ( features : instance ); with draft; }
+  association _outgl { create ( features : instance ); with draft; }
+}
+
+define behavior for ZR_FDOUTGL alias outgl
+persistent table zdt_fd_outgl
+draft table zdt_fd_outgl_dr
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly ) id;
+  field ( readonly, numbering : managed ) item;
+  field ( mandatory : create, readonly : update ) glaccount, housebankid, accountid, bankreference;
+
+  association _head;
+}
+
+define behavior for ZR_FDINCGL alias incgl
+persistent table zdt_fd_incgl
+draft table zdt_fd_incgl_dr
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly ) id;
+  field ( readonly, numbering : managed ) item;
+  field ( mandatory : create, readonly : update ) glaccount, housebankid, accountid;
+
+  association _head;
+}
+
+define behavior for ZR_FDINTEREST alias interest
+persistent table zdt_fd_interest
+draft table zdt_fd_int_dr
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly ) id, transactionno, transactiondate;
+  field ( readonly, numbering : managed ) item;
+  field ( mandatory : create, readonly : update ) referenceno, bankgl, interestgl, housebankid, accountid,
+  startdate, enddate, amount, documentdate, postingdate,
+  tdsgl, tdsamount;
+
+  determination fdinterest on save { field referenceno; }
+
+  association _head;
+}

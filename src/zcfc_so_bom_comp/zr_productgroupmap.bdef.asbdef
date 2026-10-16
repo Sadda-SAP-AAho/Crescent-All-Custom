@@ -1,0 +1,46 @@
+managed implementation in class ZBP_R_PRODUCTGROUPMAP unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_PRODUCTGROUPMAP alias ZrProductgroupmap
+persistent table ZPRODUCTGROUPMAP
+draft table ZPRDCTGROUPMAP_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+
+{
+  field ( mandatory : create )
+   Productgroup;
+
+  field ( readonly )
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( readonly : update )
+   Productgroup;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZPRODUCTGROUPMAP
+  {
+    Productgroup = productgroup;
+    Producttype = producttype;
+    LocalCreatedBy = local_created_by;
+    LocalCreatedAt = local_created_at;
+    LocalLastChangedBy = local_last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LastChangedAt = last_changed_at;
+  }
+}

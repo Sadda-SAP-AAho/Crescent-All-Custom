@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "GoComet Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "GoComet Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zgmetapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_B8F920E128EDE0954766DA388680F888BAB529AC_TM",
+    "semanticObject": "z_gocometapp",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_B8F920E128EDE0954766DA388680F888BAB529AC_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "GoComet Report"
+      }
+    }
+  ]
+}

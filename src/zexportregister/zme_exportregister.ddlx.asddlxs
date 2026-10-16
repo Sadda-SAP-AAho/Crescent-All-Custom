@@ -1,0 +1,174 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Export Register',
+                typeNamePlural:'Export Register',
+                title: { type: #STANDARD, label: 'Export Register', value: 'CommercialInvNo' }
+              }
+     }
+annotate entity zc_exportregister with
+{
+  @UI.facet: [
+     {
+     id: 'Header',
+     isSummary: true,
+     label: 'Export Register',
+     type: #IDENTIFICATION_REFERENCE,
+     purpose: #STANDARD,
+     position: 10
+     } ]
+  @UI: { lineItem: [ { position: 10} ], identification: [{position: 10 }] ,selectionField: [{ position: 10 }] }
+  GSTInvoiceNumber;
+  @UI: { lineItem: [ { position: 20} ], identification: [{position: 20 }] }
+  Location;
+  @UI: { lineItem: [ { position: 30} ], identification: [{position: 30 }] }
+  OutBoundDelivery;
+  @UI: { lineItem: [ { position: 35} ], identification: [{position: 35 }] }
+  DocumentReferenceID;
+  @UI: { lineItem: [ { position: 40} ], identification: [{position: 40 }] }
+  GSTInvoiceDate;
+  @UI: { lineItem: [ { position: 50} ], identification: [{position: 50 }] }
+  BPCode;
+  @UI: { lineItem: [ { position: 60} ], identification: [{position: 60 }] }
+  BPName;
+  @UI: { lineItem: [ { position: 70} ], identification: [{position: 70 }] }
+  salesperson;
+  @UI: { lineItem: [ { position: 80} ], identification: [{position: 80 }] ,selectionField: [{ position: 80 }] }
+  CommercialInvNo;
+  @UI: { lineItem: [ { position: 90} ], identification: [{position: 90 }] }
+  CommercialInvDate;
+  @UI: { lineItem: [ { position: 105} ], identification: [{position: 105 }] }
+  Salesnoteref;
+  @UI: { lineItem: [ { position: 110} ], identification: [{position: 110 }] }
+  Currency;
+  @UI: { lineItem: [ { position: 120} ], identification: [{position: 120 }] }
+  ExchangeRate;
+  @UI: { lineItem: [ { position: 130} ], identification: [{position: 130 }] }
+  ValueInDC;
+  @UI: { lineItem: [ { position: 140} ], identification: [{position: 140 }] }
+  ValueInLC;
+  @UI: { lineItem: [ { position: 141} ], identification: [{position: 141 }] }
+  ValueTaxInvInDC;
+  @UI: { lineItem: [ { position: 142} ], identification: [{position: 142 }] }
+  ValueTaxInvInLC;
+  @UI: { lineItem: [ { position: 150} ], identification: [{position: 150 }] }
+  DiscountInDC;
+  @UI: { lineItem: [ { position: 160} ], identification: [{position: 160 }] }
+  DiscountinLC;
+  @UI: { lineItem: [ { position: 170} ], identification: [{position: 170 }] }
+  FreightInDC;
+  @UI: { lineItem: [ { position: 180} ], identification: [{position: 180 }] }
+  FreightInLC;
+  @UI: { lineItem: [ { position: 190} ], identification: [{position: 190 }] }
+  Invoice;
+  @UI: { lineItem: [ { position: 200} ], identification: [{position: 200 }] }
+  IncotermsClassification;
+  @UI: { lineItem: [ { position: 210} ], identification: [{position: 210 }] }
+  PaymentTerms;
+  @UI: { lineItem: [ { position: 215} ], identification: [{position: 215 }] }
+  BankName;
+  @UI: { lineItem: [ { position: 220} ], identification: [{position: 220 }] }
+  PortOfLoading;
+  @UI: { lineItem: [ { position: 230} ], identification: [{position: 230 }] }
+  PortofDischarge;
+  @UI: { lineItem: [ { position: 240} ], identification: [{position: 240 }] }
+  PortOfTrans;
+  @UI: { lineItem: [ { position: 250} ], identification: [{position: 250 }] }
+  Findes;
+  @UI: { lineItem: [ { position: 260} ], identification: [{position: 260 }] }
+  forwarder;
+  @UI: { lineItem: [ { position: 270} ], identification: [{position: 270 }] }
+  Shipline;
+  @UI: { lineItem: [ { position: 280} ], identification: [{position: 280 }] }
+  Bookingno;
+  @UI: { lineItem: [ { position: 290} ], identification: [{position: 290 }] }
+  Contno;
+  @UI: { lineItem: [ { position: 300} ], identification: [{position: 300 }] }
+  Consizen;
+  @UI: { lineItem: [ { position: 310} ], identification: [{position: 310 }] }
+  CarrierSealNo;
+  @UI: { lineItem: [ { position: 320} ], identification: [{position: 320 }] }
+  netwt;
+  @UI: { lineItem: [ { position: 330} ], identification: [{position: 330 }] }
+  growt;
+  @UI: { lineItem: [ { position: 340} ], identification: [{position: 340 }] }
+  Vesselname;
+  @UI: { lineItem: [ { position: 350} ], identification: [{position: 350 }] }
+  Docrelchadt;
+  @UI: { lineItem: [ { position: 360} ], identification: [{position: 360 }] }
+  CHAName;
+  @UI: { lineItem: [ { position: 370} ], identification: [{position: 370 }] }
+  ContPickUpLetterDt;
+  @UI: { lineItem: [ { position: 380} ], identification: [{position: 380 }] }
+  ContaonerPickUpValDt;
+  @UI: { lineItem: [ { position: 390} ], identification: [{position: 390 }] }
+  Concutoffdt;
+  @UI: { lineItem: [ { position: 400} ], identification: [{position: 400 }] }
+  Conliftdt;
+  @UI: { lineItem: [ { position: 410} ], identification: [{position: 410 }] }
+  Confacindt;
+  @UI: { lineItem: [ { position: 420} ], identification: [{position: 420 }] }
+  Vehicleoutdate;
+  @UI: { lineItem: [ { position: 430} ], identification: [{position: 430 }] }
+  ShippingBill;
+  @UI: { lineItem: [ { position: 440} ], identification: [{position: 440 }] }
+  ShippingBillDate;
+  @UI: { lineItem: [ { position: 450} ], identification: [{position: 450 }] }
+  Detrecchadt;
+  @UI: { lineItem: [ { position: 460} ], identification: [{position: 460 }] }
+  SISentDate;
+  @UI: { lineItem: [ { position: 470} ], identification: [{position: 470 }] }
+  Carordappdt;
+  @UI: { lineItem: [ { position: 480} ], identification: [{position: 480 }] }
+  CartingOrderRecdDate;
+  @UI: { lineItem: [ { position: 490} ], identification: [{position: 490 }] }
+  Latordrecrem;
+  @UI: { lineItem: [ { position: 500} ], identification: [{position: 500 }] }
+  Condockindt;
+  @UI: { lineItem: [ { position: 510} ], identification: [{position: 510 }] }
+  Latcondocrem;
+  @UI: { lineItem: [ { position: 520} ], identification: [{position: 520 }] }
+  Shpbilldt;
+  @UI: { lineItem: [ { position: 530} ], identification: [{position: 530 }] }
+  Drftblrcvdt;
+  @UI: { lineItem: [ { position: 540} ], identification: [{position: 540 }] }
+  Correctblsendon;
+  @UI: { lineItem: [ { position: 550} ], identification: [{position: 550 }] }
+  BLNo;
+  @UI: { lineItem: [ { position: 560} ], identification: [{position: 560 }] }
+  BLDt;
+  @UI: { lineItem: [ { position: 560} ], identification: [{position: 565 }] }
+  Blrcvdt;
+  @UI: { lineItem: [ { position: 570} ], identification: [{position: 570 }] }
+  Isfsenddt;
+  @UI: { lineItem: [ { position: 580} ], identification: [{position: 580 }] }
+  Docsentcustdt;
+  @UI: { lineItem: [ { position: 590} ], identification: [{position:590 }] }
+  Docpresentbnkdt;
+  @UI: { lineItem: [ { position: 600} ], identification: [{position: 600 }] }
+  Awbno;
+  @UI: { lineItem: [ { position: 610} ], identification: [{position: 610 }] }
+  LC_Number;
+  @UI: { lineItem: [ { position: 620} ], identification: [{position: 620 }] }
+  lc_req_date;
+  @UI: { lineItem: [ { position: 630} ], identification: [{position: 630 }] }
+  Descgoods;
+  @UI: { lineItem: [ { position: 640} ], identification: [{position: 640 }] }
+  Vessaildt;
+  @UI: { lineItem: [ { position: 650} ], identification: [{position: 650 }] }
+  Etadt;
+  @UI: { lineItem: [ { position: 660} ], identification: [{position: 660 }] }
+  Etddt;
+  @UI: { lineItem: [ { position: 670} ], identification: [{position: 670 }] }
+  Empretdt;
+  @UI: { lineItem: [ { position: 680} ], identification: [{position: 680 }] }
+  Freightremarks;
+  @UI: { lineItem: [ { position: 690} ], identification: [{position: 690 }] }
+  CommercialInvoiceCancelled;
+  @UI: { lineItem: [ { position: 700} ], identification: [{position: 700 }] }
+  Draftblcnfdt;
+  @UI: { lineItem: [ { position: 710} ], identification: [{position: 710 }] }
+  netduedate;
+   @UI: { lineItem: [ { position: 720} ], identification: [{position: 720 }] }
+  ContainerPickUpFrom;
+
+}

@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Interest Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Loan Interest"
+  },
+  "ui5AppDetails": {
+    "appId": "zmod_intrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_6A4327B1F59970A5A24F3533D56354BC62A5320C_TM",
+    "semanticObject": "zsem_intrpt",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_6A4327B1F59970A5A24F3533D56354BC62A5320C_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Loan Interest"
+      }
+    }
+  ]
+}

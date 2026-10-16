@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Sales Order-wise Component Requirement Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Order-wise Component Requirement"
+  },
+  "ui5AppDetails": {
+    "appId": "zsobomcomprpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_EE902FA359F9C1ED31A810D802ACA33B8AA73043_TM",
+    "semanticObject": "zsobomcomprpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_EE902FA359F9C1ED31A810D802ACA33B8AA73043_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Order-wise Component Requirement",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

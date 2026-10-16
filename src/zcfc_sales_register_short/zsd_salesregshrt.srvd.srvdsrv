@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Sales Register Short Form Report'
+define service ZSD_SALESREGSHRT {
+  expose ZC_SALESREGSHRT;
+}

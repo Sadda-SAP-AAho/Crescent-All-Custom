@@ -1,0 +1,68 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZC_LABOUR_BOOK_ITEM
+    with 
+{
+    @UI.facet : 
+    [ 
+     { id : 'GeneralData' , isSummary: true, label : 'Power Reading Master' , type : #COLLECTION},
+     { type: #FIELDGROUP_REFERENCE , targetQualifier: 'GeneralData1', parentId: 'GeneralData', position : 10 , label: 'Header', id: 'GeneralData1' }
+     
+     ]
+     
+     @UI.hidden: true
+    Id;
+    
+    @UI.hidden: true
+    Item;
+     
+     @UI.lineItem: [{position: 5}]
+     @UI.identification: [{position: 5}]
+     @UI.fieldGroup: [{position: 5,qualifier: 'GeneralData1', importance: #HIGH}]
+     @Consumption.valueHelpDefinition: [{ entity:{  element : 'WorkCode', name: 'ZVH_WORK_CODE'},
+     distinctValues: true,
+     useForValidation: true,
+     additionalBinding: [{ localElement: 'Workname', element: 'work_description', usage: #RESULT},
+                           { localElement: 'Uom', element: 'UOM', usage: #RESULT },
+                           { localElement: 'Rate', element: 'Rate', usage: #RESULT }
+                          ]    
+                          }]
+    Workcode;
+     
+    @UI.lineItem: [{position: 10}]
+    @UI.identification: [{position: 10}]
+    @UI.fieldGroup: [{position: 10,qualifier: 'GeneralData1', importance: #HIGH}]
+    Workname;
+    
+    @UI.lineItem: [{position: 15}]
+    @UI.identification: [{position: 15}]
+    @UI.fieldGroup: [{position: 15,qualifier: 'GeneralData1', importance: #HIGH}]
+    Uom;
+    
+    @UI.lineItem: [{position: 20}]
+    @UI.identification: [{position: 20}]
+    @UI.fieldGroup: [{position: 20,qualifier: 'GeneralData1', importance: #HIGH}]
+    Quantity;
+    
+    @UI.lineItem: [{position: 25}]
+    @UI.identification: [{position: 25}]
+    @UI.fieldGroup: [{position: 25,qualifier: 'GeneralData1', importance: #HIGH}]
+    Rate;
+    
+    @UI.lineItem: [{position: 30}]
+    @UI.identification: [{position: 30}]
+    @UI.fieldGroup: [{position: 30,qualifier: 'GeneralData1', importance: #HIGH}]
+    Amount;
+    
+    @UI.lineItem: [{position: 35}]
+    @UI.identification: [{position: 35}]
+    @UI.fieldGroup: [{position: 35,qualifier: 'GeneralData1', importance: #HIGH}]
+    Approvedbycode;
+    
+    @UI.lineItem: [{position: 40}]
+    @UI.identification: [{position: 40}]
+    @UI.fieldGroup: [{position: 40,qualifier: 'GeneralData1', importance: #HIGH}]
+    Approvedbyname;
+    @UI.hidden: true
+    _Head;
+    
+}

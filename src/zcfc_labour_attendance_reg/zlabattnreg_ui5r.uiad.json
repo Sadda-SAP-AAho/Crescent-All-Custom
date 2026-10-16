@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Labour Attendance Register",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Labour Attendance Register"
+  },
+  "ui5AppDetails": {
+    "appId": "zlabattnreg"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_D7D9C7A30896C9E1E05FDC555621C5E272272018_TM",
+    "semanticObject": "zlabattnreg",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_D7D9C7A30896C9E1E05FDC555621C5E272272018_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Labour Attendance Register"
+      }
+    }
+  ]
+}

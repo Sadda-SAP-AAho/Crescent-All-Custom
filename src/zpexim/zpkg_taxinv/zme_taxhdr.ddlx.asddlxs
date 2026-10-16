@@ -1,0 +1,77 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'Billingdoc', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Tax Invoice Dashboard' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Tax Invoice Dashboard', value: 'Billingdoc' } } }
+annotate entity ZC_TAXHDR with
+{
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'Tax Invoice Dashboard', type: #COLLECTION },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 5, id: 'GeneralData1' }
+  ]
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'BillingDocument', name:'ZCDS_INV_F4' },
+                                distinctValues: true,
+                                useForValidation: true }]
+  Billingdoc;
+  @UI.lineItem: [ { position: 8 } ]
+  @UI.identification: [ { position: 8 } ]
+  @UI.fieldGroup: [ { position: 8,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Delivery;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Invdate;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Invtype;
+ @UI.lineItem: [ { position: 16 } ]
+  @UI.identification: [ { position: 16 } ]
+  @UI.fieldGroup: [ { position: 16,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Textfield1;
+ @UI.lineItem: [ { position: 17 } ]
+  @UI.identification: [ { position: 17 } ]
+  @UI.fieldGroup: [ { position: 17,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Textfield2;
+ @UI.lineItem: [ { position: 18 } ]
+  @UI.identification: [ { position: 18 } ]
+  @UI.fieldGroup: [ { position: 18,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Textfield3;
+ @UI.lineItem: [ { position: 19 } ]
+  @UI.identification: [ { position: 19 } ]
+  @UI.fieldGroup: [ { position: 19,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Textfield4;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Invcreatedby;
+   @UI: {
+      identification: [{position: 21 },  { type: #FOR_ACTION, dataAction: 'PRINTDOM', label: 'Tax Invoice Domestic Print'} ]
+  }
+  Taxdomprint;
+   @UI: {
+      identification: [{position: 22 },  { type: #FOR_ACTION, dataAction: 'PRINTIGST', label: 'Tax Invoice IGST Print'} ]
+  }
+  Taxigstprint;
+   @UI: {
+      identification: [{position: 23 },  { type: #FOR_ACTION, dataAction: 'PRINTLUT', label: 'Tax Invoice LUT  Print'} ]
+  }
+  Taxlutprint;
+   @UI: {
+      identification: [{position: 24 },  { type: #FOR_ACTION, dataAction: 'PRINTPRO', label: 'Custom Invoice Print'} ]
+  }
+  Proinvprint;
+  @UI: {
+      identification: [{position: 25 },  { type: #FOR_ACTION, dataAction: 'PRINTPAT', label: 'Pattern Invoice Print'} ]
+  }
+  Patinvprint;
+  @UI: {
+      identification: [{position: 26 },  { type: #FOR_ACTION, dataAction: 'PRINTSAM', label: 'Sample Custom Invoice Print'} ]
+  }
+  Samcusprint;
+}

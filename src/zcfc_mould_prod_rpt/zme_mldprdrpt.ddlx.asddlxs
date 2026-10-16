@@ -1,0 +1,69 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Mould Production Report',
+                typeNamePlural:'Mould Production Report',
+                title: { type: #STANDARD, label: 'Mould Production Report', value: 'ID' }
+
+              }
+     }
+annotate entity ZC_MLDPRDRPT
+    with 
+{
+@UI.facet:
+     [{id: 'GeneralData', isSummary: true, label: 'Item Details', type: #COLLECTION, position: 5},
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Mould Production Report', id: 'GeneralData1' }]
+
+    @UI.hidden: true
+    ID;
+    @UI.hidden: true
+    Item;
+      @UI: { lineItem: [{ position: 5 }],
+        identification: [{ position: 5 }],
+        fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    prddate;
+          @UI: { lineItem: [{ position: 10 }],
+        identification: [{ position: 10 }],
+        fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    plntcd;
+          @UI: { lineItem: [{ position: 15 }],
+        identification: [{ position: 15 }],
+        fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    plntnm;
+          @UI: { lineItem: [{ position: 20 }],
+        identification: [{ position: 20 }],
+        fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    cstcntr;
+          @UI: { lineItem: [{ position: 25 }],
+        identification: [{ position: 25 }],
+        fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    cstcntrnm;
+          @UI: { lineItem: [{ position: 30 }],
+        identification: [{ position: 30 }],
+        fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    prftcntr;
+          @UI: { lineItem: [{ position: 35 }],
+        identification: [{ position: 35 }],
+        fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    prftcntrnm;
+          @UI: { lineItem: [{ position: 40 }],
+        identification: [{ position: 40 }],
+        fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    typeofmould;
+          @UI: { lineItem: [{ position: 45 }],
+        identification: [{ position: 45 }],
+        fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    Qty;
+          @UI: { lineItem: [{ position: 50 }],
+        identification: [{ position: 50 }],
+        fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    Remarks;
+          @UI: { lineItem: [{ position: 55 }],
+        identification: [{ position: 55 }],
+        fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    Extra1;
+          @UI: { lineItem: [{ position: 60 }],
+        identification: [{ position: 5 }],
+        fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    Extra2;
+    
+}

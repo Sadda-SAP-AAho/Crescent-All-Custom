@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Sales Register Short Format",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Register Short Format"
+  },
+  "ui5AppDetails": {
+    "appId": "zsalesregshrt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_3FB0E7E45A4F35319DBC0E4105983313AEC4C602_TM",
+    "semanticObject": "zsalesregshrt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_3FB0E7E45A4F35319DBC0E4105983313AEC4C602_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Register Short Format",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

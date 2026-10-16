@@ -1,0 +1,310 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'Docuuid'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'Docuuid'
+annotate view ZC_SCITM with
+{
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  
+  /*** DOCUMENT & HEADER INFORMATION ***/
+  @UI.identification: [ {
+    position: 10 
+  } ]
+  @UI.lineItem: [ {
+    position: 10 
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  Docuuid;
+  
+  @EndUserText.label: 'Line Number'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'Line Number'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'Line Number'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  LineNumber;
+  
+  /*** PRODUCT INFORMATION ***/
+  @EndUserText.label: 'Product Code'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Product Code'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'Product Code'
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  ProductCode;
+  
+  @EndUserText.label: 'Part Number'
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'Part Number'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 , 
+    label: 'Part Number'
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  PartNumber;
+  
+  @EndUserText.label: 'Plant'
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'Plant'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 , 
+    label: 'Plant'
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  Plant;
+  
+  @EndUserText.label: 'Condition Type'
+  @UI.identification: [ {
+    position: 60 , 
+    label: 'Condition Type'
+  } ]
+  @UI.lineItem: [ {
+    position: 60 , 
+    label: 'Condition Type'
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  ConditionType;
+  
+  @EndUserText.label: 'Description'
+  @UI.identification: [ {
+    position: 70 , 
+    label: 'Description'
+  } ]
+  @UI.lineItem: [ {
+    position: 70 , 
+    label: 'Description'
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  Description;
+  
+    
+  @EndUserText.label: 'Line Added In SC'
+  @UI.identification: [ {
+    position: 71
+  } ]
+  @UI.lineItem: [ {
+    position: 71
+  } ]
+  @UI.selectionField: [ {
+    position: 71 
+  } ]
+  LineAdded;
+  
+  @EndUserText.label: 'Revision'
+  @UI.identification: [ {
+    position: 80 , 
+    label: 'Revision'
+  } ]
+  @UI.lineItem: [ {
+    position: 80 , 
+    label: 'Revision'
+  } ]
+  @UI.selectionField: [ {
+    position: 80 
+  } ]
+  Revision;
+  
+  /*** QUANTITY & UOM ***/
+  @EndUserText.label: 'Unit of Measure'
+  @UI.identification: [ {
+    position: 90 , 
+    label: 'Unit of Measure'
+  } ]
+  @UI.lineItem: [ {
+    position: 90 , 
+    label: 'Unit of Measure'
+  } ]
+  @UI.selectionField: [ {
+    position: 90 
+  } ]
+  UOM;
+  
+  @EndUserText.label: 'Order Quantity'
+  @UI.identification: [ {
+    position: 100 , 
+    label: 'Order Quantity'
+  } ]
+  @UI.lineItem: [ {
+    position: 100 , 
+    label: 'Order Quantity'
+  } ]
+  @UI.selectionField: [ {
+    position: 100 
+  } ]
+  OrderQty;
+  
+  /*** PRICING ***/
+  @EndUserText.label: 'Unit Price'
+  @UI.identification: [ {
+    position: 110 , 
+    label: 'Unit Price'
+  } ]
+  @UI.lineItem: [ {
+    position: 110 , 
+    label: 'Unit Price'
+  } ]
+  @UI.selectionField: [ {
+    position: 110 
+  } ]
+  UnitPrice;
+  
+  @EndUserText.label: 'Extended Price'
+  @UI.identification: [ {
+    position: 120 , 
+    label: 'Extended Price'
+  } ]
+  @UI.lineItem: [ {
+    position: 120 , 
+    label: 'Extended Price'
+  } ]
+  @UI.selectionField: [ {
+    position: 120 
+  } ]
+  ExtPrice;
+  
+  @EndUserText.label: 'Tax Applicable'
+  @UI.identification: [ {
+    position: 130 , 
+    label: 'Tax Applicable'
+  } ]
+  @UI.lineItem: [ {
+    position: 130 , 
+    label: 'Tax Applicable'
+  } ]
+  @UI.selectionField: [ {
+    position: 130 
+  } ]
+  TaxApplicable;
+  
+  /*** DATES ***/
+  @EndUserText.label: 'Due Date'
+  @UI.identification: [ {
+    position: 140 , 
+    label: 'Due Date'
+  } ]
+  @UI.lineItem: [ {
+    position: 140 , 
+    label: 'Due Date'
+  } ]
+  @UI.selectionField: [ {
+    position: 140 
+  } ]
+  DueDate;
+  
+  @EndUserText.label: 'Ship By Date'
+  @UI.identification: [ {
+    position: 150 , 
+    label: 'Ship By Date'
+  } ]
+  @UI.lineItem: [ {
+    position: 150 , 
+    label: 'Ship By Date'
+  } ]
+  @UI.selectionField: [ {
+    position: 150 
+  } ]
+  ShipByDate;
+ 
+  
+  
+  /*** AUDIT FIELDS ***/
+  @EndUserText.label: 'Created By'
+  @UI.identification: [ {
+    position: 160 , 
+    label: 'Created By'
+  } ]
+  @UI.lineItem: [ {
+    position: 160 , 
+    label: 'Created By'
+  } ]
+  CreatedBy;
+  
+  @EndUserText.label: 'Created At'
+  @UI.identification: [ {
+    position: 170 , 
+    label: 'Created At'
+  } ]
+  @UI.lineItem: [ {
+    position: 170 , 
+    label: 'Created At'
+  } ]
+  CreatedAt;
+  
+  @EndUserText.label: 'Changed By'
+  @UI.identification: [ {
+    position: 180 , 
+    label: 'Changed By'
+  } ]
+  @UI.lineItem: [ {
+    position: 180 , 
+    label: 'Changed By'
+  } ]
+  ChangedBy;
+  
+  @EndUserText.label: 'Changed At'
+  @UI.identification: [ {
+    position: 190 , 
+    label: 'Changed At'
+  } ]
+  @UI.lineItem: [ {
+    position: 190 , 
+    label: 'Changed At'
+  } ]
+  ChangedAt;
+  
+  @EndUserText.label: 'Local Changed At'
+  @UI.identification: [ {
+    position: 200 , 
+    label: 'Local Changed At'
+  } ]
+  @UI.lineItem: [ {
+    position: 200 , 
+    label: 'Local Changed At'
+  } ]
+  LocalChangedAt;
+  
+  /*** ASSOCIATIONS/REFERENCES ***/
+  @EndUserText.label: 'Base Entity'
+  @UI.identification: [ {
+    position: 210 , 
+    label: 'Base Entity'
+  } ]
+  @UI.lineItem: [ {
+    position: 210 , 
+    label: 'Base Entity'
+  } ]
+  _BaseEntity;
+}

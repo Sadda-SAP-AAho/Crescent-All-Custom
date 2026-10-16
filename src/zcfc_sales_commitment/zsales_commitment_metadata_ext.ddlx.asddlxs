@@ -1,0 +1,96 @@
+@Metadata.layer: #PARTNER
+@UI.headerInfo: {
+    typeName: 'Sales Commitment',
+    typeNamePlural: 'Commitment Dashboard',
+    typeImageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgdkZGiw9frLmFH3f3k0GrhK0pi-GpDpM2bw&s'
+
+//    title: {
+//        type: #STANDARD,
+//        label: 'Sales Commitment',
+//        value: 'Customer_Name'
+//    }
+}
+@Search.searchable: true
+annotate entity Z_C_Sales_Commitment with
+{
+
+  @UI.facet: [{
+      id: 'Head',
+      purpose: #STANDARD,
+      position: 10,
+      label: 'Commitment Header Data',
+      type: #IDENTIFICATION_REFERENCE
+  },
+
+
+  { id: 'item',purpose: #STANDARD, type: #LINEITEM_REFERENCE, position: 20, targetElement: '_Item', label: 'Commitment Item Data' }]
+
+
+
+  @UI.lineItem: [{ position: 2,  label: 'Commitment Code' }]
+  @UI.identification: [{ position: 2, label: 'Commitment Code' }]
+  @EndUserText.label: 'Sales Commitment Code'
+  docnum;
+
+  @UI.hidden: true
+  keyid;
+
+  @UI.lineItem: [{ position: 5,  label: 'Commitment Name' }]
+  @UI.identification: [{ position: 5, label: 'Commitment Name' }]
+  @EndUserText.label: 'Sales Commitment Name'
+  sales_comm_name;
+
+  @UI.lineItem: [{ position: 10,  label: 'Sales Group' }]
+  @UI.identification: [{ position: 10, label: 'Sales Group' }]
+  @EndUserText.label: 'Sales Group'
+  @Consumption.valueHelpDefinition: [{
+  qualifier: '',
+  entity: {
+      name: 'ZCDS_SALES_CODE_F4',
+      element: 'SalesGroup'
+  },
+     distinctValues: true,
+    useForValidation: true,
+    additionalBinding: [{ localElement: 'Sales_employee_name', element: 'SalesPerson',usage: #RESULT}]}]
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.7
+  Sales_employee_code;
+  @UI.lineItem: [{ position: 20,  label: 'Sales Person' }]
+  @UI.identification: [{ position: 20, label: 'Sales Person' }]
+  @EndUserText.label: 'Sales Person'
+  Sales_employee_name;
+  @UI.lineItem: [{ position: 30,  label: 'Fiscal Year' }]
+  @UI.identification: [{ position: 30, label: 'Fiscal Year' }]
+  @Consumption.valueHelpDefinition: [{ entity: {
+      name: 'ZCDS_Fiscal_F4',
+      element: 'Fiscal_Year'
+  } }]
+  @UI.selectionField: [{ position: 10 }]
+  @EndUserText.label: 'Fiscal Year'
+  Fiscal_year;
+  @UI.lineItem: [{ position: 200 }]
+  @UI.identification: [{ position: 200, label: 'Created At' }]
+  @EndUserText.label: 'Created At'
+  Created_at;
+  @UI.lineItem: [{ position: 210 }]
+  @UI.identification: [{ position: 210, label: 'Created By' }]
+  @EndUserText.label: 'Created By'
+  Created_by;
+  @UI.lineItem: [{ position: 220 }]
+  @UI.identification: [{ position: 220, label: 'Last Changed At' }]
+  @EndUserText.label: 'Last Changed At'
+  Last_changed_at;
+  @UI.lineItem: [{ position: 230 }]
+  @UI.identification: [{ position: 230, label: 'Last Changed By' }]
+  @EndUserText.label: 'Last Changed By'
+  Last_changed_by;
+  @UI.lineItem: [{ position: 240,  label: 'Comittment Type' }]
+  @UI.identification: [{ position: 240, label: 'Comittment Type' }]
+  @Consumption.valueHelpDefinition: [{ entity: {
+      name: 'ZI_COMMTYPE',
+      element: 'commtype'
+  } }]
+  @EndUserText.label: 'Fiscal Year'
+  Commitment_type;
+
+}

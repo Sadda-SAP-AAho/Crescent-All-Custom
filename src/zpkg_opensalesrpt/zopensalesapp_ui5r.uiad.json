@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Open Sales Order",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Open Sales Order"
+  },
+  "ui5AppDetails": {
+    "appId": "zopenso"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_99C63D5F958336815A40CDF83B1DB5E2D0B8A796_TM",
+    "semanticObject": "zopensalesapp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_99C63D5F958336815A40CDF83B1DB5E2D0B8A796_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Open Sales Order",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

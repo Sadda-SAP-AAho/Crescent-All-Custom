@@ -1,0 +1,90 @@
+managed with additional save implementation in class ZBP_I_DATABASETABLEFORREG_S unique;
+strict;
+with draft;
+define behavior for ZI_DatabaseTableForReg_S alias DatabaseTableForAll
+draft table ZDT_REGION__D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   HideTransport,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _DatabaseTableForReg { create ( features : instance ); with draft; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_DatabaseTableForReg alias DatabaseTableForReg ##UNMAPPED_FIELD
+persistent table ZDT_REGION_TMG
+draft table ZDT_REGION_TM_D
+etag master LocalLastChangedAt
+lock dependent by _DatabaseTableForAll
+authorization dependent by _DatabaseTableForAll
+
+{
+  field ( mandatory : create )
+   Region,
+   Regioncode;
+
+  field ( readonly )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt,
+   ConfigDeprecationCode,
+   ConfigDeprecationCode_Critlty;
+
+  field ( readonly : update )
+   Region,
+   Regioncode;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+
+  update( features : global );
+  delete( features : instance );
+
+  action ( features : instance ) Deprecate result [1] $self;
+  action ( features : instance ) Invalidate result [1] $self;
+
+  mapping for ZDT_REGION_TMG
+  {
+    Region = REGION;
+    Regioncode = REGIONCODE;
+    Regionname = REGIONNAME;
+    Country = COUNTRY;
+    ConfigDeprecationCode = CONFIGDEPRECATIONCODE;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _DatabaseTableForAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

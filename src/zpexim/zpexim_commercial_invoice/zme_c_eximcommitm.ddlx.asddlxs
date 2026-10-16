@@ -1,0 +1,237 @@
+@Metadata.layer: #CORE
+
+@UI: {
+        presentationVariant: [{ sortOrder: [{ by: 'Invoice', direction:  #DESC }],
+                                visualizations: [{type: #AS_LINEITEM}],
+                                text: 'Invoice' }]
+     }
+
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Name', value: 'Materialdescription' } } }
+
+
+annotate view ZC_EXIMCOMMITM with
+{
+
+  @UI.facet: [
+  {
+  id: 'GeneralI',
+  isSummary: true,
+  label: 'General Information',
+  type: #COLLECTION,
+  purpose: #STANDARD
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData1',
+  parentId: 'GeneralI',
+  label: 'Billing Information',
+  id: 'GeneralData1'
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData5',
+  parentId: 'GeneralI',
+  label: 'Goods Information',
+  id: 'GeneralData5'
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData2',
+  parentId: 'GeneralI',
+  label: 'Reference Documents',
+  id: 'GeneralData2'
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData3',
+  parentId: 'GeneralI',
+  label: 'Misc. Information',
+  id: 'GeneralData3'
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData4',
+  parentId: 'GeneralI',
+  label: 'Weight Information',
+  id: 'GeneralData4'
+  }
+  ]
+
+  @UI.hidden: true
+  Id;
+
+  @UI.hidden: true
+  Item;
+
+  @UI: {
+         lineItem: [ { position: 10} ],
+         identification: [{position: 10 }],
+         fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
+  }
+  Invoice;
+
+  @UI: {
+       lineItem: [ { position: 20} ],
+       identification: [{position: 20 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }]
+  }
+  Invoiceitem;
+
+  @UI: {
+       lineItem: [ { position: 30} ],
+       identification: [{position: 30 }],
+       fieldGroup: [{qualifier: 'GeneralData5',position: 10,importance: #HIGH }]
+  }
+  Material;
+
+  @UI: {
+       lineItem: [ { position: 40} ],
+       identification: [{position: 40 }],
+       fieldGroup: [{qualifier: 'GeneralData5',position: 20,importance: #HIGH }]
+  }
+  Materialdescription;
+
+  @UI: {
+       lineItem: [ { position: 50} ],
+       identification: [{position: 50 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 50,importance: #HIGH }]
+  }
+  @UI.hidden: true
+  Uom;
+
+  @UI: {
+       lineItem: [ { position: 60} ],
+       identification: [{position: 60 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 60,importance: #HIGH }]
+  }
+  Quantity;
+
+  @UI: {
+       lineItem: [ { position: 70} ],
+       identification: [{position: 70 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 70,importance: #HIGH }]
+  }
+  @UI.hidden: true
+  Weightuom;
+
+  @UI: {
+       lineItem: [ { position: 80} ],
+       identification: [{position: 80 }],
+       fieldGroup: [{qualifier: 'GeneralData4',position: 10,importance: #HIGH }]
+  }
+  Netweight;
+
+  @UI: {
+       lineItem: [ { position: 90} ],
+       identification: [{position: 90 }],
+       fieldGroup: [{qualifier: 'GeneralData4',position: 20,importance: #HIGH }]
+  }
+  Grossweight;
+
+  @UI: {
+       lineItem: [ { position: 100} ],
+       identification: [{position: 100 }],
+       fieldGroup: [{qualifier: 'GeneralData4',position: 30,importance: #HIGH }]
+  }
+  Packingweight;
+
+  @UI: {
+       lineItem: [ { position: 110} ],
+       identification: [{position: 110 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 110,importance: #HIGH }]
+  }
+  @UI.hidden: true
+  Currency;
+
+  @UI: {
+       lineItem: [ { position: 120} ],
+       identification: [{position: 120 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 120,importance: #HIGH }]
+  }
+  Rate;
+
+  @UI: {
+       lineItem: [ { position: 130} ],
+       identification: [{position: 130 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 130,importance: #HIGH }]
+  }
+  Amount;
+
+  @UI: {
+       //lineItem: [ { position: 140} ],
+       identification: [{position: 140 }],
+       fieldGroup: [{qualifier: 'GeneralData3',position: 140,importance: #HIGH }]
+  }
+  Packageremarks;
+
+  @UI: {
+      //lineItem: [ { position: 150} ],
+       identification: [{position: 150 }],
+       fieldGroup: [{qualifier: 'GeneralData3',position: 150,importance: #HIGH }]
+  }
+  Sizeremarks;
+
+  @UI: {
+       //lineItem: [ { position: 160} ],
+       identification: [{position: 160 }],
+       fieldGroup: [{qualifier: 'GeneralData5',position:30,importance: #HIGH }]
+  }
+  Harmoniccode;
+
+  @UI: {
+       lineItem: [ { position: 170} ],
+       identification: [{position: 170 }],
+       fieldGroup: [{qualifier: 'GeneralData2',position: 170,importance: #HIGH }]
+  }
+  Delivery;
+
+  @UI: {
+       //lineItem: [ { position: 180} ],
+       identification: [{position: 180 }],
+       fieldGroup: [{qualifier: 'GeneralData2',position: 180,importance: #HIGH }]
+  }
+  Deliveryitem;
+
+  @UI: {
+       lineItem: [ { position: 190} ],
+       identification: [{position: 190 }],
+       fieldGroup: [{qualifier: 'GeneralData2',position: 190,importance: #HIGH }]
+  }
+  Salesorder;
+
+  @UI: {
+       //lineItem: [ { position: 200} ],
+       identification: [{position: 200 }],
+       fieldGroup: [{qualifier: 'GeneralData2',position: 200,importance: #HIGH }]
+  }
+  Salesorderitem;
+
+  @UI: {
+       lineItem: [ { position: 210} ],
+       identification: [{position: 210 }],
+       fieldGroup: [{qualifier: 'GeneralData2',position: 210,importance: #HIGH }]
+  }
+  @UI.hidden: true
+  Contract;
+
+  @UI: {
+       //lineItem: [ { position: 220} ],
+       identification: [{position: 220 }],
+       fieldGroup: [{qualifier: 'GeneralData2',position: 220,importance: #HIGH }]
+  }
+  @UI.hidden: true
+  Contractitem;
+
+  @UI: {
+       lineItem: [ { position: 230} ],
+       identification: [{position: 230 }],
+       fieldGroup: [{qualifier: 'GeneralData2',position: 230,importance: #HIGH }]
+  }
+  Reference;
+
+}

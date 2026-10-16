@@ -1,0 +1,94 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by:  'Expansetype', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Expense Condition' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Expense Condition Record Dashboard', value: 'Expansetype' } } }
+annotate entity ZC_EXPENSECOND with
+{
+  @UI.facet:
+   [{ id: 'GeneralData', isSummary: true, label: 'Expense Condition', type: #COLLECTION },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Section 1', id: 'GeneralData1' },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 20, label: 'Section 2', id: 'GeneralData2' }
+   ]
+
+  @UI.hidden: true
+  id;
+  @EndUserText.label: 'Company Code'
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'CompanyCode', name:'I_CompanyCode' },
+                                            distinctValues: true,
+                                            useForValidation: true } ]
+  companycode;
+
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity: {name: 'ZI_CONSIZE_F4' , element: 'value_low' },
+                                       distinctValues: true,
+                                       useForValidation: true
+                                    }]
+  Contsize;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'sline', name:'ZI_SHIPLINE_F4' },
+                                             distinctValues: true,
+                                             useForValidation: true
+                                 }]
+
+  Shipline;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Supplier', name:'ZI_FORWARDER_F4' },
+                                              distinctValues: true,
+                                              useForValidation: true
+                                  }]
+  Forwarder;
+  
+  @UI.lineItem: [ { position: 28 } ]
+  @UI.identification: [ { position: 28 } ]
+  @UI.fieldGroup: [ { position: 28,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'text', name: 'ZI_COD_F4' },
+                                              distinctValues: true,
+                                              useForValidation: true
+                                  }]
+  Countrydest;
+  
+  @UI.lineItem: [ { position: 33 } ]
+  @UI.identification: [ { position: 33 } ]
+  @UI.fieldGroup: [ { position: 33,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_EXPENSETYPE_F4', element: 'Expansetype'} } ]
+
+  Expansetype;
+  @UI.lineItem: [ { position: 31 } ]
+  @UI.identification: [ { position: 31 } ]
+  @UI.fieldGroup: [ { position: 31,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_PERSHIPCONT_F4', element: 'value_low'},
+                                       distinctValues: true,
+                                       useForValidation: true
+                                    } ]    
+  
+  percontship;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Fromdate;
+
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData2', importance: #HIGH } ]
+
+  Todate;
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Amount;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Currency;
+
+}

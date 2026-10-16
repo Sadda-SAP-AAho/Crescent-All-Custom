@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Material Information Upload",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Material Information Upload"
+  },
+  "ui5AppDetails": {
+    "appId": "zmatupload"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_CA1AB9B457D14631500623DD302385D9E7EEC15A_TM",
+    "semanticObject": "zmatupload",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_CA1AB9B457D14631500623DD302385D9E7EEC15A_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Material Information Upload"
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'ProductGroupMainten', 
+    typeNamePlural: 'ProductGroupMaintens', 
+    title: {
+      type: #STANDARD, 
+      label: 'Product Group Maintenance', 
+      value: 'Productgroup'
+    }
+  }
+}
+annotate view ZI_ProductGroupMainten with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_ProductGroupMainten', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Product Group Maintenance', 
+    position: 1 
+  } ]
+  Productgroup;
+}

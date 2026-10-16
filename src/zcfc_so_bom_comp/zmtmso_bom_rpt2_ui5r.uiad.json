@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "MTM SO BOM Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Material Type Master Sales Order BOM Report"
+  },
+  "ui5AppDetails": {
+    "appId": "com.crescent.app.mtmsobomreport2"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_94A055B54DB60AC3F8CE906824AA8AD17D20D7F5_TM",
+    "semanticObject": "ZMTMSOBOMREPORT",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_94A055B54DB60AC3F8CE906824AA8AD17D20D7F5_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Material Type Master Sales Order BOM Report"
+      }
+    }
+  ]
+}

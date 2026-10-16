@@ -1,0 +1,47 @@
+managed implementation in class zbp_i_supp_pay_req unique;
+strict;
+with draft;
+
+define behavior for ZI_SUPP_PAY_REQ  //alias <alias_name>
+persistent table zdt_supp_pay_req
+draft table zdr_supp_pay_req
+lock master
+total etag DocNum
+authorization master ( instance )
+{
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly ) DocNum, CreatedBy, CreatedByName, VendorName;
+
+  create;
+  update;
+  delete;
+  determination determinedocnum on save { create; }
+  determination getvendorname on modify { field VendorCode; }
+  side effects { field VendorCode affects field VendorName; }
+
+  determination setcreatedby on save { create; }
+
+  mapping for zdt_supp_pay_req
+    {
+      Id            = id;
+      Keyid         = keyid;
+      fisyear       = fisyear;
+      Creon         = creon;
+      DocNum        = doc_num;
+      DocDate       = doc_date;
+      CreatedBy     = created_by;
+      CreatedByName = created_by_name;
+      VendorCode    = vendor_code;
+      VendorName    = vendor_name;
+      PaymentAmount = payment_amount;
+    }
+}

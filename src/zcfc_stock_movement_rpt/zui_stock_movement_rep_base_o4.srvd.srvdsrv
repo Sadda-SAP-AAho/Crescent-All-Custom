@@ -1,0 +1,12 @@
+@EndUserText: {
+  label: 'Item Data'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZI_STOCK_MOVEMENT_REP_BASE'
+  }
+}
+define service ZUI_STOCK_MOVEMENT_REP_BASE_O4 {
+  expose ZI_STOCK_MOVEMENT_REP_BASE;
+  expose ZR_STOCK_MOVEMENT_REP_BASE;
+}

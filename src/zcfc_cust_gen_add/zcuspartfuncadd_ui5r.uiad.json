@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Customer Partner Function Address"
+  },
+  "ui5AppDetails": {
+    "appId": "zcuspartfuncadd"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_B6EA1539658469AB91E7884FEF60818E07A6BDCE_TM",
+    "semanticObject": "zcuspartfuncadd",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_B6EA1539658469AB91E7884FEF60818E07A6BDCE_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Customer Partner Function Address",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

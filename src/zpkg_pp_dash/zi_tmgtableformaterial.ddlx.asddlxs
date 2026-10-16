@@ -1,0 +1,40 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgTableForMaterial', 
+    typeNamePlural: 'TmgTableForMaterials', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG table for Material Grp vs Operation', 
+      value: 'Zopn'
+    }
+  }
+}
+annotate view ZI_TmgTableForMaterial with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgTableForMaterial', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG table for Material Grp vs Operation', 
+    position: 1 
+  } ]
+  Zopn;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'ProductGroup', name:'ZI_PGRP_F4' },
+                                                distinctValues: true
+  } ]
+  Matkl;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'Bank Status Head'
+define service Zsd_bank_stat_head {
+  expose ZC_bank_stat_head;
+  expose ZC_bank_stat_item;
+  expose zc_bank_stat_log;
+}

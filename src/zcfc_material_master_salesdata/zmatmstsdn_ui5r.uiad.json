@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Material Master Details Sales Data Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Material Master Details Sales Data"
+  },
+  "ui5AppDetails": {
+    "appId": "zmatmstsdn"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_9D12E3FBB7D437E7E1964AC2029E85CBA07E0389_TM",
+    "semanticObject": "zmatmstsdn",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_9D12E3FBB7D437E7E1964AC2029E85CBA07E0389_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Material Master Details Sales Data",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

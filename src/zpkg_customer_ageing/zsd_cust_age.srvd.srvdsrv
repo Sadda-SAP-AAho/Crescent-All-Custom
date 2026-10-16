@@ -1,0 +1,4 @@
+@EndUserText.label: 'Customer Aeging'
+define service ZSD_CUST_AGE {
+  expose ZC_CUST_AGE;
+}

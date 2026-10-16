@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "DPR BAGNAN",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "DPR BAGNAN"
+  },
+  "ui5AppDetails": {
+    "appId": "zdprvacb"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_91061E359FBF1F525FA5F63F140C4408A25F1056_TM",
+    "semanticObject": "zdprvacb",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_91061E359FBF1F525FA5F63F140C4408A25F1056_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "DPR BAGNAN"
+      }
+    }
+  ]
+}

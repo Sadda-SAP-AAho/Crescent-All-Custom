@@ -1,0 +1,115 @@
+@Metadata.layer: #CORE
+
+@UI: {
+        presentationVariant: [{ sortOrder: [{ by: 'Paymenttext', direction:  #DESC }],
+                                visualizations: [{type: #AS_LINEITEM}],
+                                text: 'Additional' }]
+     }
+
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Additional', value: 'Paymenttext' } } }
+
+annotate view ZC_EXIMCOMMADD with
+{
+
+  @UI.facet: [
+  {
+  id: 'GeneralI',
+  isSummary: true,
+  label: 'General Information',
+  type: #COLLECTION,
+  purpose: #STANDARD
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData1',
+  parentId: 'GeneralI',
+  label: 'Payment',
+  id: 'GeneralData1'
+  },
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData2',
+  parentId: 'GeneralI',
+  label: 'Invoice Remarks',
+  id: 'GeneralData2'
+  },
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData3',
+  parentId: 'GeneralI',
+  label: 'Material Remarks',
+  id: 'GeneralData3'
+  },
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData4',
+  parentId: 'GeneralI',
+  label: 'Tax Remarks',
+  id: 'GeneralData4'
+  }
+  ]
+
+  @UI.hidden: true
+  Id;
+
+  @UI.hidden: true
+  Item;
+
+  @UI: {
+         lineItem: [ { position: 10} ],
+         identification: [{position: 10 }],
+         fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
+  }
+  Paymenttext;
+
+  @UI: {
+        lineItem: [ { position: 20} ],
+        identification: [{position: 20 }],
+        fieldGroup: [{qualifier: 'GeneralData2',position: 20,importance: #HIGH }]
+  }
+  Invoiceremarks1;
+
+  @UI: {
+       //lineItem: [ { position: 30} ],
+       identification: [{position: 30 }],
+       fieldGroup: [{qualifier: 'GeneralData2',position: 30,importance: #HIGH }]
+  }
+  Invoiceremarks2;
+
+  @UI: {
+       //lineItem: [ { position: 40} ],
+       identification: [{position: 40 }],
+       fieldGroup: [{qualifier: 'GeneralData2',position: 10,importance: #HIGH }]
+  }
+  Invoiceremarks3;
+
+  @UI: {
+       lineItem: [ { position: 50} ],
+       identification: [{position: 50 }],
+       fieldGroup: [{qualifier: 'GeneralData4',position: 50,importance: #HIGH }]
+  }
+  Taxremarks;
+
+  @UI: {
+       lineItem: [ { position: 60} ],
+       identification: [{position: 60 }],
+       fieldGroup: [{qualifier: 'GeneralData3',position: 60,importance: #HIGH }]
+  }
+  Materialdesc1;
+
+  @UI: {
+       //lineItem: [ { position: 70} ],
+       identification: [{position: 70 }],
+       fieldGroup: [{qualifier: 'GeneralData3',position: 70,importance: #HIGH }]
+  }
+  Materialdesc2;
+
+  @UI: {
+       //lineItem: [ { position: 80} ],
+       identification: [{position: 80 }],
+       fieldGroup: [{qualifier: 'GeneralData3',position: 80,importance: #HIGH }]
+  }
+  Materialdesc3;
+
+}

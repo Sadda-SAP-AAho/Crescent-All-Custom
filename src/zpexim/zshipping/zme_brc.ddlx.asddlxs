@@ -1,0 +1,62 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+    headerInfo: {
+        typeName: 'BRC Excel Data',
+        typeNamePlural: 'BRC Excel Data',
+        title: { type: #STANDARD, value: 'ShippingBill' }
+    }
+}
+
+annotate entity ZC_BRC with
+{
+  
+  
+  @UI.facet: [
+     { id: 'GeneralI',isSummary: true, label: 'BRC Item Details', type: #COLLECTION, purpose: #STANDARD },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1',parentId: 'GeneralI',label: 'Section 1', id: 'GeneralData1' }
+   ]
+  @UI.hidden: true
+  Id;
+  
+  @UI: {
+        lineItem: [ { position: 5,  criticality: 'Criticality' } ],
+        identification: [{position: 5 }],
+        fieldGroup: [{qualifier: 'GeneralData1', label: 'Upload Status', position: 5,importance: #HIGH, criticality: 'Criticality' }]
+  }
+  Updstatus;
+  
+  
+  @UI: {
+        lineItem: [ { position: 10} ],
+        identification: [{position: 10 }],
+        fieldGroup: [{qualifier: 'GeneralData1', label: 'Shipping Status', position: 10,importance: #HIGH }]
+  }
+  ShippingBill;
+ 
+  @UI: {
+        lineItem: [ { position: 20} ],
+        identification: [{position: 20 }],
+        fieldGroup: [{qualifier: 'GeneralData1', label: 'BRC No.',position: 20,importance: #HIGH }]
+  }
+  Brcno;
+  @UI: {
+        lineItem: [ { position: 30} ],
+        identification: [{position: 30 }],
+        fieldGroup: [{qualifier: 'GeneralData1',label: 'BRC Date', position: 30,importance: #HIGH }]
+  }
+  Brcdate;
+  @UI: {
+        lineItem: [ { position: 40} ],
+        identification: [{position: 40 }],
+        fieldGroup: [{qualifier: 'GeneralData1', label: 'BRC Value', position: 40,importance: #HIGH }]
+  }
+  Brcvalue;
+  
+  @UI: {
+        lineItem: [ { position: 50} ],
+        identification: [{position: 50 }],
+        fieldGroup: [{qualifier: 'GeneralData1', label: 'Validation Message', position: 50,importance: #HIGH }]
+  }
+  Message;
+
+}

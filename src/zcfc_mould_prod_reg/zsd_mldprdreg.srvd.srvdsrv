@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Mld Prod Reg'
+define service ZSD_MLDPRDREG {
+  expose ZC_MLDPRDREGHED;
+  expose ZC_MLDPRDREGITM;
+}

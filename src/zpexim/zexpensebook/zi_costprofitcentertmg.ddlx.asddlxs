@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'CostProfitCenterTmg', 
+    typeNamePlural: 'CostProfitCenterTmgs', 
+    title: {
+      type: #STANDARD, 
+      label: 'Cost & Profit Center TMG', 
+      value: 'Profitcenter'
+    }
+  }
+}
+annotate view ZI_CostProfitCenterTmg with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_CostProfitCenterTmg', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Cost & Profit Center TMG', 
+    position: 1 
+  } ]
+  Profitcenter;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Costcenter;
+}

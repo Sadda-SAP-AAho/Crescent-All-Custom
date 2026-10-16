@@ -1,0 +1,260 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'rfqno', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Estimate Vacuum-Report' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Estimate Vacuum-Report', value: 'rfqno' } } }
+annotate entity ZC_ESTVACRPT with
+{
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'Estimate Vacuum-Report', type: #COLLECTION },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'General Data', id: 'GeneralData1' },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15, label: 'Freight Data', id: 'GeneralData2' } ]
+
+  @UI.hidden: true
+  id;
+  @UI: { lineItem: [{ position: 5 }],
+      identification: [{ position: 5 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+  rfqno;
+  @UI: { lineItem: [{ position: 10 }],
+      identification: [{ position: 10 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 10}]
+  rfqdate;
+  @UI: { lineItem: [{ position: 15 }],
+      identification: [{ position: 15 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 15, importance: #HIGH }] }
+  matcd;
+  @UI: { lineItem: [{ position: 18 }],
+       identification: [{ position: 18 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 18, importance: #HIGH }] }
+  rejection;
+  @UI: { lineItem: [{ position: 20 }],
+       identification: [{ position: 20 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  tolerance;
+  @UI: { lineItem: [{ position: 25 }],
+       identification: [{ position: 25 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 25, importance: #HIGH }] }
+  margin;
+  @UI: { lineItem: [{ position: 30 }],
+       identification: [{ position: 30 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+  amtmrgn;
+  @UI: { lineItem: [{ position: 45 }],
+       identification: [{ position: 45 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 45, importance: #HIGH }] }
+  fxdcst_ue;
+  @UI: { lineItem: [{ position: 50 }],
+       identification: [{ position: 50 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 50, importance: #HIGH }] }
+  line;
+  @UI: { lineItem: [{ position: 65 }],
+       identification: [{ position: 65 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 65, importance: #HIGH }] }
+  annualqty;
+  @UI: { lineItem: [{ position: 70 }],
+       identification: [{ position: 70 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 70, importance: #HIGH }] }
+  mouldspd;
+  @UI: { lineItem: [{ position: 75 }],
+       identification: [{ position: 75 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 75, importance: #HIGH }] }
+  reqweight;
+  @UI: { lineItem: [{ position: 76 }],
+       identification: [{ position: 76 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 76, importance: #HIGH }] }
+  nominal;
+  @UI: { lineItem: [{ position: 80 }],
+       identification: [{ position: 80 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 80, importance: #HIGH }] }
+  noofcav;
+  @UI: { lineItem: [{ position: 85 }],
+       identification: [{ position: 85 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 85, importance: #HIGH }] }
+  yield;
+  @UI: { lineItem: [{ position: 90 }],
+       identification: [{ position: 90 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 90, importance: #HIGH }] }
+  addacccost;
+  @UI: { lineItem: [{ position: 95 }],
+       identification: [{ position: 95 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 95, importance: #HIGH }] }
+  drillperfacing;
+  @UI: { lineItem: [{ position: 100 }],
+       identification: [{ position: 100 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 100, importance: #HIGH }] }
+  srfcarea;
+
+  @UI: { lineItem: [{ position: 107 }],
+       identification: [{ position: 107 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 107, importance: #HIGH }] }
+  chrgingcst;
+  @UI: { lineItem: [{ position: 108 }],
+     identification: [{ position: 108 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 108, importance: #HIGH }] }
+  metalcstperton;
+  @UI: { lineItem: [{ position: 115 }],
+       identification: [{ position: 115 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 115, importance: #HIGH }] }
+  elccst;
+  @UI: { lineItem: [{ position: 125 }],
+       identification: [{ position: 125 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 125, importance: #HIGH }] }
+  mldcst;
+  @UI: { lineItem: [{ position: 150 }],
+       identification: [{ position: 150 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 150, importance: #HIGH }] }
+  acccavity;
+  @UI: { lineItem: [{ position: 155 }],
+       identification: [{ position: 155 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 155, importance: #HIGH }] }
+  packngcst;
+  @UI: { lineItem: [{ position: 160 }],
+       identification: [{ position: 160 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 160, importance: #HIGH }] }
+  corecstcav;
+  @UI: { lineItem: [{ position: 165 }],
+       identification: [{ position: 165 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 165, importance: #HIGH }] }
+  curr;
+  @UI: { lineItem: [{ position: 170 }],
+       identification: [{ position: 170 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 170, importance: #HIGH }] }
+  tonnagecal;
+  @UI: { lineItem: [{ position: 175 }],
+       identification: [{ position: 175 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 175, importance: #HIGH }] }
+  wgtprbxcal;
+  @UI: { lineItem: [{ position: 180 }],
+       identification: [{ position: 180 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 180, importance: #HIGH }] }
+  mltngcstmtcal;
+  @UI: { lineItem: [{ position: 185 }],
+       identification: [{ position: 185 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 185, importance: #HIGH }] }
+  totlcstmtcal;
+  @UI: { lineItem: [{ position: 190 }],
+       identification: [{ position: 190 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 190, importance: #HIGH }] }
+  totlcsttolcal;
+  @UI: { lineItem: [{ position: 195 }],
+       identification: [{ position: 195 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 195, importance: #HIGH }] }
+  mtlcstprpccal;
+  @UI: { lineItem: [{ position: 200 }],
+       identification: [{ position: 200 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 200, importance: #HIGH }] }
+  labmldperbxcal;
+  @UI: { lineItem: [{ position: 205 }],
+       identification: [{ position: 205 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 205, importance: #HIGH }] }
+  mntprpccal;
+  @UI: { lineItem: [{ position: 210 }],
+       identification: [{ position: 210 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 210, importance: #HIGH }] }
+  fetcstprpccal;
+  @UI: { lineItem: [{ position: 215 }],
+       identification: [{ position: 215 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 215, importance: #HIGH }] }
+  cstmldprmtcal;
+  @UI: { lineItem: [{ position: 220 }],
+       identification: [{ position: 220 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 220, importance: #HIGH }] }
+  pntprmrcstcal;
+  @UI: { lineItem: [{ position: 225 }],
+       identification: [{ position: 225 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 225, importance: #HIGH }] }
+  mnfcostcal;
+  @UI: { lineItem: [{ position: 230 }],
+       identification: [{ position: 230 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 230, importance: #HIGH }] }
+  cstvaprpccal;
+  @UI: { lineItem: [{ position: 235 }],
+       identification: [{ position: 235 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 235, importance: #HIGH }] }
+  fcprkgcal;
+  @UI: { lineItem: [{ position: 240 }],
+       identification: [{ position: 240 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 240, importance: #HIGH }] }
+  sellexpcal;
+  @UI: { lineItem: [{ position: 245 }],
+       identification: [{ position: 245 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 245, importance: #HIGH }] }
+  seperkg;
+  @UI: { lineItem: [{ position: 250 }],
+       identification: [{ position: 250 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 250, importance: #HIGH }] }
+  exchngrt;
+  @UI: { lineItem: [{ position: 255 }],
+       identification: [{ position: 255 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 255, importance: #HIGH }] }
+  totlcstprpccal;
+  @UI: { lineItem: [{ position: 260 }],
+       identification: [{ position: 260 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 260, importance: #HIGH }] }
+  totlcstprkgcal;
+  @UI: { lineItem: [{ position: 265 }],
+       identification: [{ position: 265 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 265, importance: #HIGH }] }
+  cstusdprmtcal;
+  @UI: { lineItem: [{ position: 270 }],
+       identification: [{ position: 270 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 270, importance: #HIGH }] }
+  pckngcstcal;
+  @UI: { lineItem: [{ position: 275 }],
+       identification: [{ position: 275 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 275, importance: #HIGH }] }
+  offprprccal;
+  @UI: { lineItem: [{ position: 280 }],
+       identification: [{ position: 280 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 280, importance: #HIGH }] }
+  offprkgcal;
+  @UI: { lineItem: [{ position: 285 }],
+       identification: [{ position: 285 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 285, importance: #HIGH }] }
+  usdprpccal;
+  @UI: { lineItem: [{ position: 290 }],
+       identification: [{ position: 290 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 290, importance: #HIGH }] }
+  usdprmtcal;
+  @UI: { lineItem: [{ position: 295 }],
+       identification: [{ position: 295 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 295, importance: #HIGH }] }
+  prcprlbcal;
+  @UI: { lineItem: [{ position: 300 }],
+     identification: [{ position: 300 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 300, importance: #HIGH }] }
+  agreedincoterm;
+  @UI: { lineItem: [{ position: 301 }],
+     identification: [{ position: 301 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 301, importance: #HIGH }] }
+  freightchrg;
+  @UI: { lineItem: [{ position: 305 }],
+     identification: [{ position: 305 }],
+     fieldGroup: [{ qualifier: 'GeneralData2', position: 305, importance: #HIGH }] }
+  frghtkgFX;
+  @UI: { lineItem: [{ position: 310 }],
+   identification: [{ position: 310 }],
+   fieldGroup: [{ qualifier: 'GeneralData2', position: 310, importance: #HIGH }] }
+  frghtpc;
+  @UI: { lineItem: [{ position: 315 }],
+  identification: [{ position: 315 }],
+  fieldGroup: [{ qualifier: 'GeneralData2', position: 315, importance: #HIGH }] }
+  partpcs;
+  @UI: { lineItem: [{ position: 320 }],
+  identification: [{ position: 320 }],
+  fieldGroup: [{ qualifier: 'GeneralData2', position: 320, importance: #HIGH }] }
+  inrkg;
+  @UI: { lineItem: [{ position: 325 }],
+  identification: [{ position: 325 }],
+  fieldGroup: [{ qualifier: 'GeneralData2', position: 325, importance: #HIGH }] }
+  fxkg;
+  @UI: { lineItem: [{ position: 330 }],
+  identification: [{ position: 330 }],
+  fieldGroup: [{ qualifier: 'GeneralData2', position: 330, importance: #HIGH }] }  
+  freightrmrks;
+
+
+}

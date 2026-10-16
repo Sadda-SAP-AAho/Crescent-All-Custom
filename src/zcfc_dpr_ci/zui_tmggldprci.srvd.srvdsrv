@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgGlDprCi_S'
+define service ZUI_TMGGLDPRCI {
+  expose ZI_TMGGLDPRCI_S as TmgGlDprCiAll;
+  expose ZI_TMGGLDPRCI as TmgGlDprCi;
+}

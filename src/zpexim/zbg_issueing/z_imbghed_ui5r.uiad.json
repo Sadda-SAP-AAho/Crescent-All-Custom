@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Bank Guarantee",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Bank Guarantee"
+  },
+  "ui5AppDetails": {
+    "appId": "zimbghed"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_67CAF7B28C4BC5DDF9FA55AA04D6DA11C46574D3_TM",
+    "semanticObject": "z_imbghed",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_67CAF7B28C4BC5DDF9FA55AA04D6DA11C46574D3_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Bank Guarantee"
+      }
+    }
+  ]
+}

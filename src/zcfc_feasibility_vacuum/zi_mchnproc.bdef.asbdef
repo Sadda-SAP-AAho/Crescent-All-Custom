@@ -1,0 +1,80 @@
+managed implementation in class zbp_i_mchnproc unique;
+strict;
+with draft;
+
+define behavior for ZI_MCHNPROC //alias <alias_name>
+persistent table zdt_fesvacuum
+draft table zdr_fesvacuum
+lock master
+total etag ID
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+
+
+  create;
+  update;
+  delete;
+
+  validation checkvalidation on save { create; update; }
+  validation checkcomb on save { create; update; }
+
+  mapping for zi_mchnproc
+    {
+      Rfqdate        = Rfqdate;
+      Matcd          = Matcd;
+      Custcd         = Custcd;
+      Rfqno          = Rfqno;
+      Pduser         = Pduser;
+      Annualqty      = Annualqty;
+      Paintinfo      = Paintinfo;
+      Process        = Process;
+      Packaging      = Packaging;
+      Weight_2d      = Weight_2d;
+      Weight_3d      = Weight_3d;
+      Ptolrnce       = Ptolrnce;
+      Ntolrnce       = Ntolrnce;
+      Stdtolrdim     = Stdtolrdim;
+      Gjl            = Gjl;
+      Mktgusr        = Mktgusr;
+      Length         = Length;
+      Width          = Width;
+      Height         = Height;
+      Line           = Line;
+      Boxsize1       = Boxsize1;
+      Boxsize2       = Boxsize2;
+      Noofcav        = Noofcav;
+      Yldprcnt       = Yldprcnt;
+      Corepercavity  = Corepercavity;
+      Corecstpercav  = Corecstpercav;
+      Insertpercav   = Insertpercav;
+      Insertcost     = Insertcost;
+      Pipepercav     = Pipepercav;
+      Pipecost       = Pipecost;
+      Htchpltpercav  = Htchpltpercav;
+      Htchpltcost    = Htchpltcost;
+      Oteherscost    = Oteherscost;
+      Mouldspd       = Mouldspd;
+      Mchnprcss      = Mchnprcss;
+      Patterncst     = Patterncst;
+      Toolscst       = Toolscst;
+      Jigfixcst      = Jigfixcst;
+      Srfcarea       = Srfcarea;
+      Nofpcsperpllt  = Nofpcsperpllt;
+      Noofpcspercont = Noofpcspercont;
+      Addcst         = Addcst;
+      Drlfacing      = Drlfacing;
+      Remarkspd      = Remarkspd;
+    }
+
+
+}

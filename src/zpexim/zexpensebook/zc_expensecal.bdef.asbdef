@@ -1,0 +1,34 @@
+projection;
+strict;
+use draft;
+use side effects;
+
+define behavior for ZC_EXPENSECAL //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use action ServicePo;
+  use action Poupd;
+  use action exptype;
+
+  use association _item { create; with draft; }
+}
+
+define behavior for ZC_EXPENSECAL_I //alias <alias_name>
+{
+  use update;
+  use delete;
+//  use action ServicePo;
+  use action ServiceEntry;
+//  use action Copy;
+
+  use association _head { with draft; }
+}

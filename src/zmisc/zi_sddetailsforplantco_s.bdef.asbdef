@@ -1,0 +1,111 @@
+managed with additional save implementation in class ZBP_I_SDDETAILSFORPLANTCO_S unique;
+strict;
+with draft;
+define behavior for ZI_SdDetailsForPlantCo_S alias SdDetailsForPlanAll
+draft table ZDT_SD_PC_T_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   Hidetransport,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _SdDetailsForPlantCo { create ( features : instance ); with draft; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_SdDetailsForPlantCo alias SdDetailsForPlantCo ##UNMAPPED_FIELD
+persistent table ZDT_SD_PC_TMG
+draft table ZDT_SD_PC_TMG_D
+etag master LocalLastChangedAt
+lock dependent by _SdDetailsForPlanAll
+authorization dependent by _SdDetailsForPlanAll
+
+{
+  field ( mandatory : create )
+   Cocode,
+   Plant;
+
+  field ( readonly )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt,
+   ConfigDeprecationCode,
+   ConfigDeprecationCode_Critlty;
+
+  field ( readonly : update )
+   Cocode,
+   Plant;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+
+  update( features : global );
+  delete( features : instance );
+
+  action ( features : instance ) Deprecate result [1] $self;
+  action ( features : instance ) Invalidate result [1] $self;
+
+  mapping for ZDT_SD_PC_TMG
+  {
+    Cocode = COCODE;
+    Plant = PLANT;
+    Name = NAME;
+    Tin = TIN;
+    Cinno = CINNO;
+    Panno = PANNO;
+    Gstin = GSTIN;
+    Iec = IEC;
+    Plantaddr1 = PLANTADDR1;
+    Plantaddr2 = PLANTADDR2;
+    Plantaddr3 = PLANTADDR3;
+    Cemail = CEMAIL;
+    Cmobile = CMOBILE;
+    Plantname = PLANTNAME;
+    Caddress1 = CADDRESS1;
+    Caddress2 = CADDRESS2;
+    Caddress3 = CADDRESS3;
+    Telnumber1 = TELNUMBER1;
+    Telnumber2 = TELNUMBER2;
+    TelNumber3 = TEL_NUMBER3;
+    Var6 = VAR6;
+    Var1 = VAR1;
+    Var2 = VAR2;
+    Var3 = VAR3;
+    Var4 = VAR4;
+    ConfigDeprecationCode = CONFIGDEPRECATIONCODE;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _SdDetailsForPlanAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

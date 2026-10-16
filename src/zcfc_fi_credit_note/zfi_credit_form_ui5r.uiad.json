@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "FI Credit Note Form App"
+  },
+  "ui5AppDetails": {
+    "appId": "com.crescent.app.creditnoteformfico"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_AD51008ECAC95CB95391BDA3197898FF4B1678D7_TM",
+    "semanticObject": "ZFICREDITFORM",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_AD51008ECAC95CB95391BDA3197898FF4B1678D7_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "FI Credit Note Form App"
+      }
+    }
+  ]
+}

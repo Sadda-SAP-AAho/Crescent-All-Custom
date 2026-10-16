@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "MIRO DMS"
+  },
+  "ui5AppDetails": {
+    "appId": "zmirodms"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_0D5C93F77B3B39D40354C2865DF2D21C9379D517_TM",
+    "semanticObject": "zmirodms",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_0D5C93F77B3B39D40354C2865DF2D21C9379D517_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "MIRO DMS",
+        "subtitle": "ZMIRODMS"
+      }
+    }
+  ]
+}

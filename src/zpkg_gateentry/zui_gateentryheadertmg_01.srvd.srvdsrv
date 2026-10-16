@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_GateEntryHeaderTmg_S1'
+define service ZUI_GATEENTRYHEADERTMG_01 {
+  expose ZI_GATEENTRYHEADERTMG_S1 as GateEntryHeaderTAll;
+  expose ZI_GATEENTRYHEADERTMG_01 as GateEntryHeaderTmg;
+}

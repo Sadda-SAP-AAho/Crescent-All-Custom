@@ -1,0 +1,90 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'DatabaseTableForReg', 
+    typeNamePlural: 'DatabaseTableForRegs', 
+    title: {
+      type: #STANDARD, 
+      label: 'Database table for region', 
+      value: 'Region'
+    }
+  }
+}
+annotate view ZI_DatabaseTableForReg with
+{
+  @UI.hidden: true
+  ConfigDeprecationCode_Critlty;
+  
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_DatabaseTableForReg', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Database table for region', 
+    position: 1 
+  } ]
+  Region;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Regioncode;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Regionname'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Regionname'
+  } ]
+  Regionname;
+  
+  @UI.identification: [ {
+    position: 4 , 
+    label: 'Country'
+  } ]
+  @UI.lineItem: [ {
+    position: 4 , 
+    label: 'Country'
+  } ]
+  Country;
+  
+  @UI.identification: [ {
+    position: 5 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate'
+  } ]
+  @UI.lineItem: [ {
+    position: 5 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate Selected Entry'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate Selected Entry'
+  } ]
+  ConfigDeprecationCode;
+}

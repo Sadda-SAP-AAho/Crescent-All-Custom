@@ -1,0 +1,76 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'Docnum', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Docnum' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Production Plan Register', value: 'Docnum' } } }
+
+annotate entity ZC_PRDPLANREGHD with 
+{
+   @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'Production Plan Register-Header', type: #COLLECTION },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Section 1', id: 'GeneralData1' },
+
+   { id: 'GatePassI', label: 'Production Plan Register-Item', type: #LINEITEM_REFERENCE, position : 25, targetElement: '_Item' }]
+    
+    @UI.hidden: true
+    Id;
+    
+    @UI.hidden: true
+    Fisyear;
+    
+    @UI.lineItem: [{position: 5}]
+    @UI.identification: [{position: 5}]
+    @UI.fieldGroup: [{position: 5,qualifier: 'GeneralData1', importance: #HIGH}]
+    Docnum;
+    
+    @UI.hidden: true
+    Keyid;
+    
+    @UI.hidden: true
+    Creon;
+    
+    @UI.hidden: true
+    Creby;
+    
+    @UI.lineItem: [{position: 10}]
+    @UI.identification: [{position: 10}]
+    @UI.fieldGroup: [{position: 10,qualifier: 'GeneralData1', importance: #HIGH}]
+    @Consumption.valueHelpDefinition: [{ entity:{  element : 'plantcode', name: 'ZCDS_PLANTDETAILS_F4'},
+    distinctValues: true,
+    useForValidation: true,
+    additionalBinding: [{ localElement: 'plantname', element: 'plantname',usage: #RESULT}]}]
+    Plantcode;
+    
+    @UI.lineItem: [{position: 15}]
+    @UI.identification: [{position: 15}]
+    @UI.fieldGroup: [{position: 15,qualifier: 'GeneralData1', importance: #HIGH}]
+    Plantname;
+    
+    @UI.lineItem: [{position: 20}]
+    @UI.identification: [{position: 20}]
+    @UI.fieldGroup: [{position: 20,qualifier: 'GeneralData1', importance: #HIGH}]
+    @Consumption.valueHelpDefinition: [{ entity:{  element : 'matgrpcode', name: 'ZCDS_PRODGROUP_F4'},
+    distinctValues: true,
+    useForValidation: true,
+    additionalBinding: [{ localElement: 'matgrpname', element: 'matgrpname',usage: #RESULT}]}]
+    Matgrpcode;
+    
+    @UI.lineItem: [{position: 25}]
+    @UI.identification: [{position: 25}]
+    @UI.fieldGroup: [{position: 25,qualifier: 'GeneralData1', importance: #HIGH}]
+    Matgrpname;
+    
+    @UI.lineItem: [{position: 30}]
+    @UI.identification: [{position: 30}]
+    @UI.fieldGroup: [{position: 30,qualifier: 'GeneralData1', importance: #HIGH}]
+    @Consumption.valueHelpDefinition: [{ entity:{  element : 'prodyear', name: 'ZCDS_PRODYEAR'}}]
+    Prodyear;
+    
+    @UI.lineItem: [{position: 35}]
+    @UI.identification: [{position: 35}]
+    @UI.fieldGroup: [{position: 35,qualifier: 'GeneralData1', importance: #HIGH}]
+    @Consumption.valueHelpDefinition: [{ entity:{  element : 'prodmonth', name: 'ZCDS_PRODMONTH'}}]
+    Prodmonth;
+    
+}

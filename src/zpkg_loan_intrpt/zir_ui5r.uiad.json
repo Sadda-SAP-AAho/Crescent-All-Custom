@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Interest Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Interest Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zinstreport.zinstreport"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_0953145AC4500DB60EB364518C7A8C276FDD001F_TM",
+    "semanticObject": "zir",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_0953145AC4500DB60EB364518C7A8C276FDD001F_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Interest Report"
+      }
+    }
+  ]
+}

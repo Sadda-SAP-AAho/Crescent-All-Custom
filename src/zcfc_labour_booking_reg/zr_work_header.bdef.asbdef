@@ -1,0 +1,111 @@
+managed implementation in class ZBP_R_WORK_HEADER unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_WORK_HEADER
+persistent table ZWORK_HEADER
+draft table zwork_header_d
+etag master Locallastchangedat
+lock master total etag Lastchangeat
+authorization master( global )
+
+{
+  field ( mandatory : create )
+   PlantCode,
+   WorkCode;
+
+  field ( readonly )
+   Localcreatedby,
+   Locallastchangedby,
+   Localcreatedat,
+   Locallastchangedat,
+   Lastchangeat;
+
+  field ( readonly : update )
+   PlantCode,
+   WorkCode;
+
+
+
+  create;
+  update;
+  delete;
+  determination fill_plant_name on modify { field PlantCode; }
+  association _items { create; }
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZWORK_HEADER
+  {
+    PlantCode = plant_code;
+    WorkCode = work_code;
+    PlantName = plant_name;
+    WorkName = work_name;
+    BeginDate = begin_date;
+    EndDate = end_date;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    Localcreatedby = localcreatedby;
+    Locallastchangedby = locallastchangedby;
+    Localcreatedat = localcreatedat;
+    Locallastchangedat = locallastchangedat;
+    Lastchangeat = lastchangeat;
+  }
+}
+
+define behavior for ZR_WORK_ITEMS
+implementation in class ZBP_R_WORK_ITEMS unique
+persistent table ZWORK_ITEMS
+draft table zwork_items_d
+lock dependent by _header
+authorization dependent by _header
+
+{
+  field ( mandatory : create )
+   PlantCode,
+   WorkCode,
+   DateFrom,
+   DateTo;
+
+  field ( readonly )
+   Localcreatedby,
+   Locallastchangedby,
+   Localcreatedat,
+   Locallastchangedat,
+   Lastchangeat;
+
+
+  update;
+  delete;
+  field ( readonly:update ) PlantCode, WorkCode, DateFrom, DateTo;
+  association _header;
+  validation validateDateRange on save { create; field DateFrom, DateTo;  }
+
+
+  mapping for ZWORK_ITEMS
+  {
+    PlantCode = plant_code;
+    WorkCode = work_code;
+    DateFrom = date_from;
+    DateTo = date_to;
+    Uom = uom;
+    Currency = currency;
+    Rate = rate;
+    BeginDate = begin_date;
+    EndDate = end_date;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    Localcreatedby = localcreatedby;
+    Locallastchangedby = locallastchangedby;
+    Localcreatedat = localcreatedat;
+    Locallastchangedat = locallastchangedat;
+    Lastchangeat = lastchangeat;
+  }
+}

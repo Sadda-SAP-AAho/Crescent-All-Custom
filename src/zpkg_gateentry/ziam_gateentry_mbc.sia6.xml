@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SIA6" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SIA6>
+    <MAIN_OBJECT>
+     <NAME>ZIAM_GATEENTRY_MBC</NAME>
+     <TYPE>SIA6</TYPE>
+     <DESCRIPTION>IAM App For Gate Entry</DESCRIPTION>
+     <RESPONSIBLE>CB9980000013</RESPONSIBLE>
+     <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
+     <MASTER_SYSTEM>NRT</MASTER_SYSTEM>
+     <PACKAGE_REF>
+      <PACKAGE_NAME>ZPKG_GATEENTRY</PACKAGE_NAME>
+     </PACKAGE_REF>
+     <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
+    </MAIN_OBJECT>
+    <APP_ID>ZIAM_GATEENTRY_MBC</APP_ID>
+    <APP_TYPE>MBC</APP_TYPE>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+    <SERVICE>
+     <item>
+      <REL_NAME>ZUI_GATEENTRYTYPE_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_GATEENTRY_MBC</APP_ID>
+      <SRVC_NAME>428CE00DE5DB3FE17AB8FCF97982F2</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain GateEntry Typ</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_GATEENTRYTYPE_O4_1</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_GATEENTRY_MBC</APP_ID>
+      <SRVC_NAME>1DBD2E037E51448994DDDC2512FE85</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain gateentrytype</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_GATEWEIGHBRIDGETAB_O41</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_GATEENTRY_MBC</APP_ID>
+      <SRVC_NAME>DE7315E4AD17AA6F54BA434C90B815</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain gate weighbridge table</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_MAINTAINUSERIDFORED_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_GATEENTRY_MBC</APP_ID>
+      <SRVC_NAME>84CC0123FEDFAC1CDEA85B71FE5F03</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain Maintain UserID for Edit &amp; Delete</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_SHIPMENTTYPENEW_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_GATEENTRY_MBC</APP_ID>
+      <SRVC_NAME>908804874515EED8607B15B920BD9B</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain Shipment Type New</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZUI_SHIPMENTTYPE_O4_01</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_GATEENTRY_MBC</APP_ID>
+      <SRVC_NAME>3C38C4C37425785BF0E7B9925852A6</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain SHIPMENT TYPE</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+    </SERVICE>
+    <AUTH>
+     <item>
+      <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+      <STATUS>U</STATUS>
+      <TEXT>Table Access by Generic Standard Tools</TEXT>
+      <AUTH_ITEM>
+       <item>
+        <UUID>aRGua6dOHt+6qHIWhybMNA==</UUID>
+        <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0001</AUTH_OBJECT_INSTANCE>
+        <TEXT>Table Access by Generic Standard Tools</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display,Change</VALUE>
+          <VALUES>
+           <item>
+            <UUID>aRGua6dOHt+6qHIWhycMNA==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>aRGua6dOHt+6qHIWhybsNA==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>TABLE</FIELD>
+          <VALUE>ZI_GATEENTRYTYPE_01,ZI_GATEWEIGHBRIDGETABL_01,ZI_SHIPMENTTYPE_01,...</VALUE>
+          <VALUES>
+           <item>
+            <UUID>aRGua6dOHt+6qHIWhycsNA==</UUID>
+            <LOW_VALUE>ZI_GATEENTRYTYPE_01</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>aRGua6dOHt+6qHIWhydMNA==</UUID>
+            <LOW_VALUE>ZI_GATEWEIGHBRIDGETABL_01</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>aRGua6dOHt+6qHIWhydsNA==</UUID>
+            <LOW_VALUE>ZI_SHIPMENTTYPE_01</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>aRGua6dOHt+6qHIWhyeMNA==</UUID>
+            <LOW_VALUE>ZI_MAINTAINUSERIDFORED</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>aRGua6dOHt+6qHIWhyesNA==</UUID>
+            <LOW_VALUE>ZI_GATEENTRYTYP</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>aRGua6dOHt+6qHIWhyfMNA==</UUID>
+            <LOW_VALUE>ZI_SHIPMENTTYPENEW</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Table Name</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+      </AUTH_ITEM>
+     </item>
+    </AUTH>
+    <PUBLISH_STATUS>p</PUBLISH_STATUS>
+   </SIA6>
+  </asx:values>
+ </asx:abap>
+</abapGit>

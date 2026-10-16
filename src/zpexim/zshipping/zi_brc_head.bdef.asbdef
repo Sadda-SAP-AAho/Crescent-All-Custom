@@ -1,0 +1,66 @@
+managed implementation in class zbp_i_brc_head unique;
+strict;
+with draft;
+
+
+define behavior for ZI_BRC_HEAD //alias <alias_name>
+persistent table zdt_brc_header
+draft table zdr_brc_header
+lock master
+total etag id
+with additional save
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+  field ( numbering : managed, readonly ) id;
+  field ( readonly ) status, FileStatus, internalno, post, localcreatedat, localcreatedby;
+//  field ( features : instance ) Attachment;
+
+  action ( features : instance ) uploadExcelData result [1] $self;
+  action ( features : instance ) valid result [1] $self;
+  action ( features : instance ) upd result [1] $self;
+
+  validation validate_fields on save { create; update; }
+  determination change_status on save { create; update; }
+  determination fields on modify { field Filename; }
+
+  side effects
+  {
+    action valid affects entity _item;
+    action upd affects entity _item;
+  }
+
+  mapping for zi_brc_head
+    {
+      LocalCreatedAt     = LocalCreatedAt;
+      LocalCreatedBy     = LocalCreatedBy;
+      LastChangedAt      = LastChangedAt;
+      LocalLastChangedAt = LocalLastChangedAt;
+      LocalLastChangedBy = LocalLastChangedBy;
+    }
+
+  association _item { create ( features : instance ); with draft; }
+}
+
+define behavior for ZI_BRC //alias <alias_name>
+persistent table zdt_brc
+draft table zdr_brc
+lock dependent by _BrcHead
+authorization dependent by _BrcHead
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Id, ShippingBill, Brcno;
+  association _BrcHead;
+}

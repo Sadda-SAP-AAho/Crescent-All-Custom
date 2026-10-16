@@ -1,0 +1,95 @@
+managed with additional save implementation in class ZBP_I_APPROVALMATRIXFORPA_S unique;
+strict;
+with draft;
+define behavior for ZI_ApprovalMatrixForPa_S alias ApprovalMatrixFoAll
+draft table ZTMG_APPR_M_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare {
+    validation ApprovalMatrixForPa ~ ValidateDataConsistency;
+  }
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _ApprovalMatrixForPa { create ( features : instance ); with draft; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_ApprovalMatrixForPa alias ApprovalMatrixForPa ##UNMAPPED_FIELD
+persistent table ZTMG_APPR_MATRIX
+draft table ZTMG_APPR_MAT_D
+etag master LocalLastChangedAt
+lock dependent by _ApprovalMatrixFoAll
+authorization dependent by _ApprovalMatrixFoAll
+
+{
+  field ( mandatory : create )
+   Companycode,
+   Userid,
+   Apprlevel;
+
+  field ( readonly )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt,
+   ConfigDeprecationCode,
+   ConfigDeprecationCode_Critlty;
+
+  field ( readonly : update )
+   Companycode,
+   Userid,
+   Apprlevel;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+
+  update( features : global );
+  delete( features : instance );
+
+  action ( features : instance ) Deprecate result [1] $self;
+  action ( features : instance ) Invalidate result [1] $self;
+  factory action ( features : instance ) CopyApprovalMatrixForPa parameter ZD_CopyApprovalMatrixForPaP [1];
+
+  mapping for ZTMG_APPR_MATRIX
+  {
+    Companycode = COMPANYCODE;
+    Userid = USERID;
+    Apprlevel = APPRLEVEL;
+    Final = FINAL;
+    ConfigDeprecationCode = CONFIGDEPRECATIONCODE;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _ApprovalMatrixFoAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+  validation ValidateDataConsistency on save { create; update; }
+}

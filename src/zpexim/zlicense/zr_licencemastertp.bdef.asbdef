@@ -1,0 +1,69 @@
+managed;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_LicenceMasterTP alias LicenceMaster
+implementation in class ZBP_R_LicenceMaster unique
+persistent table zex_licence_hdr
+draft table zex_dt_lic_hdr
+etag master LocalLastChangedAt
+lock master
+total etag LastChangedAt
+authorization master ( global )
+
+{
+  field ( readonly, numbering : managed ) InternalLicencenumber;
+  field ( readonly ) CreatedAt, CreatedBy, LastChangedBy, LastChangedAt, LocalLastChangedAt, ImportvalueusdV,
+                     ImportvalueusdC, ExportvalueinrV, ExportvalueinrC, BOEUsage, ShipUsage;
+  field ( features : instance ) Licencenumber, Licencetype;
+
+  create;
+  update;
+  delete;
+
+  determination changedetails on modify { create; field Licencenumber; }
+  determination update_export_inr on modify { field ExportvalueusdV, Exportexchangerate; }
+  determination update_import_usd on modify { field ImportvalueinrV, Importexchangerate; }
+
+  side effects
+  {
+    field ExportvalueusdV affects field exportvalueinrv;
+    field ImportvalueinrV affects field importvalueusdv;
+  }
+
+  validation check_export on save { create; update; field Exportvalidfrom, Exportvalidto; }
+  validation check_import on save { create; update; field Importvalidfrom, Importvalidto; }
+  validation check_mandetory on save { create; update; }
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare { validation check_export; validation check_import; validation check_mandetory; }
+  mapping for zex_licence_hdr
+    {
+      InternalLicencenumber = INTERNAL_LICENCENUMBER;
+      Licencenumber         = LICENCENUMBER;
+      Licencetype           = LICENCETYPE;
+      Licencedate           = LICENCEDATE;
+      Importvalidfrom       = IMPORTVALIDFROM;
+      Importvalidto         = IMPORTVALIDTO;
+      Importexchangerate    = IMPORTEXCHANGERATE;
+      ImportvalueusdV       = IMPORTVALUEUSD_V;
+      ImportvalueusdC       = IMPORTVALUEUSD_C;
+      ImportvalueinrV       = IMPORTVALUEINR_V;
+      ImportvalueinrC       = IMPORTVALUEINR_C;
+      Exportvalidfrom       = EXPORTVALIDFROM;
+      Exportvalidto         = EXPORTVALIDTO;
+      Exportexchangerate    = EXPORTEXCHANGERATE;
+      ExportvalueusdV       = EXPORTVALUEUSD_V;
+      ExportvalueusdC       = EXPORTVALUEUSD_C;
+      ExportvalueinrV       = EXPORTVALUEINR_V;
+      ExportvalueinrC       = EXPORTVALUEINR_C;
+      CreatedAt             = CREATED_AT;
+      CreatedBy             = CREATED_BY;
+      LastChangedBy         = LAST_CHANGED_BY;
+      LastChangedAt         = LAST_CHANGED_AT;
+      LocalLastChangedAt    = LOCAL_LAST_CHANGED_AT;
+    }
+ }

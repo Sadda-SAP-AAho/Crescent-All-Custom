@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgTableLabourCateg', 
+    typeNamePlural: 'TmgTableLabourCategs', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG Table Labour Category', 
+      value: 'Catcode'
+    }
+  }
+}
+annotate view ZI_TmgTableLabourCateg with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgTableLabourCateg', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG Table Labour Category', 
+    position: 1 
+  } ]
+  Catcode;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Catname;
+}

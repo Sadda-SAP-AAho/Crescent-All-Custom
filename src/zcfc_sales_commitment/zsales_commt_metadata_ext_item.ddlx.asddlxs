@@ -1,0 +1,165 @@
+@Metadata.layer: #PARTNER
+@UI.headerInfo: {
+    typeName: 'Sale Commitment',
+    typeNamePlural: 'Sales Commitment Item Data',
+    typeImageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgdkZGiw9frLmFH3f3k0GrhK0pi-GpDpM2bw&s'
+
+
+}
+annotate entity Z_C_Sales_Cmmt_Item with
+{
+  @UI.facet: [{ id: 'InvData',purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE, position: 10, label: 'Item Information' }]
+
+
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  @EndUserText.label: 'Requestuuid'
+  @UI.hidden: true
+  Requestuuid;
+  @UI.lineItem: [{ position: 15 }]
+  @UI.identification: [{ position: 15 }]
+  @EndUserText.label: 'Line Item No'
+  @UI.hidden: true
+  Line_item_no;
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  @EndUserText.label: 'Customer Code'
+  @Consumption.valueHelpDefinition: [{
+        qualifier: '',
+        entity: {
+            name: 'ZCDS_CUST_F4',
+            element: 'BusinessPartner'
+        },
+     distinctValues: true,
+    useForValidation: true,
+    additionalBinding: [{ localElement: 'Customer_Name', element: 'BusinessPartnerName',usage: #RESULT}]}]
+  Customer_Code;
+//  @UI.lineItem: [{ position: 30 }]
+//  @UI.identification: [{ position: 30 }]
+//  @EndUserText.label: 'Customer Name'
+  @UI.hidden: true
+  Customer_Name;
+
+  @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 40 }]
+  @EndUserText.label: 'Plant Code'
+  @Consumption.valueHelpDefinition: [{
+        qualifier: '',
+        entity: {
+            name: 'ZCDS_PLANTDET_F4',
+            element: 'loctncd'
+        },
+    distinctValues: true,
+    useForValidation: true,
+    additionalBinding: [{ localElement: 'plantname', element: 'loctnnam',usage: #RESULT}]}]
+  plantcode;
+
+//  @UI.lineItem: [{ position: 50 }]
+//  @UI.identification: [{ position: 50 }]
+//  @EndUserText.label: 'Plant Name'
+  @UI.hidden: true
+  plantname;
+  
+  @UI.lineItem: [{ position: 45 }]
+  @UI.identification: [{ position: 45 }]
+  @EndUserText.label: 'Profit Center'
+  @Consumption.valueHelpDefinition: [{
+        qualifier: '',
+        entity: {
+            name: 'ZCDS_Profit_Center_F4',
+            element: 'ProfitCenter'
+        }}]
+  profitcenter;                     
+
+  @UI.lineItem: [{ position: 50 }]
+  @UI.identification: [{ position: 50 }]
+  @EndUserText.label: 'Material Code'
+  @Consumption.valueHelpDefinition: [{
+        qualifier: '',
+        entity: {
+            name: 'ZI_PLANTWISEMAT_F4',
+            element: 'Product'
+        },
+    distinctValues: true,
+    useForValidation: true,
+    additionalBinding: [ { localElement: 'plantcode', element: 'Plant',usage: #FILTER},
+                       { localElement: 'matname', element: 'ProductName',usage: #RESULT}]}]
+  matcode;
+
+//  @UI.lineItem: [{ position: 57 }]
+//  @UI.identification: [{ position: 57 }]
+//  @EndUserText.label: 'Material Name'
+  @UI.hidden: true
+  matname;
+  
+//  @UI.lineItem: [{ position: 58 }]
+//  @UI.identification: [{ position: 58 }]
+//  @EndUserText.label: 'Uom'
+  @UI.hidden: true
+  uom;
+
+  @UI.lineItem: [{ position: 60 }]
+  @UI.identification: [{ position: 60 }]
+  @EndUserText.label: 'April'
+
+  April_w;
+  @UI.lineItem: [{ position: 70 }]
+  @UI.identification: [{ position: 70 }]
+  @EndUserText.label: 'May'
+
+  May_w;
+  @UI.lineItem: [{ position: 80 }]
+  @UI.identification: [{ position: 80 }]
+  @EndUserText.label: 'June'
+
+  June_w;
+  @UI.lineItem: [{ position: 90 }]
+  @UI.identification: [{ position: 90 }]
+  @EndUserText.label: 'July'
+
+  July_w;
+  @UI.lineItem: [{ position: 100 }]
+  @UI.identification: [{ position: 100 }]
+  @EndUserText.label: 'August'
+
+  Aug_w;
+  @UI.lineItem: [{ position: 110 }]
+  @UI.identification: [{ position: 110 }]
+  @EndUserText.label: 'September'
+
+  Sept_w;
+  @UI.lineItem: [{ position: 120 }]
+  @UI.identification: [{ position: 120 }]
+  @EndUserText.label: 'October'
+
+  Oct_w;
+  @UI.lineItem: [{ position: 130 }]
+  @UI.identification: [{ position: 130 }]
+  @EndUserText.label: 'November'
+
+  Nov_w;
+  @UI.lineItem: [{ position: 140 }]
+  @UI.identification: [{ position: 140 }]
+  @EndUserText.label: 'December'
+
+  Dec_w;
+  @UI.lineItem: [{ position: 150}]
+  @UI.identification: [{ position: 150 }]
+  @EndUserText.label: 'January'
+
+  Jan_w;
+  @UI.lineItem: [{ position: 160 }]
+  @UI.identification: [{ position: 160 }]
+  @EndUserText.label: 'February'
+
+  Feb_w;
+  @UI.lineItem: [{ position: 170 }]
+  @UI.identification: [{ position: 170 }]
+  @EndUserText.label: 'March'
+
+  March_w;
+  
+  @EndUserText.label: 'Last Changed At'
+  Last_changed_at;
+
+}

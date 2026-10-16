@@ -1,0 +1,29 @@
+projection;
+strict;
+use draft;
+use side effects;
+
+define behavior for ZC_GSTR2BREG_H //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action uploadExcelData;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use association _item { create; }
+}
+
+define behavior for ZC_GSTR2BREG_I //alias <alias_name>
+{
+  use update;
+  //use delete;
+
+  use association _head;
+}

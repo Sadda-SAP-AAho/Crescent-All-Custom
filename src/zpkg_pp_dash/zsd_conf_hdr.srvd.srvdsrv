@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Def for Confirmation Dashboard'
+define service ZSD_CONF_HDR {
+  expose ZC_CONF_HDR;
+  expose ZC_CONF_ITM;
+  expose ZC_CONF_ORD;
+}

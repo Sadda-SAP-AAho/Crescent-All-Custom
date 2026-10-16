@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Scrip Generation Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Scrip Generation Application"
+  },
+  "ui5AppDetails": {
+    "appId": "zscripapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_8B37F977D0B62DB9930DB6519D57EAFA50AB2570_TM",
+    "semanticObject": "z_scripapp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_8B37F977D0B62DB9930DB6519D57EAFA50AB2570_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Scrip Generation Application"
+      }
+    }
+  ]
+}

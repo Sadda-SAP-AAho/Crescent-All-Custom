@@ -1,0 +1,88 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'OTIF Report - INSIA',
+                typeNamePlural:'OTIF Report - INSIA',
+                title: { type: #STANDARD, label: 'Debtors Report - INSIA', value: 'SONo' }
+
+              }
+     }
+annotate entity ZC_OTIFINSIARPT with 
+{
+     @UI: { lineItem: [{ position: 5 }],
+     identification: [{ position: 5 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+    SONo;
+    @UI: { lineItem: [{ position: 10 }],
+          identification: [{ position: 10 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    SOLineNo;
+    @UI.hidden: true
+    DelvNo;
+    @UI.hidden: true
+    DelvLineNo;
+    @UI: { lineItem: [{ position: 20 }],
+          identification: [{ position: 20 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    @UI.selectionField: [{ position: 20 }]
+    SODate;
+    @UI: { lineItem: [{ position: 25 }],
+          identification: [{ position: 25 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    @UI.selectionField: [{ position: 25 }]
+    SOCreationDate;
+    @UI: { lineItem: [{ position: 30 }],
+          identification: [{ position: 30 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    SOUpdateDate;
+    @UI: { lineItem: [{ position: 35 }],
+          identification: [{ position: 35 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    Customer;
+    @UI: { lineItem: [{ position: 40 }],
+          identification: [{ position: 40 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    @UI.selectionField: [{ position: 40 }]
+    MatNo;
+    @UI: { lineItem: [{ position: 45 }],
+          identification: [{ position: 45 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    Description;
+    @UI: { lineItem: [{ position: 50 }],
+          identification: [{ position: 50 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    CustomerMatlDesc;
+    @UI: { lineItem: [{ position: 55 }],
+          identification: [{ position: 55 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    Quantity;
+    @UI: { lineItem: [{ position: 60 }],
+          identification: [{ position: 60 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    DeliveredQty;
+    @UI: { lineItem: [{ position: 65 }],
+          identification: [{ position: 65 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    OpenQty;
+    @UI: { lineItem: [{ position: 70 }],
+          identification: [{ position: 70 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    CustomerPONo;
+    @UI: { lineItem: [{ position: 75 }],
+          identification: [{ position: 75 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    CustomerPODate;
+    @UI: { lineItem: [{ position: 80 }],
+          identification: [{ position: 80 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    OurCommDate;
+    @UI: { lineItem: [{ position: 85 }],
+          identification: [{ position: 85 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    OTIF;
+        @UI: { lineItem: [{ position: 90 }],
+          identification: [{ position: 90 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    openwt;
+    
+}

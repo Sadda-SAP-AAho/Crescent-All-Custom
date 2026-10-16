@@ -1,0 +1,41 @@
+managed implementation in class zbp_r_appauthotp unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_appauthotp //alias <alias_name>
+implementation in class ZBP_R_APPAUTHOTP unique
+persistent table zex_app_autho
+draft table zex_app_authodr
+
+authorization master ( global, instance ) with additional save
+etag master LocalLastChangedAt
+lock master total etag LastChangedBy
+{
+
+  field ( readonly, numbering : managed ) InternalAuth;
+  create;
+  update;
+  delete;
+
+  //  field ( mandatory : create, readonly : update ) AppName, AuthType, UserId;
+
+  determination app_name on save { create; }
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare { }
+  mapping for zex_app_authodr
+    {
+      internalauth       = internalauth;
+      appname            = AppName;
+      userid             = UserId;
+      authtype           = AuthType;
+      createdat          = CreatedAt;
+      createdby          = CreatedBy;
+      lastchangedby      = LastChangedBy;
+      lastchangedat      = LastChangedAt;
+      locallastchangedat = LocalLastChangedAt;
+    }
+}

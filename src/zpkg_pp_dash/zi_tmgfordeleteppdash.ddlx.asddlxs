@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgForDeletePpDash', 
+    typeNamePlural: 'TmgForDeletePpDashs', 
+    title: {
+      type: #STANDARD, 
+      label: 'Tmg for Delete PP Dash', 
+      value: 'Userid'
+    }
+  }
+}
+annotate view ZI_TmgForDeletePpDash with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgForDeletePpDash', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Tmg for Delete PP Dash', 
+    position: 1 
+  } ]
+  Userid;
+}

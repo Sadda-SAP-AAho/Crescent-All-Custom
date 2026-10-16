@@ -1,0 +1,71 @@
+managed with additional save implementation in class ZBP_I_DATABASETABLEFORDOC_S unique;
+strict;
+with draft;
+define behavior for ZI_DatabaseTableForDoc_S alias DatabaseTableForAll
+draft table ZDT_DOCTYPE_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _DatabaseTableForDoc { create ( features : instance ); with draft; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_DatabaseTableForDoc alias DatabaseTableForDoc ##UNMAPPED_FIELD
+persistent table ZDT_DOCTYPE_TMG
+draft table ZDT_DOCTYPE_T_D
+lock dependent by _DatabaseTableForAll
+authorization dependent by _DatabaseTableForAll
+
+{
+  field ( mandatory : create )
+   Doctype;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Doctype;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_DOCTYPE_TMG
+  {
+    Doctype = DOCTYPE;
+  }
+
+  association _DatabaseTableForAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

@@ -1,0 +1,67 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TaxGstCodeWithPerce',
+    typeNamePlural: 'TaxGstCodeWithPerces',
+    title: {
+      type: #STANDARD,
+      label: 'Tax GST Code with Percentage',
+      value: 'Taxcode'
+    }
+  }
+}
+annotate view ZI_TaxGstCodeWithPerce with
+{
+  @UI.identification: [ {
+    position: 1
+  } ]
+  @UI.lineItem: [ {
+    position: 1
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TaxGstCodeWithPerce',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Tax GST Code with Percentage',
+    position: 1
+  } ]
+////  @Consumption.valueHelpDefinition: [{ entity:{ element: 'TaxCode', name:'ZCDS_TAXC'},
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'TaxCode', name:'ZR_TAXCODE_GST'},
+                                                  distinctValues: true,
+                                                  useForValidation: true,
+                                              additionalBinding: [{ localElement: 'Taxcodename',element: 'TaxCodeName', usage: #FILTER_AND_RESULT }]
+                                     }]
+  Taxcode;
+
+  @UI.identification: [ {
+    position: 2
+  } ]
+  @UI.lineItem: [ {
+    position: 2
+  } ]
+  Taxcodename;
+
+  @UI.identification: [ {
+    position: 3
+  } ]
+  @UI.lineItem: [ {
+    position: 3
+  } ]
+  Cgst;
+
+  @UI.identification: [ {
+    position: 4
+  } ]
+  @UI.lineItem: [ {
+    position: 4
+  } ]
+  Sgst;
+
+  @UI.identification: [ {
+    position: 5
+  } ]
+  @UI.lineItem: [ {
+    position: 5
+  } ]
+  Igst;
+}

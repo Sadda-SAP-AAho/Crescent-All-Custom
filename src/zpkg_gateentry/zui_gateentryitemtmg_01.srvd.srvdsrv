@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_GateEntryItemtmg_S1'
+define service ZUI_GATEENTRYITEMTMG_01 {
+  expose ZI_GATEENTRYITEMTMG_S1 as GateEntryItemtmgAll;
+  expose ZI_GATEENTRYITEMTMG_01 as GateEntryItemtmg;
+}

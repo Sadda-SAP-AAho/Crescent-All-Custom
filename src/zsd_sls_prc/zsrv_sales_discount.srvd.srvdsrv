@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Sales Discount'
+define service ZSRV_SALES_DISCOUNT {
+  expose Z_C_SLS_DCNT;
+  expose ZCUST_MAST;
+}

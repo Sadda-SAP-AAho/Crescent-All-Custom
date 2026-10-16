@@ -1,0 +1,5 @@
+@EndUserText.label: 'GST Information Dashboard-Uploader'
+define service ZSD_GSTINFUPD {
+  expose ZC_GSTINFUPD_HD;
+  expose ZC_GSTINFUPD_IT;
+}

@@ -1,0 +1,49 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: {
+typeName: 'GL Maintenance Dashboard',
+typeNamePlural: 'GL Maintenance Dashboard',
+title: { type: #STANDARD, value: 'Exptyp' }
+}}
+
+annotate entity ZC_GLM
+    with 
+{
+@UI.facet:
+   [{ id: 'GeneralData', isSummary: true, label: 'Expense Type to GL Details', type: #COLLECTION },
+    { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 1, label: 'GL Details', id: 'GeneralData1' }]
+    
+    @UI: { lineItem: [{ position: 10 }],
+    identification: [{ position: 10 }],
+    fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+    @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_EXPENSETYPE_F4_2', element: 'Exptyp'},
+                                                    distinctValues: true,
+                                                    useForValidation: true,
+                                        additionalBinding: [{ localElement: 'Descr',element: 'Descr',usage: #FILTER_AND_RESULT }]                                                  
+                                      } ]
+    Exptyp;
+    @UI: { lineItem: [{ position: 15 }],
+    identification: [{ position: 15 }],
+    fieldGroup: [{ qualifier: 'GeneralData1', position: 15, importance: #HIGH }] }
+    Descr;
+    @UI: { lineItem: [{ position: 20 }],
+    identification: [{ position: 20 }],
+    fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+    Psc;
+    @UI: { lineItem: [{ position: 25 }],
+    identification: [{ position: 25 }],
+    fieldGroup: [{ qualifier: 'GeneralData1', position: 25, importance: #HIGH }] }
+    Gla;
+    @UI: { lineItem: [{ position: 30 }],
+    identification: [{ position: 30 }],
+    fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+    Glc1;
+    @UI: { lineItem: [{ position: 35 }],
+    identification: [{ position: 35 }],
+    fieldGroup: [{ qualifier: 'GeneralData1', position: 35, importance: #HIGH }] }
+    @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_GLCODE_F4', element: 'Glc2'},
+                                                    distinctValues: true,
+                                                    useForValidation: true                                                  
+                                      } ]
+    Glc2;
+}

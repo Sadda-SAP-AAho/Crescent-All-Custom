@@ -1,0 +1,4 @@
+@EndUserText.label: 'COGS Report'
+define service ZSD_COGSPRT {
+  expose ZI_COGSRPT;
+}

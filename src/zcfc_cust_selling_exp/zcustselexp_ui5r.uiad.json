@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Customer wise Selling Expense Register",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Customer wise Selling Expense"
+  },
+  "ui5AppDetails": {
+    "appId": "zcustselexp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_82A3AA9BD64C21777FA6144EAD3CC405B4D682FB_TM",
+    "semanticObject": "zcustselexp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_82A3AA9BD64C21777FA6144EAD3CC405B4D682FB_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Customer wise Selling Expense",
+        "subtitle": "Register"
+      }
+    }
+  ]
+}

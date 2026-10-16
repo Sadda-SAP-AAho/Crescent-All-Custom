@@ -1,0 +1,98 @@
+managed implementation in class zbp_i_labbkreghead unique;
+strict;
+with draft;
+
+define behavior for ZI_LABBKREGHEAD //alias <alias_name>
+persistent table zdt_labbkreghead
+draft table zdr_labbkreghead
+lock master
+total etag id
+authorization master ( instance )
+//etag master <field_name>
+
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( readonly ) Docnum, NewKeyid, NewDocnum, Plantname, Costname, Contname, Oprname;
+
+  create;
+  update;
+  delete;
+  determination determinedocnum on save { create; }
+  determination updateheader on modify { field Plantcode; field Costcode; field Contcode; field Oprcode; }
+
+  side effects
+  { field Plantcode affects field Plantname;
+    field Costcode affects field Costname;
+    field Contcode affects field Contname;
+    field Oprcode affects field Oprname; }
+
+  association _Item { create; }
+
+  mapping for zi_labbkreghead
+    {
+      Fisyear   = Fisyear;
+      Docnum    = Docnum;
+      Keyid     = Keyid;
+      Newkeyid  = Newkeyid;
+      Newdocnum = Newdocnum;
+      Creon     = Creon;
+      Creby     = Creby;
+      Rptdate   = Rptdate;
+      Plantcode = Plantcode;
+      Plantname = Plantname;
+      Costcode  = Costcode;
+      Costname  = Costname;
+      Contcode  = Contcode;
+      Contname  = Contname;
+      Oprcode   = Oprcode;
+      Oprname   = Oprname;
+    }
+}
+
+
+define behavior for ZI_LABBKREGITEM //alias <alias_name>
+persistent table zdt_labbkregitem
+draft table zdr_labbkregitem
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id, Workname, Uom, Rate, Amount, Aprvname;
+  update;
+  delete;
+  determination updateitem1 on modify { field Workcode; }
+  determination updateitem2 on modify { field Quantity; }
+  determination updateitem3 on modify { field Aprvcode; }
+   validation validateworkcode on save { create; update; }
+
+  side effects
+  { field Workcode affects field Workname, field Uom, field Rate;
+    field Quantity affects field Amount;
+    field Aprvcode affects field Aprvname;
+  }
+
+  association _Head { with draft; }
+
+
+
+  mapping for zi_labbkregitem
+    {
+      Workcode = Workcode;
+      Workname = Workname;
+      Uom      = Uom;
+      Quantity = Quantity;
+      Rate     = Rate;
+      Amount   = Amount;
+      Aprvcode = Aprvcode;
+      Aprvname = Aprvname;
+    }
+}

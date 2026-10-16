@@ -1,0 +1,76 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'Delivery', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Item Details' }] }
+//@UI: { headerInfo: { title: { type: #STANDARD, label: 'Item Details ', value: 'Delivery' } } }
+annotate view zc_lcexpitm with
+{
+  @UI.facet: [
+    { id: 'GeneralData', isSummary: true, label: 'Attach Delivery Document', type: #COLLECTION,purpose: #STANDARD },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Delivey Details', id: 'GeneralData1' }
+   ]
+
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Item2;
+  @UI: { lineItem: [{ position: 20 }],
+  identification: [{ position: 20 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'DeliveryDocument', name: 'ZCDS_EXLCDLV_F4' },
+                                                useForValidation: true,
+                                                distinctValues: true,
+                                     additionalBinding: [
+                                                        { localElement: '_head.Companycode',element: 'BillingCompanyCode',usage: #FILTER_AND_RESULT  },
+                                                        { localElement: '_head.Lifnr',element: 'SoldToParty',usage: #FILTER_AND_RESULT },
+                                                        { localElement: '_head.Zterm',element: 'CustomerPaymentTerms',usage: #FILTER_AND_RESULT }
+                                                        ]
+                                  }]
+
+  Delivery;
+  //    @UI: { lineItem: [{ position: 30 }],
+  //    identification: [{ position: 30 }],
+  //    fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+  //    Waers;
+  @UI: { lineItem: [{ position: 40 }],
+  identification: [{ position: 40 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 40, importance: #HIGH }] }
+
+  Netwr;
+  @UI: { lineItem: [{ position: 50 }],
+  identification: [{ position: 50 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 50, importance: #HIGH }] }
+
+  Appl_Amt_Lc;
+  //    @UI: { lineItem: [{ position: 60 }],
+  //    identification: [{ position: 60 }],
+  //    fieldGroup: [{ qualifier: 'GeneralData1', position: 60, importance: #HIGH }] }
+  //    Avail_Amount;
+  //    @UI: { lineItem: [{ position: 70 }],
+  //    identification: [{ position: 70 }],
+  //    fieldGroup: [{ qualifier: 'GeneralData1', position: 70, importance: #HIGH }] }
+  //    Appl_Amt_Othlc;
+  //    @UI: { lineItem: [{ position: 80 }],
+  //    identification: [{ position: 80 }],
+  //    fieldGroup: [{ qualifier: 'GeneralData1', position: 80, importance: #HIGH }] }
+  //    Baseamt;
+  ////    Meins;
+  //    @UI: { lineItem: [{ position: 90 }],
+  //    identification: [{ position: 90 }],
+  //    fieldGroup: [{ qualifier: 'GeneralData1', position: 90, importance: #HIGH }] }
+  //    Appl_Qty;
+  //    @UI: { lineItem: [{ position: 100 }],
+  //    identification: [{ position: 100 }],
+  //    fieldGroup: [{ qualifier: 'GeneralData1', position: 100, importance: #HIGH }] }
+  //    Amount_Level;
+  @UI: { lineItem: [{ position: 110 }],
+  identification: [{ position: 110 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 110, importance: #HIGH }] }
+  Detail;
+  @UI.hidden: true
+  @UI: { lineItem: [ { position: 120 } ],
+  identification: [ { position: 120 } ],
+  fieldGroup: [ { qualifier: 'Generaldata1', position: 120, importance: #HIGH } ] }
+  Locallastchangedat;
+
+}

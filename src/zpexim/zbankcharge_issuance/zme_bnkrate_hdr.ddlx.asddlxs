@@ -1,0 +1,64 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by:  'Bankname', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Bank Wise Rate Maintenance' }] }
+
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Bank Wise Rate Maintenance' , value: 'Bankname' } } }
+annotate view ZC_BNKRATE_HDR with
+{
+  @UI.facet:
+    [{ id: 'GeneralData', isSummary: true, label: 'Rate Maintenance Header Details', type: #COLLECTION },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10,id: 'GeneralData1' },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralData', position: 15,id: 'GeneralData2' },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralData', position: 20,id: 'GeneralData3' },
+     { id: 'bnkI',  label: 'Export', type: #LINEITEM_REFERENCE, position : 25, targetElement: '_item' },
+     { id: 'bnkI1', label: 'Import', type: #LINEITEM_REFERENCE, position : 30, targetElement: '_item1' },
+     { id: 'bnkI2', label: 'BG', type: #LINEITEM_REFERENCE, position : 35, targetElement: '_item2' }]
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Waers;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'HouseBank', name:'ZR_Housebank' },
+                        distinctValues: true,
+                       useForValidation: true
+//  additionalBinding: [ { localElement: 'Accountid', element: 'HouseBankAccount', usage: #FILTER_AND_RESULT } ]
+
+      }]
+   Accountid;
+ 
+  @UI.lineItem: [ { position: 16 } ]
+  @UI.identification: [ { position: 16 } ]
+  @UI.fieldGroup: [ { position: 16,  qualifier: 'GeneralData3', importance: #HIGH } ]
+   @Consumption.valueHelpDefinition: [{ entity:{ element: 'HouseBankAccount', name:'ZR_Housebank' },
+                        distinctValues: true,
+                        useForValidation: true,
+ additionalBinding: [ { localElement: 'Housebnkid', element: 'HouseBank', usage: #FILTER_AND_RESULT } ]
+
+      }]
+ Housebnkid; 
+ 
+//  @Consumption.valueHelpDefinition: [{ entity:{ element: 'BankInternalID', name:'ZR_BANKKEY_F4'},
+//                                  distinctValues: true,
+//                                  useForValidation: true,
+//                                   additionalBinding: [{ localElement: 'Bankname',
+//                                                      element: 'BankName',
+//                                                      usage: #FILTER_AND_RESULT }]
+//                                  }]
+//  Bankkey;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'BankName', name:'ZCDS_BANKF4' },
+                                  distinctValues: true,
+                                  useForValidation: true
+  }]
+  Bankname;
+  
+
+
+}

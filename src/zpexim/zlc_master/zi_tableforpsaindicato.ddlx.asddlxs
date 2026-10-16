@@ -1,0 +1,79 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TableForPsaIndicato', 
+    typeNamePlural: 'TableForPsaIndicatos', 
+    title: {
+      type: #STANDARD, 
+      label: 'Table for PSA Indicator', 
+      value: 'PsaIndc'
+    }
+  }
+}
+annotate view ZI_TableForPsaIndicato with
+{
+  @UI.hidden: true
+  ConfigDeprecationCode_Critlty;
+  
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'CopyTableForPsaIndicato', 
+    label: 'Copy Selected Entry', 
+    invocationGrouping: #CHANGE_SET
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TableForPsaIndicato', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Table for PSA Indicator', 
+    position: 1 
+  } ]
+  PsaIndc;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'PsaDesc'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'PsaDesc'
+  } ]
+  PsaDesc;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate'
+  } ]
+  @UI.textArrangement: #TEXT_ONLY
+  @UI.lineItem: [ {
+    position: 3 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate Selected Entry'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate Selected Entry'
+  } ]
+  ConfigDeprecationCode;
+}

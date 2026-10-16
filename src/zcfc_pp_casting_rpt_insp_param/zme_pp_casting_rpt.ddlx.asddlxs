@@ -1,0 +1,118 @@
+@Metadata.layer: #CUSTOMER
+
+annotate entity ZC_PP_CASTING_RPT with
+{
+  @UI.facet: [{ id : 'GeneralData', isSummary: true, label: 'Daily Production Casting Report-Inspection Parameter', position: 5, type: #COLLECTION },
+              { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1',
+                parentId: 'GeneralData', position: 10, label: 'Script Details', id: 'GeneralData1' }]
+
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10, qualifier: 'GeneralData1', importance: #HIGH } ]
+  ManufacturingOrder;
+
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.selectionField: [{ position: 20 }]
+  @UI.fieldGroup: [ { position: 20, qualifier: 'GeneralData1', importance: #HIGH } ]
+  Shpflrdt;
+
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30, qualifier: 'GeneralData1', importance: #HIGH } ]
+  Dept;
+
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40, qualifier: 'GeneralData1', importance: #HIGH } ]
+  Deptname;
+
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.hidden: true
+  Meins;
+
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60, qualifier: 'GeneralData1', importance: #HIGH } ]
+  Matnr;
+
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70, qualifier: 'GeneralData1', importance: #HIGH } ]
+  Maktx;
+
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.selectionField: [{ position: 80 }]
+  @UI.fieldGroup: [ { position: 80, qualifier: 'GeneralData1', importance: #HIGH } ]
+  Plant;
+
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 90, qualifier: 'GeneralData1', importance: #HIGH } ]
+  Cont;
+
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 100, qualifier: 'GeneralData1', importance: #HIGH } ]
+  Contname;
+
+  @UI.lineItem: [ { position: 110 } ]
+  @UI.identification: [ { position: 110 } ]
+  @UI.fieldGroup: [ { position: 110, qualifier: 'GeneralData1', importance: #HIGH } ]
+  MaterialDocumentNo;
+
+  @UI.lineItem: [ { position: 120 } ]
+  @UI.identification: [ { position: 120 } ]
+  @UI.selectionField: [{ position: 120 }]
+  @UI.fieldGroup: [ { position: 120, qualifier: 'GeneralData1', importance: #HIGH } ]
+  MaterialDocDate;
+
+  @UI.lineItem: [ { position: 130 } ]
+  @UI.identification: [ { position: 130 } ]
+  @UI.fieldGroup: [ { position: 130, qualifier: 'GeneralData1', importance: #HIGH } ]
+  MovementType;
+
+  @UI.lineItem: [ { position: 140 } ]
+  @UI.identification: [ { position: 140 } ]
+  @UI.fieldGroup: [ { position: 140, qualifier: 'GeneralData1', importance: #HIGH } ]
+  NetWeight;
+
+  @UI.lineItem: [ { position: 150 } ]
+  @UI.identification: [ { position: 150 } ]
+  @UI.fieldGroup: [ { position: 150, qualifier: 'GeneralData1', importance: #HIGH } ]
+  Goodcast;
+
+  @UI.lineItem: [ { position: 160 } ]
+  @UI.identification: [ { position: 160 } ]
+  @UI.fieldGroup: [ { position: 160, qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.hidden: true
+  Wtunit;
+
+  @UI.lineItem: [ { position: 170 } ]
+  @UI.identification: [ { position: 170 } ]
+  @UI.fieldGroup: [ { position: 170, qualifier: 'GeneralData1', importance: #HIGH } ]
+  CostCtrActivityType;
+
+  @UI.lineItem: [ { position: 180 } ]
+  @UI.identification: [ { position: 180 } ]
+  @UI.fieldGroup: [ { position: 180, qualifier: 'GeneralData1', importance: #HIGH } ]
+  CostCtrActivityTypeDesc;
+
+  @UI.lineItem: [ { position: 190 } ]
+  @UI.identification: [ { position: 190 } ]
+  @UI.fieldGroup: [ { position: 190, qualifier: 'GeneralData1', importance: #HIGH } ]
+  WorkCenterStandardWorkQty;
+
+  @UI.lineItem: [ { position: 200 } ]
+  @UI.identification: [ { position: 200 } ]
+  @UI.fieldGroup: [ { position: 200, qualifier: 'GeneralData1', importance: #HIGH } ]
+  CostRateFixedAmount;
+
+  @UI.lineItem: [ { position: 210 } ]
+  @UI.identification: [ { position: 210 } ]
+  @UI.fieldGroup: [ { position: 210, qualifier: 'GeneralData1', importance: #HIGH } ]
+  amount;
+}

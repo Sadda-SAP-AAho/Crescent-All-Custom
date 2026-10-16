@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Material Master Details Sales Data'
+define service ZSD_MATMASTSD {
+  expose ZC_MATMASTSD;
+}

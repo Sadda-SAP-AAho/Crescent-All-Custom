@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Vendor Aging'
+define service ZSD_VEND_AGING {
+  expose ZC_VEND_AGING;
+}

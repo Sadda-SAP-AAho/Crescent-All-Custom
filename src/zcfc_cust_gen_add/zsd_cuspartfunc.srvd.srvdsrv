@@ -1,0 +1,4 @@
+@EndUserText.label: 'Customer Partner Function'
+define service ZSD_CUSPARTFUNC {
+  expose ZC_CUSPARTFUNC;
+}

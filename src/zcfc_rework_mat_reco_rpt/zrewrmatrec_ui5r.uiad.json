@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Rework Material Reco-Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Rework Material Reco-Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zrewrmatrec"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_4EC8721B922BA817F45F8FFE6B706B0C51903698_TM",
+    "semanticObject": "zrewrmatrec",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_4EC8721B922BA817F45F8FFE6B706B0C51903698_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Rework Material Reco-Report"
+      }
+    }
+  ]
+}

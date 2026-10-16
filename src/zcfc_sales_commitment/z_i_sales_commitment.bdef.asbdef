@@ -1,0 +1,105 @@
+managed implementation in class zbp_i_sales_commitment unique;
+//strict ( 2 );
+
+
+with draft;
+define behavior for Z_I_Sales_Commitment alias Sales
+persistent table zsales_commitmnt
+draft table zsls_cmmt_draft
+lock master
+total etag Last_changed_at
+authorization master ( instance )
+etag master Last_changed_at
+{
+  create;
+  update;
+  delete;
+
+
+  association _Item { create; with draft; }
+
+  field ( numbering : managed, readonly ) Requestuuid;
+  field ( readonly ) docnum, Sales_employee_name, Created_at, Created_by, Last_Changed_At, Last_Changed_By;
+
+  field ( mandatory ) Sales_employee_code, Fiscal_year, commitment_type;
+  validation validatCust on save { field Sales_employee_code, Fiscal_year; create; }
+  validation validprodplan on save { create; update; }
+  validation validsalestrgt on save { create; update; }
+  validation validdesptrgt on save { create; update; }
+
+  determination get_sales_employee_name on save { field Sales_employee_code; }
+
+  determination determinedocnum on save { create; }
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for zsales_commitmnt
+    {
+      Requestuuid         = requestuuid;
+      docnum              = docnum;
+      Keyid               = Keyid;
+      sales_comm_name     = sales_comm_name;
+      Sales_employee_code = sales_employee_code;
+      Sales_employee_name = sales_employee_name;
+      Fiscal_year         = fiscal_year;
+      created_at          = Created_at;
+      created_by          = Created_by;
+      Last_changed_at     = last_changed_at;
+      Last_changed_by     = last_changed_by;
+      commitment_type     = commitment_type;
+    }
+}
+
+define behavior for Z_I_SALES_COMMT_ITEM alias Item
+persistent table zsales_commt_itm
+draft table zsls_item_drft
+lock dependent by _Sales
+authorization dependent by _Sales
+etag master Last_changed_at
+{
+  update;
+  delete;
+  field ( readonly ) Requestuuid, Customer_name, plantname, matname, Uom;
+
+  field ( numbering : managed, readonly ) Line_item_no;
+
+
+  association _Sales { with draft; }
+
+
+  validation validFiscal on save { field Customer_code, plantname; create; }
+
+  determination get_customer_name on save { field Customer_code; }
+  determination get_plant_name on save { field plantcode; }
+  determination get_mat_name on save { field matcode; }
+
+  mapping for zsales_commt_itm
+    {
+      requestuuid   = Requestuuid;
+      line_item_no  = Line_item_no;
+      customer_code = Customer_code;
+      customer_name = Customer_name;
+      plantcode     = plantcode;
+      plantname     = plantname;
+      profitcenter  = profitcenter;
+      matcode       = matcode;
+      matname       = matname;
+      april_w       = April_w;
+      may_w         = May_w;
+      june_w        = June_w;
+      july_w        = July_w;
+      aug_w         = Aug_w;
+      sept_w        = Sept_w;
+      oct_w         = Oct_w;
+      nov_w         = Nov_w;
+      dec_w         = Dec_w;
+      jan_w         = Jan_w;
+      feb_w         = Feb_w;
+      march_w       = March_w;
+      uom           = Uom;
+    }
+}

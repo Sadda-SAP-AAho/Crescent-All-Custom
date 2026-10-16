@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForWorkCode_S'
+define service ZUI_TMGTABLEFORWORKCODE {
+  expose ZI_TMGTABLEFORWORKCODE_S as TmgTableForWorkCAll;
+  expose ZI_TMGTABLEFORWORKCODE as TmgTableForWorkCode;
+}

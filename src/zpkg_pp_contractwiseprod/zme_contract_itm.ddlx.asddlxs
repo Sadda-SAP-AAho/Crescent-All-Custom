@@ -1,0 +1,111 @@
+@Metadata.layer: #CORE
+@UI: {
+  presentationVariant: [{ sortOrder: [{ by: 'cont'}, { by: 'matnr', direction: #DESC } ],
+                          visualizations: [{type: #AS_LINEITEM}],
+                          text: 'Contractor Wise Production Report Item' }]
+                          }
+annotate entity ZC_CONTRACT_ITM with
+{
+  @UI.facet:
+   [
+
+   {
+   id: 'Generalitem',
+   isSummary: true,
+   label: 'Contractor Wise Production Report Item',
+   type: #COLLECTION,
+   purpose: #STANDARD
+   },
+
+   { type: #FIELDGROUP_REFERENCE,
+    targetQualifier: 'GeneralData1',
+    parentId: 'Generalitem',
+    position: 1,
+    id: 'GeneralData1' } ]
+
+  @UI: { lineItem: [{ position: 10 }],
+    identification: [{ position: 10 }],
+    fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  matnr;
+  @UI: { lineItem: [{ position: 20 }],
+  identification: [{ position: 20 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  itemname;
+  @UI: { lineItem: [{ position: 30 }],
+  identification: [{ position: 30 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+  NetWeight;
+  @UI: { lineItem: [{ position: 40 }],
+  identification: [{ position: 40 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 40, importance: #HIGH }] }
+  Day1qty;
+  @UI: { lineItem: [{ position: 50 }],
+  identification: [{ position: 50 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 50, importance: #HIGH }] }
+  Day2qty;
+  @UI: { lineItem: [{ position: 60 }],
+  identification: [{ position: 60 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 60, importance: #HIGH }] }
+  Day3qty;
+  @UI: { lineItem: [{ position: 70 }],
+  identification: [{ position: 70 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 70, importance: #HIGH }] }
+  Day4qty;
+  @UI: { lineItem: [{ position: 80 }],
+  identification: [{ position: 80 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 80, importance: #HIGH }] }
+  Day5qty;
+  @UI: { lineItem: [{ position: 90 }],
+  identification: [{ position: 90 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 90, importance: #HIGH }] }
+  Day6qty;
+  @UI: { lineItem: [{ position: 100 }],
+  identification: [{ position: 100 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 100, importance: #HIGH }] }
+  Day7qty;
+  @UI: { lineItem: [{ position: 110 }],
+  identification: [{ position: 110 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 110, importance: #HIGH }] }
+  TotalPerDayQty;
+  @UI: { lineItem: [{ position: 120 }],
+  identification: [{ position: 120 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 120, importance: #HIGH }] }
+  activity1;
+  @UI: { lineItem: [{ position: 130 }],
+  identification: [{ position: 130 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 130, importance: #HIGH }] }
+  activity2;
+  @UI: { lineItem: [{ position: 140 }],
+  identification: [{ position: 140 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 140, importance: #HIGH }] }
+  activity3;
+  @UI: { lineItem: [{ position: 150 }],
+  identification: [{ position: 150 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 150, importance: #HIGH }] }
+  activity4;
+  @UI: { lineItem: [{ position: 160 }],
+  identification: [{ position: 160 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 160, importance: #HIGH }] }
+  Qtyinkg;
+  @UI: { lineItem: [{ position: 161 }],
+  identification: [{ position: 161 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 161, importance: #HIGH }] }
+  activity1amt;
+  @UI: { lineItem: [{ position: 170 }],
+  identification: [{ position: 170 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 170, importance: #HIGH }] }
+  activity2amt;
+  @UI: { lineItem: [{ position: 180 }],
+  identification: [{ position: 180 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 180, importance: #HIGH }] }
+  activity3amt;
+  @UI: { lineItem: [{ position: 190 }],
+  identification: [{ position: 190 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 190, importance: #HIGH }] }
+  activity4amt;
+  @UI: { lineItem: [{ position: 200 }],
+  identification: [{ position: 200 }],
+  fieldGroup: [{ qualifier: 'GeneralData1', position: 200, importance: #HIGH }] }
+  totalamt;
+
+}

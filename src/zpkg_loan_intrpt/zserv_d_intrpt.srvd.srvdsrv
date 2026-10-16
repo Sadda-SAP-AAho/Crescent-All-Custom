@@ -1,0 +1,4 @@
+@EndUserText.label: 'Interest Report'
+define service ZSERV_D_INTRPT {
+  expose ZRINTRPT_TP;
+}

@@ -1,0 +1,28 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Projection ~ Approver Log'
+@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+define view entity ZC_APPR_LOG
+  as projection on ZI_APPR_LOG
+{
+      @EndUserText.label: 'Accounting Doc'
+  key Accountingdoc,
+      @EndUserText.label: 'Fiscal Year'
+  key Fiscalyear,
+      @EndUserText.label: 'Company Code'
+  key Companycode,
+      @EndUserText.label: 'Approval Level'
+  key Apprlevel,
+      @EndUserText.label: 'Actioned By'
+      Actionedby,
+      @EndUserText.label: 'Actioned On'
+      Actionedon,
+      @EndUserText.label: 'Actioned At'
+      Actionedat,
+      @EndUserText.label: 'Action'
+      Action,
+      @EndUserText.label: 'Approver Comment'
+      Apprcomment,
+      /* Associations */
+      _Head : redirected to parent ZC_PAY_HEADER
+}

@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'ShipmentTypeNew', 
+    typeNamePlural: 'ShipmentTypeNews', 
+    title: {
+      type: #STANDARD, 
+      label: 'Shipment Type New', 
+      value: 'Shipmenttype'
+    }
+  }
+}
+annotate view ZI_ShipmentTypeNew with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_ShipmentTypeNew', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Shipment Type New', 
+    position: 1 
+  } ]
+  Shipmenttype;
+}

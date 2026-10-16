@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Definition for Bank Rate Header'
+define service ZSERV_D_BNKRATE_HDR {
+  expose ZC_BNKRATE_HDR;
+  expose ZC_BNKRATEBG;
+  expose ZC_BNKRATEEXP;
+  expose ZC_BNKRATEIMP;
+}

@@ -1,0 +1,14 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "HSBCPAYSTAT Log of appl job 02",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "subobjects": [
+    {
+      "name": "ZAPP_HSBCSTAT_02_SUB",
+      "description": "Application Log 02"
+    }
+  ]
+}

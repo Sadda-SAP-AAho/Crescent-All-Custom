@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Monthly Budget Register",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Monthly Budget"
+  },
+  "ui5AppDetails": {
+    "appId": "zmonthbudget"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_FECC7143138CFD7DFC150A5E9896DB5C8FF1DC5D_TM",
+    "semanticObject": "zmonthbudget",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_FECC7143138CFD7DFC150A5E9896DB5C8FF1DC5D_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Monthly Budget",
+        "subtitle": "Register"
+      }
+    }
+  ]
+}

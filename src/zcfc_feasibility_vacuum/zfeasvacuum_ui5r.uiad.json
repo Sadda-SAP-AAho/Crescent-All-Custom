@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Feasibility Vacuum"
+  },
+  "ui5AppDetails": {
+    "appId": "zfeasvacuum"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_66E2CEB025D734B4C8812915D485DA619B6D1032_TM",
+    "semanticObject": "zfeasvacuum",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_66E2CEB025D734B4C8812915D485DA619B6D1032_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Feasibility Vacuum",
+        "subtitle": "Register"
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'DatabaseTableForBan', 
+    typeNamePlural: 'DatabaseTableForBans', 
+    title: {
+      type: #STANDARD, 
+      label: 'Database table for bank TMG', 
+      value: 'Bankname'
+    }
+  }
+}
+annotate view ZI_DatabaseTableForBan with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_DatabaseTableForBan', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Database table for bank TMG', 
+    position: 1 
+  } ]
+  Bankname;
+}

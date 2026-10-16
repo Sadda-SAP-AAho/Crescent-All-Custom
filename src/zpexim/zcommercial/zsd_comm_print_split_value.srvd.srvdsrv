@@ -1,0 +1,7 @@
+@EndUserText.label: 'Commer Invoice Split Value'
+define service ZSD_COMM_PRINT_SPLIT_VALUE {
+  expose ZCUS_FINALCOMM;
+  expose ZI_COMM_INV_SPLT_VALUE;
+  expose ZVTABPROP;
+  expose ZV_QTYPACKTYPE;
+}

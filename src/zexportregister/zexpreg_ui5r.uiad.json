@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Export Register",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Export Register"
+  },
+  "ui5AppDetails": {
+    "appId": "zexpreg.zexpreg"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_6A5A35C6FA6246176A8FAC8B2FCC6BF2B4E674F5_TM",
+    "semanticObject": "zsmexpreg",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_6A5A35C6FA6246176A8FAC8B2FCC6BF2B4E674F5_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Export Register",
+        "subtitle": "Application"
+      }
+    }
+  ]
+}

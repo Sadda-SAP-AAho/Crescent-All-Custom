@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "SO wise Packing List Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zsopcklst"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_3986815B968B9C3182EC591F35D34F56EEBA47E9_TM",
+    "semanticObject": "zsopcklst",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_3986815B968B9C3182EC591F35D34F56EEBA47E9_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "SO wise Packing List Report"
+      }
+    }
+  ]
+}

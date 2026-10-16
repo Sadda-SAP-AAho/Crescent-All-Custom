@@ -1,0 +1,4 @@
+@EndUserText.label: 'Gatepass head API'
+define service ZSERV_D_GHEADAPI {
+  expose Z_C_GHEAD_API_TP;
+}

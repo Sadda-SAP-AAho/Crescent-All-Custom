@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForShipping_S'
+define service ZUI_TMGTABLEFORSHIPPING {
+  expose ZI_TMGTABLEFORSHIPPING_S as TmgTableForShippAll;
+  expose ZI_TMGTABLEFORSHIPPING as TmgTableForShipping;
+}

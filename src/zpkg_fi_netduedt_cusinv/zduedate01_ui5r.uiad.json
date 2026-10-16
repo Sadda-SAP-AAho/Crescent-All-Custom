@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Change of due dates based on event for customer invoices",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Change of due dates based on event for customer invoices"
+  },
+  "ui5AppDetails": {
+    "appId": "zduedate"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_7009CC2A71D4B602FD7DBE04C9CDC878F39E5B96_TM",
+    "semanticObject": "zduedate01",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_7009CC2A71D4B602FD7DBE04C9CDC878F39E5B96_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Change of due dates based on event for customer invoices"
+      }
+    }
+  ]
+}

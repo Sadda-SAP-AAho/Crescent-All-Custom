@@ -1,0 +1,79 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'BgAddress', 
+    typeNamePlural: 'BgAddresss', 
+    title: {
+      type: #STANDARD, 
+      label: 'BG Address', 
+      value: 'Bukrs'
+    }
+  }
+}
+annotate view ZI_BgAddress with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_BgAddress', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'BG Address', 
+    position: 1 
+  } ]
+  Bukrs;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Street'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Street'
+  } ]
+  Street;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'City'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'City'
+  } ]
+  City;
+  
+  @UI.identification: [ {
+    position: 4 , 
+    label: 'State'
+  } ]
+  @UI.lineItem: [ {
+    position: 4 , 
+    label: 'State'
+  } ]
+  State;
+  
+  @UI.identification: [ {
+    position: 5 , 
+    label: 'Postcode'
+  } ]
+  @UI.lineItem: [ {
+    position: 5 , 
+    label: 'Postcode'
+  } ]
+  Postcode;
+  
+  @UI.identification: [ {
+    position: 6 , 
+    label: 'Country'
+  } ]
+  @UI.lineItem: [ {
+    position: 6 , 
+    label: 'Country'
+  } ]
+  Country;
+}

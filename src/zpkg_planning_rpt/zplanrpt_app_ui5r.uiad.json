@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Planning",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Planning"
+  },
+  "ui5AppDetails": {
+    "appId": "zplanrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_B8F34E2CEDA2723731FC57E5E3D75AB48E7596E1_TM",
+    "semanticObject": "zplanrpt_app",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_B8F34E2CEDA2723731FC57E5E3D75AB48E7596E1_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Planning",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

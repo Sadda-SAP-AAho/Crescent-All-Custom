@@ -1,0 +1,34 @@
+@Metadata.layer: #CORE
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'Kostl', direction: #ASC } ],
+                               visualizations: [{type: #AS_LINEITEM}],
+                               text: 'DPR VACCUM BAG REPORT' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'DPR VACCUM BAG REPORT', value: 'Kostl' } } }
+annotate entity ZC_DPR_VACB_HEAD with 
+{
+  @UI.facet:
+      [{ id: 'GeneralData', isSummary: true, label: 'DPR VACCUM BAG REPORT', type: #COLLECTION },
+       { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label:'Basic Details', id: 'GeneralData1' },
+       { id: 'Generalitem', label: 'DPR VACCUM BAG REPORT', type: #LINEITEM_REFERENCE, targetElement: '_item', position:  20 }]
+
+  @UI: { lineItem: [{ position: 5 }],
+         identification: [{ position: 5 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 5, importance: #HIGH }] }
+  plant;
+  @UI: { lineItem: [{ position: 10 }],
+         identification: [{ position: 10 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Kostl;
+  @UI: { lineItem: [{ position: 20 }],
+         identification: [{ position: 20 }],
+         fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  indate;
+  @UI.hidden: true
+  lastupdby;
+  @UI.hidden: true
+  lastupdon;
+  @UI.hidden: true
+  lastupdat;
+  @UI: { identification: [{position: 130 },  { type: #FOR_ACTION, dataAction: 'upd', label: 'Update'} ]}
+  upd;
+    
+}

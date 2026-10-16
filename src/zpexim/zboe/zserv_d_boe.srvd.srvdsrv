@@ -1,0 +1,6 @@
+@EndUserText.label: 'BOE'
+define service ZSERV_D_BOE {
+  expose ZC_BOETP;
+  expose ZC_BOELICTP;
+  expose ZC_BOEITEMTP;
+}

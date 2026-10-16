@@ -1,0 +1,124 @@
+managed implementation in class zbp_i_epcg_hdr unique;
+strict;
+with draft;
+define behavior for ZI_EPCG_HDR //alias <alias_name>
+persistent table zdt_epcg_hdr
+draft table zdr_epcg_hdr
+lock master
+total etag Licdate
+authorization master ( instance )
+//etag master <field_name>
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+  field ( readonly : update, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update ) Bukrs;
+  field ( readonly ) Ecomno, Totalcifvalue, Remaindutysave, Totaldutysave, Plannedexpobg;
+  field ( features : instance ) Average, Expobg1, Filedate, Fileno, Licdate, Licno, Dutysaveval,
+  Ponum, Waers;
+
+  create;
+  update ( features : instance );
+  //==delete;
+  delete ( features : instance );
+  //==EPCG header new mathods
+  determination determineepcgnumber on save { create; }
+  determination get_planexpobligation on modify { field Dutysaveval; }
+  validation check_epcg on save { create; }
+
+  side effects
+  {
+    field Dutysaveval affects $self, field Plannedexpobg;
+
+  }
+
+
+  association _item { create ( features : instance ); with draft; }
+
+  mapping for zi_epcg_hdr
+    {
+      Ecomno         = Ecomno;
+      Bukrs          = Bukrs;
+      Dutysaveval    = Dutysaveval;
+      Average        = Average;
+      Expobg1        = Expobg1;
+      Filedate       = Filedate;
+      Fileno         = Fileno;
+      Licdate        = Licdate;
+      Licno          = Licno;
+      Plannedexpobg  = Plannedexpobg;
+      Ponum          = Ponum;
+      Remaindutysave = Remaindutysave;
+      Totalcifvalue  = Totalcifvalue;
+      Totaldutysave  = Totaldutysave;
+      Waers          = Waers;
+    }
+}
+
+define behavior for ZI_EPCG_ITM //alias <alias_name>
+persistent table zdt_epcg_item
+draft table zdr_epcg_item
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly : update, numbering : managed ) Item;
+  field ( readonly ) Id, Ecomno, Dutysavevalfc, Dutysavevalinr, Matdesc, Cifvalfc, Cifvalinr, Cifvalusd, Accessval, Remdutysaveinr;
+  field ( features : instance ) Excrateinr, Freightcharge, Grosspricefc, Hsn, Inschange, Itemno, Meins, Payperc, Qty, Uom, Remarks;
+
+  determination item_detail on save { create; }
+  determination dutysave on modify
+  { field Grosspricefc; field Excrateinr; field Dutysavper; field Swcessperc; field Igstperc;
+    field Freightcharge; field Inschange; field Waersfr; field Waersinc;
+  }
+  side effects
+  {
+
+    field Grosspricefc affects field Cifvalfc, field Cifvalinr, field Dutysavevalfc, field Dutysavevalinr, field Matdesc, field Accessval;
+    field Excrateinr affects field Cifvalfc, field Cifvalinr, field Dutysavevalfc, field Dutysavevalinr, field Matdesc, field Accessval;
+    field Dutysavper affects field Cifvalfc, field Cifvalinr, field Dutysavevalfc, field Dutysavevalinr, field Matdesc, field Accessval;
+    field Swcessperc affects field Cifvalfc, field Cifvalinr, field Dutysavevalfc, field Dutysavevalinr, field Matdesc, field Accessval;
+    field Igstperc affects field Cifvalfc, field Cifvalinr, field Dutysavevalfc, field Dutysavevalinr, field Matdesc, field Accessval;
+    field Freightcharge affects field Cifvalfc, field Cifvalinr, field Dutysavevalfc, field Dutysavevalinr, field Accessval;
+    field Waersfr affects field Cifvalfc, field Cifvalinr, field Dutysavevalfc, field Dutysavevalinr, field Accessval;
+    field Inschange affects field Cifvalfc, field Cifvalinr, field Dutysavevalfc, field Dutysavevalinr, field Accessval;
+    field Waersinc affects field Cifvalfc, field Cifvalinr, field Dutysavevalfc, field Dutysavevalinr, field Accessval;
+  }
+
+  association _head { with draft; }
+  mapping for zi_epcg_itm
+    {
+      Accessval      = Accessval;
+      Cifvalfc       = Cifvalfc;
+      Cifvalinr      = Cifvalinr;
+      //      Cifvalusd      = Cifvalusd;
+      Dutysavevalfc  = Dutysavevalfc;
+      Dutysavevalinr = Dutysavevalinr;
+      Dutysavper     = Dutysavper;
+      Ecomno         = Ecomno;
+      Excrateinr     = Excrateinr;
+      //      Excrateusd     = Excrateusd;
+      Freightcharge  = Freightcharge;
+      Grosspricefc   = Grosspricefc;
+      Hsn            = Hsn;
+      Igstperc       = Igstperc;
+      Inschange      = Inschange;
+      Itemno         = Itemno;
+      Matdesc        = Matdesc;
+      Meins          = Meins;
+      Payperc        = Payperc;
+      Qty            = Qty;
+      Remarks        = Remarks;
+      Remdutysaveinr = Remdutysaveinr;
+      Swcessperc     = Swcessperc;
+      Uom            = Uom;
+      Waers          = Waers;
+    }
+}

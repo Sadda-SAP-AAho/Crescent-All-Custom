@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Supplier Basic Data'
+define service ZSD_SUPP_DATA_BASIC {
+  expose ZC_SUPP_DATA_BASIC;
+}

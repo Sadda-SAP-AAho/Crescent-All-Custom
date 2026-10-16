@@ -1,0 +1,170 @@
+managed implementation in class zbp_i_nostro_hed unique;
+strict;
+with draft;
+
+define behavior for ZI_NOSTRO_hed //alias <alias_name>
+persistent table zdt_nostro_hed
+draft table zdr_nostro_hed
+lock master
+total etag Invoiceno
+authorization master ( instance )
+//etag master <field_name>
+
+{
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  //  //=== Custom action Button ====//
+  //  action ( features : instance ) Accupdate result [1] $self;
+
+  field ( readonly : update, numbering : managed ) Id;
+  field ( mandatory : create, readonly : update ) Companycode, Customer, fiscalyear, refaccdocno;
+  field ( readonly : update ) Invoiceno;
+  field ( readonly ) Postingdate, Customername;
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  determination updatedata on save { create; update; }
+  determination updatedatahdr on modify { field Companycode; field Customer; field Invoiceno; create; }
+  //  validation checkdel on save { create; }
+
+  validation payterm on save { create; update; }
+
+  association _Item { create ( features : instance ); with draft; }
+  association _Item2 { create ( features : instance ); with draft; }
+
+
+  mapping for zi_nostro_hed
+    {
+      Companycode  = Companycode;
+      Customer     = Customer;
+      Customername = Customername;
+      Invoiceno    = Invoiceno;
+      Postingdate  = Postingdate;
+      refaccdocno  = refaccdocno;
+    }
+}
+//-------------------------------------------------------------------------------
+// Item Line Start
+//-------------------------------------------------------------------------------
+define behavior for ZI_NOSTRO_itm //alias <alias_name>
+persistent table zdt_nostro_itm
+draft table zdr_nostro_itm
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update;
+  delete ( features : instance );
+  field ( readonly : update, numbering : managed ) Item;
+
+  //  //=== Custom action Button ====//
+  //  action ( features : instance ) Accupdateitm result [1] $self;
+
+  field ( readonly ) Id, Accountingdocument, accountingdocumentitem, Accountingdocumenttype, Documentdate, Postingdate,
+  Amountdc, remainamtdc, Amountcc, Currencydc, Currencycc, payterm, Duedate, Referenceno;
+
+  //  field ( features : instance ) Checkbox, Swiftdate, Currencyinward, Inwardrecordstatus;
+  //  field ( features : instance, mandatory ) Inwardrefno, Inwarddate, Inwardamount;
+  //  validation val_inwarditm2 on save { create; }
+
+  //  determination update_amt on save { create; update; }
+
+  //  validation nostro_check on save { create; update; }
+
+  association _Head { with draft; }
+  mapping for zi_nostro_itm
+    {
+      Checkbox               = Checkbox;
+      Accountingdocument     = Accountingdocument;
+      accountingdocumentitem = accountingdocumentitem;
+      Referenceno            = Referenceno;
+      Accountingdocumenttype = Accountingdocumenttype;
+      Documentdate           = Documentdate;
+      Postingdate            = Postingdate;
+      Amountdc               = Amountdc;
+      Currencydc             = Currencydc;
+      remainamtdc            = remainamtdc;
+      Amountcc               = Amountcc;
+      Currencycc             = Currencycc;
+      payterm                = payterm;
+      Duedate                = Duedate;
+      Inwardrefno            = Inwardrefno;
+      Inwarddate             = Inwarddate;
+      Swiftdate              = Swiftdate;
+      Inwardamount           = Inwardamount;
+      Currencyinward         = Currencyinward;
+      Inwardrecordstatus     = Inwardrecordstatus;
+      Accupdateitm           = Accupdateitm;
+    }
+}
+
+//-------------------------------------------------------------------------------
+// Item2 Line Start
+//-------------------------------------------------------------------------------
+define behavior for ZI_NOSTRO_ITM2 //alias <alias_name>
+persistent table zdt_nostro_itm2
+draft table zdr_nostro_itm2
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly : update, numbering : managed ) Item2;
+
+  field ( mandatory : create, readonly : update ) accountingdocumentitem;//, payterm;
+  field ( readonly : update ) payterm;
+
+  //=== Custom action Button ====//
+  action ( features : instance ) Accupdateitm result [1] $self;
+
+  field ( readonly ) Id, Accountingdocument, Accountingdocumenttype, Documentdate, Postingdate,
+  Amountdc, remainamtdc, Amountcc, Currencydc, Currencycc, Duedate, Referenceno, bankrefno;
+
+  field ( features : instance ) Swiftdate, Currencyinward, Inwardrecordstatus,Bankintidt;
+  field ( features : instance, mandatory ) Inwardrefno, Inwarddate, Inwardamount;
+
+  determination updatedataitm2 on modify { create; }
+  determination update_rem_amt on modify { field Inwardamount; }
+
+
+  //  validation val_inwarditm2 on save  { field Inwardrefno; field Inwarddate; field Inwardamount; create; update; }
+  //  determination update_rem_amt1 on save  { delete; }
+  validation payterm on save { create; update; }
+
+  side effects
+  {
+    field Inwardamount affects field Remainamtdc;
+  }
+  association _Head { with draft; }
+
+  mapping for zi_nostro_itm2
+    {
+      Accountingdocument     = Accountingdocument;
+      accountingdocumentitem = accountingdocumentitem;
+      Referenceno            = Referenceno;
+      Amountdc               = Amountdc;
+      Currencydc             = Currencydc;
+      remainamtdc            = remainamtdc;
+      payterm                = payterm;
+      Duedate                = Duedate;
+      Inwardrefno            = Inwardrefno;
+      Inwarddate             = Inwarddate;
+      Swiftdate              = Swiftdate;
+      Inwardamount           = Inwardamount;
+      Currencyinward         = Currencyinward;
+      Inwardrecordstatus     = Inwardrecordstatus;
+      Accupdateitm           = Accupdateitm;
+      bankrefno              = bankrefno;
+      Bankintidt              = Bankintidt;
+    }
+}

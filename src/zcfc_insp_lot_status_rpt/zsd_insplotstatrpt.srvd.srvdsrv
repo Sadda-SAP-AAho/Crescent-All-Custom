@@ -1,0 +1,4 @@
+@EndUserText.label: 'Inspection Lot Status Report'
+define service ZSD_INSPLOTSTATRPT {
+  expose ZC_INSPLOTSTATRPT;
+}

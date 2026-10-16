@@ -1,0 +1,12 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_DT_NUMWORD'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_DT_NUMWORD'
+  }
+}
+define service ZUI_DT_NUMWORD_O4
+  provider contracts odata_v4_ui {
+  expose ZC_DT_NUMWORD;
+}

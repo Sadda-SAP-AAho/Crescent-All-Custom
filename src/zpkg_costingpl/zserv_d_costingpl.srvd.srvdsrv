@@ -1,0 +1,4 @@
+@EndUserText.label: 'Costing P&L'
+define service ZSERV_D_COSTINGPL {
+  expose ZC_COSTINGPL;
+}

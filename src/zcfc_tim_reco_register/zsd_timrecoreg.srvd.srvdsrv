@@ -1,0 +1,5 @@
+@EndUserText.label: 'TIM Reco Register'
+define service ZSD_TIMRECOREG {
+  expose ZC_TIMRECOREGHD;
+  expose ZC_TIMRECOREGIT;
+}

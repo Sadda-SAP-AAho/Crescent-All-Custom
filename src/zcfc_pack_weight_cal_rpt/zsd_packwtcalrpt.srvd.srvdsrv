@@ -1,0 +1,4 @@
+@EndUserText.label: 'Pack Weight Calculation Report'
+define service ZSD_PACKWTCALRPT {
+  expose ZC_PACKWTCALRPT;
+}

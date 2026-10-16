@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Shop Floor Production",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Shop Floor Production"
+  },
+  "ui5AppDetails": {
+    "appId": "zshpflrrptapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_A6E776F4BA5617C24001A06AB7B432ECFBA10293_TM",
+    "semanticObject": "zshpflrrptapp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_A6E776F4BA5617C24001A06AB7B432ECFBA10293_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Shop Floor Production",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

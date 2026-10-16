@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "{{Form for Apllication for Certificate of Origin}}",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Application For Certificate of Origin"
+  },
+  "ui5AppDetails": {
+    "appId": "applicationforcertificateoforigin"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_7F613182B12474FEE9230605AABD9994528A9631_TM",
+    "semanticObject": "ZAPPFORCERTOFORIGIN",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_7F613182B12474FEE9230605AABD9994528A9631_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Application For Certificate of Origin"
+      }
+    }
+  ]
+}

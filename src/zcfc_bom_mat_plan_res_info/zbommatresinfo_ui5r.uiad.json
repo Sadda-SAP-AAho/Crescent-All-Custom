@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "BOM wise Material Planning and Resource Information",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "BOM wise Material Planning and Resource Information"
+  },
+  "ui5AppDetails": {
+    "appId": "zbommatresinfo"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_5407FD782534BB7744E7F3AB44D7F4449FADF5DB_TM",
+    "semanticObject": "zbommatresinfo",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_5407FD782534BB7744E7F3AB44D7F4449FADF5DB_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "BOM wise Material Planning and Resource Information"
+      }
+    }
+  ]
+}

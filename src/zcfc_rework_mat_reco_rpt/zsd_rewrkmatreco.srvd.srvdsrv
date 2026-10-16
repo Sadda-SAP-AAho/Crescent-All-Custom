@@ -1,0 +1,4 @@
+@EndUserText.label: 'Rework Material Reco-Report'
+define service ZSD_REWRKMATRECO {
+  expose ZC_REWRKMATRECO;
+}

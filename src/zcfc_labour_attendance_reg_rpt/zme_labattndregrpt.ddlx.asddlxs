@@ -1,0 +1,79 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Labour Attendance Register Report',
+                typeNamePlural:'Labour Attendance Register Report',
+                title: { type: #STANDARD, label: 'Labour Attendance Register Report' , value: 'Id' }
+
+              }
+     }
+annotate entity ZC_LABATTNDREGRPT with
+{
+  @UI.facet:
+       [{id: 'GeneralData', isSummary: true, label: 'Item Details', type: #COLLECTION, position: 5},
+       { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Labour Attendance Register Report', id: 'GeneralData1' }]
+
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Item;
+
+  @UI: { lineItem: [{ position: 20 }],
+      identification: [{ position: 20 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  @UI.selectionField: [{position: 20}]
+  Docnum;
+  @UI: { lineItem: [{ position: 30 }],
+        identification: [{ position: 30 }],
+        fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+  PersonFullName;
+  @UI: { lineItem: [{ position: 40 }],
+      identification: [{ position: 40 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 40, importance: #HIGH }] }
+  Creon;
+  @UI: { lineItem: [{ position: 50 }],
+      identification: [{ position: 50 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 50, importance: #HIGH }] }
+
+  Reportdate;
+  @UI: { lineItem: [{ position: 70 }],
+      identification: [{ position: 70 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 70, importance: #HIGH }] }
+  Plantcode;
+  @UI: { lineItem: [{ position: 80 }],
+      identification: [{ position: 80 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 80, importance: #HIGH }] }
+  Plantname;
+  @UI: { lineItem: [{ position: 90 }],
+      identification: [{ position: 90 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 90, importance: #HIGH }] }
+  Contcode;
+  @UI: { lineItem: [{ position: 100 }],
+      identification: [{ position: 100 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 100, importance: #HIGH }] }
+  Contname;
+  @UI: { lineItem: [{ position: 110 }],
+      identification: [{ position: 110 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 110, importance: #HIGH }] }
+  Deptcode;
+  @UI: { lineItem: [{ position: 120 }],
+      identification: [{ position: 120 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 120, importance: #HIGH }] }
+  Deptname;
+  @UI: { lineItem: [{ position: 130 }],
+      identification: [{ position: 130 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 130, importance: #HIGH }] }
+  Category;
+  @UI: { lineItem: [{ position: 140 }],
+      identification: [{ position: 140 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 140, importance: #HIGH }] }
+  Oprcode;
+  @UI: { lineItem: [{ position: 150 }],
+      identification: [{ position: 150 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 150, importance: #HIGH }] }
+  Oprname;
+  @UI: { lineItem: [{ position: 160 }],
+      identification: [{ position: 160 }],
+      fieldGroup: [{ qualifier: 'GeneralData1', position: 160, importance: #HIGH }] }
+  Noofhead;
+
+}

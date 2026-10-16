@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Order Confirmation App'
+define service ZSD_OCFORM {
+  expose ZC_OCFORM_HEADER;
+}

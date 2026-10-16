@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Advance Upload'
+define service ZSD_ADVANCEUPLOAD {
+  expose zc_advanceupload;
+  expose zc_advanceuploaditm;
+}

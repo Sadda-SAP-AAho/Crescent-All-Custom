@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgDprBarodaCostCen_S'
+define service ZUI_TMGDPRBARODACOSTCEN {
+  expose ZI_TMGDPRBARODACOSTCEN_S as TmgDprBarodaCostAll;
+  expose ZI_TMGDPRBARODACOSTCEN as TmgDprBarodaCostCen;
+}

@@ -1,0 +1,82 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: { typeName: 'Stock Overview Report Data',
+                  typeNamePlural: 'Stock Overview Report Data' }
+@Search.searchable: true
+annotate entity ZI_STOCK_MOVEMENT_REP_BASE with
+  parameters
+    @EndUserText.label: 'From Date'
+    p_date_low,
+    @EndUserText.label: 'To Date'
+    p_date_high
+{
+
+  @UI.facet: [{ purpose: #STANDARD,
+                type : #IDENTIFICATION_REFERENCE,
+                position: 10,
+                label : 'Stock Detail' }]
+  @UI.lineItem: [{ position: 10, label : 'Material Group' }]
+  @UI.identification: [{ position : 10 , label : 'Material Group'}]
+  @UI.selectionField: [{ position: 10 }]
+  @Search.defaultSearchElement: true
+ @Consumption.valueHelpDefinition: [{ entity.name: 'ZR_MATGRP_F4', entity.element: 'ProductGroup' }]
+  MaterialGroup;
+  @UI.lineItem: [{ position: 20, label : 'Plant' }]
+  @UI.identification: [{ position : 20 , label : 'Plant' }]
+  @UI.selectionField: [{ position: 20 }]
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [{ entity.name: 'ZR_PLANT_F4', entity.element: 'Plant' }]
+  //@Consumption.filter.mandatory: true
+  Plant;
+  @UI.lineItem: [{ position: 21, label : 'UOM' }]
+  @UI.identification: [{ position : 21 , label : 'UOM'  }]
+  unit_of_measure;
+  @UI.lineItem: [{ position: 22, label : 'Opening Stock Qty' }]
+  @UI.identification: [{ position : 22 , label : 'Opening Stock Qty'  }]
+  open_stk_qty;
+  @UI.lineItem: [{ position: 30, label : 'Received Against PO Qty' }]
+  @UI.identification: [{ position : 30 , label : 'Received Against PO Qty'  }]
+  rcvd_po_qty;
+  @UI.lineItem: [{ position: 40, label : 'Received From Prodn Ord Qty-Unrestricted' }]
+  @UI.identification: [{ position : 40 , label : 'Received From Prodn Ord Qty-Unrestricted'}]
+  rcvd_mo_qty_unsl;
+  @UI.lineItem: [{ position: 50, label : 'Received From Prodn Ord Qty-Rejection' }]
+  @UI.identification: [{ position : 50 , label : 'Received From Prodn Ord Qty-Rejection'}]
+  rcvd_mo_qty_resl;
+  @UI.lineItem: [{ position: 51, label : 'Foundary Return Qty' }]
+  @UI.identification: [{ position : 51 , label : 'Foundary Return Qty'}]
+  foundary_ret_qty;
+  @UI.lineItem: [{ position: 60, label : 'Other Receipt Qty' }]
+  @UI.identification: [{ position : 60 , label : 'Other Receipt Qty' }]
+  oth_rcv_qty;
+  @UI.lineItem: [{ position: 70, label : 'Transfer In Qty' }]
+  @UI.identification: [{ position : 70 , label : 'Transfer In Qty'}]
+  trnsf_in_qty;
+  @UI.lineItem: [{ position: 80, label : 'Sales Return Qty' }]
+  @UI.identification: [{ position : 80 , label : 'Sales Return Qty'}]
+  SLS_RET_QTY;
+  @UI.lineItem: [{ position: 90, label : 'Delivery Against SO Qty' }]
+  @UI.identification: [{ position : 90 , label : 'Delivery Against SO Qty'}]
+  SLS_DELV_QTY;
+  @UI.lineItem: [{ position: 100, label : 'Issue to Prodn Order Qty' }]
+  @UI.identification: [{ position : 100 , label : 'Issue to Prodn Order Qty' }]
+  iss_prd_qty;
+  @UI.lineItem: [{ position: 110, label : 'Other Issue Qty' }]
+  @UI.identification: [{ position : 110, label : 'Other Issue Qty' }]
+  oth_iss_QTY;
+  @UI.lineItem: [{ position: 120, label : 'Return Against PO Qty' }]
+  @UI.identification: [{ position : 120, label : 'Return Against PO Qty' }]
+  RET_PO_QTY;
+  @UI.lineItem: [{ position: 130, label : 'Transfer Out Qty' }]
+  @UI.identification: [{ position : 130, label : 'Transfer Out Qty' }]
+  trans_out_qty;
+  @UI.lineItem: [{ position: 140, label : 'Total Received Qty' }]
+  @UI.identification: [{ position : 140, label : 'Total Received Qty' }]
+  totalrcvdqty;
+  @UI.lineItem: [{ position: 150, label : 'Total Issue Qty' }]
+  @UI.identification: [{ position : 150, label : 'Total Issue Qty' }]
+  totalissueqty;
+  @UI.lineItem: [{ position: 151, label : 'Closing Stock' }]
+  @UI.identification: [{ position : 151, label : 'Closing Stock' }]
+  closing_stk;
+}

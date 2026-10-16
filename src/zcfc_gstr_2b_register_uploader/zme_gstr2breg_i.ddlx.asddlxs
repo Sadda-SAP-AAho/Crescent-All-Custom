@@ -1,0 +1,122 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'GSTR 2B Register-Uploader', value: 'Id' } } }
+annotate entity ZC_GSTR2BREG_I with
+{
+  @UI.facet:
+  [{ id: 'GeneralData', isSummary: true, label: 'GSTR 2B Register-Uploader', type: #COLLECTION },
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: '', id: 'GeneralData1' }]
+  @UI.hidden: true
+  id;
+
+  @UI.hidden: true
+  item;
+  
+  @UI.lineItem: [{position: 5}]
+  @UI.identification: [{position: 5}]
+  @UI.fieldGroup: [{position: 5,qualifier: 'GeneralData1', importance: #HIGH}]
+  rowno;
+
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  @UI.fieldGroup: [{ position: 10, qualifier: 'GeneralData1', importance: #HIGH }]
+  suppgstn;
+
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  @UI.fieldGroup: [{ position: 20, qualifier: 'GeneralData1', importance: #HIGH }]
+  lglname;
+
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  @UI.fieldGroup: [{ position: 30, qualifier: 'GeneralData1', importance: #HIGH }]
+  invno;
+
+  @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 40 }]
+  @UI.fieldGroup: [{ position: 40, qualifier: 'GeneralData1', importance: #HIGH }]
+  invtyp;
+
+  @UI.lineItem: [{ position: 50 }]
+  @UI.identification: [{ position: 50 }]
+  @UI.fieldGroup: [{ position: 50, qualifier: 'GeneralData1', importance: #HIGH }]
+  invdate;
+
+  @UI.lineItem: [{ position: 60 }]
+  @UI.identification: [{ position: 60 }]
+  @UI.fieldGroup: [{ position: 60, qualifier: 'GeneralData1', importance: #HIGH }]
+  invval;
+
+  @UI.lineItem: [{ position: 70 }]
+  @UI.identification: [{ position: 70 }]
+  @UI.fieldGroup: [{ position: 70, qualifier: 'GeneralData1', importance: #HIGH }]
+  placesupply;
+
+  @UI.lineItem: [{ position: 80 }]
+  @UI.identification: [{ position: 80 }]
+  @UI.fieldGroup: [{ position: 80, qualifier: 'GeneralData1', importance: #HIGH }]
+  revcharge;
+
+  @UI.lineItem: [{ position: 90 }]
+  @UI.identification: [{ position: 90 }]
+  @UI.fieldGroup: [{ position: 90, qualifier: 'GeneralData1', importance: #HIGH }]
+  rateperc;
+
+  @UI.lineItem: [{ position: 100 }]
+  @UI.identification: [{ position: 100 }]
+  @UI.fieldGroup: [{ position: 100, qualifier: 'GeneralData1', importance: #HIGH }]
+  taxval;
+
+  @UI.lineItem: [{ position: 110 }]
+  @UI.identification: [{ position: 110 }]
+  @UI.fieldGroup: [{ position: 110, qualifier: 'GeneralData1', importance: #HIGH }]
+  intgrtax;
+
+  @UI.lineItem: [{ position: 120 }]
+  @UI.identification: [{ position: 120 }]
+  @UI.fieldGroup: [{ position: 120, qualifier: 'GeneralData1', importance: #HIGH }]
+  centraltax;
+
+  @UI.lineItem: [{ position: 130 }]
+  @UI.identification: [{ position: 130 }]
+  @UI.fieldGroup: [{ position: 130, qualifier: 'GeneralData1', importance: #HIGH }]
+  stateuttax;
+
+  @UI.lineItem: [{ position: 140 }]
+  @UI.identification: [{ position: 140 }]
+  @UI.fieldGroup: [{ position: 140, qualifier: 'GeneralData1', importance: #HIGH }]
+  cess;
+
+  @UI.lineItem: [{ position: 150 }]
+  @UI.identification: [{ position: 150 }]
+  @UI.fieldGroup: [{ position: 150, qualifier: 'GeneralData1', importance: #HIGH }]
+  gstrperiod;
+
+  @UI.lineItem: [{ position: 160 }]
+  @UI.identification: [{ position: 160 }]
+  @UI.fieldGroup: [{ position: 160, qualifier: 'GeneralData1', importance: #HIGH }]
+  gstrfildate;
+
+  @UI.lineItem: [{ position: 170 }]
+  @UI.identification: [{ position: 170 }]
+  @UI.fieldGroup: [{ position: 170, qualifier: 'GeneralData1', importance: #HIGH }]
+  itcavail;
+
+  @UI.lineItem: [{ position: 180 }]
+  @UI.identification: [{ position: 180 }]
+  @UI.fieldGroup: [{ position: 180, qualifier: 'GeneralData1', importance: #HIGH }]
+  reason;
+
+  @UI.lineItem: [{ position: 190 }]
+  @UI.identification: [{ position: 190 }]
+  @UI.fieldGroup: [{ position: 190, qualifier: 'GeneralData1', importance: #HIGH }]
+  apptaxrate;
+
+  @UI.lineItem: [{ position: 200 }]
+  @UI.identification: [{ position: 200 }]
+  @UI.fieldGroup: [{ position: 200, qualifier: 'GeneralData1', importance: #HIGH }]
+  msg;
+
+  @UI.hidden: true
+  status;
+
+}

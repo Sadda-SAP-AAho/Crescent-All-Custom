@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Casted Item Print'
+define service ZSD_CSTITMPRINT {
+  expose ZC_CASTITMSRLPRINT as CastedItemPrint;
+}

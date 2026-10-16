@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Container Planning Register",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Container Planning Register"
+  },
+  "ui5AppDetails": {
+    "appId": "zcontplanreg"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_FB2E95E9AD92D70F6D7079EE8A6EB8FD15603DB5_TM",
+    "semanticObject": "zcontplanreg",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_FB2E95E9AD92D70F6D7079EE8A6EB8FD15603DB5_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Container Planning Register"
+      }
+    }
+  ]
+}

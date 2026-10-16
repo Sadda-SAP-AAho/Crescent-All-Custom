@@ -1,0 +1,215 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: {
+typeName: 'COGST Report',
+typeNamePlural: 'COGS Report',
+title: { type: #STANDARD, value: 'AccountingDocument' }
+}}
+
+@UI: {
+  presentationVariant: [{ sortOrder: [{ by: 'AccountingDocument', direction: #ASC } ],
+                          visualizations: [{type: #AS_LINEITEM}]
+                           }]
+                          }
+annotate entity ZI_COGSRPT with
+{
+
+  @UI.facet:
+   [{ id: 'GeneralData', isSummary: true, label: 'COGS Report', type: #COLLECTION }]
+
+  @UI.fieldGroup: [ { position: 1, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 1 } ]
+  @UI.lineItem: [ { position: 1 } ]
+  AccountingDocument;
+  @UI.fieldGroup: [ { position: 2, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 2 } ]
+  @UI.lineItem: [ { position: 2 } ]
+  FiscalYear;
+  @UI.fieldGroup: [ { position: 3, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 3 } ]
+  @UI.lineItem: [ { position: 3 } ]
+  CompanyCode;
+  @UI.fieldGroup: [ { position: 4, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 4 } ]
+  @UI.lineItem: [ { position: 4 } ]
+  AccountingDocumentItem;
+  @UI.fieldGroup: [ { position: 5, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.lineItem: [ { position: 5 } ]
+  SoldToParty;
+  @UI.fieldGroup: [ { position: 6, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 6 } ]
+  @UI.lineItem: [ { position: 6 } ]
+  @UI.hidden: true
+  OriginalReferenceDocument;
+  @UI.fieldGroup: [ { position: 7, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 7 } ]
+  @UI.lineItem: [ { position: 7 } ]
+  PGINo;
+  @UI.fieldGroup: [ { position: 8, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 8 } ]
+  @UI.lineItem: [ { position: 8 } ]
+  PGIItem;
+  @UI.fieldGroup: [ { position: 9, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 9 } ]
+  @UI.lineItem: [ { position: 9 } ]
+  PGIDate;
+  @UI.fieldGroup: [ { position: 10, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.lineItem: [ { position: 10 } ]
+  GLAccount;
+  @UI.fieldGroup: [ { position: 11, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 11 } ]
+  @UI.lineItem: [ { position: 11 } ]
+  GLAccountName;
+  @UI.fieldGroup: [ { position: 12, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 12 } ]
+  @UI.lineItem: [ { position: 12 } ]
+  ProfitCenter;
+  @UI.fieldGroup: [ { position: 13, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 13 } ]
+  @UI.lineItem: [ { position: 13 } ]
+  ProfitCenterName;
+  @UI.fieldGroup: [ { position: 14, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 14 } ]
+  @UI.lineItem: [ { position: 14 } ]
+  CompanyCodeCurrency;
+  @UI.fieldGroup: [ { position: 15, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.lineItem: [ { position: 15 } ]
+  AmountInCompanyCodeCurrency;
+  @UI.fieldGroup: [ { position: 16, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 16 } ]
+  @UI.lineItem: [ { position: 16 } ]
+  DeliveryDocument;
+  @UI.fieldGroup: [ { position: 17, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 17 } ]
+  @UI.lineItem: [ { position: 17 } ]
+  DeliveryDocumentItem;
+  @UI.fieldGroup: [ { position: 18, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 18 } ]
+  @UI.lineItem: [ { position: 18 } ]
+  GSTInvoiceNumber;
+  @UI.fieldGroup: [ { position: 19, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 19 } ]
+  @UI.lineItem: [ { position: 19 } ]
+  CommercialInvoiceNumber;
+  @UI.fieldGroup: [ { position: 19, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 19 } ]
+  @UI.lineItem: [ { position: 19 } ]
+  Product;
+  @UI.fieldGroup: [ { position: 19, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 19 } ]
+  @UI.lineItem: [ { position: 19 } ]
+  ProductName;
+  @UI.fieldGroup: [ { position: 20, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.lineItem: [ { position: 20 } ]
+  Plant;
+  @UI.fieldGroup: [ { position: 21, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 21 } ]
+  @UI.lineItem: [ { position: 21 } ]
+  QuantityInBaseUnit;
+  @UI.fieldGroup: [ { position: 22, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 22 } ]
+  @UI.lineItem: [ { position: 22 } ]
+  MaterialBaseUnit;
+  @UI.fieldGroup: [ { position: 23, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 23 } ]
+  @UI.lineItem: [ { position: 23 } ]
+  WeightUnit;
+  @UI.fieldGroup: [ { position: 24, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 24 } ]
+  @UI.lineItem: [ { position: 24 } ]
+  NetWeight;
+  @UI.fieldGroup: [ { position: 25, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.lineItem: [ { position: 25 } ]
+  TotalWeight;
+  @UI.fieldGroup: [ { position: 26, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 26 } ]
+  @UI.lineItem: [ { position: 26 } ]
+  CostEstimate;
+  @UI.fieldGroup: [ { position: 27, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 27 } ]
+  @UI.lineItem: [ { position: 27 } ]
+  ValuationQuantityUnit;
+  @UI.fieldGroup: [ { position: 28, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 28 } ]
+  @UI.lineItem: [ { position: 28 } ]
+  CostingLotSize;
+  @UI.fieldGroup: [ { position: 29, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 29 } ]
+  @UI.lineItem: [ { position: 29 } ]
+  CostingDate;
+  @UI.fieldGroup: [ { position: 30, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.hidden: true
+  Currency;
+  @UI.fieldGroup: [ { position: 31, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 31 } ]
+  @UI.lineItem: [ { position: 31 } ]
+  DirectMaterial;
+  @UI.fieldGroup: [ { position: 32, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 32 } ]
+  @UI.lineItem: [ { position: 32 } ]
+  Credits;
+  @UI.fieldGroup: [ { position: 33, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 33 } ]
+  @UI.lineItem: [ { position: 33 } ]
+  PackingPattern;
+  @UI.fieldGroup: [ { position: 34, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 34 } ]
+  @UI.lineItem: [ { position: 34 } ]
+  StoresSpares;
+  @UI.fieldGroup: [ { position: 35, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.lineItem: [ { position: 35 } ]
+  MaterialOverhead;
+  @UI.fieldGroup: [ { position: 36, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 36 } ]
+  @UI.lineItem: [ { position: 36 } ]
+  MouldingExpense;
+  @UI.fieldGroup: [ { position: 37, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 37 } ]
+  @UI.lineItem: [ { position: 37 } ]
+  FetlingExpense;
+  @UI.fieldGroup: [ { position: 38, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 38 } ]
+  @UI.lineItem: [ { position: 38 } ]
+  ElectricityExpense;
+  @UI.fieldGroup: [ { position: 39, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 39 } ]
+  @UI.lineItem: [ { position: 39 } ]
+  FabricationExpense;
+  @UI.fieldGroup: [ { position: 40, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.lineItem: [ { position: 40 } ]
+  StoresCost;
+  @UI.fieldGroup: [ { position: 41, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 41 } ]
+  @UI.lineItem: [ { position: 41 } ]
+  MachiningCharges;
+  @UI.fieldGroup: [ { position: 42, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 42 } ]
+  @UI.lineItem: [ { position: 42 } ]
+  MeltingCost;
+  @UI.fieldGroup: [ { position: 43, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 43 } ]
+  @UI.lineItem: [ { position: 43 } ]
+  FerroAlloyTreatment;
+  @UI.fieldGroup: [ { position: 44, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 44 } ]
+  @UI.lineItem: [ { position: 44 } ]
+  PatternCost;
+  @UI.fieldGroup: [ { position: 45, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.lineItem: [ { position: 45 } ]
+  MachineCost;
+  @UI.fieldGroup: [ { position: 46, qualifier: 'GeneralData', importance: #HIGH } ]
+  @UI.identification: [ { position: 46 } ]
+  @UI.lineItem: [ { position: 46 } ]
+  PaintFinishExp;
+
+}

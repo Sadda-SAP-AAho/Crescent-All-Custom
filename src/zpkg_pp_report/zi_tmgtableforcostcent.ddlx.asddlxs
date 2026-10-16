@@ -1,0 +1,44 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgTableForCostCent', 
+    typeNamePlural: 'TmgTableForCostCents', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG table for Cost Center Type', 
+      value: 'Kostl'
+    }
+  }
+}
+annotate view ZI_TmgTableForCostCent with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgTableForCostCent', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG table for Cost Center Type', 
+    position: 1 
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'CostCenter', name:'I_CostCenter' },
+                                                distinctValues: true,
+                                                useForValidation: true } ]
+  Kostl;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity:
+  {name: 'ZI_CCTYPE_F4' , element: 'value_low' },
+  distinctValues: true,
+  useForValidation: true  }]
+  Cctype;
+}

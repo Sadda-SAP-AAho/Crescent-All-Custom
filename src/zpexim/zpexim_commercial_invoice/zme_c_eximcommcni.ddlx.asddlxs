@@ -1,0 +1,108 @@
+@Metadata.layer: #CORE
+
+@UI: {
+        presentationVariant: [{ sortOrder: [{ by: 'Containerno', direction:  #DESC }],
+                                visualizations: [{type: #AS_LINEITEM}],
+                                text: 'Container Item' }]
+     }
+
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Container No', value: 'Containerno' } } }
+
+annotate view ZC_EXIMCOMMCNI with
+{
+
+  @UI.facet: [
+  {
+  id: 'GeneralI',
+  isSummary: true,
+  label: 'General Information',
+  type: #COLLECTION,
+  purpose: #STANDARD
+  },
+
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData1',
+  parentId: 'GeneralI',
+  label: 'Container Information',
+  id: 'GeneralData1'
+  },
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData2',
+  parentId: 'GeneralI',
+  label: 'Weight Information',
+  id: 'GeneralData2'
+  },
+  {
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'GeneralData3',
+  parentId: 'GeneralI',
+  label: 'Addn. Information',
+  id: 'GeneralData3'
+  }
+  ]
+
+  @UI.hidden: true
+  Id;
+
+  @UI.hidden: true
+  Item;
+
+  @UI: {
+         lineItem: [ { position: 10} ],
+         identification: [{position: 10 }],
+         fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
+  }
+  Containerno;
+
+  @UI: {
+       lineItem: [ { position: 20} ],
+       identification: [{position: 20 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }]
+  }
+  Containersize;
+
+  @UI: {
+       lineItem: [ { position: 30} ],
+       identification: [{position: 30 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 30,importance: #HIGH }]
+  }
+  Sealno;
+
+  @UI: {
+       lineItem: [ { position: 40} ],
+       identification: [{position: 40 }],
+       fieldGroup: [{qualifier: 'GeneralData2',position: 40,importance: #HIGH }]
+  }
+  Uom;
+
+  @UI: {
+       lineItem: [ { position: 50} ],
+       identification: [{position: 50 }],
+       fieldGroup: [{qualifier: 'GeneralData2',position: 50,importance: #HIGH }]
+  }
+  Tareweight;
+
+  @UI: {
+       lineItem: [ { position: 60} ],
+       identification: [{position: 60 }],
+       fieldGroup: [{qualifier: 'GeneralData2',position: 60,importance: #HIGH }]
+  }
+  Grossweight;
+
+  @UI: {
+       lineItem: [ { position: 70} ],
+       identification: [{position: 70 }],
+       fieldGroup: [{qualifier: 'GeneralData3',position: 70,importance: #HIGH }]
+  }
+  Ewaybillno;
+
+  @UI: {
+       lineItem: [ { position: 80} ],
+       identification: [{position: 80 }],
+       fieldGroup: [{qualifier: 'GeneralData3',position: 80,importance: #HIGH }]
+  }
+  Remarks;
+
+}

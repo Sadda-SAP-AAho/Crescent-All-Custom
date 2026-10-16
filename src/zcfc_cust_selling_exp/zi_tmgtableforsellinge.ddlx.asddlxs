@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgTableForSellingE', 
+    typeNamePlural: 'TmgTableForSellingEs', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG Table for Selling Expense Master', 
+      value: 'Expcode'
+    }
+  }
+}
+annotate view ZI_TmgTableForSellingE with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgTableForSellingE', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG Table for Selling Expense Master', 
+    position: 1 
+  } ]
+  Expcode;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Expname;
+}

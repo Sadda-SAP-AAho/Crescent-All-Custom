@@ -1,0 +1,6 @@
+projection;
+
+define behavior for ZC_InspLotSerialResult alias InspLotSerialResult
+{
+  use action saveReportedResults;
+}

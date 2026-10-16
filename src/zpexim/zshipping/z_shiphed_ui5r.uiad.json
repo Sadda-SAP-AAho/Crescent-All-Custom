@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Shipping Bill Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Shipping Bill Application"
+  },
+  "ui5AppDetails": {
+    "appId": "zshiphed"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_4B2EF0B036ABD6C5BD19080B84B593FB9E2E3516_TM",
+    "semanticObject": "z_shiphed",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_4B2EF0B036ABD6C5BD19080B84B593FB9E2E3516_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Shipping Bill Application"
+      }
+    }
+  ]
+}

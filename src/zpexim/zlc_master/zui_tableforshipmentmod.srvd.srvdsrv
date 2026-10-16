@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TableForShipmentMod_S'
+define service ZUI_TABLEFORSHIPMENTMOD {
+  expose ZI_TABLEFORSHIPMENTMOD_S as TableForShipmentAll;
+  expose ZI_TABLEFORSHIPMENTMOD as TableForShipmentMod;
+}

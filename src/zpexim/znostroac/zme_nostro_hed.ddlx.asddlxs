@@ -1,0 +1,76 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by: 'Invoiceno', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'Payment Inward Tracker' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Payment Inward Tracker', value: 'Invoiceno' } } }
+annotate entity ZC_NOSTRO_hed with
+{
+
+  @UI.facet:
+  [
+   { id: 'GeneralData', isSummary: true, label: 'NOSTRO', type: #COLLECTION },
+   { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Header', id: 'GeneralData1' },
+
+  //   {id: 'idLineLIC', type: #LINEITEM_REFERENCE,label: 'License Details',position: 20 ,targetElement: '_BOELIC'},
+  //   {id: 'idLineitem',type: #LINEITEM_REFERENCE,label: 'Item Details',   position: 30 ,targetElement: '_BOEItem'},
+
+  //   { id: 'ItemI', label: 'Item'},
+   {id: 'Item',type: #LINEITEM_REFERENCE,label: 'Account Details', position : 25, targetElement: '_Item' },
+   {id: 'Item2',type: #LINEITEM_REFERENCE, label: 'Inward Payment',position : 30, targetElement: '_Item2' }
+   ]
+
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'CompanyCode', name:'I_CompanyCode' },
+                                            distinctValues: true,
+                                            useForValidation: true
+                                    } ]
+  Companycode;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Customer', name:'I_Customer' },
+                                            distinctValues: true,
+                                            useForValidation: true
+                                      } ]
+  Customer;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Customername;
+  @UI.lineItem: [ { position: 16 } ]
+  @UI.identification: [ { position: 16 } ]
+  @UI.fieldGroup: [ { position: 16,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'OriginalReferenceDocument', name:'ZI_NOSTRO_F4' },
+                                            distinctValues: true,
+                                            useForValidation: true,
+                                   additionalBinding: [{ localElement: 'Customer',element: 'Customer',usage:#FILTER_AND_RESULT },
+                                                       { localElement: 'Invoiceno',element: 'AccountingDocument',usage:#FILTER_AND_RESULT }
+  //                                                       { localElement: 'Companycode',element: 'Companycode',usage:#FILTER },
+  //                                                       { localElement: 'fiscalyear',element: 'FiscalYear',usage:#FILTER }
+                                                       ]
+                                      } ]
+
+  refaccdocno;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'AccountingDocument', name:'ZI_NOSTRO_F4' },
+                                          distinctValues: true,
+                                          useForValidation: true,
+                                      additionalBinding: [{ localElement: 'refaccdocno',element: 'OriginalReferenceDocument',usage:#FILTER }]
+                                    }]
+
+  Invoiceno;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+
+  Postingdate;
+
+
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Daily Production Casting Report-Rej Qty(Baroda)'
+define service ZSD_PP_CAST_REJ_BARODA {
+  expose ZC_PP_CAST_REJ_BARODA;
+}

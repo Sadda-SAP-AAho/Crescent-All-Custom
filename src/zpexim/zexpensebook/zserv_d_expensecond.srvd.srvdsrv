@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service LC Maintain'
+define service ZSERV_D_EXPENSECOND {
+  expose ZC_EXPENSECOND;
+}

@@ -1,0 +1,122 @@
+managed implementation in class zbp_i_scriptgn_hdr unique;
+strict;
+with draft;
+
+define behavior for zi_scriptgn_hdr //alias <alias_name>
+persistent table zdt_scriptgn_hdr
+draft table zdr_scriptgn_hdr
+lock master
+total etag local_last_changed_at
+authorization master ( instance )
+with additional save
+{
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+
+  field ( readonly, numbering : managed ) id;
+
+  field ( mandatory : create, readonly : update ) scriptno, scriptdate;
+
+  //--Comment for Golive---02.04.25
+  ////  field ( readonly ) shippingbill, status, currency, sum_rodtep_dd_v, sum_realizationamt, sum_difference, local_created_by,
+  ////  local_created_at, local_created_on, local_last_changed_by, local_last_changed_at, local_last_changed_on, last_changed_at,
+  ////  accountdocno, accountdocyr;
+
+  field ( features : instance ) shippingbill, status, currency, sum_rodtep_dd_v, sum_realizationamt, sum_difference, local_created_by,
+  local_created_at, local_created_on, local_last_changed_by, local_last_changed_at, local_last_changed_on, last_changed_at,
+  accountdocno, accountdocyr;
+  //--Comment for Golive---02.04.25
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  determination shippingbilldetails on save { create; update; }
+  determination scrolldata on save { field scrollno; }
+  determination post on save { field post; }
+
+  validation check on save { create; update; }
+
+
+  association _Item { create ( features : instance ); with draft; }
+
+  mapping for zi_scriptgn_hdr
+    {
+      scriptno              = scriptno;
+      scriptdate            = scriptdate;
+      scrollno              = scrollno;
+      shippingbill          = shippingbill;
+      status                = status;
+      currency              = currency;
+      sum_rodtep_dd_v       = sum_rodtep_dd_v;
+      sum_realizationamt    = sum_realizationamt;
+      sum_difference        = sum_difference;
+      local_created_by      = local_created_by;
+      local_created_at      = local_created_at;
+      local_created_on      = local_created_on;
+      local_last_changed_by = local_last_changed_by;
+      local_last_changed_at = local_last_changed_at;
+      local_last_changed_on = local_last_changed_on;
+      last_changed_at       = last_changed_at;
+      post                  = post;
+      accountdocno          = accountdocno;
+      accountdocyr          = accountdocyr;
+      accpostref            = accpostref;
+
+    }
+
+}
+
+define behavior for zi_scriptgn_itm //alias <alias_name>
+persistent table zdt_scriptgn_itm
+draft table zdr_scriptgn_itm
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly : update, numbering : managed ) item;
+  //  field ( mandatory : create, readonly : update ) scrollno, shipping_bill;
+
+  //--Comment for Golive---02.04.25
+  ////  field ( readonly ) id, scriptno, scriptdate, shipping_bill, scrollno, shipping_bill_date, port_code, port_codename, currency,
+  ////  fob_lc_v, rodtep_dd_v, realizationamt, difference;
+
+  field ( readonly ) id;
+  field ( features : instance ) scriptno, scriptdate, shipping_bill, scrollno, shipping_bill_date, port_code, port_codename, currency,
+  fob_lc_v, rodtep_dd_v, realizationamt, difference;
+  //--Comment for Golive---02.04.25
+
+  determination scrolldetails on modify { field scrollno; }
+
+  side effects
+  {
+
+    field scrollno affects field _Head.sum_rodtep_dd_v, field _Head.sum_realizationamt, field _Head.sum_difference;
+  }
+
+  association _Head { with draft; }
+
+  mapping for zi_scriptgn_itm
+    {
+      shipping_bill      = shipping_bill;
+      shipping_bill_date = shipping_bill_date;
+      scriptno           = scriptno;
+      scriptdate         = scriptdate;
+      scrollno           = scrollno;
+      port_code          = port_code;
+      port_codename      = port_codename;
+      currency           = currency;
+      fob_lc_v           = fob_lc_v;
+      rodtep_dd_v        = rodtep_dd_v;
+      realizationamt     = realizationamt;
+      difference         = difference;
+    }
+}

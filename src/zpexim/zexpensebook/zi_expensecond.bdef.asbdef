@@ -1,0 +1,44 @@
+managed implementation in class zbp_i_expensecond unique;
+strict;
+with draft;
+
+define behavior for ZI_EXPENSECOND //alias <alias_name>
+persistent table zdt_expensecond
+draft table zdr_expensecond
+lock master
+total etag Expansetype
+authorization master ( instance )
+//etag master <field_name>
+{
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+  field ( mandatory : create, readonly :update ) companycode;
+  field ( readonly : update, numbering : managed ) id;
+  field ( features : instance ) Contsize, Shipline, Forwarder, Countrydest, Expansetype, percontship;
+
+  mapping for zi_expensecond
+    {
+      companycode = companycode;
+//      Contno      = Contno;
+      Contsize    = Contsize;
+      Shipline    = Shipline;
+      Forwarder   = Forwarder;
+      Countrydest = Countrydest;
+      Expansetype = Expansetype;
+      percontship = percontship;
+      Fromdate    = Fromdate;
+      Todate      = Todate;
+      Amount      = Amount;
+      Currency    = Currency;
+    }
+}

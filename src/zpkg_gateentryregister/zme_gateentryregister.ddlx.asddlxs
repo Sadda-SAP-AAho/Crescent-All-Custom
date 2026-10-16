@@ -1,0 +1,195 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Gate Entry Report',
+                typeNamePlural:'Gate Entry Report',
+                title: { type: #STANDARD, label: 'Gateentry Register Report', value: 'Id' }
+              }
+     }
+annotate view zc_gateentry with
+{
+  @UI.facet: [
+       {
+       id: 'Header',
+       isSummary: true,
+       label: 'Gateentry Register Report',
+       type: #IDENTIFICATION_REFERENCE,
+       purpose: #STANDARD,
+       position: 10
+       } ]
+
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Item;
+  @UI: { lineItem: [ { position: 20} ], identification: [{position: 20 }] }
+  Challannumber;
+  @UI: { lineItem: [ { position: 30} ], identification: [{position: 30 }] }
+  Challandate;
+  @UI.lineItem: [ { position: 31 }, { criticality: 'Criticality' } ]
+  @UI.identification: [  { position: 31 } ]
+  status;
+  @EndUserText.label: 'Criticality'
+  Criticality;
+  @UI: { lineItem: [ { position: 40} ], identification: [{position: 40 }] }
+  Rrno;
+  @UI: { lineItem: [ { position: 50} ], identification: [{position: 50 }] }
+  Rrdate;
+  @UI: { lineItem: [ { position: 60} ], identification: [{position: 60 }] }
+  Lrblno;
+  @UI: { lineItem: [ { position: 70} ], identification: [{position: 70 }] }
+  Lbbldate;
+  @UI: { lineItem: [ { position: 80} ], identification: [{position: 80 }] }
+  Billofentryno;
+  @UI: { lineItem: [ { position: 90} ], identification: [{position: 90 }] }
+  Billofentrydate;
+  @UI.hidden: true
+  Miningpermissionno;
+  @UI: { lineItem: [ { position: 100} ], identification: [{position: 100 }] }
+  Waybillno;
+  @UI: { lineItem: [ { position: 105} ], identification: [{position: 105 }] }
+  MiningchallanMpno;
+  @UI: { lineItem: [ { position: 110} ], identification: [{position: 110 }] }
+  Miningchallantpno;
+  @UI: { lineItem: [ { position: 120} ], identification: [{position: 120 }],selectionField: [{ position: 120 }] }
+  Plantgateno;
+  @UI: { lineItem: [ { position: 130} ], identification: [{position: 130 }] }
+  Plantweighbridgeno;
+  @UI: { lineItem: [ { position: 140} ], identification: [{position: 140 }],selectionField: [{ position: 140 }] }
+  Shipmenttype;
+  @UI: { lineItem: [ { position: 150} ], identification: [{position: 150 }],selectionField: [{ position: 150 }] }
+  Vehno;
+  @UI.hidden: true
+  ContainerNumber;
+  @UI.hidden: true
+  Vesselname;
+  @UI.hidden: true
+  Rakeno;
+  @UI.hidden: true
+  Raketripno;
+  @UI: { lineItem: [ { position: 160} ], identification: [{position: 160 }] }
+  Ernam;
+  @UI.hidden: true
+  Erdat;
+  @UI.hidden: true
+  Erzet;
+  @UI: { lineItem: [ { position: 170} ], identification: [{position: 170 }],selectionField: [{ position: 170 }] }
+  Gateentrydate;
+  @UI: { lineItem: [ { position: 180} ], identification: [{position: 180 }] }
+  Gateentrytime;
+  @UI: { lineItem: [ { position: 190} ], identification: [{position: 190 }] }
+  Vendorcode;
+  @UI: { lineItem: [ { position: 200} ], identification: [{position: 200 }] }
+  Vendorname;
+  @UI: { lineItem: [ { position: 210} ], identification: [{position: 210 }] }
+  Customercode;
+  @UI: { lineItem: [ { position: 220} ], identification: [{position: 220 }] }
+  Customername;
+  @UI.hidden: true
+  Drivername;
+  @UI.hidden: true
+  Drivercellno;
+  @UI.hidden: true
+  Dlno;
+  @UI.hidden: true
+  Vehiclecheck;
+  @UI: { lineItem: [ { position: 230} ], identification: [{position: 230 }] }
+  Testcertificate;
+  @UI.hidden:true
+  Taxinvoice;
+  @UI: { lineItem: [ { position: 240} ], identification: [{position: 240 }] }
+  Transportercode;
+  @UI: { lineItem: [ { position: 250} ], identification: [{position: 250 }] }
+  Transportername;
+  @UI: { lineItem: [ { position: 260} ], identification: [{position: 260 }] }
+  Invoice;
+  @UI.hidden: true
+  Invoicedate;
+  @UI.hidden: true
+  Remarks;
+  @UI: { lineItem: [ { position: 270} ], identification: [{position: 270 }] }
+  Gatepass;
+  @UI.hidden: true
+  Gatepassdate;
+  @UI.hidden: true
+  Purchasingdocumentnumber;
+  @UI: { lineItem: [ { position: 280} ], identification: [{position: 280 }] }
+  Vehicleoutdate;
+  @UI: { lineItem: [ { position: 290} ], identification: [{position: 290 }] }
+  Vehicleouttime;
+  @UI.hidden: true
+  Unloaddate;
+  @UI.hidden: true
+  Unloadtime;
+  @UI.hidden: true
+  Gateout;
+  @UI.hidden: true
+  Deleted;
+  @UI.hidden: true
+  Cancel;
+  @UI.hidden: true
+  Miscnumber;
+  @UI.hidden: true
+  Miscdate;
+  @UI.hidden: true
+  Currentyear;
+  @UI.hidden: true
+  Currentnumber;
+  @UI.hidden: true
+  Bukrs;
+  @UI.hidden: true
+  Plant;
+  @UI.hidden: true
+  Type;
+  @EndUserText.label: 'UOM'
+  Meins;
+  @UI.hidden: true
+  Netwt;
+  @UI.hidden: true
+  Tarwt;
+  @UI.hidden: true
+  Grswt;
+  @UI.hidden: true
+  Deleteuser;
+  @UI.hidden: true
+  Deletedate;
+//  @UI: { lineItem: [ { position: 300} ], identification: [{position: 300 }] }
+//  status;
+//  @UI.hidden: true
+//  Criticality;
+  @UI.hidden: true
+  Printr;
+  @UI: { lineItem: [ { position: 310} ], identification: [{position: 310 }] }
+  Ebeln;
+  @UI: { lineItem: [ { position: 320} ], identification: [{position: 320 }] }
+  Ebelp;
+  @UI: { lineItem: [ { position: 330} ], identification: [{position: 330 }] }
+  Vbeln;
+  @UI.hidden: true
+  Vbelp;
+  @UI: { lineItem: [ { position: 340} ], identification: [{position: 340 }] }
+  Matnr;
+  @UI: { lineItem: [ { position: 350} ], identification: [{position: 350 }] }
+  Maktx;
+  @UI.hidden: true
+  Posnr;
+  @UI.hidden: true
+  VbelnVf;
+  @UI.hidden: true
+  PosnrVf;
+  @UI.hidden: true
+  Mblnr;
+  @UI.hidden: true
+  Mjahr;
+  @UI.hidden: true
+  Zeile;
+  @UI: { lineItem: [ { position: 360} ], identification: [{position: 360 }] }
+  Challanqty;
+  @UI.hidden: true
+  Orderqty;
+  @UI.hidden: true
+  Totalqty;
+  @UI.hidden: true
+  Balanceqty;
+  @UI.hidden: true
+  Deliverqty;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Payment Term'
+define service ZSD_PTERM_HDR {
+  expose ZC_PTERM_HDR;
+}

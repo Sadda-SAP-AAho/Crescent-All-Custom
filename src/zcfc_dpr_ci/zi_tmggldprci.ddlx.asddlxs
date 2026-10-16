@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgGlDprCi', 
+    typeNamePlural: 'TmgGlDprCis', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG GL DPR CI', 
+      value: 'Costtype'
+    }
+  }
+}
+annotate view ZI_TmgGlDprCi with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgGlDprCi', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG GL DPR CI', 
+    position: 1 
+  } ]
+  Costtype;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Hkont;
+}

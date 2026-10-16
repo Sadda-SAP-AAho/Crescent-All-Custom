@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for GAP Tracker'
+define service ZUI_GAP_TRACKER {
+  expose ZC_GAP_TRACKER_01;
+}

@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Definition for Final PL Form'
+define service ZSD_FINALPLFORM {
+  expose ZCUS_FINALPLFORM;
+  expose ZI_FINALPL_ITEM_PRINT;
+  expose ZV_QTYPACKTYPE;
+  expose ZVTABPROP1;
+}

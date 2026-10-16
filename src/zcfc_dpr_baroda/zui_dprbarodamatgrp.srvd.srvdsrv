@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_DprBarodaMatGrp_S'
+define service ZUI_DPRBARODAMATGRP {
+  expose ZI_DPRBARODAMATGRP_S as DprBarodaMatGrpAll;
+  expose ZI_DPRBARODAMATGRP as DprBarodaMatGrp;
+}

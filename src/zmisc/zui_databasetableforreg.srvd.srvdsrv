@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_DatabaseTableForReg_S'
+define service ZUI_DATABASETABLEFORREG {
+  expose ZI_DATABASETABLEFORREG_S as DatabaseTableForAll;
+  expose ZI_DATABASETABLEFORREG as DatabaseTableForReg;
+}

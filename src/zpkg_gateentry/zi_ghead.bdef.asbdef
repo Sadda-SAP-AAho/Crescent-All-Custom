@@ -1,0 +1,296 @@
+managed implementation in class zbp_i_ghead unique;
+strict;
+with draft;
+
+define behavior for zi_ghead
+persistent table zdt_ghead
+draft table zdr_ghead
+lock master
+total etag Erdat
+authorization master ( instance )
+with additional save
+{
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  }
+
+  field ( readonly : update, numbering : managed ) Id;
+
+  field ( mandatory : create, readonly : update ) Type, Shipmenttype, Plantgateno;
+
+  field ( readonly ) Gatepass, Ernam, Erdat, Erzet, Vendorname, Status, Criticality, Total, Progress,
+  Gateentrydate, Gateentrytime, Currentyear, Gateout, Deleted, DeleteDate, Vehicleoutdate, Tarwt, Grswt, Netwt,
+  DeleteUser, rgpdate, Vehicleouttime, customername, Amountt;
+
+  field ( features : instance ) Vehno;
+  field ( features : instance ) customercode;
+
+  field ( features : instance )
+  deliverynumber,
+  rgpgatepass,
+  Challannumber,
+  Challandate,
+  Rrno,
+  Rrdate,
+  Lrblno,
+  Lbbldate,
+  Billofentryno,
+  Billofentrydate,
+  Miningpermissionno,
+  Waybillno,
+  Miningchallantpno,
+
+  Plantweighbridgeno,
+
+  ContainerNumber,
+  Vesselname,
+  Rakeno,
+  Raketripno,
+
+
+  Vendorcode,
+  Drivername,
+  Drivercellno,
+  Dlno,
+  Vehiclecheck,
+  Testcertificate,
+  Taxinvoice,
+  Transportercode,
+  Transportername,
+  Invoice,
+  Invoicedate,
+  Remarks,
+
+  Gatepassdate,
+  Purchasingdocumentnumber,
+
+  Unloaddate,
+  Unloadtime,
+
+  Cancel,
+  Miscnumber,
+  Miscdate,
+
+  Currentnumber,
+  Bukrs,
+  Plant,
+  Vendor_Grswt,
+  Vendor_Netwt,
+  Vendor_Tarwt,
+
+  sendername,
+
+  Printr,
+  Wlfpl,
+  Item,
+  Fromplace,
+  Toplace,
+  Multiweight,
+  Noofweight,
+  Mpno,
+  Tpno;
+
+  create;
+  update ( features : instance );
+  //delete;
+  delete ( features : instance );//Added By Amit
+
+  //Actions
+  action ( features : instance ) GatePassOut result [1] $self;
+  //action ( features : instance ) Cancel result [1] $self;
+  action ( features : instance ) Deleted result [1] $self;
+  action ( features : instance ) Print result [1] $self;
+  action ( features : instance ) TPrint result [1] $self;
+  // action ( features : instance ) WLFPL result [1] $self;
+  action ( features : instance ) Item result [1] $self;
+  action ( features : instance ) Create result [1] $self;
+
+
+  //Check the Fields are filled or not before save in create and while updating in the Ui5
+  validation mandatefieldsheader on save { create; update; }
+
+  determination determinegatepassnumber on save { create; }
+  validation vehiclecheck on save { create; update; }
+  determination gateitem on save { create; update; }
+
+  determination vendorcodeupdate on modify { field Vendorcode; }
+
+  determination headerdetails on modify { field Plantgateno; }
+  determination transporterdetails on modify { field Transportercode; }
+  determination methodrgp on modify { field rgpgatepass; }
+  determination methoddeliveryno on modify { field deliverynumber; }
+
+  determination customer_name on save { field Customercode; }  // Customer Name for STO Outbound
+
+
+
+  validation checkVehicle on save { create; } //Added By Amit
+  validation checkperchal on save { create; update; }//Added By Amit
+  validation checkQTY on save { create; } //Added By Amit
+  validation challanno_date on save { create; } //added by Surajit
+  validation checkuniquechallan on save { create; update; } //added by Surajit
+  validation checkauth on save { create; update; }
+
+  side effects
+  {
+    action Item affects entity _Item;
+    field Customercode affects field Customername;
+
+  }
+
+
+  association _Item { create ( features : instance ); with draft; }
+
+  mapping for zi_ghead
+    {
+      Billofentrydate = Billofentrydate;
+      Billofentryno   = Billofentryno;
+      Bukrs           = Bukrs;
+      Cancel          = Cancel;
+      Challandate     = Challandate;
+      Challannumber   = Challannumber;
+      ContainerNumber = ContainerNumber;
+      Currentnumber   = Currentnumber;
+      Currentyear     = Currentyear;
+      Customercode    = Customercode;
+      Customername    = Customername;
+      Wlfpl           = Wlfpl;
+      Waybillno       = Waybillno;
+      Vesselname      = Vesselname;
+      Vendorname      = Vendorname;
+      Vendorcode      = Vendorcode;
+      Vehno           = Vehno;
+      Vehicleouttime  = Vehicleouttime;
+      Vehicleoutdate  = Vehicleoutdate;
+      Vehiclecheck    = Vehiclecheck;
+      Unloadtime      = Unloadtime;
+      Unloaddate      = Unloaddate;
+      Type            = Type;
+      Transportername = Transportername;
+      Transportercode = Transportercode;
+      Toplace         = Toplace;
+      Fromplace       = Fromplace;
+      Gateentrydate   = Gateentrydate;
+      Gateentrytime   = Gateentrytime;
+      Gateout         = Gateout;
+      Gatepass        = Gatepass;
+      Gatepassdate    = Gatepassdate;
+      Dlno            = Dlno;
+      Tarwt           = Tarwt;
+      Taxinvoice      = Taxinvoice;
+      Grswt           = Grswt;
+      Netwt           = Netwt;
+      Vendor_Netwt    = Vendor_Netwt;
+      Vendor_Tarwt    = Vendor_Tarwt;
+      Vendor_Grswt    = Vendor_Grswt;
+      deliverynumber  = deliverynumber;
+      Item            = Item;
+      ernam           = ernam;
+      rgpgatepass     = rgpgatepass;
+      sendername      = sendername;
+      Amountt          = Amountt;
+    }
+
+
+}
+
+
+define behavior for ZI_GITEM //alias <alias_name>
+persistent table zdt_gitem
+draft table zdr_gitem
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Id, Gatepass, Deliverqty, Balanceqty, Orderqty, plant, vehno, Vendor, Wtunit,
+  tamount;
+  // tarwt, netwt, grswt;
+  field ( readonly, numbering : managed ) item;
+  //  field ( readonly ) ebelp, Posnr, VBELP, Orderqty, Balanceqty, deliverqty, vbeln, Vendor, plant, Custcode,
+  //  Custdesc, Invoice, vehno;
+  field ( features : instance ) Challanqty, Matnr, maktx, meins, pounique, mpno, tpno, pouniquesto, Vbeln, Vbelp,
+  creationdate, Mblnr, Mjahr, Zeile, Plantqty, Itemval, Currency, ebeln, ebelp, Potext;
+
+  //  determination popitem on modify { field pounique; }
+  //  determination popitemsto on modify { field pouniquesto; }
+  determination popmaterial on modify { field Matnr; }
+
+  validation mandatefieldsitem on save { create; update; }
+  validation checkdelno on save { create; update; }
+  validation checkpoval on save { create; update; }
+  determination weighment_wt on save { create; update; }
+  determination itemdetails on modify { create; }
+
+
+  determination update_item on modify
+  { field ebeln; field Challanqty; field matnr; field maktx; field meins; field pounique;
+    field mpno; field tpno; field pouniquesto; field Vbeln; field vbelp; field creationdate;
+    field Mblnr; field Mjahr; field Zeile; field Plantqty; field Itemval; field Currency; }
+
+  determination poitem1 on modify { field Ebeln; }
+  determination vbelnfind on modify { field Vbeln; }
+  determination matdocfind on modify { field Mblnr; }
+  determination popweiunit on modify { field meins; }
+
+
+  action ( features : instance ) Copy result [1] $self;
+  side effects
+  {
+    //    field pounique affects field Ebelp, field Vbeln, field Vbelp, field Challanqty, field Balanceqty, field Matnr, field Maktx,
+    //        field Meins, field Deliverqty, field Orderqty, field mpno, field tpno;
+    //    field pouniquesto affects field Ebelp, field Vbeln, field Vbelp, field Challanqty, field Balanceqty, field Matnr, field Maktx,
+    //        field Meins, field Deliverqty, field Orderqty, field mpno, field tpno;
+    field matnr affects field Maktx, field meins;
+    field Ebeln affects field Ebelp, field Vbeln, field Vbelp, field Challanqty, field Balanceqty, field Matnr, field Maktx,
+        field Meins, field Deliverqty, field Orderqty, field mpno, field tpno, field Potext;
+    field Vbeln affects field Vbelp, field Challanqty, field Balanceqty, field Matnr, field Maktx,
+        field Meins, field Deliverqty, field Orderqty, field mpno, field tpno, field creationdate, field Custcode, field Custdesc;
+    field Mblnr affects field Mjahr, field Zeile, field Matnr, field Maktx, field Meins, field Orderqty;
+    field Meins affects field Wtunit;
+
+  }
+  association _Head { with draft; }
+  mapping for zi_gitem
+    {
+
+      //gatepass   = gatepass;
+      Ebeln        = Ebeln;
+      Ebelp        = Ebelp;
+      Vbeln        = Vbeln;
+      Vbelp        = Vbelp;
+      Posnr        = Posnr;
+      Zeile        = Zeile;
+      Matnr        = Matnr;
+      Maktx        = Maktx;
+      Meins        = Meins;
+      Challanqty   = Challanqty;
+      Orderqty     = Orderqty;
+      Balanceqty   = Balanceqty;
+      Vendor       = Vendor;
+      plant        = plant;
+      pounique     = pounique;
+      mpno         = mpno;
+      tpno         = tpno;
+      gateitem     = gateitem;
+      pouniquesto  = pouniquesto;
+      vehno        = vehno;
+      creationdate = creationdate;
+      Deliverqty   = Deliverqty;
+      Plantqty     = Plantqty;
+      Itemval      = Itemval;
+      Currency     = Currency;
+      tarwt        = tarwt;
+      netwt        = netwt;
+      grswt        = grswt;
+      Wtunit       = Wtunit;
+      tamount      = tamount;
+      Potext       = Potext;
+    }
+}

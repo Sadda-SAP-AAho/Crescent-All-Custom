@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition - Management Dashboard Open-Order'
+define service ZSD_MGMTOPNORDR {
+  expose ZC_MGMTOPNORDR;
+}

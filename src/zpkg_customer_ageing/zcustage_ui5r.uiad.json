@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Customer Aging",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Customer"
+  },
+  "ui5AppDetails": {
+    "appId": "zcustage.zcustage"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_EFFC648B0AFCCF6F36153DEBC84A29491A553485_TM",
+    "semanticObject": "zcusage",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_EFFC648B0AFCCF6F36153DEBC84A29491A553485_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Customer",
+        "subtitle": "Aging"
+      }
+    }
+  ]
+}

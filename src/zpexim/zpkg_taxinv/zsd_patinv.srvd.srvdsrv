@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Defination for Pattern Invoice'
+define service ZSD_PATINV {
+  expose ZCDS_PATINVITM;
+  expose ZCUS_PATINV;
+}

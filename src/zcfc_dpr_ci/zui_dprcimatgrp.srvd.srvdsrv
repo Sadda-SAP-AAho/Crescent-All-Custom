@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_DprCiMatGrp_S'
+define service ZUI_DPRCIMATGRP {
+  expose ZI_DPRCIMATGRP_S as DprCiMatGrpAll;
+  expose ZI_DPRCIMATGRP as DprCiMatGrp;
+}

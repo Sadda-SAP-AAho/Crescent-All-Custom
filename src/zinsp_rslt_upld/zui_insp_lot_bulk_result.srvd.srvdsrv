@@ -1,0 +1,5 @@
+@EndUserText.label: 'Insp. Lot Bulk Result Recording Service'
+define service ZUI_INSP_LOT_BULK_RESULT {
+  expose ZC_InspLotSerialResult as InspectionLotSerialResult;
+  expose ZC_InspLotCharResult   as InspectionLotCharResult;
+}

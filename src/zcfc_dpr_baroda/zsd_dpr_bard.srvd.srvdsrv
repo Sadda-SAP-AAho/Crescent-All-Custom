@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for DPR BARODA'
+define service ZSD_DPR_BARD {
+  expose ZC_DPR_BARD_HEAD;
+  expose ZC_DPR_BARD_ITM;
+}

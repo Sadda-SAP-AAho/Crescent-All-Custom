@@ -1,0 +1,78 @@
+managed implementation in class zbp_i_lchead unique;
+strict ( 2 );
+with draft;
+
+define behavior for zi_lchead  alias head
+persistent table zdt_lchead
+draft table zdr_lchead
+lock master
+total etag locallastchangedat
+authorization master ( instance )
+with additional save
+//etag master <field_name>
+{
+
+   create;
+  update( features : instance );
+  delete;
+
+
+  draft action Edit;
+  draft action Activate;
+  draft action Resume;
+  draft action Discard;
+  draft determine action Prepare;
+
+  field ( readonly, numbering : managed ) Id;
+  field ( readonly ) Lc_Refnr , Version , Ekorg , Pur_Org_Name,status;
+  field ( mandatory : create, readonly : update ) Po;
+  determination headerdetails on modify { field Po; }
+  factory action ( features : instance ) Amendment [1];
+  action ( features : instance ) SetOut result [1] $self;
+
+  association _item1 { create; }
+  association _item2 { create; }
+  association _item3 { create; }
+}
+
+define behavior for zi_lcbank_dlts //alias <alias_name>
+persistent table zdt_lcbank_dlts
+draft table zdr_lcbank_dlts
+lock dependent by _head
+authorization dependent by _head
+etag master locallastchangedat
+{
+field ( readonly, numbering : managed ) Item1;
+  update;
+  delete;
+  field ( readonly ) Id;
+  association _head;
+}
+
+define behavior for zi_lcimpoi //alias <alias_name>
+persistent table zdt_lcimpoi
+draft table zdr_lcimpoi
+lock dependent by _head
+authorization dependent by _head
+etag master locallastchangedat
+{
+field ( readonly, numbering : managed ) Item2;
+  update;
+  delete;
+  field ( readonly ) Id;
+  association _head;
+}
+
+define behavior for zi_lcbank_ref //alias <alias_name>
+persistent table zdt_lcbank_ref
+draft table zdr_lcbank_ref
+lock dependent by _head
+authorization dependent by _head
+etag master locallastchangedat
+{
+field ( readonly, numbering : managed ) Item3;
+  update;
+  delete;
+  field ( readonly ) Id;
+  association _head;
+}

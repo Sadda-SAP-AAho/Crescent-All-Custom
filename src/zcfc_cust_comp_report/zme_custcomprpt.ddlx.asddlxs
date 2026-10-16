@@ -1,0 +1,122 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Customer Complaint Report',
+                typeNamePlural:'Customer Complaint Report',
+                title: { type: #STANDARD, label: 'Customer Complaint Report', value: 'Notification_No' }
+
+              }
+     }
+
+annotate entity ZC_CUSTCOMPRPT with
+{
+  @UI.facet:
+  [{id: 'GeneralData', isSummary: true, label: 'Item Details', type: #COLLECTION, position: 5},
+  { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: '', id: 'GeneralData1' }]
+
+  @UI: { lineItem: [{ position: 5 }],
+       identification: [{ position: 5 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+  Priority;
+
+
+  @UI: { lineItem: [{ position: 10 }],
+       identification: [{ position: 10 }],
+       fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 10}]
+  Notification_No;
+
+  @UI: { lineItem: [{ position: 15 }],
+     identification: [{ position: 15 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Notification_Date;
+  
+  @UI: { lineItem: [{ position: 16 }],
+     identification: [{ position: 16 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Status;
+
+  @UI: { lineItem: [{ position: 20 }],
+     identification: [{ position: 20 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 20}]
+  CreatedBy;
+
+  @UI: { lineItem: [{ position: 25 }],
+     identification: [{ position: 25 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 25}]
+  Reportedby;
+
+  @UI: { lineItem: [{ position: 28 }],
+     identification: [{ position: 28 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 28}]
+  SoldtoParty;
+
+  @UI: { lineItem: [{ position: 30 }],
+     identification: [{ position: 30 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 30}]
+  Material;
+
+  @UI: { lineItem: [{ position: 35 }],
+     identification: [{ position: 35 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  Description;
+
+  @UI: { lineItem: [{ position: 40 }],
+     identification: [{ position: 40 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 40}]
+  Plant;
+
+  //  @UI: { lineItem: [{ position: 45 }],
+  //     identification: [{ position: 45 }],
+  //     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.hidden: true
+  ComplaintQty;
+
+  @UI.hidden: true
+  NotificationQuantityUnit;
+
+  @UI: { lineItem: [{ position: 50 }],
+     identification: [{ position: 50 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  SubjectlongText;
+
+  @UI: { lineItem: [{ position: 55 }],
+     identification: [{ position: 55 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 55}]
+  Coordinator;
+
+  @UI: { lineItem: [{ position: 60 }],
+     identification: [{ position: 60 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  TaskText;
+
+  @UI: { lineItem: [{ position: 65 }],
+     identification: [{ position: 65 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 65}]
+  Defect_Loc;
+  
+  @UI: { lineItem: [{ position: 70 }],
+     identification: [{ position: 70 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 70}]
+  DefectCode;
+  
+  @UI: { lineItem: [{ position: 75 }],
+     identification: [{ position: 75 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 75}]
+  NotificationItemText;
+
+  @UI: { lineItem: [{ position: 80 }],
+     identification: [{ position: 80 }],
+     fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 80}]
+  Responsible;
+}

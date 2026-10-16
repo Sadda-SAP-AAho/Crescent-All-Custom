@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Bar Code Packing List Report"
+  },
+  "ui5AppDetails": {
+    "appId": "com.crescent.app.barcodeform"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_FE225110FB04B07FFF56B295FBB09DB301706CD8_TM",
+    "semanticObject": "ZBRCDE_PCK_LIST_SO",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_FE225110FB04B07FFF56B295FBB09DB301706CD8_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Bar Code Packing List Report"
+      }
+    }
+  ]
+}

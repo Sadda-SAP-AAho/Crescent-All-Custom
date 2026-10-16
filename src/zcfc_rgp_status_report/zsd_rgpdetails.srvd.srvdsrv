@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for RGP Details'
+define service ZSD_RGPDETAILS {
+  expose ZC_RGPDETAILS;
+}

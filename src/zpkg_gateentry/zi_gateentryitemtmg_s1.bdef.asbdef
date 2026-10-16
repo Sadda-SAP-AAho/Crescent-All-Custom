@@ -1,0 +1,112 @@
+managed with additional save implementation in class ZBP_I_GATEENTRYITEMTMG_S1 unique;
+strict;
+with draft;
+define behavior for ZI_GateEntryItemtmg_S1 alias GateEntryItemtmgAll
+draft table ZDT_GATEITE_D_S1
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _GateEntryItemtmg { create ( features : instance ); with draft; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_GateEntryItemtmg_01 alias GateEntryItemtmg ##UNMAPPED_FIELD
+persistent table ZDT_GATEITEM
+draft table ZDT_GATEITEM_D1
+etag master LocalLastChangedAt
+lock dependent by _GateEntryItemtmgAll
+authorization dependent by _GateEntryItemtmgAll
+
+{
+  field ( readonly )
+   SingletonID,
+   Id,
+   Item,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+  field ( numbering : managed )
+   Id,
+   Item;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_GATEITEM
+  {
+    Id = ID;
+    Item = ITEM;
+    Gatepass = GATEPASS;
+    Ebeln = EBELN;
+    Ebelp = EBELP;
+    Vbeln = VBELN;
+    Vbelp = VBELP;
+    Matnr = MATNR;
+    Maktx = MAKTX;
+    Posnr = POSNR;
+    Vbelnvf = VBELNVF;
+    Posnrvf = POSNRVF;
+    Mblnr = MBLNR;
+    Mjahr = MJAHR;
+    Zeile = ZEILE;
+    Vendor = VENDOR;
+    Invoice = INVOICE;
+    Custcode = CUSTCODE;
+    Custdesc = CUSTDESC;
+    Meins = MEINS;
+    Challanqty = CHALLANQTY;
+    Orderqty = ORDERQTY;
+    Totalqty = TOTALQTY;
+    Balanceqty = BALANCEQTY;
+    Deliverqty = DELIVERQTY;
+    Gateitem = GATEITEM;
+    Netwt = NETWT;
+    Tarwt = TARWT;
+    Grswt = GRSWT;
+    Plant = PLANT;
+    Pounique = POUNIQUE;
+    Mpno = MPNO;
+    Tpno = TPNO;
+    Pouniquesto = POUNIQUESTO;
+    Vehno = VEHNO;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _GateEntryItemtmgAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

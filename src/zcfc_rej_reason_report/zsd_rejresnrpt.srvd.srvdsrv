@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination for Rejection Reason Report'
+define service ZSD_REJRESNRPT {
+  expose ZC_RERESNREPORT;
+}

@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Rejection Reason Analysis Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Rejection Reason Analysis Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zrejresnreport"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_9CD4F10C3A76079FA2FDEB57A3092B6A588D1B19_TM",
+    "semanticObject": "zrejresnreport",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_9CD4F10C3A76079FA2FDEB57A3092B6A588D1B19_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Rejection Reason Analysis Report"
+      }
+    }
+  ]
+}

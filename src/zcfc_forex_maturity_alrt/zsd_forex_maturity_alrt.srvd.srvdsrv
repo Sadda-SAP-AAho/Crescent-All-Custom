@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition of FOREX Maturity Alert'
+define service ZSD_FOREX_MATURITY_ALRT {
+  expose ZC_FOREX_MATURITY_ALRT;
+}

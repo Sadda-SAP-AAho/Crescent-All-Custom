@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Production Qty after Calibration"
+  },
+  "ui5AppDetails": {
+    "appId": "zprodqtycalbrtn"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_7D62609E03C452418D0C4C2117004945DC57D809_TM",
+    "semanticObject": "zprodqtycalbrtn",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_7D62609E03C452418D0C4C2117004945DC57D809_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Production Qty after Calibration",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

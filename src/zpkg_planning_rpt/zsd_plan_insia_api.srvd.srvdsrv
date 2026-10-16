@@ -1,0 +1,4 @@
+@EndUserText.label: 'Planning Report-INSIA'
+define service ZSD_PLAN_INSIA_API {
+  expose ZC_PLAN_INSIA;
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Binding for Invoice print'
+define service ZSD_INV_PRINT {
+  expose ZZVITEM;
+  expose ZZVVHEADER;
+}

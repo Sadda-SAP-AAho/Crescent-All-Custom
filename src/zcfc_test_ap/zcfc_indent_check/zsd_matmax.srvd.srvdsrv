@@ -1,0 +1,4 @@
+@EndUserText.label: 'Servoce Definition For Indent Data'
+define service ZSD_MATMAX {
+  expose ZC_MATMAX;
+}

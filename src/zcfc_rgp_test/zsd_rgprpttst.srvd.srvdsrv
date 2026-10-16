@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for RGP Report Test'
+define service ZSD_RGPRPTTST {
+  expose ZC_RGPRPTTST;
+}

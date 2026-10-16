@@ -1,0 +1,5 @@
+@MappingRole: true
+define role ZI_TableForPsaIndicato {
+  grant select on ZI_TableForPsaIndicato
+  where ( ) = ASPECT pfcg_auth ( 'S_TABU_NAM', ACTVT = '03', TABLE = 'ZI_TABLEFORPSAINDICATO' );
+}

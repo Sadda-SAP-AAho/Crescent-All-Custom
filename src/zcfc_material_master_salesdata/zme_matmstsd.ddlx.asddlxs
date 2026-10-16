@@ -1,0 +1,44 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Material Master Sales Data Report',
+                typeNamePlural:'Material Master Sales Data Report',
+                title: { type: #STANDARD, label: 'Material Master Sales Data Report', value: 'MatCode' }
+
+              }
+     }
+annotate entity ZC_MATMSTSD with
+{
+  @UI.facet:
+       [{id: 'GeneralData', isSummary: true, label: 'Item Details', type: #COLLECTION, position: 5},
+       { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralData', position: 10, label: 'Material Master Sales Data Report', id: 'GeneralData1' }]
+
+  @UI: { lineItem: [{ position: 5 }],
+           identification: [{ position: 5 }],
+           fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  @UI.selectionField: [{position: 5}]
+  MatCode;
+  @UI: { lineItem: [{ position: 10 }],
+          identification: [{ position: 10 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 10, importance: #HIGH }] }
+  MatName;
+  @UI: { lineItem: [{ position: 15 }],
+          identification: [{ position: 15 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 15, importance: #HIGH }] }
+  @UI.selectionField: [{position: 15}]        
+  Plant;
+  @UI: { lineItem: [{ position: 20 }],
+          identification: [{ position: 20 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 20, importance: #HIGH }] }
+  ProductSalesOrg;
+  @UI: { lineItem: [{ position: 25 }],
+          identification: [{ position: 25 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 25, importance: #HIGH }] }
+  @UI.selectionField: [{position: 25}]        
+  Division;
+  @UI: { lineItem: [{ position: 30 }],
+          identification: [{ position: 30 }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 30, importance: #HIGH }] }
+  @UI.selectionField: [{position: 30}]        
+  ProductDistributionChnl;
+
+}

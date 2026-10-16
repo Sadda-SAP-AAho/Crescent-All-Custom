@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for GOCOMET Report API'
+define service ZSD_GOCOMET_RPT_API {
+  expose ZC_GOCOMET_RPT_API;
+}

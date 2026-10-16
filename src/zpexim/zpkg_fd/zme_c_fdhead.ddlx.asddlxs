@@ -1,0 +1,363 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: {
+  presentationVariant: [{ sortOrder: [{ by: 'fdstartdate', direction:  #DESC }],
+                          visualizations: [{type: #AS_LINEITEM}],
+                          text: 'FD Header' }]
+     }
+
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'FD Certificate', value: 'fdcertificateno' } } }
+
+annotate entity ZC_FDHEAD with
+{
+
+
+  @UI.facet:
+   [
+
+   {
+   id: 'GeneralData',
+   isSummary: true,
+   label: 'FD Header',
+   position: 5,
+   type: #COLLECTION
+   },
+
+   {
+   type: #FIELDGROUP_REFERENCE,
+   targetQualifier: 'GeneralData1',
+   parentId: 'GeneralData',
+   label: 'FD Information',
+   position: 10,
+   id: 'GeneralData1'
+   },
+
+   {
+   type: #FIELDGROUP_REFERENCE,
+   targetQualifier: 'GeneralData2',
+   parentId: 'GeneralData',
+   label: 'Bank Details',
+   position: 20,
+   id: 'GeneralData2'
+   },
+
+   {
+   type: #FIELDGROUP_REFERENCE,
+   targetQualifier: 'GeneralData3',
+   parentId: 'GeneralData',
+   label: 'Figures',
+   position: 30,
+   id: 'GeneralData3'
+   },
+
+   {
+   type: #FIELDGROUP_REFERENCE,
+   targetQualifier: 'GeneralData4',
+   parentId: 'GeneralData',
+   label: 'Status',
+   position: 40,
+   id: 'GeneralData4'
+   },
+
+   {
+   type: #FIELDGROUP_REFERENCE,
+   targetQualifier: 'GeneralData5',
+   parentId: 'GeneralData',
+   label: 'Accouting Documents',
+   position: 50,
+   id: 'GeneralData5'
+   },
+
+   {
+   id: 'OutGL',
+   label: 'Outgoing Bank GL',
+   type: #LINEITEM_REFERENCE,
+   position: 10,
+   targetElement: '_outgl'
+   },
+
+      {
+   id: 'IncGL',
+   label: 'Incoming Bank GL',
+   type: #LINEITEM_REFERENCE,
+   position: 20,
+   targetElement: '_incgl'
+   },
+
+      {
+   id: 'Interest',
+   label: 'FD Interest Item',
+   type: #LINEITEM_REFERENCE,
+   position: 30,
+   targetElement: '_interest'
+   }
+
+   ]
+
+
+  @UI.hidden : true
+  id;
+
+  @UI.hidden : true
+  statuscode;
+
+
+  //Header
+  @UI: {
+       lineItem: [ { position: 10} ],
+       identification: [{position: 10 }],
+       selectionField: [{ position: 40 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH }]
+  }
+  fdcertificateno;
+
+  @UI: {
+       lineItem: [ { position: 20} ],
+       identification: [{position: 20 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH }]
+  }
+  statusdesc;
+
+  @UI: {
+       lineItem: [ { position: 30} ],
+       identification: [{position: 30 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 30,importance: #HIGH }]
+  }
+  documentdate;
+
+  @UI: {
+     lineItem: [ { position: 40} ],
+     identification: [{position: 40 }],
+     fieldGroup: [{qualifier: 'GeneralData1',position: 40,importance: #HIGH }]
+  }
+  postingdate;
+
+  @UI: {
+   lineItem: [ { position: 70} ],
+   identification: [{position: 70 }],
+   selectionField: [{ position: 30 }],
+   fieldGroup: [{qualifier: 'GeneralData1',position: 50,importance: #HIGH }]
+  }
+  fdstartdate;
+
+  @UI: {
+  lineItem: [ { position: 70} ],
+  identification: [{position: 70 }],
+  fieldGroup: [{qualifier: 'GeneralData1',position: 60,importance: #HIGH }]
+  }
+  fdmaturedate;
+
+  @UI: {
+  lineItem: [ { position: 70} ],
+  identification: [{position: 70 }],
+  fieldGroup: [{qualifier: 'GeneralData1',position: 65,importance: #HIGH }]
+  }
+  revfdmaturedate;
+
+  @UI: {
+  lineItem: [ { position: 70} ],
+  identification: [{position: 70 }],
+  fieldGroup: [{qualifier: 'GeneralData1',position: 70,importance: #HIGH }]
+  }
+  exchangerate;
+
+  @UI: {
+  lineItem: [ { position: 80} ],
+  identification: [{position: 80 }],
+  fieldGroup: [{qualifier: 'GeneralData1',position: 80,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'GLAccount', name:'ZI_NORMGL' },
+                                 distinctValues: true,
+                                 useForValidation: true
+                            }]
+  fdgl;
+
+  @UI: {
+  lineItem: [ { position: 90} ],
+  identification: [{position: 90 }],
+  selectionField: [{ position: 20 }],
+  fieldGroup: [{qualifier: 'GeneralData1',position: 90,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'ProfitCenter', name:'I_ProfitCenter' },
+                                       distinctValues: true,
+                                       useForValidation: true
+                                  }]
+  profitcenter;
+
+  @UI: {
+  lineItem: [ { position: 90} ],
+  identification: [{position: 90 }],
+  fieldGroup: [{qualifier: 'GeneralData1',position: 90,importance: #HIGH }]
+  }
+  renewal;
+
+  @UI: {
+  lineItem: [ { position: 90} ],
+  identification: [{position: 90 }],
+  fieldGroup: [{qualifier: 'GeneralData1',position: 90,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Imbgrefno', name:'ZI_IMBG_HED' },
+                                       distinctValues: true,
+                                       useForValidation: true
+                                    }]
+  bg;
+
+  @UI: {
+       lineItem: [ { position: 100} ],
+       identification: [{position: 100 }],
+       fieldGroup: [{qualifier: 'GeneralData1',position: 100,importance: #HIGH }]
+  }
+  closedocumentdate;
+
+  @UI: {
+     lineItem: [ { position: 110} ],
+     identification: [{position: 110 }],
+     fieldGroup: [{qualifier: 'GeneralData1',position: 110,importance: #HIGH }]
+  }
+  closepostingdate;
+
+
+  //Bank
+  @UI: {
+     lineItem: [ { position: 50} ],
+     identification: [{position: 50 }],
+     fieldGroup: [{qualifier: 'GeneralData2',position: 10,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Bank', name:'I_Bank_2' },
+                                       distinctValues: true,
+                                       useForValidation: true,
+                                       additionalBinding: [{ localElement: 'bankname',element: 'BankName',usage:#RESULT }]
+                                    }]
+  bankkey;
+
+  @UI: {
+   lineItem: [ { position: 60} ],
+   identification: [{position: 60 }],
+   selectionField: [{ position: 10 }],
+   fieldGroup: [{qualifier: 'GeneralData2',position: 20,importance: #HIGH }]
+  }
+  bankname;
+
+  @UI: {
+   lineItem: [ { position: 60} ],
+   identification: [{position: 60 }],
+   fieldGroup: [{qualifier: 'GeneralData2',position: 30,importance: #HIGH }]
+  }
+  remarkopen;
+
+  @UI: {
+  lineItem: [ { position: 60} ],
+  identification: [{position: 60 }],
+  selectionField: [{ position: 10 }],
+  fieldGroup: [{qualifier: 'GeneralData2',position: 40,importance: #HIGH }]
+  }
+  remarkclose;
+
+  //Figures
+  @UI: {
+  lineItem: [ { position: 70} ],
+  identification: [{position: 70 }],
+  fieldGroup: [{qualifier: 'GeneralData3',position: 10,importance: #HIGH }]
+  }
+  amount;
+
+  @UI: {
+  lineItem: [ { position: 70} ],
+  identification: [{position: 70 }],
+  fieldGroup: [{qualifier: 'GeneralData3',position: 20,importance: #HIGH }]
+  }
+  rateofinterest;
+
+  @UI: {
+  lineItem: [ { position: 70} ],
+  identification: [{position: 70 }],
+  fieldGroup: [{qualifier: 'GeneralData3',position: 25,importance: #HIGH }]
+  }
+  revrateofinterest;
+
+  @UI: {
+  lineItem: [ { position: 70} ],
+  identification: [{position: 70 }],
+  fieldGroup: [{qualifier: 'GeneralData3',position: 40,importance: #HIGH }]
+  }
+  interestcum;
+
+  @UI: {
+  lineItem: [ { position: 70} ],
+  identification: [{position: 70 }],
+  fieldGroup: [{qualifier: 'GeneralData3',position: 30,importance: #HIGH }]
+  }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Currency', name:'I_Currency' },
+                                       distinctValues: true,
+                                       useForValidation: true
+                                  }]
+  currency;
+
+  //Status
+  @UI: {
+  lineItem: [ { position: 70} ],
+  identification: [{position: 70 }],
+  fieldGroup: [{qualifier: 'GeneralData4',position: 20,importance: #HIGH }]
+  }
+  postclose;
+
+  @UI: {
+  lineItem: [ { position: 80} ],
+  identification: [{position: 80 }],
+  fieldGroup: [{qualifier: 'GeneralData4',position: 10,importance: #HIGH }]
+  }
+  postfd;
+
+  @UI: {
+  lineItem: [ { position: 90} ],
+  identification: [{position: 90 }],
+  fieldGroup: [{qualifier: 'GeneralData4',position: 30,importance: #HIGH }]
+  }
+  @UI.hidden: true
+  postfdint;
+
+  @UI.hidden: true
+  tconfirm;
+
+
+  //Accountings
+  @UI: {
+  lineItem: [ { position: 100} ],
+  identification: [{position: 100 }],
+  fieldGroup: [{qualifier: 'GeneralData5',position: 10,importance: #HIGH }]
+  }
+  transactionno;
+
+  @UI: {
+  lineItem: [ { position: 110} ],
+  identification: [{position: 110 }],
+  fieldGroup: [{qualifier: 'GeneralData5',position: 20,importance: #HIGH }]
+  }
+  transactiondate;
+
+  @UI: {
+  lineItem: [ { position: 100} ],
+  identification: [{position: 100 }],
+  fieldGroup: [{qualifier: 'GeneralData5',position: 30,importance: #HIGH }]
+  }
+  fdclosetrxnno;
+
+  @UI: {
+  lineItem: [ { position: 110} ],
+  identification: [{position: 110 }],
+  fieldGroup: [{qualifier: 'GeneralData5',position: 40,importance: #HIGH }]
+  }
+  fdclosetrxndate;
+
+  @UI.hidden : true
+  local_created_by;
+  @UI.hidden : true
+  local_created_at;
+  @UI.hidden : true
+  local_last_changed_by;
+  @UI.hidden : true
+  local_last_changed_at;
+  @UI.hidden : true
+  last_changed_at;
+
+}

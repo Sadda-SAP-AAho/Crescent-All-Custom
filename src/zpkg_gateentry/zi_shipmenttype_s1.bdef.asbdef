@@ -1,0 +1,84 @@
+managed with additional save implementation in class ZBP_I_SHIPMENTTYPE_S unique;
+strict;
+with draft;
+define behavior for ZI_ShipmentType_S1 alias ShipmentTypeAll
+draft table ZDT_SHIPMEN_D_S1
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _ShipmentType { create ( features : instance ); with draft; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_ShipmentType_01 alias ShipmentType ##UNMAPPED_FIELD
+persistent table ZDT_SHIPMENTTYPE
+draft table ZDT_SHIPMENTT_D1
+etag master LocalLastChangedAt
+lock dependent by _ShipmentTypeAll
+authorization dependent by _ShipmentTypeAll
+
+{
+  field ( mandatory : create )
+   Shipmenttype;
+
+  field ( readonly )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt,
+   ConfigDeprecationCode,
+   ConfigDeprecationCode_Critlty;
+
+  field ( readonly : update )
+   Shipmenttype;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+
+  update( features : global );
+  delete( features : instance );
+
+  action ( features : instance ) Deprecate result [1] $self;
+  action ( features : instance ) Invalidate result [1] $self;
+
+  mapping for ZDT_SHIPMENTTYPE
+  {
+    Shipmenttype = SHIPMENTTYPE;
+    ConfigDeprecationCode = CONFIGDEPRECATIONCODE;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _ShipmentTypeAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

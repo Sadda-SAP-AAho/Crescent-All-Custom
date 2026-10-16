@@ -1,0 +1,5 @@
+@EndUserText.label: 'Contract Report Header'
+define service ZSD_CONTRACT_HDR {
+  expose ZC_CONTRACT_HDR;
+  expose ZC_CONTRACT_ITM;
+}

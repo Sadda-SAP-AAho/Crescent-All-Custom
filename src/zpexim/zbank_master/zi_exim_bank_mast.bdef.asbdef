@@ -1,0 +1,71 @@
+ managed implementation in class zbp_i_exim_bank_mast unique;
+ strict ( 2 );
+ with draft;
+
+ define behavior for ZI_EXIM_BANK_MAST //alias <alias_name>
+ persistent table zexim_bank_mast
+ draft table zdr_bank_mast
+ lock master
+ total etag locallastchangedat
+ authorization master ( global )
+ {
+
+   create;
+
+
+   field ( readonly, numbering : managed ) internaid;
+   field ( mandatory : create, readonly : update ) Bukrs, banktype;//, Zswift;
+
+   field ( features : instance )
+   Zaccno,
+   Zadcode,
+   Zbank,
+   Zbranch,
+   Zifsccode,
+   Zaddress,
+   hbkid,
+   hktid,
+   bankl,
+   Zland1,
+   zbankgl,
+   zincgl,
+   zoutgl,
+   zvendor;
+
+
+   draft action ( features : instance ) Edit;
+   draft action Activate;
+   draft action Resume;
+   draft action Discard;
+   draft determine action Prepare;
+   update ( features : instance );
+   //delete;
+   delete ( features : instance );
+
+   determination banktypedetails on save { create; update; }
+   determination get_compdata on modify { field Bukrs; }
+
+   validation save_details on save { create; update; }
+
+   mapping for zi_exim_bank_mast
+     {
+       banktype  = banktype;
+       Zland1    = zland1;
+       ZaccNo    = zaccno;
+       ZadCode   = zadcode;
+       Zaddress  = zaddress;
+       Zaddress1 = zaddress1;
+       Zaddress2 = zaddress2;
+       Zaddress3 = zaddress3;
+       Zbank     = zbank;
+       Zbranch   = zbranch;
+       ZifscCode = zifsccode;
+       Zstate    = zstate;
+       Zswift    = zswift;
+       zbankgl   = zbankgl;
+       zincgl    = zincgl;
+       zoutgl    = zoutgl;
+       zvendor   = zvendor;
+     }
+
+ }

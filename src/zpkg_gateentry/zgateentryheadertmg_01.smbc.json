@@ -1,0 +1,38 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Maintain GATE ENTRY HEADER TMG",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_GATEENTRYHEADERTMG_O41",
+    "serviceName": "ZUI_GATEENTRYHEADERTMG_O41",
+    "serviceVersion": "0001",
+    "rootEntitySet": "GateEntryHeaderTAll",
+    "name": "GATE ENTRY HEADER TMG",
+    "transportObject": "",
+    "configurationGroup": "",
+    "skipRootEntity": true
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "GateEntryHeaderTAll",
+        "variantManagement": "control",
+        "showTransportSelectionStrip": true
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "GateEntryHeaderTmg",
+        "selectionMode": "auto",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 1,
+        "threshold": 10
+      }
+    ]
+  }
+}

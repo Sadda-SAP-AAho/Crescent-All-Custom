@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'DprVacKulMatGrp', 
+    typeNamePlural: 'DprVacKulMatGrps', 
+    title: {
+      type: #STANDARD, 
+      label: 'DPR VAC KUL MAT GRP', 
+      value: 'Costtype'
+    }
+  }
+}
+annotate view ZI_DprVacKulMatGrp with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_DprVacKulMatGrp', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'DPR VAC KUL MAT GRP', 
+    position: 1 
+  } ]
+  Costtype;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Matkl;
+}

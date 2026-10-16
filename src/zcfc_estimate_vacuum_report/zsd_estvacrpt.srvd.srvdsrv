@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition -Estimate Vac Report'
+define service ZSD_ESTVACRPT {
+  expose ZC_ESTVACRPT;
+}

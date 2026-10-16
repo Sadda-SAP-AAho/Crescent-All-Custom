@@ -1,0 +1,252 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'GateEntryItemtmg', 
+    typeNamePlural: 'GateEntryItemtmgs', 
+    title: {
+      type: #STANDARD, 
+      label: 'GATE ENTRY ITEMTMG', 
+      value: 'Id'
+    }
+  }
+}
+annotate view ZI_GateEntryItemtmg_01 with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_GateEntryItemtmg_01', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'GATE ENTRY ITEMTMG', 
+    position: 1 
+  } ]
+  Id;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Item;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Gatepass'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Gatepass'
+  } ]
+  Gatepass;
+  
+  @UI.identification: [ {
+    position: 4 
+  } ]
+  @UI.lineItem: [ {
+    position: 4 
+  } ]
+  Ebeln;
+  
+  @UI.identification: [ {
+    position: 5 
+  } ]
+  @UI.lineItem: [ {
+    position: 5 
+  } ]
+  Ebelp;
+  
+  @UI.identification: [ {
+    position: 6 
+  } ]
+  @UI.lineItem: [ {
+    position: 6 
+  } ]
+  Vbeln;
+  
+  @UI.identification: [ {
+    position: 7 , 
+    label: 'Vbelp'
+  } ]
+  @UI.lineItem: [ {
+    position: 7 , 
+    label: 'Vbelp'
+  } ]
+  Vbelp;
+  
+  @UI.identification: [ {
+    position: 8 , 
+    label: 'Matnr'
+  } ]
+  @UI.lineItem: [ {
+    position: 8 , 
+    label: 'Matnr'
+  } ]
+  Matnr;
+  
+  @UI.identification: [ {
+    position: 9 , 
+    label: 'Maktx'
+  } ]
+  @UI.lineItem: [ {
+    position: 9 , 
+    label: 'Maktx'
+  } ]
+  Maktx;
+  
+  @UI.identification: [ {
+    position: 10 
+  } ]
+  @UI.lineItem: [ {
+    position: 10 
+  } ]
+  Posnr;
+  
+  @UI.identification: [ {
+    position: 11 
+  } ]
+  Vbelnvf;
+  
+  @UI.identification: [ {
+    position: 12 , 
+    label: 'Posnrvf'
+  } ]
+  Posnrvf;
+  
+  @UI.identification: [ {
+    position: 13 
+  } ]
+  Mblnr;
+  
+  @UI.identification: [ {
+    position: 14 , 
+    label: 'Mjahr'
+  } ]
+  Mjahr;
+  
+  @UI.identification: [ {
+    position: 15 , 
+    label: 'Zeile'
+  } ]
+  Zeile;
+  
+  @UI.identification: [ {
+    position: 16 , 
+    label: 'Vendor'
+  } ]
+  Vendor;
+  
+  @UI.identification: [ {
+    position: 17 , 
+    label: 'Invoice'
+  } ]
+  Invoice;
+  
+  @UI.identification: [ {
+    position: 18 , 
+    label: 'Custcode'
+  } ]
+  Custcode;
+  
+  @UI.identification: [ {
+    position: 19 , 
+    label: 'Custdesc'
+  } ]
+  Custdesc;
+  
+  @Consumption.valueHelpDefinition: [ {
+    entity: {
+      name: 'I_UnitOfMeasure', 
+      element: 'UnitOfMeasure'
+    }
+  } ]
+  Meins;
+  
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'Challanqty'
+  } ]
+  Challanqty;
+  
+  @UI.identification: [ {
+    position: 21 
+  } ]
+  Orderqty;
+  
+  @UI.identification: [ {
+    position: 22 
+  } ]
+  Totalqty;
+  
+  @UI.identification: [ {
+    position: 23 
+  } ]
+  Balanceqty;
+  
+  @UI.identification: [ {
+    position: 24 
+  } ]
+  Deliverqty;
+  
+  @UI.identification: [ {
+    position: 25 , 
+    label: 'Gateitem'
+  } ]
+  Gateitem;
+  
+  @UI.identification: [ {
+    position: 26 
+  } ]
+  Netwt;
+  
+  @UI.identification: [ {
+    position: 27 
+  } ]
+  Tarwt;
+  
+  @UI.identification: [ {
+    position: 28 
+  } ]
+  Grswt;
+  
+  @UI.identification: [ {
+    position: 29 , 
+    label: 'Plant'
+  } ]
+  Plant;
+  
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Pounique'
+  } ]
+  Pounique;
+  
+  @UI.identification: [ {
+    position: 31 , 
+    label: 'Mpno'
+  } ]
+  Mpno;
+  
+  @UI.identification: [ {
+    position: 32 , 
+    label: 'Tpno'
+  } ]
+  Tpno;
+  
+  @UI.identification: [ {
+    position: 33 , 
+    label: 'Pouniquesto'
+  } ]
+  Pouniquesto;
+  
+  @UI.identification: [ {
+    position: 34 , 
+    label: 'Vehno'
+  } ]
+  Vehno;
+}

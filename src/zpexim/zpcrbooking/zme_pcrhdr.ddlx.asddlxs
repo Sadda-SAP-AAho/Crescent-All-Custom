@@ -1,0 +1,273 @@
+@Metadata.layer: #CUSTOMER
+@UI: { presentationVariant: [{ sortOrder: [{ by:  'Loanacno', direction:  #DESC }],
+                               visualizations: [{ type: #AS_LINEITEM }],
+                               text: 'PCR Booking Register' }] }
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'Loan Dashboard', value: 'Loanacno' } } }
+annotate view ZC_PCRHDR with
+{
+
+  @UI.facet:[
+  { id: 'GeneralData', isSummary: true, label: 'Loan Dashboard Header', type: #COLLECTION },
+   { id: 'GeneralHeader', isSummary: true, label: 'Main Header Section',type: #COLLECTION,parentId: 'GeneralData', position: 10},
+        { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralHeader', position: 10, label: 'Section 1', id: 'GeneralData1' },
+        { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralHeader', position: 15, label: 'Section 2', id: 'GeneralData2' },
+        { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralHeader', position: 20, label: 'Section 3', id: 'GeneralData3' },
+   { id: 'GeneralItem', isSummary: true, label: 'Account Section',type: #COLLECTION,parentId: 'GeneralData', position: 20},
+        { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData4', parentId: 'GeneralItem', position: 25, label: 'Acc Post Credit Side', id: 'GeneralData4' },
+        { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData5', parentId: 'GeneralItem', position: 30, label: 'Acc Post Debit Side', id: 'GeneralData5' },
+        { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData6', parentId: 'GeneralItem', position: 35, label: 'Account Post', id: 'GeneralData6' },
+
+     { id: 'ForConI',  label: 'Adjustment Details', type: #LINEITEM_REFERENCE, position : 25, targetElement: '_item' },
+     { id: 'ForConI1', label: 'SOFR/EURO Interest Rate', type: #LINEITEM_REFERENCE, position : 30, targetElement: '_item1' },
+     { id: 'ForConI2', label: 'Sales Order Details', type: #LINEITEM_REFERENCE, position : 35, targetElement: '_item2' }]
+  @UI.hidden: true
+  Id;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Loanacno;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Name;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Bookingdt;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  //  @Consumption.valueHelpDefinition: [{ entity:{ element: 'BankName', name:'ZR_BANKF4_RATE' },
+  //                                  distinctValues: true,
+  //                                  useForValidation: true
+  //                                                      }]
+  @Consumption.valueHelpDefinition:[{
+       entity: { element: 'BankName', name: 'ZCDS_BANKF4' },
+                            distinctValues: true,
+                            useForValidation: true }]
+  Bankname;
+  //  @UI.lineItem: [ { position: 23 } ]
+  //  @UI.identification: [ { position: 23 } ]
+  //  @UI.fieldGroup: [ { position: 23,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  //  Fiscalyear;
+  //  @UI.lineItem: [ { position: 25 } ]
+  //  @UI.identification: [ { position: 25 } ]
+  //  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  //  Cocode;
+  @UI.lineItem: [ { position: 27 } ]
+  @UI.identification: [ { position:27 } ]
+  @UI.fieldGroup: [ { position: 27,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Waers;
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Exchangerate1;
+  @UI.hidden: true
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Customer', name:'ZR_CUSTOMER_F4' },
+                                  distinctValues: true,
+                                  useForValidation: true
+                                                      }]
+  Cuscode;
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'loantype', name:'ZCDS_LOANTYPE' },
+                                 distinctValues: true,
+                                 useForValidation: true
+                                                     }]
+  Loantype;
+  @UI.lineItem: [ { position: 45 } ]
+  @UI.identification: [ { position: 45 } ]
+  @UI.fieldGroup: [ { position: 45,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'documenttype', name:'ZCDS_DOC_F4' },
+                                  distinctValues: true,
+                                  useForValidation: true,
+  additionalBinding: [ { localElement: 'Loantype', element: 'loantype', usage: #FILTER_AND_RESULT } ]
+
+                                                      }]
+  Basedoctype;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Bookamt;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Balanceamt;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Duedt;
+  @UI.lineItem: [ { position: 65 } ]
+  @UI.identification: [ { position: 65 } ]
+  @UI.fieldGroup: [ { position: 65,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Extduedt;
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Intratesp;
+  @UI.lineItem: [ { position: 75 } ]
+  @UI.identification: [ { position: 75 } ]
+  @UI.fieldGroup: [ { position: 75,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'ratetype', name:'ZCDS_BENCHTYPE_F4' },
+                                  distinctValues: true,
+                                  useForValidation: true
+                                                      }]
+
+  Benchmarktype;
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 80,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Benchintrate;
+  @UI.lineItem: [ { position: 85 } ]
+  @UI.identification: [ { position: 85 } ]
+  @UI.fieldGroup: [ { position: 85,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Interestdays;
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 90,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Amtusd;
+  @UI.lineItem: [ { position: 95 } ]
+  @UI.identification: [ { position: 95 } ]
+  @UI.fieldGroup: [ { position: 95,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Rateusd;
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [ { position: 100 } ]
+  @UI.fieldGroup: [ { position: 100,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Amteuro;
+  @UI.lineItem: [ { position: 105 } ]
+  @UI.identification: [ { position: 105 } ]
+  @UI.fieldGroup: [ { position: 105,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Rateuro;
+  @UI.lineItem: [ { position: 110 } ]
+  @UI.identification: [ { position: 110 } ]
+  @UI.fieldGroup: [ { position: 110,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Nzdamt;
+  @UI.lineItem: [ { position: 115 } ]
+  @UI.identification: [ { position: 115 } ]
+  @UI.fieldGroup: [ { position: 115,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Ratenzd;
+  @UI.lineItem: [ { position: 120 } ]
+  @UI.identification: [ { position: 120 } ]
+  @UI.fieldGroup: [ { position: 120,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Amtgbp;
+  @UI.lineItem: [ { position: 125 } ]
+  @UI.identification: [ { position: 125 } ]
+  @UI.fieldGroup: [ { position: 125,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Rategbp;
+  @UI.lineItem: [ { position: 130 } ]
+  @UI.identification: [ { position: 130 } ]
+  @UI.fieldGroup: [ { position: 130,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Amtcan;
+  @UI.lineItem: [ { position: 135 } ]
+  @UI.identification: [ { position: 135 } ]
+  @UI.fieldGroup: [ { position: 135,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Ratecan;
+  @UI.hidden: true
+  Currency;
+  @UI.hidden: true
+  Exchratecurr;
+  @UI.hidden: true
+  Exchangerate;
+  @UI.hidden: true
+  Intratelib;
+  @UI.hidden: true
+  Intdays;
+  @UI.lineItem: [ { position: 140 } ]
+  @UI.identification: [ { position: 140 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData4', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'GLAccount', name: 'ZI_NORMGL' },
+                                                    distinctValues: true,
+                                                    useForValidation: true,
+                                    additionalBinding: [{ localConstant: 'Z420',element: 'GLAccountGroup',usage: #FILTER }]
+                                  }]
+  Cloanglacc;
+  @UI.lineItem: [ { position: 145 } ]
+  @UI.identification: [ { position: 145 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData4', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'HouseBank', name: 'I_HouseBankAccountLinkage' },
+                                                    distinctValues: true,
+                                                    useForValidation: true,
+                                    additionalBinding: [{ localConstant: '1000',element: 'CompanyCode',usage: #FILTER },
+                                                        { localElement: 'Cloanglacc',element: 'GLAccount',usage: #FILTER_AND_RESULT }
+                                                       ]
+                                  }]
+  Cloanhousebank;
+  @UI.lineItem: [ { position: 150 } ]
+  @UI.identification: [ { position: 150 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData4', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'HouseBankAccount', name: 'I_HouseBankAccountLinkage' },
+                                                    distinctValues: true,
+                                                    useForValidation: true,
+                                    additionalBinding: [{ localConstant: '1000',element: 'CompanyCode',usage: #FILTER_AND_RESULT },
+                                                        { localElement: 'Cloanglacc',element: 'GLAccount',usage: #FILTER_AND_RESULT },
+                                                        { localElement: 'Cloanhousebank',element: 'HouseBank',usage: #FILTER_AND_RESULT }
+                                                       ]
+                                   }]
+  Cloanbankaccid;
+  @UI.lineItem: [ { position: 155 } ]
+  @UI.identification: [ { position: 155 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData5', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'GLAccount', name: 'ZI_NORMGL' },
+                                                    distinctValues: true,
+                                                    useForValidation: true,
+                                    additionalBinding: [{ localConstant: 'Z250',element: 'GLAccountGroup',usage: #FILTER }]
+                                  }]
+  Dglbankacc;
+  @UI.lineItem: [ { position: 160 } ]
+  @UI.identification: [ { position: 160 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData5', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'HouseBank', name: 'I_HouseBankAccountLinkage' },
+                                                    distinctValues: true,
+                                                    useForValidation: true,
+                                    additionalBinding: [{ localConstant: '1000',element: 'CompanyCode',usage: #FILTER_AND_RESULT },
+                                                        { localElement: 'Dglbankacc',element: 'GLAccount',usage: #FILTER_AND_RESULT }
+                                                       ]
+                                  }]
+  Dhousebank;
+  @UI.lineItem: [ { position: 165 } ]
+  @UI.identification: [ { position: 165 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData5', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition:[{ entity: { element: 'HouseBankAccount', name: 'I_HouseBankAccountLinkage' },
+                                                    distinctValues: true,
+                                                    useForValidation: true,
+                                    additionalBinding: [{ localConstant: '1000',element: 'CompanyCode',usage: #FILTER_AND_RESULT },
+                                                        { localElement: 'Dglbankacc',element: 'GLAccount',usage: #FILTER_AND_RESULT },
+                                                        { localElement: 'Dhousebank',element: 'HouseBank',usage: #FILTER_AND_RESULT }
+                                                       ]
+                                   }]
+  Dbankaccid;
+  @UI.lineItem: [ { position: 168 } ]
+  @UI.identification: [ { position: 168 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData6', importance: #HIGH } ]
+  Accpost;
+  @UI.lineItem: [ { position: 170 } ]
+  @UI.identification: [ { position: 170 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData6', importance: #HIGH } ]
+  Accpostdate;
+  @UI.lineItem: [ { position: 175 } ]
+  @UI.identification: [ { position: 175 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData6', importance: #HIGH } ]
+  Accdocdate;
+  @UI.lineItem: [ { position: 180 } ]
+  @UI.identification: [ { position: 180 } ]
+  @UI.fieldGroup: [ { position: 40,  qualifier: 'GeneralData6', importance: #HIGH } ]
+  Accountdocno;
+  @UI.lineItem: [ { position: 185 } ]
+  @UI.identification: [ { position: 185 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData6', importance: #HIGH } ]
+  Accountdocyr;
+  @UI.hidden: true
+  Accpostref;
+
+  @UI.hidden: true
+  @UI: { identification: [{ position: 400 },
+                         { type: #FOR_ACTION, dataAction: 'Upd', label: 'Update', iconUrl: 'sap-icon://close-command-field' }],
+          fieldGroup: [{ qualifier: 'GeneralData1', position: 100, importance: #HIGH }] }
+  Upd;
+
+
+}

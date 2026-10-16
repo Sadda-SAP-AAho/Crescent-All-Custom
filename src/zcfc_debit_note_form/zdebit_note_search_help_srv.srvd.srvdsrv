@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service for Debit Note F4 Service'
+define service ZDebit_Note_Search_help_SRV {
+  expose ZDOCUMENT_MASTER as documentSet;
+}

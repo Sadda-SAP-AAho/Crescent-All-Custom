@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for FOREX Adj. Details Report'
+define service ZSD_FOREXADJDETRPT {
+  expose ZC_FOREXADJDETRPT;
+}

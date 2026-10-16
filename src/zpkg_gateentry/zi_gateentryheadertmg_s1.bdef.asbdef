@@ -1,0 +1,151 @@
+managed with additional save implementation in class ZBP_I_GATEENTRYHEADERTMG_S1 unique;
+strict;
+with draft;
+define behavior for ZI_GateEntryHeaderTmg_S1 alias GateEntryHeaderTAll
+draft table ZDT_GATEHEA_D_S1
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _GateEntryHeaderTmg { create ( features : instance ); with draft; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_GateEntryHeaderTmg_01 alias GateEntryHeaderTmg ##UNMAPPED_FIELD
+persistent table ZDT_GATEHEADER
+draft table ZDT_GATEHEADE_D1
+etag master LocalLastChangedAt
+lock dependent by _GateEntryHeaderTAll
+authorization dependent by _GateEntryHeaderTAll
+
+{
+  field ( readonly )
+   SingletonID,
+   Id,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+  field ( numbering : managed )
+   Id;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZDT_GATEHEADER
+  {
+    Id = ID;
+    Challannumber = CHALLANNUMBER;
+    Challandate = CHALLANDATE;
+    Rrno = RRNO;
+    Rrdate = RRDATE;
+    Lrblno = LRBLNO;
+    Lbbldate = LBBLDATE;
+    Billofentryno = BILLOFENTRYNO;
+    Billofentrydate = BILLOFENTRYDATE;
+    Miningpermissionno = MININGPERMISSIONNO;
+    Waybillno = WAYBILLNO;
+    Miningchallantpno = MININGCHALLANTPNO;
+    Plantgateno = PLANTGATENO;
+    Plantweighbridgeno = PLANTWEIGHBRIDGENO;
+    Shipmenttype = SHIPMENTTYPE;
+    Vehno = VEHNO;
+    Containernumber = CONTAINERNUMBER;
+    Vesselname = VESSELNAME;
+    Rakeno = RAKENO;
+    Raketripno = RAKETRIPNO;
+    Ernam = ERNAM;
+    Erdat = ERDAT;
+    Erzet = ERZET;
+    Gateentrydate = GATEENTRYDATE;
+    Gateentrytime = GATEENTRYTIME;
+    Vendorcode = VENDORCODE;
+    Vendorname = VENDORNAME;
+    Customercode = CUSTOMERCODE;
+    Customername = CUSTOMERNAME;
+    Drivername = DRIVERNAME;
+    Drivercellno = DRIVERCELLNO;
+    Dlno = DLNO;
+    Vehiclecheck = VEHICLECHECK;
+    Testcertificate = TESTCERTIFICATE;
+    Taxinvoice = TAXINVOICE;
+    Transportercode = TRANSPORTERCODE;
+    Transportername = TRANSPORTERNAME;
+    Invoice = INVOICE;
+    Invoicedate = INVOICEDATE;
+    Remarks = REMARKS;
+    Gatepass = GATEPASS;
+    Gatepassdate = GATEPASSDATE;
+    Purchasingdocumentnumber = PURCHASINGDOCUMENTNUMBER;
+    Vehicleoutdate = VEHICLEOUTDATE;
+    Vehicleouttime = VEHICLEOUTTIME;
+    Unloaddate = UNLOADDATE;
+    Unloadtime = UNLOADTIME;
+    Gateout = GATEOUT;
+    Deleted = DELETED;
+    Cancel = CANCEL;
+    Miscnumber = MISCNUMBER;
+    Miscdate = MISCDATE;
+    Currentyear = CURRENTYEAR;
+    Currentnumber = CURRENTNUMBER;
+    Bukrs = BUKRS;
+    Plant = PLANT;
+    Type = TYPE;
+    Meins = MEINS;
+    Netwt = NETWT;
+    Tarwt = TARWT;
+    Grswt = GRSWT;
+    Deleteuser = DELETEUSER;
+    Deletedate = DELETEDATE;
+    Status = STATUS;
+    Criticality = CRITICALITY;
+    Printr = PRINTR;
+    Wlfpl = WLFPL;
+    Item = ITEM;
+    Fromplace = FROMPLACE;
+    Toplace = TOPLACE;
+    Multiweight = MULTIWEIGHT;
+    Noofweight = NOOFWEIGHT;
+    Mpno = MPNO;
+    Tpno = TPNO;
+    Rgpgatepass = RGPGATEPASS;
+    Rgpdate = RGPDATE;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _GateEntryHeaderTAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

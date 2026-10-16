@@ -1,0 +1,140 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+    headerInfo: {
+        typeName: 'DeliveryDocument',
+        typeNamePlural: 'DeliveryDocuments',
+        title: {
+            type: #STANDARD,
+            value: 'DeliveryDocument'
+        }
+} 
+}
+annotate entity ZC_PACKING_LIST_HDR
+    with 
+{
+    @UI.facet: [{ id: 'DeliveryHeader' ,
+                  purpose: #STANDARD ,  
+                  type: #IDENTIFICATION_REFERENCE,
+                  label: 'Delivery Header',
+                  position: 10 },
+                  { id : 'DeliveryItem' ,
+                    purpose: #STANDARD,
+                    type: #LINEITEM_REFERENCE,
+                    label: 'Delivery Item',
+            position: 20 ,
+                    targetElement: '_PackingListItm'
+                  }]
+    @EndUserText.label: 'Delivery (Outbound No)'
+    @UI.lineItem: [{ importance: #HIGH , position: 10 }]
+    @UI.selectionField: [{ position: 10 }]
+    @UI.identification: [{ position: 10 , label: 'Delivery (Outbound No)' }]
+    @Consumption.valueHelpDefinition: [{
+        entity: {
+            name: 'ZR_PACKING_LIST_VH',
+            element: 'DeliveryDocument'
+        }}]
+    DeliveryDocument;
+    @EndUserText.label: 'Outbound Posting Date'
+    @UI.lineItem: [{ importance: #HIGH , position: 20 }]
+    @UI.selectionField: [{ position: 20 }]
+    @UI.identification: [{ position: 20 , label: 'Outbound Posting Date' }]
+    ActualGoodsMovementDate;
+    @EndUserText.label: 'Consignee(Ship To Party No)'
+    @UI.lineItem: [{ importance: #HIGH , position: 30 }]
+    @UI.selectionField: [{ position: 30 }]
+    @UI.identification: [{ position: 30 , label: 'Ship To Party No' }]
+    @Consumption.valueHelpDefinition: [{
+        entity: {
+            name: 'ZR_PACKING_LIST_VH',
+            element: 'ShipToParty'
+        }}]
+    ShipToParty;
+    @EndUserText.label: 'Consignee Name'
+    @UI.lineItem: [{ importance: #HIGH , position: 40 }]
+    @UI.identification: [{ position: 40 , label: 'Consignee Name' }]
+    CustomerName;
+    @EndUserText.label: 'Consignee Street'
+    @UI.lineItem: [{ importance: #HIGH , position: 50 }]
+    @UI.identification: [{ position: 50 , label: 'Consignee Street' }]
+    Street;
+    @EndUserText.label: 'Consignee Street Name'
+    @UI.lineItem: [{ importance: #HIGH , position: 60 }]
+    @UI.identification: [{ position: 60 , label: 'Consignee Street Name' }]
+    StreetName;
+    @EndUserText.label: 'Consignee City Name'
+    @UI.lineItem: [{ importance: #HIGH , position: 70 }]
+    @UI.identification: [{ position: 70 , label: 'Consignee City Name' }]
+    CityName;
+    @EndUserText.label: 'Consignee District Name'
+    @UI.lineItem: [{ importance: #HIGH , position: 80 }]
+    @UI.identification: [{ position: 80 , label: 'Consignee District Name' }]
+    DistrictName;
+    @EndUserText.label: 'Consignee Region'
+    @UI.lineItem: [{ importance: #HIGH , position: 90 }]
+    @UI.identification: [{ position: 90 , label: 'Consignee Region' }]
+    Region;
+    @EndUserText.label: 'Consignee Country'
+    @UI.lineItem: [{ importance: #HIGH , position: 100 }]
+    @UI.identification: [{ position: 100 , label: 'Consignee Country' }]
+    Country;
+    @EndUserText.label: 'Consignee Postal Code'
+    @UI.lineItem: [{ importance: #HIGH , position: 110 }]
+    @UI.identification: [{ position: 110 , label: 'Consignee Postal Code' }]
+    PostalCode;
+    @EndUserText.label: 'Buyer Order No'
+    @UI.lineItem: [{ importance: #HIGH , position: 120 }]
+    @UI.selectionField: [{ position: 40 }]
+    @UI.identification: [{ position: 120 , label: 'Buyer Order No' }]
+    @Consumption.valueHelpDefinition: [{
+        entity: {
+            name: 'ZR_PACKING_LIST_VH',
+            element: 'PurchaseOrderByCustomer'
+        }}]
+    PurchaseOrderByCustomer;
+    @EndUserText.label: 'Buyer Order Date'
+    @UI.lineItem: [{ importance: #HIGH , position: 130 }]
+    @UI.selectionField: [{ position: 50 }]
+    @UI.identification: [{ position: 130 , label: 'Buyer Order Date' }]
+    CustomerPurchaseOrderDate;
+    @EndUserText.label: 'Pre Carriage By'
+    @UI.lineItem: [{ importance: #HIGH , position: 140 }]
+    @UI.identification: [{ position: 140 , label: 'Pre Carriage By' }]
+    PreCarriageBy;
+    @EndUserText.label: 'Place Of Shipment By Pre-Carrier'
+    @UI.lineItem: [{ importance: #HIGH , position: 150 }]
+    @UI.identification: [{ position: 150 , label: 'Place Of Shipment By Pre-Carrier' }]
+    ShippingCityName;
+    @EndUserText.label: 'Country Of Origin'
+    @UI.lineItem: [{ importance: #HIGH , position: 160 }]
+    @UI.identification: [{ position: 160 , label: 'Country Of Origin' }]
+    ShippingCountry;
+    @EndUserText.label: 'Country Of Final Destination'
+    @UI.lineItem: [{ importance: #HIGH , position: 170 }]
+    @UI.identification: [{ position: 170 , label: 'Country Of Final Destination' }]
+    DestinationCountry;
+    @EndUserText.label: 'Port Of Loading'
+    @UI.lineItem: [{ importance: #HIGH , position: 180 }]
+    @UI.identification: [{ position: 180 , label: 'Port Of Loading' }]
+    PortofLoading;
+    @EndUserText.label: 'Delivery Term'
+    @UI.lineItem: [{ importance: #HIGH , position: 190 }]
+    @UI.identification: [{ position: 190 , label: 'Delivery Term' }]
+    DeliveryTerm;
+    @EndUserText.label: 'Place Of Delivery'
+    @UI.lineItem: [{ importance: #HIGH , position: 200 }]
+    @UI.identification: [{ position: 200 , label: 'Place Of Delivery' }]
+    PlaceofDelivery;
+    @EndUserText.label: 'Port Of Discharge'
+    @UI.lineItem: [{ importance: #HIGH , position: 210 }]
+    @UI.identification: [{ position: 210 , label: 'Port Of Discharge' }]
+    PortofDischarge;
+    @EndUserText.label: 'Goods Description'
+    @UI.lineItem: [{ importance: #HIGH , position: 220 }]
+    @UI.identification: [{ position: 220 , label: 'Goods Description' }]
+    GoodsDescription;
+      @EndUserText.label: 'Marks Container'
+    @UI.lineItem: [{ importance: #HIGH , position: 230 }]
+    @UI.identification: [{ position: 230 , label: 'Marks Container' }]
+    MarksContainer;
+    
+}

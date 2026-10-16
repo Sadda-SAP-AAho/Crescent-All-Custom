@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for F4 RFQ No.'
+define service ZSRV_F4_RFQ {
+  expose ZI_RFQ_F4;
+}

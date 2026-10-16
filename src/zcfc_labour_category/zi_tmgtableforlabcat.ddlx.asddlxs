@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgTableForLabCat', 
+    typeNamePlural: 'TmgTableForLabCats', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG table for Labour Category', 
+      value: 'Catcode'
+    }
+  }
+}
+annotate view ZI_TmgTableForLabCat with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgTableForLabCat', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG table for Labour Category', 
+    position: 1 
+  } ]
+  Catcode;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Catname;
+}

@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForForGrpVs_S'
+define service ZUI_TMGTABLEFORFORGRPVS {
+  expose ZI_TMGTABLEFORFORGRPVS_S as TmgTableForForGrAll;
+  expose ZI_TMGTABLEFORFORGRPVS as TmgTableForForGrpVs;
+}

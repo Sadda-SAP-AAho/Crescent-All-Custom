@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "General Ledger Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "General Ledger"
+  },
+  "ui5AppDetails": {
+    "appId": "zgenledger"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_287531875D572BF8D519856D976EE192F6DE0F64_TM",
+    "semanticObject": "zgenledger",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_287531875D572BF8D519856D976EE192F6DE0F64_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "General Ledger",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

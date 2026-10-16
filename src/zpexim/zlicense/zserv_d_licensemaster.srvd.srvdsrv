@@ -1,0 +1,4 @@
+@EndUserText.label: 'License Master'
+define service ZSERV_D_LICENSEMASTER {
+  expose ZC_LicenceMasterTP;
+}

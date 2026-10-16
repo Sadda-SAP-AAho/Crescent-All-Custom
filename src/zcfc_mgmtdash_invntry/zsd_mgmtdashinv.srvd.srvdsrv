@@ -1,0 +1,4 @@
+@EndUserText.label: 'Management Dashboard Inventory'
+define service ZSD_MGMTDASHINV {
+  expose ZC_MGMTDASHINV;
+}

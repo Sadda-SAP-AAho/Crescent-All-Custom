@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Gate Auth'
+define service ZSD_GATE_AUTH {
+  expose ZC_GATE_AUTH;
+}

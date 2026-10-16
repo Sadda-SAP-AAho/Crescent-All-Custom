@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Define IMBG'
+define service ZSD_IMBG_HED {
+  expose ZC_IMBG_HED;
+}

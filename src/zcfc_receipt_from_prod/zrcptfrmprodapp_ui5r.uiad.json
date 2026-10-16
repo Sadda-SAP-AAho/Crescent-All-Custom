@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Receipt from Production Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Receipt from Production Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zrcptfrmprodapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_C807E75F0A3A11EB9DDBB95F77444B8595CCF096_TM",
+    "semanticObject": "zrcptfrmprodapp",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_C807E75F0A3A11EB9DDBB95F77444B8595CCF096_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Receipt from Production Report"
+      }
+    }
+  ]
+}

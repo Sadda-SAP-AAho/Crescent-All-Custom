@@ -1,0 +1,27 @@
+projection implementation in class ZBP_C_WORK_HEADER unique;
+strict ( 2 );
+use draft;
+define behavior for ZC_WORK_HEADER alias ZcWorkHeader
+use etag
+
+{
+  use create;
+  use update;
+  use delete;
+  use association _items { create; }
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+}
+
+define behavior for ZC_WORK_ITEMS //alias <alias_name>
+{
+  use update;
+  use delete;
+
+
+  use association _header;
+}

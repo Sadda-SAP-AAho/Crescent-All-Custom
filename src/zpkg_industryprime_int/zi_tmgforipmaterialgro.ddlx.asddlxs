@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgForIpMaterialGro', 
+    typeNamePlural: 'TmgForIpMaterialGros', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG for IP Material Group', 
+      value: 'Matkl'
+    }
+  }
+}
+annotate view ZI_TmgForIpMaterialGro with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgForIpMaterialGro', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG for IP Material Group', 
+    position: 1 
+  } ]
+  Matkl;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'General Ledger'
+define service ZSERV_D_GENERALLEDGER {
+  expose ZV_GENRALLEDGERF;
+}

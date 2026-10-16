@@ -1,0 +1,65 @@
+managed implementation in class zbp_i_spclprcemlh_1 unique;
+strict;
+with draft;
+
+define behavior for ZI_SPCLPRCEMLH //alias <alias_name>
+persistent table zdt_spclprcemlh
+draft table zdr_spclprcemlh
+lock master
+total etag loctncd
+authorization master ( instance )
+//etag master <field_name>
+
+{
+ draft action (features : instance) Edit;
+ draft action Activate;
+ draft action Discard;
+ draft action Resume;
+ draft determine action Prepare
+ {
+ }
+
+ field ( readonly : update, numbering : managed) Id;
+
+  create;
+  update;
+  delete;
+  determination updateheader on modify {field loctncd;}
+  side effects {field loctncd affects field Loctnnm;}
+  association _Item { create; }
+
+  mapping for ZI_SPCLPRCEMLH
+
+  {
+   loctncd = loctncd;
+   loctnnm = loctnnm;
+   costcd = costcd;
+   costnm = costnm;
+  }
+}
+
+define behavior for ZI_SPCLPRCEMLL //alias <alias_name>
+persistent table zdt_spclprcemll
+draft table zdr_spclprcemll
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+ field ( readonly : update, numbering : managed) Item;
+ field (readonly) Id;
+  update;
+  delete;
+  determination updateitem on modify {field Fromdate;}
+
+  association _Head{with draft;}
+
+  mapping for ZI_SPCLPRCEMLL
+
+  {
+   Fromdate = Fromdate;
+   Todate = Todate;
+   Unit = Unit;
+   Currency = Currency;
+   Rate = Rate;
+  }
+}

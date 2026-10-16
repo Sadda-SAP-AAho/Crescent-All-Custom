@@ -1,0 +1,39 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'IpPurchaseGroup', 
+    typeNamePlural: 'IpPurchaseGroups', 
+    title: {
+      type: #STANDARD, 
+      label: 'IP Purchase Group', 
+      value: 'Purchasermail'
+    }
+  }
+}
+annotate view ZI_IpPurchaseGroup with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_IpPurchaseGroup', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'IP Purchase Group', 
+    position: 1 
+  } ]
+  Purchasermail;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Purchasegroup'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Purchasegroup'
+  } ]
+  Purchasegroup;
+}

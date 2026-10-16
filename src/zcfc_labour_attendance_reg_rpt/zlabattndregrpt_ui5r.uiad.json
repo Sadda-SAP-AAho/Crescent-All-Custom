@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Labour Attendance Register"
+  },
+  "ui5AppDetails": {
+    "appId": "zlabattndregrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_7177ADC87C9AD15B31983DC3F4D1E80510D62ED0_TM",
+    "semanticObject": "zlabattndregrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_7177ADC87C9AD15B31983DC3F4D1E80510D62ED0_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Labour Attendance Register",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Definition for GST 2B FINAL'
+define service ZSD_GST_2B_FINAL
+{
+    expose ZC_GST_2B_FINAL;
+    
+}

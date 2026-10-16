@@ -1,0 +1,88 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Debtor Report',
+                typeNamePlural:'Debtor Report',
+                title: { type: #STANDARD, label: 'Debtor Report', value: 'AccountingDocument' }
+              }
+     }
+annotate view zc_debitor with
+{
+  @UI.facet: [
+       {
+       id: 'Header',
+       isSummary: true,
+       label: 'Debtor Report',
+       type: #IDENTIFICATION_REFERENCE,
+       purpose: #STANDARD,
+       position: 10
+       } ]
+
+
+  @UI: { lineItem: [ { position: 10} ], identification: [{position: 10 }] }
+  AccountingDocument;
+  @UI: { lineItem: [ { position: 20} ], identification: [{position: 20 }] }
+  InvoiceNumber;
+  @UI: { lineItem: [ { position: 30} ], identification: [{position: 30 }] ,selectionField: [{ position: 30 }] }
+  InvoiceDate;
+  @UI: { lineItem: [ { position: 40} ], identification: [{position: 40 }],selectionField: [{ position: 40 }] }
+  CompanyCode;
+  @UI: { lineItem: [ { position: 50} ], identification: [{position: 50 }] }
+  TaxInvoice;
+  @UI: { lineItem: [ { position: 60} ], identification: [{position: 60 }] }
+  Planingweek;
+  @UI: { lineItem: [ { position: 70} ], identification: [{position: 70 }] }
+  Planingmonth;
+  @UI: { lineItem: [ { position: 80} ], identification: [{position: 80 }],selectionField: [{ position: 80 }] }
+  CustomerNumber;
+  @UI: { lineItem: [ { position: 90} ], identification: [{position: 90 }] }
+  CustomerName;
+  @UI: { lineItem: [ { position: 100} ], identification: [{position: 100 }] }
+  DocumentCurrency;
+  @UI: { lineItem: [ { position: 110} ], identification: [{position: 110 }] }
+  Salesnoteref;
+  @UI: { lineItem: [ { position: 120} ], identification: [{position: 120 }] }
+  TotalAmount;
+  @UI: { lineItem: [ { position: 130} ], identification: [{position: 130 }] }
+  InvoiceValue;
+  @UI: { lineItem: [ { position: 140} ], identification: [{position: 140 }] }
+  BLNo;
+  @UI: { lineItem: [ { position: 150} ], identification: [{position: 150 }] }
+  BLDate;
+  @UI: { lineItem: [ { position: 160} ], identification: [{position: 160 }] }
+  ShippingBillNo;
+  @UI: { lineItem: [ { position: 170} ], identification: [{position: 170 }] }
+  ShippingBillDate;
+  @UI: { lineItem: [ { position: 180} ], identification: [{position: 180 }] }
+  FOB_Value;
+  @UI: { lineItem: [ { position: 190} ], identification: [{position: 190 }] }
+  ExpContRecdDt;
+  @UI: { lineItem: [ { position: 200} ], identification: [{position: 200 }] }
+  BankRefNo;
+  @UI: { lineItem: [ { position: 210} ], identification: [{position: 210 }] }
+  DocsSubtToBnkDt;
+  @UI: { lineItem: [ { position: 220} ], identification: [{position: 220 }] }
+  Paymentprocess;
+  @UI: { lineItem: [ { position: 230} ], identification: [{position: 230 }] }
+  IncotermsClassification;
+  @UI: { lineItem: [ { position: 240} ], identification: [{position: 240 }] }
+  BillClosed;
+  @UI: { lineItem: [ { position: 250} ], identification: [{position: 250 }] }
+  PaymentTerm;
+  @UI: { lineItem: [ { position: 260} ], identification: [{position: 260 }] }
+  DocSendCust;
+  @UI: { lineItem: [ { position: 270} ], identification: [{position: 270 }] }
+  TentETADt;
+  @UI: { lineItem: [ { position: 280} ], identification: [{position: 280 }] }
+  ActETADt;
+  @UI: { lineItem: [ { position: 290} ], identification: [{position: 290 }] }
+  CustomerGrpName;
+  @UI: { lineItem: [ { position: 300} ], identification: [{position: 300 }] }
+  StateName;
+  @UI: { lineItem: [ { position: 310} ], identification: [{position: 310 }] }
+  GSTNo;
+  @UI: { lineItem: [ { position: 320} ], identification: [{position: 320 }] }
+  Ebrcno;
+  @UI: { lineItem: [ { position: 330} ], identification: [{position: 330 }] }
+  BLRecdDt;
+
+}

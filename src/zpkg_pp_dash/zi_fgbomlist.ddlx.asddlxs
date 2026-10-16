@@ -1,0 +1,42 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'FGBOMLIST',
+    typeNamePlural: 'FGBOMLIST',
+    title: {
+      type: #STANDARD,
+      label: 'FG BOM LIST',
+      value: 'Plant'
+    }
+  }
+}
+annotate entity ZR_FGBOMLIST
+with {
+
+  @UI.lineItem: [{ position: 1 }]
+  @UI.identification: [{ position: 10 }]
+  Plant;
+
+  @UI.lineItem: [{ position: 2 }]
+  @UI.identification: [{ position: 20 }]
+  OpNo;
+
+  @UI.lineItem: [{ position: 3 }]
+  @EndUserText.label: 'FG'
+  @UI.identification: [{ position: 30 }]
+  @UI.selectionField: [{ position: 10 }]
+  @Consumption.filter: { hidden: false }
+  FG;
+
+  @UI.lineItem: [{ position: 4 }]
+  @UI.identification: [{ position: 40 }]
+  Operation;
+
+  @UI.lineItem: [{ position: 5 }]
+  @UI.identification: [{ position: 50 }]
+  @UI.selectionField: [{ position: 20 }]
+  @Consumption.filter: { hidden: false }
+  Material;
+
+
+}

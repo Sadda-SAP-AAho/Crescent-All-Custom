@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Definition for Domestic Draft Pl'
+define service ZSERV_D_DOMPL {
+  expose ZCDS_TBLFUNC_ITMPRNT;
+  expose ZCUS_DOMDRAFTPL;
+  expose ZV_DOMDPL_QTY;
+  expose ZCDS_CONCATPO;
+}

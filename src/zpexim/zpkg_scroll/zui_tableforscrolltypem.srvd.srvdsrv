@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TableForScrollTypeM_S'
+define service ZUI_TABLEFORSCROLLTYPEM {
+  expose ZI_TABLEFORSCROLLTYPEM_S as TableForScrollTyAll;
+  expose ZI_TABLEFORSCROLLTYPEM as TableForScrollTypeM;
+}

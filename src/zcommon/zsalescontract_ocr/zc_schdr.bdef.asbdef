@@ -1,0 +1,29 @@
+projection;
+strict ( 2 );
+use side effects;
+define behavior for ZC_SCHDR alias ZcSchdr
+use etag
+{
+use update;
+    use delete;
+    use action ClearError;
+  use association _Items{create;}
+  use association _Taxes{create;}
+}
+
+define behavior for ZC_SCITM alias ZcScitm
+use etag
+{
+use update;
+
+
+  use association _Header;
+}
+
+define behavior for ZC_SCTAX alias ZcSctax
+use etag
+{
+
+  use association _Header;
+
+}

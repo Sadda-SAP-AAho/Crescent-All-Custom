@@ -1,0 +1,38 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Maintain Details For Company Code & Plant",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_DETAILSFORCOMPANYCO_O4",
+    "serviceName": "ZUI_DETAILSFORCOMPANYCO_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "DetailsForCompanAll",
+    "name": "Details For Company Code & Plant",
+    "transportObject": "",
+    "configurationGroup": "",
+    "skipRootEntity": true
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "DetailsForCompanAll",
+        "variantManagement": "control",
+        "showTransportSelectionStrip": true
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "DetailsForCompanyCo",
+        "selectionMode": "single",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 2,
+        "threshold": 10
+      }
+    ]
+  }
+}

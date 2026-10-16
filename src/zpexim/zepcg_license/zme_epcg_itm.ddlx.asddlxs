@@ -1,0 +1,121 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: { title: { type: #STANDARD, label: 'EPCG License Item', value: 'Itemno' } } }
+annotate view ZC_EPCG_ITM with
+{
+
+  @UI.facet:
+    [{ id: 'GeneralDataI', isSummary: true, label: 'EPCG License Item', type: #COLLECTION, purpose: #STANDARD },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData1', parentId: 'GeneralDataI', position: 10, label: 'Section 1', id: 'GeneralData1' },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData2', parentId: 'GeneralDataI', position: 15, label: 'Section 2', id: 'GeneralData2' },
+     { type: #FIELDGROUP_REFERENCE, targetQualifier: 'GeneralData3', parentId: 'GeneralDataI', position: 20, label: 'Section 3', id: 'GeneralData3' }]
+
+  @UI.hidden: true
+  Id;
+  @UI.hidden: true
+  Item;
+  @UI.hidden: true
+  Ecomno;
+  //  @UI.hidden: true
+  //  Waers;
+  @UI.hidden: true
+  Meins;
+  @UI.lineItem: [ { position: 5 } ]
+  @UI.identification: [ { position: 5 } ]
+  @UI.fieldGroup: [ { position: 5,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Itemno;
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.fieldGroup: [ { position: 10,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'ConsumptionTaxCtrlCode', name:'ZC_HSN_CODE' },
+                                       additionalBinding: [{ element: 'ConsumptionTaxCtrlCodeText1',localElement: 'Matdesc',usage: #RESULT } ],
+                                              distinctValues: true,
+                                              useForValidation: true } ]
+  Hsn;
+  @UI.lineItem: [ { position: 15 } ]
+  @UI.identification: [ { position: 15 } ]
+  @UI.fieldGroup: [ { position: 15,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Matdesc;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.fieldGroup: [ { position: 20,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Qty;
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 25 } ]
+  @UI.fieldGroup: [ { position: 25,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  @UI.hidden: true
+  Uom;
+  @UI.lineItem: [ { position: 26 } ]
+  @UI.identification: [ { position: 26 } ]
+  @UI.fieldGroup: [ { position: 26,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Waers;
+  @UI.lineItem: [ { position: 27 } ]
+  @UI.identification: [ { position: 27 } ]
+  @UI.fieldGroup: [ { position: 27,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Grosspricefc;
+
+  @UI.lineItem: [ { position: 28 } ]
+  @UI.identification: [ { position: 28 } ]
+  @UI.fieldGroup: [ { position: 28,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Excrateinr;
+
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 } ]
+  @UI.fieldGroup: [ { position: 30,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Dutysavevalfc;
+  @UI.lineItem: [ { position: 35 } ]
+  @UI.identification: [ { position: 35 } ]
+  @UI.fieldGroup: [ { position: 35,  qualifier: 'GeneralData1', importance: #HIGH } ]
+  Dutysavevalinr;
+
+
+  @UI.hidden: true
+  Excrateusd;
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.fieldGroup: [ { position: 50,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Cifvalfc;
+  @UI.lineItem: [ { position: 55 } ]
+  @UI.identification: [ { position: 55 } ]
+  @UI.fieldGroup: [ { position: 55,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Cifvalinr;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 60 } ]
+  @UI.fieldGroup: [ { position: 60,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  @UI.hidden: true
+  Cifvalusd;
+  @UI.lineItem: [ { position: 65 } ]
+  @UI.identification: [ { position: 65 } ]
+  @UI.fieldGroup: [ { position: 65,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Freightcharge;
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 70 } ]
+  @UI.fieldGroup: [ { position: 70,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Inschange;
+  @UI.lineItem: [ { position: 75 } ]
+  @UI.identification: [ { position: 75 } ]
+  @UI.fieldGroup: [ { position: 75,  qualifier: 'GeneralData2', importance: #HIGH } ]
+  Accessval;
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 } ]
+  @UI.fieldGroup: [ { position: 80,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Dutysavper;
+  @UI.lineItem: [ { position: 85 } ]
+  @UI.identification: [ { position: 85 } ]
+  @UI.fieldGroup: [ { position: 85,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Swcessperc;
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [ { position: 90 } ]
+  @UI.fieldGroup: [ { position: 90,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Igstperc;
+  @UI.hidden: true
+  Payperc;
+  @UI.lineItem: [ { position: 105 } ]
+  @UI.identification: [ { position: 105 } ]
+  @UI.fieldGroup: [ { position: 105,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  @UI.hidden: true
+  Remdutysaveinr;
+  @UI.lineItem: [ { position: 115 } ]
+  @UI.identification: [ { position: 115 } ]
+  @UI.fieldGroup: [ { position: 115,  qualifier: 'GeneralData3', importance: #HIGH } ]
+  Remarks;
+}

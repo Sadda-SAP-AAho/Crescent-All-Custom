@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Vendor Bank Upload'
+define service ZSD_VEN_BANK_HDR {
+  expose ZC_VEND_BANK_HDR;
+  expose ZC_VEND_BANK_ITM;
+}

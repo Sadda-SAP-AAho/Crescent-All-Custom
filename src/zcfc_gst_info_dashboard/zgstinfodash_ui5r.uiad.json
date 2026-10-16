@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "GST Information Dashboard",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "GST Information Dashboard"
+  },
+  "ui5AppDetails": {
+    "appId": "zgstinfodash"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_AF8AB423A103CEF2926718E41CE3DD844FF0A101_TM",
+    "semanticObject": "zgstinfodash",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_AF8AB423A103CEF2926718E41CE3DD844FF0A101_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "GST Information Dashboard"
+      }
+    }
+  ]
+}

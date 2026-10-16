@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Definition for LC Export'
+define service ZSERV_D_LCEXPORT {
+  expose zc_lcexphead;
+  expose zc_lcbnk_dlts;
+  expose zc_lcexpitm;
+}

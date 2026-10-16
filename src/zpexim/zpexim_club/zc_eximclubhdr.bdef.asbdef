@@ -1,0 +1,29 @@
+projection;
+strict ( 1 );
+use draft;
+
+define behavior for ZC_EXIMCLUBHDR //alias <alias_name>
+{
+  use create;
+  use update;
+  //use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use action Release;
+  use action Cancel;
+
+  use association _item { create; }
+}
+
+define behavior for ZC_EXIMCLUBITM //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _head;
+}

@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_BgInfocategory_S'
+define service ZUI_BGINFOCATEGORY {
+  expose ZI_BGINFOCATEGORY_S as BgInfocategoryAll;
+  expose ZI_BGINFOCATEGORY as BgInfocategory;
+}

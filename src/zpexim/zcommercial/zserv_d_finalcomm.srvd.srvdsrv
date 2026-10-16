@@ -1,0 +1,7 @@
+@EndUserText.label: 'Final Commercial Inv'
+define service ZSERV_D_FINALCOMM {
+  expose ZCUS_FINALCOMM;
+  expose ZI_COMM_ITEM_PRINT;
+  expose ZVTABPROP;
+  expose ZV_QTYPACKTYPE;
+}

@@ -1,0 +1,29 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgTableForWorkCode', 
+    typeNamePlural: 'TmgTableForWorkCodes', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG Table for Work Code', 
+      value: 'Workcode'
+    }
+  }
+}
+annotate view ZI_TmgTableForWorkCode with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgTableForWorkCode', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG Table for Work Code', 
+    position: 1 
+  } ]
+  Workcode;
+}

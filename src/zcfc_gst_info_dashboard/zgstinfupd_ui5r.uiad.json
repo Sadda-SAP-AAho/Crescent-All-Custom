@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "GST Information Dashboard-Uploader",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "GST Information Dashboard"
+  },
+  "ui5AppDetails": {
+    "appId": "zgstinfupd"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_F6B6A9129B5441265E8ACCE556221D051B9281FE_TM",
+    "semanticObject": "zgstinfupd",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_F6B6A9129B5441265E8ACCE556221D051B9281FE_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "GST Information Dashboard",
+        "subtitle": "Uploader"
+      }
+    }
+  ]
+}

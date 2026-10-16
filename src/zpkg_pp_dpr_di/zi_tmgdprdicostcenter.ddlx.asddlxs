@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgDprDiCostCenter', 
+    typeNamePlural: 'TmgDprDiCostCenters', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG DPR DI Cost Center', 
+      value: 'Costtype'
+    }
+  }
+}
+annotate view ZI_TmgDprDiCostCenter with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgDprDiCostCenter', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG DPR DI Cost Center', 
+    position: 1 
+  } ]
+  Costtype;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Kostl;
+}

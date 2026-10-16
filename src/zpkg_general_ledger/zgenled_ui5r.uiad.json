@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "General Ledger"
+  },
+  "ui5AppDetails": {
+    "appId": "zgenled"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_4E40FD323392E54DC53044A25648B95EEE4DD8CF_TM",
+    "semanticObject": "zgenled",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_4E40FD323392E54DC53044A25648B95EEE4DD8CF_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "General Ledger",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

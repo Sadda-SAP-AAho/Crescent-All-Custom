@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "BOM Calculation Check Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "BOM Calculation Check"
+  },
+  "ui5AppDetails": {
+    "appId": "zbomcalchkrpt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_5307F920E75182AE41518820D7F7D2CC94DB0129_TM",
+    "semanticObject": "zbomcalchkrpt",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_5307F920E75182AE41518820D7F7D2CC94DB0129_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "BOM Calculation Check",
+        "subtitle": "Report"
+      }
+    }
+  ]
+}

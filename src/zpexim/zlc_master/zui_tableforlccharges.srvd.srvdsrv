@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TableForLcCharges_S'
+define service ZUI_TABLEFORLCCHARGES {
+  expose ZI_TABLEFORLCCHARGES_S as TableForLcChargeAll;
+  expose ZI_TABLEFORLCCHARGES as TableForLcCharges;
+}
